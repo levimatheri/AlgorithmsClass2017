@@ -29,10 +29,7 @@ import javax.sql.DataSource;
  * Contains the ability to use SQl queries and hides log in credentials for 
  * security purposes from the main program. When the program needs to 
  * communicate with SQL, it calls this class to execute a SQL String
- * and return the table instance for the program to use. If the program 
- * calls for the variable ID_NUM in a query the class will block the variable
- * from being entered into the table data. If ID_NUM is truly wanted, have
- * it come in under an alias such as id_num or id.
+ * and return the table instance for the program to use.
  */
 public class Access extends HttpServlet {
     
