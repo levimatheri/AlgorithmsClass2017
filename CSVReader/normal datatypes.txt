@@ -1,0 +1,35 @@
+CLDD: Cooling degree days
+
+DP01: Number of days with greater than or equal to 0.1 inch of precipitation
+
+DP05: Number of days with greater than or equal to 0.5 inch of precipitation
+
+DP10: Number of days with greater than or equal to 1.0 inch of precipitation
+
+DT00: Number days with minimum temperature less than or equal to 0.0 F
+
+DT32: Number days with minimum temperature less than or equal to 32.0 F
+
+DT90: Number days with maximum temperature greater than or equal 90.0 F
+
+DX32: Number days with maximum temperature < 32 F
+
+EMNT: Extreme minimum temperature for the period
+
+EMXP: Extreme maximum precipitation for the period
+
+EMXT: Extreme maximum temperature for the period
+
+HTDD: Heating degree days
+
+MMNT: Monthly mean minimum temperature
+
+MMXT: Monthly mean maximum temperature
+
+MNTM: Monthly mean temperature
+
+MXSD: Maximum snow depth
+
+TPCP: Total percipitation
+
+TSNW: Total snow fall

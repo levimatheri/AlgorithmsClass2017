@@ -1,0 +1,46 @@
+21-Nov-2016 07:25:50.547 INFO [main] org.apache.catalina.core.StandardServer.await A valid shutdown command was received via the shutdown port. Stopping the Server instance.
+21-Nov-2016 07:25:50.577 INFO [main] org.apache.coyote.AbstractProtocol.pause Pausing ProtocolHandler ["http-nio-172.20.151.127-8080"]
+21-Nov-2016 07:25:50.633 INFO [main] org.apache.coyote.AbstractProtocol.pause Pausing ProtocolHandler ["ajp-nio-8009"]
+21-Nov-2016 07:25:50.694 INFO [main] org.apache.catalina.core.StandardService.stopInternal Stopping service Catalina
+21-Nov-2016 07:26:03.130 SEVERE [main] org.apache.catalina.startup.Catalina.stopServer Could not contact localhost:8005. Tomcat may not be running.
+21-Nov-2016 07:26:04.927 WARNING [main] org.apache.catalina.startup.SetAllPropertiesRule.begin [SetAllPropertiesRule]{Server/Service/Connector} Setting property 'resolveHosts' to 'true' did not find a matching property.
+21-Nov-2016 07:26:04.970 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version:        Apache Tomcat/8.5.5
+21-Nov-2016 07:26:04.970 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server built:          Aug 31 2016 19:51:16 UTC
+21-Nov-2016 07:26:04.970 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server number:         8.5.5.0
+21-Nov-2016 07:26:04.970 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Name:               Windows 10
+21-Nov-2016 07:26:04.971 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Version:            10.0
+21-Nov-2016 07:26:04.971 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Architecture:          amd64
+21-Nov-2016 07:26:04.971 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Java Home:             C:\Program Files\Java\jdk1.8.0_101\jre
+21-Nov-2016 07:26:04.971 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Version:           1.8.0_101-b13
+21-Nov-2016 07:26:04.971 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Vendor:            Oracle Corporation
+21-Nov-2016 07:26:04.971 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_BASE:         C:\Users\cjedwards1\Desktop\avien migration\tomcat
+21-Nov-2016 07:26:04.972 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_HOME:         C:\Users\cjedwards1\Desktop\avien migration\tomcat
+21-Nov-2016 07:26:04.972 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Xmx7G
+21-Nov-2016 07:26:04.972 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djdk.tls.ephemeralDHKeySize=2048
+21-Nov-2016 07:26:04.972 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.config.file=C:\Users\cjedwards1\Desktop\avien migration\tomcat\conf\logging.properties
+21-Nov-2016 07:26:04.972 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+21-Nov-2016 07:26:04.973 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.base=C:\Users\cjedwards1\Desktop\avien migration\tomcat
+21-Nov-2016 07:26:04.973 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.home=C:\Users\cjedwards1\Desktop\avien migration\tomcat
+21-Nov-2016 07:26:04.974 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.io.tmpdir=C:\Users\cjedwards1\Desktop\avien migration\tomcat\temp
+21-Nov-2016 07:26:04.975 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: C:\Program Files\Java\jdk1.8.0_101\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\ProgramData\Oracle\Java\javapath;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\Microsoft SQL Server\110\Tools\Binn\ManagementStudio\;C:\Program Files (x86)\Microsoft SQL Server\110\Tools\Binn\;C:\Program Files\Microsoft SQL Server\110\Tools\Binn\;C:\Program Files (x86)\Microsoft SQL Server\110\DTS\Binn\;C:\Program Files (x86)\Microsoft SQL Server\Client SDK\ODBC\130\Tools\Binn\;C:\Program Files (x86)\Microsoft SQL Server\130\Tools\Binn\;C:\Program Files (x86)\Microsoft SQL Server\130\DTS\Binn\;C:\Program Files (x86)\Microsoft SQL Server\130\Tools\Binn\ManagementStudio\;C:\Users\cjedwards1\AppData\Local\Microsoft\WindowsApps;C:\Program Files\Java\jdk1.8.0_101\bin;C:\Users\cjedwards1\Desktop\apache-maven-3.3.9\bin;.
+21-Nov-2016 07:26:05.346 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["http-nio-172.20.151.127-8080"]
+21-Nov-2016 07:26:05.490 INFO [main] org.apache.tomcat.util.net.NioSelectorPool.getSharedSelector Using a shared selector for servlet write/read
+21-Nov-2016 07:26:05.492 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["ajp-nio-8009"]
+21-Nov-2016 07:26:05.494 INFO [main] org.apache.tomcat.util.net.NioSelectorPool.getSharedSelector Using a shared selector for servlet write/read
+21-Nov-2016 07:26:05.494 INFO [main] org.apache.catalina.startup.Catalina.load Initialization processed in 865 ms
+21-Nov-2016 07:26:05.517 INFO [main] org.apache.catalina.core.StandardService.startInternal Starting service Catalina
+21-Nov-2016 07:26:05.517 INFO [main] org.apache.catalina.core.StandardEngine.startInternal Starting Servlet Engine: Apache Tomcat/8.5.5
+21-Nov-2016 07:26:05.526 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory C:\Users\cjedwards1\Desktop\avien migration\tomcat\webapps\avienMigration
+21-Nov-2016 07:26:08.746 INFO [localhost-startStop-1] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+21-Nov-2016 07:26:08.787 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory C:\Users\cjedwards1\Desktop\avien migration\tomcat\webapps\avienMigration has finished in 3,261 ms
+21-Nov-2016 07:26:08.791 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler [http-nio-172.20.151.127-8080]
+21-Nov-2016 07:26:08.798 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler [ajp-nio-8009]
+21-Nov-2016 07:26:08.800 INFO [main] org.apache.catalina.startup.Catalina.start Server startup in 3305 ms
+21-Nov-2016 07:38:57.895 INFO [ContainerBackgroundProcessor[StandardEngine[Catalina]]] org.apache.catalina.core.StandardContext.reload Reloading Context with name [/avienMigration] has started
+21-Nov-2016 07:39:00.008 INFO [ContainerBackgroundProcessor[StandardEngine[Catalina]]] org.apache.catalina.core.StandardContext.reload Reloading Context with name [/avienMigration] is completed
+21-Nov-2016 07:40:47.063 INFO [ContainerBackgroundProcessor[StandardEngine[Catalina]]] org.apache.catalina.core.StandardContext.reload Reloading Context with name [/avienMigration] has started
+21-Nov-2016 07:40:49.280 INFO [ContainerBackgroundProcessor[StandardEngine[Catalina]]] org.apache.catalina.core.StandardContext.reload Reloading Context with name [/avienMigration] is completed
+21-Nov-2016 07:50:00.447 INFO [ContainerBackgroundProcessor[StandardEngine[Catalina]]] org.apache.catalina.core.StandardContext.reload Reloading Context with name [/avienMigration] has started
+21-Nov-2016 07:50:02.496 INFO [ContainerBackgroundProcessor[StandardEngine[Catalina]]] org.apache.catalina.core.StandardContext.reload Reloading Context with name [/avienMigration] is completed
+21-Nov-2016 11:36:05.927 INFO [ContainerBackgroundProcessor[StandardEngine[Catalina]]] org.apache.catalina.core.StandardContext.reload Reloading Context with name [/avienMigration] has started
+21-Nov-2016 11:36:08.222 INFO [ContainerBackgroundProcessor[StandardEngine[Catalina]]] org.apache.catalina.core.StandardContext.reload Reloading Context with name [/avienMigration] is completed
