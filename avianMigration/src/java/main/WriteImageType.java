@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-package csvreader;
+package main;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;

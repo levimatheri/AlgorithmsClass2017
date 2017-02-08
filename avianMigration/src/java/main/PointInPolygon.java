@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-package csvreader;
+package main;
 
 import com.vividsolutions.jts.geom.Coordinate;
 import com.vividsolutions.jts.geom.GeometryFactory;

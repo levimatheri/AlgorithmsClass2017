@@ -1,3 +1,11 @@
+<%-- 
+    Document   : newjsp
+    Created on : Feb 8, 2017, 12:17:19 PM
+    Author     : cjedwards1
+--%>
+
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
 <html>
   <head>
 	<meta charset="UTF-8">
@@ -436,6 +444,7 @@
 					var sections = document.getElementById(options.childNodes[i].value);
 					for(var x = 0; x < sections.childNodes.length; x++)
 					{
+                                            console.log(sections.childNodes[x].type);
 						if(sections.childNodes[x].type == "radio")
 						{
 							if(sections.childNodes[x].checked)
@@ -671,7 +680,7 @@
 			<ul class="tab col-xs-12" id="navbar">
 				<li class="col-xs-12 col-sm-3"><a class="col-xs-12 tablinks" href="javascript:void(0)" onclick="openTab(event, 'mainView')" id="mainTab">Main</a></li>
 				<li class="col-xs-12 col-sm-3"><a class="col-xs-12 tablinks" href="javascript:void(0)" onclick="openTab(event, 'birdView')" id="birdTab">Birds</a></li>
-				<li class="col-xs-12 col-sm-3"><a class="col-xs-12 tablinks href="javascript:void(0)" onclick="openTab(event, 'downloadView')" id="downloadTab">Downloads</a></li>
+				<li class="col-xs-12 col-sm-3"><a class="col-xs-12 tablinks" href="javascript:void(0)" onclick="openTab(event, 'downloadView')" id="downloadTab">Downloads</a></li>
 				<li class="col-xs-12 col-sm-3"><a class="col-xs-12 tablinks" href="javascript:void(0)" onclick="openTab(event, 'aboutView')" id="aboutTab">About</a></li>
 				<!--<li><a href="javascript:void(0)" class="tablinks" onclick="openTab(event, 'storedProcedure')" id="storeTab">Calculations</a></li>-->
 				<!--<li><a href="javascript:void(0)" class="tablinks" onclick="openTab(event, 'mapView')" id="mapTab">Build map</a></li>-->
@@ -988,6 +997,7 @@
 	{
 		if (this.readyState == 4 && this.status == 200)
 		{
+                    console.log(this.responseText);
 			var myArr = JSON.parse(this.responseText);
 			if(myArr)
 			{
