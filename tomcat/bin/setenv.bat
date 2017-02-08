@@ -1,1 +1,0 @@
-set JAVA_OPTS="-Xmx7G"
