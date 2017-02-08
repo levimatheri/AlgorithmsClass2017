@@ -1,0 +1,476 @@
+Feb 07, 2017 6:48:26 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Feb 07, 2017 6:48:31 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Feb 07, 2017 6:48:31 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Feb 07, 2017 6:48:31 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: undeploy: Undeploying web application at '/majorclassifier'
+Feb 07, 2017 6:48:34 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: install: Installing context configuration at 'file:/C:/Users/CJEDWA~1/AppData/Local/Temp/context6833193888876393108.xml'
+Feb 07, 2017 6:48:36 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: start: Starting web application '/majorclassifier'
+Feb 07, 2017 6:50:56 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Feb 07, 2017 6:50:59 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Feb 07, 2017 6:50:59 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Feb 07, 2017 6:50:59 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: undeploy: Undeploying web application at '/majorclassifier'
+Feb 07, 2017 6:51:02 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: install: Installing context configuration at 'file:/C:/Users/CJEDWA~1/AppData/Local/Temp/context5513346488638281512.xml'
+Feb 07, 2017 6:51:03 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: start: Starting web application '/majorclassifier'
+Feb 07, 2017 6:58:37 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Feb 07, 2017 6:59:32 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Feb 07, 2017 7:00:47 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Feb 07, 2017 7:01:05 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Feb 07, 2017 7:01:06 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Feb 07, 2017 7:01:15 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Feb 07, 2017 7:04:50 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Feb 07, 2017 7:04:53 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Feb 07, 2017 7:04:53 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Feb 07, 2017 7:04:53 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: undeploy: Undeploying web application at '/majorclassifier'
+Feb 07, 2017 7:04:56 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: install: Installing context configuration at 'file:/C:/Users/CJEDWA~1/AppData/Local/Temp/context6717184161284190395.xml'
+Feb 07, 2017 7:04:57 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: start: Starting web application '/majorclassifier'
+Feb 07, 2017 7:06:15 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Feb 07, 2017 7:06:35 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Feb 07, 2017 7:06:39 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Feb 07, 2017 7:06:39 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Feb 07, 2017 7:06:39 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: undeploy: Undeploying web application at '/majorclassifier'
+Feb 07, 2017 7:06:42 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: install: Installing context configuration at 'file:/C:/Users/CJEDWA~1/AppData/Local/Temp/context625049841601661238.xml'
+Feb 07, 2017 7:06:43 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: start: Starting web application '/majorclassifier'
+Feb 07, 2017 7:07:41 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Feb 07, 2017 7:09:24 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Feb 07, 2017 7:09:36 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Feb 07, 2017 7:11:06 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Feb 07, 2017 7:11:16 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Feb 07, 2017 7:11:23 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Feb 07, 2017 7:12:03 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Feb 07, 2017 7:12:29 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Feb 07, 2017 7:12:29 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Feb 07, 2017 7:12:29 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: undeploy: Undeploying web application at '/majorclassifier'
+Feb 07, 2017 7:12:29 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: install: Installing context configuration at 'file:/C:/Users/CJEDWA~1/AppData/Local/Temp/context9138114990940021116.xml'
+Feb 07, 2017 7:12:30 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: start: Starting web application '/majorclassifier'
+Feb 07, 2017 7:13:03 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Feb 07, 2017 7:19:49 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Feb 07, 2017 7:19:52 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Feb 07, 2017 7:19:52 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Feb 07, 2017 7:19:52 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: undeploy: Undeploying web application at '/majorclassifier'
+Feb 07, 2017 7:19:55 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: install: Installing context configuration at 'file:/C:/Users/CJEDWA~1/AppData/Local/Temp/context6497947343708673224.xml'
+Feb 07, 2017 7:19:56 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: start: Starting web application '/majorclassifier'
+Feb 07, 2017 7:33:03 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Feb 07, 2017 7:33:07 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Feb 07, 2017 7:33:07 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Feb 07, 2017 7:33:07 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: undeploy: Undeploying web application at '/majorclassifier'
+Feb 07, 2017 7:33:10 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: install: Installing context configuration at 'file:/C:/Users/CJEDWA~1/AppData/Local/Temp/context7895339878189438582.xml'
+Feb 07, 2017 7:33:11 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: start: Starting web application '/majorclassifier'
+Feb 07, 2017 7:34:42 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Feb 07, 2017 7:34:45 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Feb 07, 2017 7:34:45 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Feb 07, 2017 7:34:45 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: undeploy: Undeploying web application at '/majorclassifier'
+Feb 07, 2017 7:34:48 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: install: Installing context configuration at 'file:/C:/Users/CJEDWA~1/AppData/Local/Temp/context1361960652197051055.xml'
+Feb 07, 2017 7:34:49 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: start: Starting web application '/majorclassifier'
+Feb 07, 2017 7:36:21 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Feb 07, 2017 7:36:24 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Feb 07, 2017 7:36:24 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Feb 07, 2017 7:36:24 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: undeploy: Undeploying web application at '/majorclassifier'
+Feb 07, 2017 7:36:27 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: install: Installing context configuration at 'file:/C:/Users/CJEDWA~1/AppData/Local/Temp/context9017451073636140130.xml'
+Feb 07, 2017 7:36:28 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: start: Starting web application '/majorclassifier'
+Feb 07, 2017 7:39:31 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Feb 07, 2017 7:39:34 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Feb 07, 2017 7:39:34 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Feb 07, 2017 7:39:34 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: undeploy: Undeploying web application at '/majorclassifier'
+Feb 07, 2017 7:39:37 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: install: Installing context configuration at 'file:/C:/Users/CJEDWA~1/AppData/Local/Temp/context5614497603848756816.xml'
+Feb 07, 2017 7:39:38 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: start: Starting web application '/majorclassifier'
+Feb 07, 2017 7:42:08 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Feb 07, 2017 7:42:12 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Feb 07, 2017 7:42:12 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Feb 07, 2017 7:42:12 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: undeploy: Undeploying web application at '/majorclassifier'
+Feb 07, 2017 7:42:15 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: install: Installing context configuration at 'file:/C:/Users/CJEDWA~1/AppData/Local/Temp/context5912290941970223193.xml'
+Feb 07, 2017 7:42:16 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: start: Starting web application '/majorclassifier'
+Feb 07, 2017 7:43:02 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Feb 07, 2017 7:43:11 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Feb 07, 2017 7:43:11 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Feb 07, 2017 7:43:11 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: undeploy: Undeploying web application at '/majorclassifier'
+Feb 07, 2017 7:43:14 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: install: Installing context configuration at 'file:/C:/Users/CJEDWA~1/AppData/Local/Temp/context3190197434511835766.xml'
+Feb 07, 2017 7:43:15 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: start: Starting web application '/majorclassifier'
+Feb 07, 2017 7:49:08 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Feb 07, 2017 7:49:11 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Feb 07, 2017 7:49:11 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Feb 07, 2017 7:49:11 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: undeploy: Undeploying web application at '/majorclassifier'
+Feb 07, 2017 7:49:14 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: install: Installing context configuration at 'file:/C:/Users/CJEDWA~1/AppData/Local/Temp/context5294815276781519329.xml'
+Feb 07, 2017 7:49:15 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: start: Starting web application '/majorclassifier'
+Feb 07, 2017 8:00:03 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Feb 07, 2017 8:00:09 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Feb 07, 2017 8:00:09 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Feb 07, 2017 8:00:09 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: undeploy: Undeploying web application at '/majorclassifier'
+Feb 07, 2017 8:00:12 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: install: Installing context configuration at 'file:/C:/Users/CJEDWA~1/AppData/Local/Temp/context5254583936643121341.xml'
+Feb 07, 2017 8:00:13 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: start: Starting web application '/majorclassifier'
+Feb 07, 2017 8:01:17 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Feb 07, 2017 8:01:23 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Feb 07, 2017 8:01:23 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Feb 07, 2017 8:01:23 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: undeploy: Undeploying web application at '/majorclassifier'
+Feb 07, 2017 8:01:26 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: install: Installing context configuration at 'file:/C:/Users/CJEDWA~1/AppData/Local/Temp/context1513377477909989124.xml'
+Feb 07, 2017 8:01:27 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: start: Starting web application '/majorclassifier'
+Feb 07, 2017 8:05:53 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Feb 07, 2017 8:05:57 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Feb 07, 2017 8:05:57 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Feb 07, 2017 8:05:57 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: undeploy: Undeploying web application at '/majorclassifier'
+Feb 07, 2017 8:05:57 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: install: Installing context configuration at 'file:/C:/Users/CJEDWA~1/AppData/Local/Temp/context902862976744334051.xml'
+Feb 07, 2017 8:05:58 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: start: Starting web application '/majorclassifier'
+Feb 07, 2017 8:09:48 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Feb 07, 2017 8:09:51 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Feb 07, 2017 8:09:51 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Feb 07, 2017 8:09:51 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: undeploy: Undeploying web application at '/majorclassifier'
+Feb 07, 2017 8:09:51 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: install: Installing context configuration at 'file:/C:/Users/CJEDWA~1/AppData/Local/Temp/context1670629744388193504.xml'
+Feb 07, 2017 8:09:52 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: start: Starting web application '/majorclassifier'
+Feb 07, 2017 8:10:13 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Feb 07, 2017 8:10:13 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Feb 07, 2017 8:13:26 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Feb 07, 2017 8:13:43 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Feb 07, 2017 8:13:46 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Feb 07, 2017 8:13:46 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Feb 07, 2017 8:13:46 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: undeploy: Undeploying web application at '/majorclassifier'
+Feb 07, 2017 8:13:49 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: install: Installing context configuration at 'file:/C:/Users/CJEDWA~1/AppData/Local/Temp/context3733070871656635428.xml'
+Feb 07, 2017 8:13:50 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: start: Starting web application '/majorclassifier'
+Feb 07, 2017 8:26:30 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Feb 07, 2017 8:28:07 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Feb 07, 2017 8:29:37 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Feb 07, 2017 8:29:42 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Feb 07, 2017 8:29:42 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Feb 07, 2017 8:29:42 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: undeploy: Undeploying web application at '/majorclassifier'
+Feb 07, 2017 8:29:44 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: install: Installing context configuration at 'file:/C:/Users/CJEDWA~1/AppData/Local/Temp/context4825042390436400637.xml'
+Feb 07, 2017 8:29:47 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: start: Starting web application '/majorclassifier'
+Feb 07, 2017 8:30:50 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Feb 07, 2017 8:30:53 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Feb 07, 2017 8:30:53 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Feb 07, 2017 8:30:53 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: undeploy: Undeploying web application at '/majorclassifier'
+Feb 07, 2017 8:30:56 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: install: Installing context configuration at 'file:/C:/Users/CJEDWA~1/AppData/Local/Temp/context4204800308061749871.xml'
+Feb 07, 2017 8:30:57 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: start: Starting web application '/majorclassifier'
+Feb 07, 2017 9:23:08 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Feb 07, 2017 9:23:08 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Feb 07, 2017 9:23:08 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: undeploy: Undeploying web application at '/majorclassifier'
+Feb 07, 2017 9:23:09 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: install: Installing context configuration at 'file:/C:/Users/CJEDWA~1/AppData/Local/Temp/context985566941542907694.xml'
+Feb 07, 2017 9:23:11 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: start: Starting web application '/majorclassifier'
+Feb 07, 2017 9:27:41 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Feb 07, 2017 9:27:41 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Feb 07, 2017 9:27:41 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: undeploy: Undeploying web application at '/majorclassifier'
+Feb 07, 2017 9:27:42 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: install: Installing context configuration at 'file:/C:/Users/CJEDWA~1/AppData/Local/Temp/context6353216098611132483.xml'
+Feb 07, 2017 9:27:43 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: start: Starting web application '/majorclassifier'
+Feb 07, 2017 9:30:29 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Feb 07, 2017 9:30:33 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Feb 07, 2017 9:30:33 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Feb 07, 2017 9:30:33 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: undeploy: Undeploying web application at '/majorclassifier'
+Feb 07, 2017 9:30:33 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: install: Installing context configuration at 'file:/C:/Users/CJEDWA~1/AppData/Local/Temp/context4218595871692382902.xml'
+Feb 07, 2017 9:30:35 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: start: Starting web application '/majorclassifier'
+Feb 07, 2017 9:31:30 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Feb 07, 2017 9:31:30 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Feb 07, 2017 9:31:30 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: undeploy: Undeploying web application at '/majorclassifier'
+Feb 07, 2017 9:31:31 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: install: Installing context configuration at 'file:/C:/Users/CJEDWA~1/AppData/Local/Temp/context8145877932774807972.xml'
+Feb 07, 2017 9:31:32 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: start: Starting web application '/majorclassifier'
+Feb 07, 2017 9:35:30 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Feb 07, 2017 9:35:30 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Feb 07, 2017 9:35:30 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: undeploy: Undeploying web application at '/majorclassifier'
+Feb 07, 2017 9:35:31 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: install: Installing context configuration at 'file:/C:/Users/CJEDWA~1/AppData/Local/Temp/context6444706828007316396.xml'
+Feb 07, 2017 9:35:32 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: start: Starting web application '/majorclassifier'
+Feb 07, 2017 11:24:33 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Feb 07, 2017 11:24:54 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Feb 07, 2017 11:25:18 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Feb 07, 2017 11:25:18 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Feb 07, 2017 11:25:18 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: undeploy: Undeploying web application at '/majorclassifier'
+Feb 07, 2017 11:25:19 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: install: Installing context configuration at 'file:/C:/Users/CJEDWA~1/AppData/Local/Temp/context2414351088686075236.xml'
+Feb 07, 2017 11:25:20 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: start: Starting web application '/majorclassifier'
+Feb 07, 2017 11:34:01 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Feb 07, 2017 11:38:43 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Feb 07, 2017 11:41:11 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Feb 07, 2017 11:41:11 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Feb 07, 2017 11:41:11 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: undeploy: Undeploying web application at '/majorclassifier'
+Feb 07, 2017 11:41:12 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: install: Installing context configuration at 'file:/C:/Users/CJEDWA~1/AppData/Local/Temp/context2659921648663007283.xml'
+Feb 07, 2017 11:41:13 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: start: Starting web application '/majorclassifier'
+Feb 07, 2017 11:42:46 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Feb 07, 2017 11:42:50 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Feb 07, 2017 11:42:50 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Feb 07, 2017 11:42:50 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: undeploy: Undeploying web application at '/majorclassifier'
+Feb 07, 2017 11:42:51 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: install: Installing context configuration at 'file:/C:/Users/CJEDWA~1/AppData/Local/Temp/context7632395553812384285.xml'
+Feb 07, 2017 11:42:52 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: start: Starting web application '/majorclassifier'
+Feb 07, 2017 11:45:30 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Feb 07, 2017 11:45:30 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Feb 07, 2017 11:45:30 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: undeploy: Undeploying web application at '/majorclassifier'
+Feb 07, 2017 11:45:31 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: install: Installing context configuration at 'file:/C:/Users/CJEDWA~1/AppData/Local/Temp/context36225817649322171.xml'
+Feb 07, 2017 11:45:32 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: start: Starting web application '/majorclassifier'
+Feb 07, 2017 11:49:38 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Feb 07, 2017 11:49:38 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Feb 07, 2017 11:49:38 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: undeploy: Undeploying web application at '/majorclassifier'
+Feb 07, 2017 11:49:39 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: install: Installing context configuration at 'file:/C:/Users/CJEDWA~1/AppData/Local/Temp/context6371572207420359764.xml'
+Feb 07, 2017 11:49:40 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: start: Starting web application '/majorclassifier'
+Feb 07, 2017 11:52:25 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Feb 07, 2017 11:58:26 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Feb 07, 2017 11:58:29 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Feb 07, 2017 11:58:29 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Feb 07, 2017 11:58:29 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: undeploy: Undeploying web application at '/majorclassifier'
+Feb 07, 2017 11:58:30 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: install: Installing context configuration at 'file:/C:/Users/CJEDWA~1/AppData/Local/Temp/context7042563256108132566.xml'
+Feb 07, 2017 11:58:31 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: start: Starting web application '/majorclassifier'
+Feb 07, 2017 12:00:57 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Feb 07, 2017 12:00:57 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Feb 07, 2017 12:00:57 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: undeploy: Undeploying web application at '/majorclassifier'
+Feb 07, 2017 12:00:57 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: install: Installing context configuration at 'file:/C:/Users/CJEDWA~1/AppData/Local/Temp/context7800665138017703759.xml'
+Feb 07, 2017 12:00:58 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: start: Starting web application '/majorclassifier'
+Feb 07, 2017 12:04:06 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Feb 07, 2017 12:04:09 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Feb 07, 2017 12:04:09 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Feb 07, 2017 12:04:09 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: undeploy: Undeploying web application at '/majorclassifier'
+Feb 07, 2017 12:04:09 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: install: Installing context configuration at 'file:/C:/Users/CJEDWA~1/AppData/Local/Temp/context2800188081923350309.xml'
+Feb 07, 2017 12:04:11 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: start: Starting web application '/majorclassifier'
+Feb 07, 2017 12:18:39 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Feb 07, 2017 12:18:39 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Feb 07, 2017 12:18:39 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: undeploy: Undeploying web application at '/majorclassifier'
+Feb 07, 2017 12:18:39 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: install: Installing context configuration at 'file:/C:/Users/CJEDWA~1/AppData/Local/Temp/context1575760308656111967.xml'
+Feb 07, 2017 12:18:41 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: start: Starting web application '/majorclassifier'
+Feb 07, 2017 12:27:16 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Feb 07, 2017 12:27:16 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Feb 07, 2017 12:27:16 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: undeploy: Undeploying web application at '/majorclassifier'
+Feb 07, 2017 12:27:17 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: install: Installing context configuration at 'file:/C:/Users/CJEDWA~1/AppData/Local/Temp/context4351373169142241108.xml'
+Feb 07, 2017 12:27:18 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: start: Starting web application '/majorclassifier'
+Feb 07, 2017 12:32:14 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Feb 07, 2017 12:32:14 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Feb 07, 2017 12:32:14 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: undeploy: Undeploying web application at '/majorclassifier'
+Feb 07, 2017 12:32:15 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: install: Installing context configuration at 'file:/C:/Users/CJEDWA~1/AppData/Local/Temp/context592358231722373570.xml'
+Feb 07, 2017 12:32:16 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: start: Starting web application '/majorclassifier'
+Feb 07, 2017 12:34:27 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Feb 07, 2017 12:34:27 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Feb 07, 2017 12:34:27 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: undeploy: Undeploying web application at '/majorclassifier'
+Feb 07, 2017 12:34:28 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: install: Installing context configuration at 'file:/C:/Users/CJEDWA~1/AppData/Local/Temp/context1888842639435173647.xml'
+Feb 07, 2017 12:34:29 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: start: Starting web application '/majorclassifier'
+Feb 07, 2017 12:40:20 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Feb 07, 2017 12:40:20 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Feb 07, 2017 12:40:20 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: undeploy: Undeploying web application at '/majorclassifier'
+Feb 07, 2017 12:40:20 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: install: Installing context configuration at 'file:/C:/Users/CJEDWA~1/AppData/Local/Temp/context4361813471899131422.xml'
+Feb 07, 2017 12:40:22 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: start: Starting web application '/majorclassifier'

@@ -1,0 +1,1 @@
+Active class not getting removed on click away: Results in multiple duplicate classes being added to a tags and active styling being applied to any links that get clicked on.-Fix Javascript?
