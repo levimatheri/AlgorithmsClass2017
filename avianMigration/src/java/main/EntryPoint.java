@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-package csvreader;
+package main;
 
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -173,6 +173,7 @@ public class EntryPoint extends HttpServlet
                 
                 //Insert the array into the returning object.
                 returnObject.put("names", array);
+                System.out.println(returnObject.toString());
                 
                 //Write the object to the printstream.
                 out.write(returnObject.toString());
@@ -185,6 +186,7 @@ public class EntryPoint extends HttpServlet
             }
             catch(Exception ex)
             {
+                ex.printStackTrace();
             }
         }
         else
