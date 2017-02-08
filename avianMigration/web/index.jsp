@@ -345,14 +345,15 @@
 		//Prepare the parameters.
 		var params = application;
 		
-		console.log(!params);
+		//console.log(!params);
 		
 		//Figure out which tab is currently the selected one. Only one tab can be selected at a time.
 		tablinks = document.getElementsByClassName("tablinks");
+        
 		var id;
 		for (i = 0; i < tablinks.length; i++) 
 		{
-			if(tablinks[i].className == "tablinks active")
+			if(tablinks[i].className == "col-xs-12 tablinks active")
 				id = tablinks[i].id;
 		}
 		
@@ -542,8 +543,8 @@
 			//If there was something recieved, and that it was a 500 "internal server error" which mainly means a try catch failure, or faiure we set up for.
    			else if(this.readyState == this.HEADERS_RECEIVED && this.status == 500)
    			{
-        		alert(xmlhttp.getResponseHeader("error"));
-    		}
+                            alert(xmlhttp.getResponseHeader("error"));
+                        }
 			
 			//Turn the loader object off since the request is finished. Whether it ended with a failure or success.
 			document.getElementById('load').className = "temp";
