@@ -1,2 +1,0 @@
-cd tomcat\bin
-startup
