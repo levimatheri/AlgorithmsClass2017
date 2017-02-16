@@ -76,9 +76,32 @@
 		}
 	}
 	
+        function hideOthers() {
+           if(document.getElementById('hist_chbx').checked)
+           {
+               document.getElementById('day_chbx').style.display = 'none';              
+               document.getElementById('ap_chbx').style.display = 'none';
+               document.getElementById('obs_chbx').style.display = 'none';
+               document.getElementById('calcSide').style.display = 'none';
+               
+               
+           }
+           
+           else {
+               document.getElementById('day_chbx').removeAttribute("style");
+               document.getElementById('ap_chbx').removeAttribute("style");
+               document.getElementById('obs_chbx').removeAttribute("style");
+               document.getElementById('calcSide').removeAttribute("style");
+           }
+           
+           
+        }
 	//When you click on a checkbox for options to be seen.
 	function inputOptionChange(evt)
 	{
+            
+           
+                
 		//Get the object clicked.
 		var node = evt.target || evt.srcElement;
 		
@@ -134,8 +157,11 @@
 			//If a checbox is unchecked then hide its div.
 			document.getElementById(node.value).style= "display:none";			
 		}
+                
 	}
-
+        
+        
+        
 	//If a radio button is pressed anywhere on the page.
 	function inputRadioChange(evt)
 	{
@@ -679,7 +705,7 @@
 		<!--The invisible list that keeps track of the tabs.-->
 		<div class="row">
 			<ul class="tab col-xs-12" id="navbar">
-				<li class="col-xs-12 col-sm-3"><a class="col-xs-12 tablinks" href="javascript:void(0)" onclick="openTab(event, 'mainView')" id="mainTab">Main</a></li>
+				<li class="col-xs-12 col-sm-3"><a class="col-xs-12 tablinks" href="javascript:void(0)" onclick="openTab(event, 'mainView')" id="mainTab">Observations</a></li>
 				<li class="col-xs-12 col-sm-3"><a class="col-xs-12 tablinks" href="javascript:void(0)" onclick="openTab(event, 'birdView')" id="birdTab">Birds</a></li>
 				<li class="col-xs-12 col-sm-3"><a class="col-xs-12 tablinks" href="javascript:void(0)" onclick="openTab(event, 'downloadView')" id="downloadTab">Downloads</a></li>
 				<li class="col-xs-12 col-sm-3"><a class="col-xs-12 tablinks" href="javascript:void(0)" onclick="openTab(event, 'aboutView')" id="aboutTab">About</a></li>
@@ -700,15 +726,21 @@
 							<!--The filters side of the main tab.-->
 							<div id="filterSide">
 								<h1>Filters</h1>
+                                                                <div id="historical">
+                                                                    <input id="hist_chbx" type="checkbox" value="historical" onChange="hideOthers()">Historical
+                                                                </div>
+                                                                <div id="filler"><br></br></div>
+                                                                
 								<div id="options" name="classify" onChange="inputOptionChange(event)">
 									<input type="checkbox" value="location">location
 									<input type="checkbox" value="year">year
 									<input type="checkbox" value="month">month
-									<input type="checkbox" value="day">day
-									<input id="dateCheckbox" type="checkbox" value="date">date select
-									<input type="checkbox" value="ampm">AM / PM
-									<input type="checkbox" value="observer">observer
-								</div>
+                                                                        <input type="checkbox" value="date">first arrival date                                                              									
+                                                                        <label id="day_chbx" ><input type="checkbox" value="day">day</label>                                                                     
+                                                                        <label id="ap_chbx"><input type="checkbox" value="ampm">AM / PM</label>
+                                                                        <label id="obs_chbx"><input type="checkbox" value="observer">observer</label>
+                                                                </div>
+								
 								
 								<!--This divs are laced everywhere as a section break. They are not used by anything else and they will always have the id of "filler".-->
 								<div id="filler"><br><br></div>
