@@ -75,56 +75,50 @@
 			document.getElementById('buttons').style = "display:";
 		}
 	}
-	
-        function hideOthers() {
-           if(document.getElementById('hist_chbx').checked)
-           {
-               document.getElementById('day_chbx').style.display = 'none';              
-               document.getElementById('ap_chbx').style.display = 'none';
-               document.getElementById('obs_chbx').style.display = 'none';
-               document.getElementById('calcSide').style.display = 'none';
-               
-               
-           }
-           
-           else {
-               document.getElementById('day_chbx').removeAttribute("style");
-               document.getElementById('ap_chbx').removeAttribute("style");
-               document.getElementById('obs_chbx').removeAttribute("style");
-               document.getElementById('calcSide').removeAttribute("style");
-           }
-           
-           
-        }
         
         //when either general or historical tab is clicked
         function onHistRadioClick() {
             //if historical radio button is clicked hide day, am/pm, observation and calculations div
             if(document.getElementById('hist_rd').checked)
             {
-                
-                document.getElementById('day_chbx').style.display = 'none';              
+                document.getElementById('day_chbx').style.display = 'none';  
+                document.getElementById('firstArrive').style.display = 'inline';
                 document.getElementById('ap_chbx').style.display = 'none';
+                document.getElementById('dateSelect').style.display = 'none';
                 document.getElementById('obs_chbx').style.display = 'none';
                 document.getElementById('calcSide').style.display = 'none';
+                
+                //Check in case these divs were selected while in General.
+                document.getElementById('date').style.display = 'none';
+                document.getElementById('day').style.display = 'none';
+                document.getElementById('ampm').style.display = 'none';
+                document.getElementById('observer').style.display = 'none';
+                
+                //Also make sure that they are unchecked since we are making them disapear.
+                document.getElementById('checkDate').checked = false;
+                document.getElementById('checkDay').checked = false;
+                document.getElementById('checkAmpm').checked = false;
+                document.getElementById('checkObserver').checked = false;
             }
             
             else 
             {
                 //if general radio button is clicked, go back to original state
-                document.getElementById('day_chbx').removeAttribute("style");
-                document.getElementById('ap_chbx').removeAttribute("style");
-                document.getElementById('obs_chbx').removeAttribute("style");
-                document.getElementById('calcSide').removeAttribute("style");
+                document.getElementById('day_chbx').style.display = 'inline';
+                document.getElementById('firstArrive').style.display = 'none';
+                document.getElementById('ap_chbx').style.display = 'inline';
+                document.getElementById('dateSelect').style.display = 'inline';
+                document.getElementById('obs_chbx').style.display = 'inline';
+                document.getElementById('calcSide').style.display = 'inline';
+                
+                document.getElementById('firstArrival').style.display = 'none';
+                document.getElementById('checkFirstArrival').checked = false;
             }
                 
         }
 	//When you click on a checkbox for options to be seen.
 	function inputOptionChange(evt)
 	{
-            
-           
-                
 		//Get the object clicked.
 		var node = evt.target || evt.srcElement;
 		
@@ -428,14 +422,19 @@
 		else if(id== "mainTab")
 		{
 			var options = document.getElementById('options');
+                            console.log(options);
 
 			for(var i = 0; i < options.childNodes.length; i++)
 			{
-				if(options.childNodes[i].checked)
+                            var checkBox = options.childNodes[i];
+                            if(checkBox.childNodes.length > 0)
+                            {
+                                checkBox = checkBox.childNodes[0];
+				if(checkBox.checked)
 				{
 					//Check whether the date checkbox is selected. The date option overrides the year, month, and day options, so we do not 
 					//want those showing up if date is checked.
-					if(!document.getElementById('dateCheckbox').checked)
+					if(!document.getElementById('checkDate').checked)
 					{
 						if(options.childNodes[i].value == "year")
 						{
@@ -448,7 +447,7 @@
 								params += "&yr=" + document.getElementById('beginYearText').value + "/" + document.getElementById('endYearText').value;
 							}
 						}
-						else if(options.childNodes[i].value == "month")
+						else if(checkBox.value == "month")
 						{
 							if(!params)
 							{
@@ -459,7 +458,7 @@
 								params += "&mh=" + document.getElementById('beginMonthText').value + "/" + document.getElementById('endMonthText').value;
 							}
 						}
-						else if(options.childNodes[i].value == "day")
+						else if(checkBox.value == "day")
 						{
 							if(!params)
 							{
@@ -474,7 +473,24 @@
 					
 					//This is a loop so we cannot put an else after the last if to add date because it will just show up later and
 					//be added again. So just have an if prepared for when it does.
-					if(options.childNodes[i].value == "date")
+					if(checkBox.value == "date")
+					{
+						var beginDate = document.getElementById('beginDateText').value;
+						
+						var endDate = document.getElementById('endDateText').value;
+						
+						if(!params)
+						{
+							params = "dt=" + beginDate + "/" + endDate;
+						}
+						else
+						{
+							params += "&dt=" + beginDate + "/" + endDate;
+						}
+					}
+                                        
+                                        //For first arrival date.
+                                        if(checkBox.value == "firstArrival")
 					{
 						var beginDate = document.getElementById('beginDateText').value;
 						
@@ -491,7 +507,7 @@
 					}
 					
 					//If it is any other variable then go out and get the correct data for it and return.
-					var sections = document.getElementById(options.childNodes[i].value);
+					var sections = document.getElementById(checkBox.value);
 					for(var x = 0; x < sections.childNodes.length; x++)
 					{
                                             console.log(sections.childNodes[x].type);
@@ -511,6 +527,7 @@
 						}
 					}
 				}
+                            }
 			}
 			
 			//Find which calculation option is selected.
@@ -531,6 +548,22 @@
 				}
 			}
 		}
+                
+                console.log(document.getElementById("gen_rd").checked)
+                if(document.getElementById("gen_rd").checked)
+                {
+                    if(!params)
+                        params = "select=gen";
+                    else
+                        params += "&select=gen";
+                }
+                else
+                {
+                    if(!params)
+                        params = "select=hist";
+                    else
+                        params += "&select=hist";
+                }
 		
 		//For debugging what will be going over to the server.
 		console.log(params);
@@ -749,20 +782,21 @@
 							<!--The filters side of the main tab.-->
 							<div id="filterSide">
 								<h1>Filters</h1>
-                                                                <div id="obs_options" name="classify" onChange="inputRadioChange(event)" onclick="onHistRadioClick()">
+                                                                <div id="obs_options" name="classify" onChange="onHistRadioClick()">
                                                                     <input id="gen_rd" type="radio" name="obs_option"  checked > General
                                                                     <input id="hist_rd" type="radio" name="obs_option"> Historical
                                                                 </div>
                                                                 <div id="filler"><br></br></div>
                                                                 
 								<div id="options" name="classify" onChange="inputOptionChange(event)">
-									<input type="checkbox" value="location"> location
-									<input type="checkbox" value="year"> year
-									<input type="checkbox" value="month"> month
-                                                                        <input type="checkbox" value="date"> first arrival date                                                              									
-                                                                        <label id="day_chbx" ><input type="checkbox" value="day"> day</label>                                                                     
-                                                                        <label id="ap_chbx"><input type="checkbox" value="ampm"> AM / PM</label>
-                                                                        <label id="obs_chbx"><input type="checkbox" value="observer"> observer</label>
+									<div style="display:inline"><input type="checkbox" value="location"> location</div>
+									<div style="display:inline"><input type="checkbox" value="year"> year</div>
+                                                                        <div style="display:inline"><input type="checkbox" value="month"> month</div>
+                                                                        <div id="firstArrive" style="display:none"><input id="checkFirstArrival" type="checkbox" value="firstArrival"> first arrival date</div>                                                           									
+                                                                        <div id="dateSelect" style="display:inline"><input id="checkDate" type="checkbox" value="date"> date</div>
+                                                                        <div id="day_chbx" style="display:inline"><input id="checkDay" type="checkbox" value="day"> day</div>                                                                     
+                                                                        <div id="ap_chbx" style="display:inline"><input id="checkAmpm" type="checkbox" value="ampm"> AM / PM</div>
+                                                                        <div id="obs_chbx" style="display:inline"><input id="checkObserver" type="checkbox" value="observer"> observer</div>
                                                                 </div>
 								
 								
@@ -839,6 +873,19 @@
 									<div id="endDay" style="display:inline-block">
 										Ending day:<br>
 										<input type="text" id="endDayText">
+									</div><br><br>
+								</div>
+                                                                
+                                                                <div id="firstArrival" style="display:none">
+									<b>Select start and end date.</b><br>
+									<font id="warningText" color="red" style="display:none"><b>The date select option overrides year and month options.</b><br></font>
+									<div id="beginDate" style="display:inline-block">
+										Beginning date:<br>
+										<input type="date" id="beginDateText">	
+									</div>
+									<div id="endDate" style="display:inline-block">
+										Ending date:<br>
+										<input type="date" id="endDateText">
 									</div><br><br>
 								</div>
 								

@@ -204,6 +204,13 @@ public class EntryPoint extends HttpServlet
                 String main = "";
                 String bird = "";
                 
+                String view;
+                
+                if(request.getParameter("select").equals("gen"))
+                    view = "MAIN_VIEW";
+                else
+                    view = "HISTORICAL_VIEW";
+                
                 //Will hold the WHERE part of the query.
                 StringBuilder query = new StringBuilder("");
                 
@@ -234,7 +241,7 @@ public class EntryPoint extends HttpServlet
 
                             //If not already set, set the correct starting String.
                             if(main.isEmpty())
-                                 main = "SELECT * FROM NSFCourter2016.DBO.MAIN_VIEW ";
+                                 main = "SELECT * FROM NSFCourter2016.DBO." + view + " ";
 
                             //Check whether the query already has the WHERE or not to add the parameter correctly.
                             if(query.toString().contains("WHERE"))
@@ -246,7 +253,7 @@ public class EntryPoint extends HttpServlet
                         //lat long ranges
                         case "ll":
                             if(main.isEmpty())
-                                     main = "SELECT * FROM NSFCourter2016.DBO.MAIN_VIEW ";
+                                     main = "SELECT * FROM NSFCourter2016.DBO." + view + " ";
                             
                             options = inputOption.split(",");
                             
@@ -271,7 +278,7 @@ public class EntryPoint extends HttpServlet
                         //States
                         case "st":
                             if(main.isEmpty())
-                                     main = "SELECT * FROM NSFCourter2016.DBO.MAIN_VIEW ";
+                                     main = "SELECT * FROM NSFCourter2016.DBO." + view + " ";
                             
                             options = inputOption.split(",");
                             
@@ -294,7 +301,7 @@ public class EntryPoint extends HttpServlet
                         //Year range
                         case "yr":
                             if(main.isEmpty())
-                                     main = "SELECT * FROM NSFCourter2016.DBO.MAIN_VIEW ";
+                                     main = "SELECT * FROM NSFCourter2016.DBO." + view + " ";
                             
                             options = inputOption.split(",");
                             
@@ -310,7 +317,7 @@ public class EntryPoint extends HttpServlet
                         //Month range
                         case "mh":
                             if(main.isEmpty())
-                                     main = "SELECT * FROM NSFCourter2016.DBO.MAIN_VIEW ";
+                                     main = "SELECT * FROM NSFCourter2016.DBO." + view + " ";
                             
                             options = inputOption.split(",");
                             
@@ -326,7 +333,7 @@ public class EntryPoint extends HttpServlet
                         //Day range
                         case "dy":
                             if(main.isEmpty())
-                                     main = "SELECT * FROM NSFCourter2016.DBO.MAIN_VIEW ";
+                                     main = "SELECT * FROM NSFCourter2016.DBO." + view + " ";
                             
                             options = inputOption.split(",");
                             
@@ -342,7 +349,7 @@ public class EntryPoint extends HttpServlet
                         //Date range
                         case "dt":
                             if(main.isEmpty())
-                                     main = "SELECT * FROM NSFCourter2016.DBO.MAIN_VIEW ";
+                                     main = "SELECT * FROM NSFCourter2016.DBO." + view + " ";
                             
                             options = inputOption.split(",");
                             
@@ -361,7 +368,7 @@ public class EntryPoint extends HttpServlet
                         //Am or PM
                         case "ap":
                             if(main.isEmpty())
-                                     main = "SELECT * FROM NSFCourter2016.DBO.MAIN_VIEW ";
+                                     main = "SELECT * FROM NSFCourter2016.DBO." + view + " ";
                             
                             if(query.toString().contains("WHERE"))
                                 query.append(" AND FORMAT([Date and time recorded], 'tt')='").append(inputOption).append("'");
@@ -507,7 +514,7 @@ public class EntryPoint extends HttpServlet
                         //Observer names
                         case "on":
                             if(main.isEmpty())
-                                     main = "SELECT * FROM NSFCourter2016.DBO.MAIN_VIEW ";
+                                     main = "SELECT * FROM NSFCourter2016.DBO." + view + " ";
                             
                             options = inputOption.split(",");
                             
@@ -531,7 +538,7 @@ public class EntryPoint extends HttpServlet
                         //Observer ids
                         case "od":
                             if(main.isEmpty())
-                                     main = "SELECT * FROM NSFCourter2016.DBO.MAIN_VIEW ";
+                                     main = "SELECT * FROM NSFCourter2016.DBO." + view + " ";
                             
                             if(query.toString().contains("WHERE"))
                                 query.append(" AND [Observer ID] IN (").append(inputOption).append(")");
@@ -540,6 +547,8 @@ public class EntryPoint extends HttpServlet
                             break;
                     }
                 }
+                
+                System.out.println(main);
                 
                 String top = "";
                 
@@ -598,7 +607,7 @@ public class EntryPoint extends HttpServlet
                     if(!observers.isEmpty())
                     {
                         if(main.isEmpty())
-                                main = "SELECT" + top + " * FROM NSFCourter2016.DBO.MAIN_VIEW ";
+                                main = "SELECT" + top + " * FROM NSFCourter2016.DBO." + view + " ";
 
                        if(query.toString().contains("WHERE"))
                            query.append(" AND [Observer ID] IN (").append(observers).append(")");
