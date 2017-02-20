@@ -13,7 +13,7 @@
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 	<link rel="stylesheet" type="text/css" href="bootstrap-3.3.7-dist/css/bootstrap.min.css">
 	<!--<script type="text/javascript" src="bootstrap-3.3.7-dist/js/bootstrap.min.js">-->
-	<title>Avian data retreival</title>
+	<title>Avian data retrieval</title>
 	<style>
 		/*do nothing*/
 	</style>
@@ -95,6 +95,29 @@
            }
            
            
+        }
+        
+        //when either general or historical tab is clicked
+        function onHistRadioClick() {
+            //if historical radio button is clicked hide day, am/pm, observation and calculations div
+            if(document.getElementById('hist_rd').checked)
+            {
+                
+                document.getElementById('day_chbx').style.display = 'none';              
+                document.getElementById('ap_chbx').style.display = 'none';
+                document.getElementById('obs_chbx').style.display = 'none';
+                document.getElementById('calcSide').style.display = 'none';
+            }
+            
+            else 
+            {
+                //if general radio button is clicked, go back to original state
+                document.getElementById('day_chbx').removeAttribute("style");
+                document.getElementById('ap_chbx').removeAttribute("style");
+                document.getElementById('obs_chbx').removeAttribute("style");
+                document.getElementById('calcSide').removeAttribute("style");
+            }
+                
         }
 	//When you click on a checkbox for options to be seen.
 	function inputOptionChange(evt)
@@ -324,7 +347,7 @@
 				}
 				result += document.getElementById('checklistNumber').value;
 				break;
-				
+                     
 			//Calculate the number of a certain variable.
 			case "cl":
 				var parent = document.getElementById('variableOptions');
@@ -726,19 +749,20 @@
 							<!--The filters side of the main tab.-->
 							<div id="filterSide">
 								<h1>Filters</h1>
-                                                                <div id="historical">
-                                                                    <input id="hist_chbx" type="checkbox" value="historical" onChange="hideOthers()">Historical
+                                                                <div id="obs_options" name="classify" onChange="inputRadioChange(event)" onclick="onHistRadioClick()">
+                                                                    <input id="gen_rd" type="radio" name="obs_option"  checked > General
+                                                                    <input id="hist_rd" type="radio" name="obs_option"> Historical
                                                                 </div>
                                                                 <div id="filler"><br></br></div>
                                                                 
 								<div id="options" name="classify" onChange="inputOptionChange(event)">
-									<input type="checkbox" value="location">location
-									<input type="checkbox" value="year">year
-									<input type="checkbox" value="month">month
-                                                                        <input type="checkbox" value="date">first arrival date                                                              									
-                                                                        <label id="day_chbx" ><input type="checkbox" value="day">day</label>                                                                     
-                                                                        <label id="ap_chbx"><input type="checkbox" value="ampm">AM / PM</label>
-                                                                        <label id="obs_chbx"><input type="checkbox" value="observer">observer</label>
+									<input type="checkbox" value="location"> location
+									<input type="checkbox" value="year"> year
+									<input type="checkbox" value="month"> month
+                                                                        <input type="checkbox" value="date"> first arrival date                                                              									
+                                                                        <label id="day_chbx" ><input type="checkbox" value="day"> day</label>                                                                     
+                                                                        <label id="ap_chbx"><input type="checkbox" value="ampm"> AM / PM</label>
+                                                                        <label id="obs_chbx"><input type="checkbox" value="observer"> observer</label>
                                                                 </div>
 								
 								
@@ -747,12 +771,12 @@
 								
 								<div id="location" style="display:none" onChange="inputRadioChange(event)">
 									<b>Pick a location type to search for.</b><br>
-									<input type="radio" name="location" value="cd">Climate Division<br>
+									<input type="radio" name="location" value="cd"> Climate Division<br>
 									<div id="cd" style="display:none">
 										<a href="#" id="cdIframeLink" onclick="openCdMap()">Load climate divison map. This may take a few minutes...</a>
 										<iframe id="cdIframe" src="climDiv.html" height="320" width="520" style="border:none;display:none"></iframe>                                                                                                                                                                                            
 									</div>
-									<input type="radio" name="location" value="ll">Latitude, Longitude<br>
+									<input type="radio" name="location" value="ll"> Latitude, Longitude<br>
 									<div id="ll" style="display:none">
 										<b>Plug in values for the latitude and longitude then press Add.</b><br>
 										Latitude start:  <input type="text" id="latStart" style="margin-bottom:1em"> 
@@ -774,7 +798,7 @@
 										</table>
 										<div id="latLongFinalInput" style="display:none"></div>
 									</div>
-									<input type="radio" name="location" value="st">States<br>
+									<input type="radio" name="location" value="st"> States<br>
 									<div id="st" style="display:none">
 										<iframe id="stIframe" src="states.html" height="320" width="520" style="border:none;"></iframe>
 									</div><br>
@@ -833,23 +857,23 @@
 								
 								<div id="ampm" style="display:none">
 									<b>Pick a time of day type to search for.</b><br>
-									<input type="radio" name="ampm" value="ap=AM" checked>AM<br>
-									<input type="radio" name="ampm" value="ap=PM">PM<br>
+									<input type="radio" name="ampm" value="ap=AM" checked> AM<br>
+									<input type="radio" name="ampm" value="ap=PM"> PM<br>
 								</div><br>
 								
 								<div id="observer" style="display:none" onChange="inputRadioChange(event)">
 									<b>Pick an observer variable to search for.</b><br>
-									<input type="radio" name="observer" value="on">Name<br>
+									<input type="radio" name="observer" value="on"> Name<br>
 										<div id="on" style="display:none">
-											<b>Enter an observer's name. Seperate with ",".</b><br> EX: Firstname Lastname,Firstname2 Lastname2<br>
+											<b>Enter an observer's name. Separate with ",".</b><br> EX: Firstname Lastname,Firstname2 Lastname2<br>
 											<input type="text" list="oNameList" id="oName">
 										</div>
-									<input type="radio" name="observer" value="od">Observer id<br>
+									<input type="radio" name="observer" value="od"> Observer id<br>
 										<div id="od" style="display:none">
-											<b>Enter an id. Seperate numbers with ",".</b><br> EX: 967,1015<br>
+											<b>Enter an id. Separate numbers with ",".</b><br> EX: 967,1015<br>
 											<input type="text" id="oid">
 										</div>
-									<input type="radio" name="observer" value="ct">Observers with # of submitted checklists<br>
+									<input type="radio" name="observer" value="ct"> Observers with # of submitted checklists<br>
 										<div id="ct" style="display:none">
 											Observers with number of submitted checklists
 											<select id="observerComparisonSelection">
@@ -868,12 +892,12 @@
 							<!--The calculation side of the main tab.-->
 							<div id="calcSide">
 								<h1>Calculations</h1>
-								<b>NOTE:</b>The filters will be applied to the calculation.<br><br>
+								<b>NOTE:</b> The filters will be applied to the calculation.<br><br>
 								<div id="calcOptions" name="classify" onChange="inputRadioChange(event)">
 									<input type="radio" name="calc" value="nn" checked>None
-									<input type="radio" name="calc" value="cs">Observers with # of checklists
-									<input type="radio" name="calc" value="bs">Number of certain birds seen per checklist
-									<input type="radio" name="calc" value="cl">Calculate number of variable
+									<input type="radio" name="calc" value="cs"> Observers with # of checklists
+									<input type="radio" name="calc" value="bs"> Number of certain birds seen per checklist
+									<input type="radio" name="calc" value="cl"> Calculate number of variable
 								</div>
 								
 								<div id="filler"><br><br></div>
@@ -883,27 +907,27 @@
 								<div id="cs" style="display:none">
 									<b>Chose whether or not to add the number of submitted group checklists to the total or not. 
 										If include is selected, it will only return people who have both group and none group checklists.</b><br>
-									<input type="radio" name="groupCheck" value="yes" checked>Include group checklists<br>
-									<input type="radio" name="groupCheck" value="no">Don't include group checklists<br><br>
-									<b>Chose an operator then enter the number of checklists you want to search for. Seperate with ",".</b><br> EX: 55,21,15<br>
-									<input type="radio" name="operator" value="ge" checked>>=<br>
-									<input type="radio" name="operator" value="g">><br>
-									<input type="radio" name="operator" value="le"><=<br>
-									<input type="radio" name="operator" value="l"><<br>
-									<input type="radio" name="operator" value="e">=<br>
+									<input type="radio" name="groupCheck" value="yes" checked> Include group checklists<br>
+									<input type="radio" name="groupCheck" value="no"> Don't include group checklists<br><br>
+									<b>Chose an operator then enter the number of checklists you want to search for. Separate with ",".</b><br> EX: 55,21,15<br>
+									<input type="radio" name="operator" value="ge" checked> >=<br>
+									<input type="radio" name="operator" value="g"> ><br>
+									<input type="radio" name="operator" value="le"> <=<br>
+									<input type="radio" name="operator" value="l"> <<br>
+									<input type="radio" name="operator" value="e"> =<br>
 									# of checklists: <input type="text" id="checklistNumber">
 								</div>
 								
 								<div id="bs" style="display:none">
-									<b>Chose a type of name then enter the correct name(s) for the choise. Seperate with ",".</b><br> EX: Highland_Tinamou,White-throated_Tinamou {for science name}<br>
-									<input type="radio" name="birdNameCalc" value="s" checked>Scientific name<br>
-									<input type="radio" name="birdNameCalc" value="p">Common name<br>
-									<input type="radio" name="birdNameCalc" value="t">Taxonomy<br>
+									<b>Chose a type of name then enter the correct name(s) for the choice. Separate with ",".</b><br> EX: Highland_Tinamou,White-throated_Tinamou {for science name}<br>
+									<input type="radio" name="birdNameCalc" value="s" checked> Scientific name<br>
+									<input type="radio" name="birdNameCalc" value="p"> Common name<br>
+									<input type="radio" name="birdNameCalc" value="t"> Taxonomy<br>
 									NAME: <input type="text" id="birdNameCalcInput"><br><br>
 								</div>
 								
 								<div id="cl" style="display:none">
-									<b>Chose a variable that you would like the count of.</b><br>
+									<b>Choose a variable that you would like the count of.</b><br>
 									<div id="variableOptions" style="display:inline-block;padding-right:2em;height:120px;border:1px solid #ccc;overflow:auto;" 
 										onChange="var radios = document.getElementsByName('variables'); var selected; for(var i = 0; i < radios.length; i++) {if (radios[i].checked){selected = radios[i].value; break;}
 													}document.getElementById('variableOptionsSelectedOption').innerHTML = &quot <b>Selected variable:</b> &quot + selected">
@@ -922,45 +946,45 @@
 				<div id="birdView" class="tabcontent">
 					<h1>Pick which options to filter birds by.</h1>
 					<div id="birdOptions" name="classify" onChange="inputOptionChange(event)">
-						<input type="checkbox" value="ty">Taxonomy
-						<input type="checkbox" value="bn">Name
-						<input type="checkbox" value="ls">Migration type
-						<input type="checkbox" value="fg">Feeding guild
-						<input type="checkbox" value="ew">Habitat region
+						<input type="checkbox" value="ty"> Taxonomy
+						<input type="checkbox" value="bn"> Name
+						<input type="checkbox" value="ls"> Migration type
+						<input type="checkbox" value="fg"> Feeding guild
+						<input type="checkbox" value="ew"> Habitat region
 					</div>
 					
 					<div id="filler"><br><br></div>
 					
 					<div id="ty" style="display:none">
-						<b>Enter a birds taxonomy number. Seperate numbers with ",".</b><br> EX: 84,102,40<br>
+						<b>Enter a birds taxonomy number. Separate numbers with ",".</b><br> EX: 84,102,40<br>
 						<input type="text" id="taxonomyInput"><br><br>
 					</div>
 					
 					<div id="bn" style="display:none">
-						<b>Chose a type of name then enter the correct name for the choise. Seperate with ",".</b><br> EX: Highland_Tinamou,White-throated_Tinamou {for science name}<br>
-						<input type="radio" name="birdNameDecision" value="s" checked>Scientific name<br>
-						<input type="radio" name="birdNameDecision" value="p">Common name<br>
-						<input type="radio" name="birdNameDecision" value="f">Family name<br>
-						<input type="radio" name="birdNameDecision" value="o">Order name<br>
+						<b>Chose a type of name then enter the correct name for the choice. Separate with ",".</b><br> EX: Highland_Tinamou,White-throated_Tinamou {for science name}<br>
+						<input type="radio" name="birdNameDecision" value="s" checked> Scientific name<br>
+						<input type="radio" name="birdNameDecision" value="p"> Common name<br>
+						<input type="radio" name="birdNameDecision" value="f"> Family name<br>
+						<input type="radio" name="birdNameDecision" value="o"> Order name<br>
 						NAME: <input type="text" id="birdNameInput"><br><br>
 					</div>
 					
 					<div id="ls" style="display:none">
 						<b>Chose a type of bird migration.</b><br>
-						<input type="radio" name="migration" value="l" checked>Long migration<br>
-						<input type="radio" name="migration" value="s">Short migration<br><br>
+						<input type="radio" name="migration" value="l" checked> Long migration<br>
+						<input type="radio" name="migration" value="s"> Short migration<br><br>
 					</div>
 					
 					<div id="fg" style="display:none">
-						<b>Enter a birds feeding guild. Seperate numbers with ",".</b><br> EX: ?<br>
+						<b>Enter a birds feeding guild. Separate numbers with ",".</b><br> EX: ?<br>
 						<input type="text" id="feedingGuild"><br><br>
 					</div>
 					
 					<div id="ew" style="display:none">
 						<b>Chose side of the US for the birds to be stationed at.</b><br>
-						<input type="radio" name="home" value="e" checked>East<br>
-						<input type="radio" name="home" value="w">West<br>
-						<input type="radio" name="home" value="b">Both<br><br>
+						<input type="radio" name="home" value="e" checked> East<br>
+						<input type="radio" name="home" value="w"> West<br>
+						<input type="radio" name="home" value="b"> Both<br><br>
 					</div>
 				</div>
 				
