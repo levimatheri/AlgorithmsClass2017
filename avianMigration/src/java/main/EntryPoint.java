@@ -6,6 +6,7 @@
 
 package main;
 
+import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
@@ -744,18 +745,17 @@ public class EntryPoint extends HttpServlet
                 if(results != null)
                 {
                     //If application is not null then the user clicked on 
-                    //export which means we got all posibble data and want
+                    //export which means we got all posible data and want
                     //to make the spreadsheet and save it for the user.
                     if(request.getParameter("application") != null)
                     {
                         //Create the spreadsheet.
                         SpreadSheetMaker ssm = new SpreadSheetMaker();
-                        ssm.createSpreadSheet(results);
                         String user = "cjedwards1@malone.edu";
                         String timeStamp = new SimpleDateFormat("yyyyMMddHHmmss").format(new Timestamp(System.currentTimeMillis()));
                         
-                        FileOutputStream output = new FileOutputStream("..//webapps//avianMigration//files_for_download//" + user + timeStamp + ".xlsx");
-                        ssm.export(response, output, "cjedwards1@malone.edu");
+//                        FileOutputStream output = new FileOutputStream("..//webapps//avianMigration//files_for_download//" + user + " " + timeStamp + ".xlsx");
+                        ssm.export(response, results, new FileOutputStream(new File("C:\\Users\\cjedwards1\\Desktop\\testing.xlsx")), user, user + " " + timeStamp);// output, user, user + " " + timeStamp);
                         
                     }
                     

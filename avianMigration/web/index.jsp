@@ -436,7 +436,7 @@
 					//want those showing up if date is checked.
 					if(!document.getElementById('checkDate').checked)
 					{
-						if(options.childNodes[i].value == "year")
+						if(checkBox.value == "year")
 						{
 							if(!params)
 							{
