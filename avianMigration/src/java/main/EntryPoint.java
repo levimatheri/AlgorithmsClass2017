@@ -755,7 +755,7 @@ public class EntryPoint extends HttpServlet
                         String timeStamp = new SimpleDateFormat("yyyyMMddHHmmss").format(new Timestamp(System.currentTimeMillis()));
                         
 //                        FileOutputStream output = new FileOutputStream("..//webapps//avianMigration//files_for_download//" + user + " " + timeStamp + ".xlsx");
-                        ssm.export(response, results, new FileOutputStream(new File("C:\\Users\\cjedwards1\\Desktop\\testing.xlsx")), user, user + " " + timeStamp);// output, user, user + " " + timeStamp);
+                        ssm.export(results, user, user + " " + timeStamp);// output, user, user + " " + timeStamp);
                         
                     }
                     
