@@ -11,21 +11,11 @@ import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.OutputStream;
 import java.sql.SQLException;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.Properties;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.activation.CommandMap;
-import javax.activation.DataHandler;
-import javax.activation.DataSource;
-import javax.activation.FileDataSource;
 import javax.activation.MailcapCommandMap;
-import javax.servlet.http.HttpServletResponse;
 import org.apache.commons.mail.EmailException;
 import org.apache.commons.mail.MultiPartEmail;
 import org.apache.poi.ss.usermodel.Cell;
@@ -93,35 +83,33 @@ public class SpreadSheetMaker {
                     sheet.autoSizeColumn(n);
             }
             
-            if(getUserPercentage(wb, user) >= 100)
-            {
-                failedSendMail();
-            }
-            else
-            {
+//            if(getUserPercentage(wb, user) >= 100)
+//            {
+//                failedSendMail();
+//            }
+//            else
+//            {
                 //Send the file through email, and save it to the server.
-                File output = new File("..//..//files_for_download//" + fileName + ".xlsx");
+                File output = new File("..\\webapps\\avianMigration\\query_files\\" + fileName + ".xlsx");
                 try(FileOutputStream out = new FileOutputStream(output))
                 {
                     wb.write(out);
-                    successSendEmail(output);
+                    successSendEmail();
                 }
                 catch(Exception ex)
                 {
-                    ex.printStackTrace();
                 }
-            }
+//            }
         }
         catch(Exception ex)
         {
-            ex.printStackTrace();
         }
     }
     
     private double getUserPercentage(XSSFWorkbook wb, String user)
     {
         //Get all user files.
-        File filesDirectory = new File("..//..//files_for_download");
+        File filesDirectory = new File("..\\webapps\\avianMigration\\query_files");
         
         //Put files into array.
         File[] files = filesDirectory.listFiles();
@@ -237,7 +225,7 @@ public class SpreadSheetMaker {
             MultiPartEmail email = new MultiPartEmail();
             email.setHostName("smtp.malone.edu");
             email.setSmtpPort(25);
-            email.addTo("cjedwards1@malone.edu");
+            email.addTo("jcourter@malone.edu");
             email.setFrom("no-reply-avianMigration@malone.edu");
             email.setSubject("Error");
             email.setMsg("Creating this file would put you over your limit. Please delete a file and try again.");
@@ -252,7 +240,7 @@ public class SpreadSheetMaker {
         }
     }
     
-    private void successSendEmail(File fileOut)
+    private void successSendEmail()
     {
         try 
         {
@@ -265,13 +253,10 @@ public class SpreadSheetMaker {
             MultiPartEmail email = new MultiPartEmail();
             email.setHostName("smtp.malone.edu");
             email.setSmtpPort(25);
-            email.addTo("cjedwards1@malone.edu");
+            email.addTo("jcourter@malone.edu");
             email.setFrom("no-reply-avianMigration@malone.edu");
             email.setSubject("Results");
-            email.setMsg("Your file has been added successfully. Here is the file.");
-
-            // add the attachment
-            email.attach(fileOut);
+            email.setMsg("Your file has been added successfully. You can go to the downloads tab on the website to download it now.");
 
             // send the email
             email.send();

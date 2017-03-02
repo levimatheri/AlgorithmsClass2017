@@ -383,7 +383,7 @@
 		var xmlhttp = new XMLHttpRequest();
 		
 		//Set it to the submit_jobs servlet.
-		var url = "/avianMigration/submit_job";
+		var url = "http://research.malone.int/avianMigration/submit_job";
 		
 		//Prepare the parameters.
 		var params = application;
@@ -643,7 +643,7 @@
 	
 		//OLD FUNCTION OF EXPORT BUTTON, SAVE FOR LATER TIME IF NEEDED.
 		//Set url
-		//var url = "/avianMigration/submit_job";
+		//var url = "http://research.malone.int/avianMigration/submit_job";
 		
 		//Set the only parameter to tell the server we are looking for the excel file.
 		//var params = "?application=true";
@@ -1093,7 +1093,7 @@
 	
 	//Do a request to get all of the possible variables that can be used.
 	var xmlhttp = new XMLHttpRequest();
-	var url = "/avianMigration/submit_job";
+	var url = "http://research.malone.int/avianMigration/submit_job";
 	var params = "?vars=true";
 	xmlhttp.open("Get", url + params, true);
 	xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
@@ -1120,6 +1120,35 @@
 						document.getElementById('mapVariableOptionsCheck').innerHTML += "<input type=\"checkbox\" name=\"mapCheckVariables\" value=\"" + myArr["names"][i] + "\">" + myArr["names"][i] + "<br>";
 					}
 				}
+			}
+		}
+	}
+	xmlhttp.send(params);
+        
+        xmlhttp = new XMLHttpRequest();
+	var url = "http://research.malone.int/avianMigration/submit_job";
+	var params = "?files=true&user=jcourter";
+	xmlhttp.open("Get", url + params, true);
+	xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+	xmlhttp.onreadystatechange = function() 
+	{
+		if (this.readyState == 4 && this.status == 200)
+		{
+                    console.log(this.responseText);
+			var myArr = JSON.parse(this.responseText);
+			if(myArr)
+			{
+                                var div = document.getElementById("downloadView");
+				for(var i in myArr["files"])
+				{
+                                    var a = document.createElement('a');
+                                    a.href = "http://research.malone.int/avianMigration/query_files/" + myArr["files"][i];
+                                    a.download = myArr["files"][i];
+                                    a.innerHTML = myArr["files"][i];
+                                    div.appendChild(document.createElement("br"));
+                                    div.appendChild(a);
+				}
+                                console.log(div);
 			}
 		}
 	}

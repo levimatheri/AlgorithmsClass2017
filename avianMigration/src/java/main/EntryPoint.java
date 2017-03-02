@@ -7,21 +7,20 @@
 package main;
 
 import java.io.File;
-import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.OutputStream;
 import java.io.PrintWriter;
 import java.sql.Timestamp;
-import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.Enumeration;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 /**
@@ -45,39 +44,6 @@ public class EntryPoint extends HttpServlet
     public void doGet(HttpServletRequest request, HttpServletResponse response)
                throws ServletException, IOException
     {
-        //Check if the parameter "application" was set to anything.
-        //If so, prepare the spreadsheet and send it.
-//        if(request.getParameter("application") != null)
-//        {
-//            //Set type to excel sheet.
-//            response.setContentType("application/xlsx");
-//
-//            //The way the date will be shown on the file name and inside the file.
-//            DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-//
-//            //Get the current date.
-//            Date date = new Date();
-//            
-//            //This must be set along with the filename. The filename determines the actual name of the file and nothing else can.
-//            response.setHeader("Content-disposition","attachment; filename=" + dateFormat.format(date) + " avian results.xlsx");
-//            
-//            //Get the output stream from the response.
-//            try(OutputStream outStream = response.getOutputStream())
-//            {
-//                
-//                //Give the spreadsheet maker the output stream to 
-//                //write its current excel document to it.
-//                ssm.export(outStream);
-//                
-//                //Once done flush the stream to reset it.
-//                outStream.flush();
-//            }
-//            catch(Exception ex)
-//            {
-//                ex.printStackTrace();
-//            }
-//        }
-        
         //Get all of the data for the autocomplete options for the text boxes.
         if(request.getParameter("vnd") != null)
         {
@@ -148,7 +114,39 @@ public class EntryPoint extends HttpServlet
 //            }
         }
         
-        //If the server is looking for all possible variable names.
+        //Get and return the list of files for a user.
+        else if(request.getParameter("files") != null)
+        {
+            try(PrintWriter out = response.getWriter())
+            {
+                String user = request.getParameter("user");
+                JSONObject files = new JSONObject();
+                JSONArray listFiles = new JSONArray();
+                
+                System.out.println("Directory: " + System.getProperty("user.dir"));
+                File folder = new File("..\\webapps\\avianMigration\\query_files");
+                File[] listOfFiles = folder.listFiles();
+                
+                for(File tempFile : listOfFiles)
+                {
+                    if(tempFile.isFile())
+                        if(tempFile.getName().contains(user))
+                            listFiles.put(tempFile.getName());
+                }
+                files.put("files", listFiles);
+                
+                 //Write the object to the printstream.
+                out.write(files.toString());
+                
+                //Flush the stream to reset.
+                out.flush();
+            }
+            catch(Exception ex)
+            {
+                ex.printStackTrace();
+            }
+        }
+        
         else if(request.getParameter("vars") != null)
         {
             //Set return type to json object.
@@ -196,11 +194,12 @@ public class EntryPoint extends HttpServlet
             
             try (PrintWriter out = response.getWriter())
             {
-                /**Depending on what tab was chosen by the user, the 
-                 *corresponding String will be filled correctly. Later,
-                 *it will check to see which String is empty and which one
-                 *isn't to determine which view to get the data from and 
-                 *how it will do so.
+                /**
+                 * Depending on what tab was chosen by the user, the 
+                 * corresponding String will be filled correctly. Later,
+                 * it will check to see which String is empty and which one
+                 * isn't to determine which view to get the data from and 
+                 * how it will do so.
                  */
                 String main = "";
                 String bird = "";
@@ -237,9 +236,6 @@ public class EntryPoint extends HttpServlet
                     {
                         //climate divisions
                         case "cd":
-                            //Just for safe keeping in case needed later.
-                            //temp = queries.stream().filter(s -> s.toString().contains("CLIMATE_DIV")).collect(Collectors.toSet());
-
                             //If not already set, set the correct starting String.
                             if(main.isEmpty())
                                  main = "SELECT * FROM NSFCourter2016.DBO." + view + " ";
@@ -401,71 +397,61 @@ public class EntryPoint extends HttpServlet
                                 birds[i] = birds[i].replaceAll("'", "''");
                             
                             //For scientific names
-                            if(type.equals("s"))
+                            switch(type)
                             {
-                                if(query.toString().contains("WHERE"))
-                                    query.append(" AND [Scientific Name] IN (");
-                                else
-                                    query.append(" WHERE [Scientific Name] IN (");
-
-                                query.append("'").append(birds[0]).append("'");
-
-                                for(int i = 1; i < birds.length; i++)
-                                {
-                                    query.append(",'").append(birds[i]).append("'");
-                                }
-                                query.append(")");
-                            }
-                            
-                            //For common names
-                            else if(type.equals("p"))
-                            {
-                                if(query.toString().contains("WHERE"))
-                                    query.append(" AND [Common Name] IN (");
-                                else
-                                    query.append(" WHERE [Common Name] IN (");
-
-                                query.append("'").append(birds[0]).append("'");
-
-                                for(int i = 1; i < birds.length; i++)
-                                {
-                                    query.append(",'").append(birds[i]).append("'");
-                                }
-                                query.append(")");
-                            }
-                            
-                            //For family names
-                            else if(type.equals("f"))
-                            {
-                                if(query.toString().contains("WHERE"))
-                                    query.append(" AND [Family Name] IN (");
-                                else
-                                    query.append(" WHERE [Family Name] IN (");
-
-                                query.append("'").append(birds[0]).append("'");
-
-                                for(int i = 1; i < birds.length; i++)
-                                {
-                                    query.append(",'").append(birds[i]).append("'");
-                                }
-                                query.append(")");
-                            }
-                            
-                            //For order names
-                            else if(type.equals("o"))
-                            {
-                                if(query.toString().contains("WHERE"))
-                                    query.append(" AND [Order Name] IN (");
-                                else
-                                    query.append(" WHERE [Order Name] IN (");
-
-                                query.append("'").append(birds[0]).append("'");
-
-                                for(int i = 1; i < birds.length; i++)
-                                {
-                                    query.append(",'").append(birds[i]).append("'");
-                                }
-                                query.append(")");
+                                //For common names
+                                case "s":
+                                    if(query.toString().contains("WHERE"))
+                                        query.append(" AND [Scientific Name] IN (");
+                                    else
+                                        query.append(" WHERE [Scientific Name] IN (");
+                                    query.append("'").append(birds[0]).append("'");
+                                    for(int i = 1; i < birds.length; i++)
+                                    {
+                                        query.append(",'").append(birds[i]).append("'");
+                                    }
+                                    query.append(")");
+                                    break;
+                                //For family names
+                                case "p":
+                                    if(query.toString().contains("WHERE"))
+                                        query.append(" AND [Common Name] IN (");
+                                    else
+                                        query.append(" WHERE [Common Name] IN (");
+                                    query.append("'").append(birds[0]).append("'");
+                                    for(int i = 1; i < birds.length; i++)
+                                    {
+                                        query.append(",'").append(birds[i]).append("'");
+                                    }
+                                    query.append(")");
+                                    break;
+                                //For order names
+                                case "f":
+                                    if(query.toString().contains("WHERE"))
+                                        query.append(" AND [Family Name] IN (");
+                                    else
+                                        query.append(" WHERE [Family Name] IN (");
+                                    query.append("'").append(birds[0]).append("'");
+                                    for(int i = 1; i < birds.length; i++)
+                                    {
+                                        query.append(",'").append(birds[i]).append("'");
+                                    }
+                                    query.append(")");
+                                    break;
+                                case "o":
+                                    if(query.toString().contains("WHERE"))
+                                        query.append(" AND [Order Name] IN (");
+                                    else
+                                        query.append(" WHERE [Order Name] IN (");
+                                    query.append("'").append(birds[0]).append("'");
+                                    for(int i = 1; i < birds.length; i++)
+                                    {
+                                        query.append(",'").append(birds[i]).append("'");
+                                    }
+                                    query.append(")");
+                                    break;
+                                default:
+                                    break;
                             }
                             break;
                             
@@ -548,8 +534,6 @@ public class EntryPoint extends HttpServlet
                             break;
                     }
                 }
-                
-                System.out.println(main);
                 
                 String top = "";
                 
@@ -669,17 +653,19 @@ public class EntryPoint extends HttpServlet
                     String type = options[0];
                     String variable = "";
                     
-                    if(type.equals("s"))
+                    switch(type)
                     {
-                        variable = "SCI_NAME";
-                    }
-                    else if(type.equals("p"))
-                    {
-                        variable = "PRIM_NAME";
-                    }
-                    else if(type.equals("t"))
-                    {
-                        variable = "TAXONOMY";
+                        case "s":
+                            variable = "SCI_NAME";
+                            break;
+                        case "p":
+                            variable = "PRIM_NAME";
+                            break;
+                        case "t":
+                            variable = "TAXONOMY";
+                            break;
+                        default:
+                            break;
                     }
                     
                     options = options[1].split(",");
@@ -692,38 +678,6 @@ public class EntryPoint extends HttpServlet
                     System.out.println(names);
                     System.out.println(query.toString());
                     results = access.executeProcedure("NSFCourter2016.dbo.PIVOT_BIRD", new String[]{variable, names, query.toString(), top});
-                }
-                
-                //Will not be used. Also unfinished. During production of this feature, it was decided to be uneeded.
-                else if(request.getParameter("mp") != null)
-                {
-//                    String weatherVariable = request.getParameter("mp").split("/")[request.getParameter("mp").split("/").length - 2];
-//                    String seperation = request.getParameter("mp").split("/")[request.getParameter("mp").split("/").length - 1];
-//                    
-//                    Table weatherData = access.getTable("SELECT DATEPART(YEAR, [Date and time recorded]) AS [YEAR], DATEPART(MONTH, [Date and time recorded]) AS [MONTH], DATEPART(DAY, [Date and time recorded]) AS [DAY], [Climate Division ID], [" + weatherVariable + "] FROM [NSFCourter2016].[dbo].[MAIN_VIEW] " + query.toString() + " ORDER BY [YEAR] ASC, [MONTH] ASC, [DAY] ASC");
-//                    JSONObject maps = new JSONObject();
-//                    
-//                    
-//                    JSONObject map = new JSONObject("..\\..\\..\\GIS.json");
-//                    JSONArray features = map.getJSONArray("features");
-//                    
-//                    weatherData.next();
-//                    
-//                    Integer seperationValue = weatherData.getInt(seperation);
-//                    
-//                    
-//                    while(weatherData.next())
-//                    {
-//                        for(int i  = 0; i < features.length(); i++)
-//                        {
-//                            JSONObject feature = features.getJSONObject(i);
-//                            JSONObject properties = new JSONObject();
-//                            properties.put("data", "This will be weather data per climate division");
-//                            feature.remove("properties");
-//                            feature.put("properties", properties);
-//                            features.put(i, feature);
-//                        }
-//                    }
                 }
                 
                 //Else the nn option was select I.E. none
@@ -750,12 +704,9 @@ public class EntryPoint extends HttpServlet
                     if(request.getParameter("application") != null)
                     {
                         //Create the spreadsheet.
-                        SpreadSheetMaker ssm = new SpreadSheetMaker();
-                        String user = "cjedwards1@malone.edu";
-                        String timeStamp = new SimpleDateFormat("yyyyMMddHHmmss").format(new Timestamp(System.currentTimeMillis()));
-                        
-//                        FileOutputStream output = new FileOutputStream("..//webapps//avianMigration//files_for_download//" + user + " " + timeStamp + ".xlsx");
-                        ssm.export(results, user, user + " " + timeStamp);// output, user, user + " " + timeStamp);
+                        String user = "jcourter@malone.edu";
+                        new SpreadSheetMaker().export(results, user,
+                                user + " " + new SimpleDateFormat("yyyyMMddHHmmss").format(new Timestamp(System.currentTimeMillis())));
                         
                     }
                     
