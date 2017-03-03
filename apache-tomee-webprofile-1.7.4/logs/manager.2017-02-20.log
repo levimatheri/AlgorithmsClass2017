@@ -1,0 +1,332 @@
+Feb 20, 2017 6:25:54 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: init: Associated with Deployer 'Catalina:type=Deployer,host=localhost'
+Feb 20, 2017 6:25:54 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: init: Global resources are available
+Feb 20, 2017 6:25:54 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Feb 20, 2017 6:25:54 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: undeploy: Undeploying web application at '/avianMigration'
+Feb 20, 2017 6:25:54 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: install: Installing context configuration at 'file:/C:/Users/CJEDWA~1/AppData/Local/Temp/context8125951890324599560.xml'
+Feb 20, 2017 6:25:58 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: start: Starting web application '/avianMigration'
+Feb 20, 2017 6:28:44 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Feb 20, 2017 6:36:59 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Feb 20, 2017 6:36:59 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Feb 20, 2017 6:37:03 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Feb 20, 2017 6:37:03 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Feb 20, 2017 6:37:03 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: undeploy: Undeploying web application at '/avianMigration'
+Feb 20, 2017 6:37:03 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: install: Installing context configuration at 'file:/C:/Users/CJEDWA~1/AppData/Local/Temp/context7063156361791624702.xml'
+Feb 20, 2017 6:37:05 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: start: Starting web application '/avianMigration'
+Feb 20, 2017 6:37:15 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Feb 20, 2017 6:37:15 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Feb 20, 2017 6:37:15 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: undeploy: Undeploying web application at '/avianMigration'
+Feb 20, 2017 6:37:16 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: install: Installing context configuration at 'file:/C:/Users/CJEDWA~1/AppData/Local/Temp/context8685656297081605546.xml'
+Feb 20, 2017 6:37:17 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: start: Starting web application '/avianMigration'
+Feb 20, 2017 6:40:17 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Feb 20, 2017 6:40:17 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Feb 20, 2017 6:40:17 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: undeploy: Undeploying web application at '/avianMigration'
+Feb 20, 2017 6:40:18 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: install: Installing context configuration at 'file:/C:/Users/CJEDWA~1/AppData/Local/Temp/context4431146547659157678.xml'
+Feb 20, 2017 6:40:19 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: start: Starting web application '/avianMigration'
+Feb 20, 2017 6:40:58 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Feb 20, 2017 6:40:58 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Feb 20, 2017 6:40:58 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: undeploy: Undeploying web application at '/avianMigration'
+Feb 20, 2017 6:40:58 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: install: Installing context configuration at 'file:/C:/Users/CJEDWA~1/AppData/Local/Temp/context615638073977659754.xml'
+Feb 20, 2017 6:41:00 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: start: Starting web application '/avianMigration'
+Feb 20, 2017 6:42:30 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Feb 20, 2017 6:42:30 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Feb 20, 2017 6:42:30 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: undeploy: Undeploying web application at '/avianMigration'
+Feb 20, 2017 6:42:31 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: install: Installing context configuration at 'file:/C:/Users/CJEDWA~1/AppData/Local/Temp/context4786552163758803009.xml'
+Feb 20, 2017 6:42:32 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: start: Starting web application '/avianMigration'
+Feb 20, 2017 6:45:00 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Feb 20, 2017 6:45:00 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Feb 20, 2017 6:45:00 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: undeploy: Undeploying web application at '/avianMigration'
+Feb 20, 2017 6:45:00 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: install: Installing context configuration at 'file:/C:/Users/CJEDWA~1/AppData/Local/Temp/context8780090425023509425.xml'
+Feb 20, 2017 6:45:02 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: start: Starting web application '/avianMigration'
+Feb 20, 2017 6:48:25 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Feb 20, 2017 6:48:25 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Feb 20, 2017 6:48:25 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: undeploy: Undeploying web application at '/avianMigration'
+Feb 20, 2017 6:48:26 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: install: Installing context configuration at 'file:/C:/Users/CJEDWA~1/AppData/Local/Temp/context3340233144002906915.xml'
+Feb 20, 2017 6:48:27 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: start: Starting web application '/avianMigration'
+Feb 20, 2017 6:51:26 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Feb 20, 2017 6:51:26 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Feb 20, 2017 6:51:26 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: undeploy: Undeploying web application at '/avianMigration'
+Feb 20, 2017 6:51:27 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: install: Installing context configuration at 'file:/C:/Users/CJEDWA~1/AppData/Local/Temp/context8160603374698647300.xml'
+Feb 20, 2017 6:51:29 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: start: Starting web application '/avianMigration'
+Feb 20, 2017 6:51:52 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Feb 20, 2017 6:51:52 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Feb 20, 2017 6:51:52 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: undeploy: Undeploying web application at '/avianMigration'
+Feb 20, 2017 6:51:53 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: install: Installing context configuration at 'file:/C:/Users/CJEDWA~1/AppData/Local/Temp/context3460551958988586528.xml'
+Feb 20, 2017 6:51:54 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: start: Starting web application '/avianMigration'
+Feb 20, 2017 6:53:02 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Feb 20, 2017 6:53:02 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Feb 20, 2017 6:53:02 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: undeploy: Undeploying web application at '/avianMigration'
+Feb 20, 2017 6:53:02 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: install: Installing context configuration at 'file:/C:/Users/CJEDWA~1/AppData/Local/Temp/context5174070410848782517.xml'
+Feb 20, 2017 6:53:04 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: start: Starting web application '/avianMigration'
+Feb 20, 2017 6:57:19 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Feb 20, 2017 6:57:19 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Feb 20, 2017 6:57:19 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: undeploy: Undeploying web application at '/avianMigration'
+Feb 20, 2017 6:57:19 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: install: Installing context configuration at 'file:/C:/Users/CJEDWA~1/AppData/Local/Temp/context3633857720644720673.xml'
+Feb 20, 2017 6:57:21 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: start: Starting web application '/avianMigration'
+Feb 20, 2017 7:02:05 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Feb 20, 2017 7:02:08 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Feb 20, 2017 7:02:08 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Feb 20, 2017 7:02:08 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: undeploy: Undeploying web application at '/avianMigration'
+Feb 20, 2017 7:02:09 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: install: Installing context configuration at 'file:/C:/Users/CJEDWA~1/AppData/Local/Temp/context1431590811638336554.xml'
+Feb 20, 2017 7:02:10 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: start: Starting web application '/avianMigration'
+Feb 20, 2017 7:21:42 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Feb 20, 2017 7:21:42 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Feb 20, 2017 7:21:42 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: undeploy: Undeploying web application at '/avianMigration'
+Feb 20, 2017 7:21:43 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: install: Installing context configuration at 'file:/C:/Users/CJEDWA~1/AppData/Local/Temp/context3471716496089466321.xml'
+Feb 20, 2017 7:21:44 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: start: Starting web application '/avianMigration'
+Feb 20, 2017 7:26:42 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Feb 20, 2017 7:26:42 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: restart: Reloading web application '/avianMigration'
+Feb 20, 2017 7:26:55 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Feb 20, 2017 7:26:55 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Feb 20, 2017 7:26:55 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: undeploy: Undeploying web application at '/avianMigration'
+Feb 20, 2017 7:26:56 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: install: Installing context configuration at 'file:/C:/Users/CJEDWA~1/AppData/Local/Temp/context6082276504177333222.xml'
+Feb 20, 2017 7:26:57 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: start: Starting web application '/avianMigration'
+Feb 20, 2017 7:28:58 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Feb 20, 2017 7:28:58 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Feb 20, 2017 7:28:58 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: undeploy: Undeploying web application at '/avianMigration'
+Feb 20, 2017 7:28:59 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: install: Installing context configuration at 'file:/C:/Users/CJEDWA~1/AppData/Local/Temp/context4314979341777605502.xml'
+Feb 20, 2017 7:29:00 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: start: Starting web application '/avianMigration'
+Feb 20, 2017 7:30:46 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Feb 20, 2017 7:30:47 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Feb 20, 2017 7:30:47 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: undeploy: Undeploying web application at '/avianMigration'
+Feb 20, 2017 7:30:47 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: install: Installing context configuration at 'file:/C:/Users/CJEDWA~1/AppData/Local/Temp/context8061526411395477161.xml'
+Feb 20, 2017 7:30:48 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: start: Starting web application '/avianMigration'
+Feb 20, 2017 7:31:50 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Feb 20, 2017 7:31:50 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Feb 20, 2017 7:31:50 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: undeploy: Undeploying web application at '/avianMigration'
+Feb 20, 2017 7:31:51 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: install: Installing context configuration at 'file:/C:/Users/CJEDWA~1/AppData/Local/Temp/context6518031867188005464.xml'
+Feb 20, 2017 7:31:52 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: start: Starting web application '/avianMigration'
+Feb 20, 2017 7:32:42 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Feb 20, 2017 7:32:42 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Feb 20, 2017 7:32:42 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: undeploy: Undeploying web application at '/avianMigration'
+Feb 20, 2017 7:32:43 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: install: Installing context configuration at 'file:/C:/Users/CJEDWA~1/AppData/Local/Temp/context5676726579139612098.xml'
+Feb 20, 2017 7:32:44 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: start: Starting web application '/avianMigration'
+Feb 20, 2017 7:32:57 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Feb 20, 2017 7:32:57 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Feb 20, 2017 7:32:57 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: undeploy: Undeploying web application at '/avianMigration'
+Feb 20, 2017 7:32:57 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: install: Installing context configuration at 'file:/C:/Users/CJEDWA~1/AppData/Local/Temp/context5257000759751337586.xml'
+Feb 20, 2017 7:32:59 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: start: Starting web application '/avianMigration'
+Feb 20, 2017 7:33:29 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Feb 20, 2017 7:33:29 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Feb 20, 2017 7:33:29 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: undeploy: Undeploying web application at '/avianMigration'
+Feb 20, 2017 7:33:29 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: install: Installing context configuration at 'file:/C:/Users/CJEDWA~1/AppData/Local/Temp/context139853674348568406.xml'
+Feb 20, 2017 7:33:31 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: start: Starting web application '/avianMigration'
+Feb 20, 2017 7:35:18 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Feb 20, 2017 7:35:18 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Feb 20, 2017 7:35:18 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: undeploy: Undeploying web application at '/avianMigration'
+Feb 20, 2017 7:35:19 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: install: Installing context configuration at 'file:/C:/Users/CJEDWA~1/AppData/Local/Temp/context6825786993650304885.xml'
+Feb 20, 2017 7:35:20 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: start: Starting web application '/avianMigration'
+Feb 20, 2017 7:37:34 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Feb 20, 2017 7:37:34 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Feb 20, 2017 7:37:34 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: undeploy: Undeploying web application at '/avianMigration'
+Feb 20, 2017 7:37:35 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: install: Installing context configuration at 'file:/C:/Users/CJEDWA~1/AppData/Local/Temp/context512607877541715139.xml'
+Feb 20, 2017 7:37:36 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: start: Starting web application '/avianMigration'
+Feb 20, 2017 7:38:40 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Feb 20, 2017 7:38:40 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Feb 20, 2017 7:38:40 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: undeploy: Undeploying web application at '/avianMigration'
+Feb 20, 2017 7:38:41 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: install: Installing context configuration at 'file:/C:/Users/CJEDWA~1/AppData/Local/Temp/context8955775039581178828.xml'
+Feb 20, 2017 7:38:43 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: start: Starting web application '/avianMigration'
+Feb 20, 2017 7:40:07 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Feb 20, 2017 7:40:07 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Feb 20, 2017 7:40:07 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: undeploy: Undeploying web application at '/avianMigration'
+Feb 20, 2017 7:40:08 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: install: Installing context configuration at 'file:/C:/Users/CJEDWA~1/AppData/Local/Temp/context3113594515973232990.xml'
+Feb 20, 2017 7:40:09 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: start: Starting web application '/avianMigration'
+Feb 20, 2017 7:40:34 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Feb 20, 2017 7:40:34 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Feb 20, 2017 7:40:34 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: undeploy: Undeploying web application at '/avianMigration'
+Feb 20, 2017 7:40:35 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: install: Installing context configuration at 'file:/C:/Users/CJEDWA~1/AppData/Local/Temp/context2362126214362612974.xml'
+Feb 20, 2017 7:40:36 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: start: Starting web application '/avianMigration'
+Feb 20, 2017 7:41:19 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Feb 20, 2017 7:41:19 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Feb 20, 2017 7:41:19 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: undeploy: Undeploying web application at '/avianMigration'
+Feb 20, 2017 7:41:19 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: install: Installing context configuration at 'file:/C:/Users/CJEDWA~1/AppData/Local/Temp/context1504669535775620222.xml'
+Feb 20, 2017 7:41:35 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Feb 20, 2017 7:41:35 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Feb 20, 2017 7:41:35 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: undeploy: Undeploying web application at '/avianMigration'
+Feb 20, 2017 7:41:36 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: install: Installing context configuration at 'file:/C:/Users/CJEDWA~1/AppData/Local/Temp/context4484151827576822293.xml'
+Feb 20, 2017 7:41:37 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: start: Starting web application '/avianMigration'
+Feb 20, 2017 7:42:17 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Feb 20, 2017 7:42:17 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Feb 20, 2017 7:42:17 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: undeploy: Undeploying web application at '/avianMigration'
+Feb 20, 2017 7:42:17 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: install: Installing context configuration at 'file:/C:/Users/CJEDWA~1/AppData/Local/Temp/context7343522994158196278.xml'
+Feb 20, 2017 7:42:19 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: start: Starting web application '/avianMigration'
+Feb 20, 2017 7:43:15 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Feb 20, 2017 7:43:15 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Feb 20, 2017 7:43:15 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: undeploy: Undeploying web application at '/avianMigration'
+Feb 20, 2017 7:43:16 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: install: Installing context configuration at 'file:/C:/Users/CJEDWA~1/AppData/Local/Temp/context7923974483907910216.xml'
+Feb 20, 2017 7:43:17 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: start: Starting web application '/avianMigration'
+Feb 20, 2017 7:44:35 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Feb 20, 2017 7:44:35 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Feb 20, 2017 7:44:35 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: undeploy: Undeploying web application at '/avianMigration'
+Feb 20, 2017 7:44:35 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: install: Installing context configuration at 'file:/C:/Users/CJEDWA~1/AppData/Local/Temp/context4363360541175609497.xml'
+Feb 20, 2017 7:44:37 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: start: Starting web application '/avianMigration'
+Feb 20, 2017 7:46:30 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Feb 20, 2017 7:46:30 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Feb 20, 2017 7:46:30 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: undeploy: Undeploying web application at '/avianMigration'
+Feb 20, 2017 7:46:30 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: install: Installing context configuration at 'file:/C:/Users/CJEDWA~1/AppData/Local/Temp/context4629279868767517540.xml'
+Feb 20, 2017 7:46:32 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: start: Starting web application '/avianMigration'

@@ -1,0 +1,1100 @@
+Feb 21, 2017 3:27:31 PM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Server version:        Apache Tomcat (TomEE)/7.0.68 (1.7.4)
+Feb 21, 2017 3:27:31 PM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Server built:          Feb 8 2016 20:25:54 UTC
+Feb 21, 2017 3:27:31 PM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Server number:         7.0.68.0
+Feb 21, 2017 3:27:31 PM org.apache.catalina.startup.VersionLoggerListener log
+INFO: OS Name:               Windows 10
+Feb 21, 2017 3:27:31 PM org.apache.catalina.startup.VersionLoggerListener log
+INFO: OS Version:            10.0
+Feb 21, 2017 3:27:31 PM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Architecture:          amd64
+Feb 21, 2017 3:27:31 PM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Java Home:             C:\Program Files\Java\jdk1.8.0_101\jre
+Feb 21, 2017 3:27:31 PM org.apache.catalina.startup.VersionLoggerListener log
+INFO: JVM Version:           1.8.0_101-b13
+Feb 21, 2017 3:27:31 PM org.apache.catalina.startup.VersionLoggerListener log
+INFO: JVM Vendor:            Oracle Corporation
+Feb 21, 2017 3:27:31 PM org.apache.catalina.startup.VersionLoggerListener log
+INFO: CATALINA_BASE:         C:\NSF Projects\AvianMigration\apache-tomee-webprofile-1.7.4
+Feb 21, 2017 3:27:31 PM org.apache.catalina.startup.VersionLoggerListener log
+INFO: CATALINA_HOME:         C:\NSF Projects\AvianMigration\apache-tomee-webprofile-1.7.4
+Feb 21, 2017 3:27:31 PM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Command line argument: -javaagent:C:\NSF Projects\AvianMigration\apache-tomee-webprofile-1.7.4\lib\openejb-javaagent.jar
+Feb 21, 2017 3:27:31 PM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Command line argument: -Djava.util.logging.config.file=C:\NSF Projects\AvianMigration\apache-tomee-webprofile-1.7.4\conf\logging.properties
+Feb 21, 2017 3:27:31 PM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Command line argument: -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+Feb 21, 2017 3:27:31 PM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Command line argument: -Djava.endorsed.dirs=C:\NSF Projects\AvianMigration\apache-tomee-webprofile-1.7.4\endorsed
+Feb 21, 2017 3:27:31 PM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Command line argument: -Dcatalina.base=C:\NSF Projects\AvianMigration\apache-tomee-webprofile-1.7.4
+Feb 21, 2017 3:27:31 PM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Command line argument: -Dcatalina.home=C:\NSF Projects\AvianMigration\apache-tomee-webprofile-1.7.4
+Feb 21, 2017 3:27:31 PM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Command line argument: -Djava.io.tmpdir=C:\NSF Projects\AvianMigration\apache-tomee-webprofile-1.7.4\temp
+Feb 21, 2017 3:27:31 PM org.apache.catalina.core.AprLifecycleListener lifecycleEvent
+INFO: The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: C:\Program Files\Java\jdk1.8.0_101\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\ProgramData\Oracle\Java\javapath;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\Microsoft SQL Server\110\Tools\Binn\ManagementStudio\;C:\Program Files (x86)\Microsoft SQL Server\110\Tools\Binn\;C:\Program Files\Microsoft SQL Server\110\Tools\Binn\;C:\Program Files (x86)\Microsoft SQL Server\110\DTS\Binn\;C:\Program Files (x86)\Microsoft SQL Server\Client SDK\ODBC\130\Tools\Binn\;C:\Program Files (x86)\Microsoft SQL Server\130\Tools\Binn\;C:\Program Files (x86)\Microsoft SQL Server\130\DTS\Binn\;C:\Program Files (x86)\Microsoft SQL Server\130\Tools\Binn\ManagementStudio\;C:\Program Files (x86)\QuickTime\QTSystem\;C:\Users\cjedwards1\AppData\Local\Microsoft\WindowsApps;C:\Program Files\Java\jdk1.8.0_101\bin;C:\Users\cjedwards1\Desktop\apache-maven-3.3.9\bin;C:\Users\cjedwards1\AppData\Local\Programs\Git\cmd;C:\apache-ant-1.10.1\bin;.
+Feb 21, 2017 3:27:31 PM org.apache.coyote.AbstractProtocol init
+INFO: Initializing ProtocolHandler ["http-bio-8080"]
+Feb 21, 2017 3:27:31 PM org.apache.coyote.AbstractProtocol init
+INFO: Initializing ProtocolHandler ["ajp-bio-8009"]
+Feb 21, 2017 3:27:31 PM org.apache.openejb.util.OptionsLog info
+INFO: Using 'openejb.jdbc.datasource-creator=org.apache.tomee.jdbc.TomEEDataSourceCreator'
+Feb 21, 2017 3:27:31 PM org.apache.openejb.OpenEJB$Instance <init>
+INFO: ********************************************************************************
+Feb 21, 2017 3:27:31 PM org.apache.openejb.OpenEJB$Instance <init>
+INFO: OpenEJB http://tomee.apache.org/
+Feb 21, 2017 3:27:31 PM org.apache.openejb.OpenEJB$Instance <init>
+INFO: Startup: Tue Feb 21 15:27:31 EST 2017
+Feb 21, 2017 3:27:31 PM org.apache.openejb.OpenEJB$Instance <init>
+INFO: Copyright 1999-2015 (C) Apache OpenEJB/TomEE Project, All Rights Reserved.
+Feb 21, 2017 3:27:31 PM org.apache.openejb.OpenEJB$Instance <init>
+INFO: Version: 4.7.4
+Feb 21, 2017 3:27:31 PM org.apache.openejb.OpenEJB$Instance <init>
+INFO: Build date: 20160304
+Feb 21, 2017 3:27:31 PM org.apache.openejb.OpenEJB$Instance <init>
+INFO: Build time: 09:05
+Feb 21, 2017 3:27:31 PM org.apache.openejb.OpenEJB$Instance <init>
+INFO: ********************************************************************************
+Feb 21, 2017 3:27:31 PM org.apache.openejb.OpenEJB$Instance <init>
+INFO: openejb.home = C:\NSF Projects\AvianMigration\apache-tomee-webprofile-1.7.4
+Feb 21, 2017 3:27:31 PM org.apache.openejb.OpenEJB$Instance <init>
+INFO: openejb.base = C:\NSF Projects\AvianMigration\apache-tomee-webprofile-1.7.4
+Feb 21, 2017 3:27:31 PM org.apache.openejb.cdi.CdiBuilder initializeOWB
+INFO: Created new singletonService org.apache.openejb.cdi.ThreadSingletonServiceImpl@5427c60c
+Feb 21, 2017 3:27:31 PM org.apache.openejb.cdi.CdiBuilder initializeOWB
+INFO: Succeeded in installing singleton service
+Feb 21, 2017 3:27:31 PM org.apache.openejb.config.ConfigurationFactory init
+INFO: openejb configuration file is 'C:\NSF Projects\AvianMigration\apache-tomee-webprofile-1.7.4\conf\tomee.xml'
+Feb 21, 2017 3:27:31 PM org.apache.openejb.config.ConfigurationFactory configureService
+INFO: Configuring Service(id=Tomcat Security Service, type=SecurityService, provider-id=Tomcat Security Service)
+Feb 21, 2017 3:27:31 PM org.apache.openejb.config.ConfigurationFactory configureService
+INFO: Configuring Service(id=Default Transaction Manager, type=TransactionManager, provider-id=Default Transaction Manager)
+Feb 21, 2017 3:27:31 PM org.apache.openejb.util.OptionsLog info
+INFO: Using 'openejb.system.apps=true'
+Feb 21, 2017 3:27:31 PM org.apache.openejb.config.ConfigurationFactory configureApplication
+INFO: Configuring enterprise application: openejb
+Feb 21, 2017 3:27:32 PM org.apache.openejb.config.InitEjbDeployments deploy
+INFO: Using openejb.deploymentId.format '{ejbName}'
+Feb 21, 2017 3:27:32 PM org.apache.openejb.config.InitEjbDeployments deploy
+INFO: Auto-deploying ejb openejb/Deployer: EjbDeployment(deployment-id=openejb/Deployer)
+Feb 21, 2017 3:27:32 PM org.apache.openejb.config.InitEjbDeployments deploy
+INFO: Auto-deploying ejb openejb/ConfigurationInfo: EjbDeployment(deployment-id=openejb/ConfigurationInfo)
+Feb 21, 2017 3:27:32 PM org.apache.openejb.config.InitEjbDeployments deploy
+INFO: Auto-deploying ejb MEJB: EjbDeployment(deployment-id=MEJB)
+Feb 21, 2017 3:27:32 PM org.apache.openejb.config.ConfigurationFactory configureService
+INFO: Configuring Service(id=Default Stateless Container, type=Container, provider-id=Default Stateless Container)
+Feb 21, 2017 3:27:32 PM org.apache.openejb.config.AutoConfig createContainer
+INFO: Auto-creating a container for bean openejb/Deployer: Container(type=STATELESS, id=Default Stateless Container)
+Feb 21, 2017 3:27:32 PM org.apache.openejb.config.AppInfoBuilder build
+INFO: Enterprise application "openejb" loaded.
+Feb 21, 2017 3:27:32 PM org.apache.openejb.assembler.classic.Assembler createRecipe
+INFO: Creating TransactionManager(id=Default Transaction Manager)
+Feb 21, 2017 3:27:32 PM org.apache.openejb.assembler.classic.Assembler createRecipe
+INFO: Creating SecurityService(id=Tomcat Security Service)
+Feb 21, 2017 3:27:32 PM org.apache.openejb.assembler.classic.Assembler createRecipe
+INFO: Creating Container(id=Default Stateless Container)
+Feb 21, 2017 3:27:32 PM org.apache.openejb.assembler.classic.Assembler createAppClassLoader
+INFO: Not creating another application classloader for openejb
+Feb 21, 2017 3:27:32 PM org.apache.openejb.assembler.classic.Assembler createApplication
+INFO: Assembling app: openejb
+Feb 21, 2017 3:27:32 PM org.apache.openejb.util.OptionsLog info
+INFO: Using 'openejb.jndiname.format={deploymentId}{interfaceType.openejbLegacyName}'
+Feb 21, 2017 3:27:32 PM org.apache.openejb.assembler.classic.JndiBuilder bind
+INFO: Jndi(name=openejb/DeployerBusinessRemote) --> Ejb(deployment-id=openejb/Deployer)
+Feb 21, 2017 3:27:32 PM org.apache.openejb.assembler.classic.JndiBuilder bind
+INFO: Jndi(name=global/openejb/openejb/Deployer!org.apache.openejb.assembler.Deployer) --> Ejb(deployment-id=openejb/Deployer)
+Feb 21, 2017 3:27:32 PM org.apache.openejb.assembler.classic.JndiBuilder bind
+INFO: Jndi(name=global/openejb/openejb/Deployer) --> Ejb(deployment-id=openejb/Deployer)
+Feb 21, 2017 3:27:32 PM org.apache.openejb.assembler.classic.JndiBuilder bind
+INFO: Jndi(name=openejb/ConfigurationInfoBusinessRemote) --> Ejb(deployment-id=openejb/ConfigurationInfo)
+Feb 21, 2017 3:27:32 PM org.apache.openejb.assembler.classic.JndiBuilder bind
+INFO: Jndi(name=global/openejb/openejb/ConfigurationInfo!org.apache.openejb.assembler.classic.cmd.ConfigurationInfo) --> Ejb(deployment-id=openejb/ConfigurationInfo)
+Feb 21, 2017 3:27:32 PM org.apache.openejb.assembler.classic.JndiBuilder bind
+INFO: Jndi(name=global/openejb/openejb/ConfigurationInfo) --> Ejb(deployment-id=openejb/ConfigurationInfo)
+Feb 21, 2017 3:27:32 PM org.apache.openejb.assembler.classic.JndiBuilder bind
+INFO: Jndi(name=MEJB) --> Ejb(deployment-id=MEJB)
+Feb 21, 2017 3:27:32 PM org.apache.openejb.assembler.classic.JndiBuilder bind
+INFO: Jndi(name=global/openejb/MEJB!javax.management.j2ee.ManagementHome) --> Ejb(deployment-id=MEJB)
+Feb 21, 2017 3:27:32 PM org.apache.openejb.assembler.classic.JndiBuilder bind
+INFO: Jndi(name=global/openejb/MEJB) --> Ejb(deployment-id=MEJB)
+Feb 21, 2017 3:27:32 PM org.apache.openejb.assembler.classic.Assembler startEjbs
+INFO: Created Ejb(deployment-id=MEJB, ejb-name=MEJB, container=Default Stateless Container)
+Feb 21, 2017 3:27:32 PM org.apache.openejb.assembler.classic.Assembler startEjbs
+INFO: Created Ejb(deployment-id=openejb/ConfigurationInfo, ejb-name=openejb/ConfigurationInfo, container=Default Stateless Container)
+Feb 21, 2017 3:27:32 PM org.apache.openejb.assembler.classic.Assembler startEjbs
+INFO: Created Ejb(deployment-id=openejb/Deployer, ejb-name=openejb/Deployer, container=Default Stateless Container)
+Feb 21, 2017 3:27:32 PM org.apache.openejb.assembler.classic.Assembler startEjbs
+INFO: Started Ejb(deployment-id=MEJB, ejb-name=MEJB, container=Default Stateless Container)
+Feb 21, 2017 3:27:32 PM org.apache.openejb.assembler.classic.Assembler startEjbs
+INFO: Started Ejb(deployment-id=openejb/ConfigurationInfo, ejb-name=openejb/ConfigurationInfo, container=Default Stateless Container)
+Feb 21, 2017 3:27:32 PM org.apache.openejb.assembler.classic.Assembler startEjbs
+INFO: Started Ejb(deployment-id=openejb/Deployer, ejb-name=openejb/Deployer, container=Default Stateless Container)
+Feb 21, 2017 3:27:32 PM org.apache.openejb.assembler.classic.Assembler deployMBean
+INFO: Deployed MBean(openejb.user.mbeans:application=openejb,group=org.apache.openejb.assembler.monitoring,name=JMXDeployer)
+Feb 21, 2017 3:27:32 PM org.apache.openejb.assembler.classic.Assembler createApplication
+INFO: Deployed Application(path=openejb)
+Feb 21, 2017 3:27:32 PM org.apache.openejb.server.SimpleServiceManager start
+INFO:   ** Bound Services **
+Feb 21, 2017 3:27:32 PM org.apache.openejb.server.SimpleServiceManager printRow
+INFO:   NAME                 IP              PORT  
+Feb 21, 2017 3:27:32 PM org.apache.openejb.server.SimpleServiceManager start
+INFO: -------
+Feb 21, 2017 3:27:32 PM org.apache.openejb.server.SimpleServiceManager start
+INFO: Ready!
+Feb 21, 2017 3:27:32 PM org.apache.catalina.startup.Catalina load
+INFO: Initialization processed in 1320 ms
+Feb 21, 2017 3:27:32 PM org.apache.tomee.catalina.OpenEJBNamingContextListener bindResource
+INFO: Importing a Tomcat Resource with id 'UserDatabase' of type 'org.apache.catalina.UserDatabase'.
+Feb 21, 2017 3:27:32 PM org.apache.openejb.assembler.classic.Assembler createRecipe
+INFO: Creating Resource(id=UserDatabase)
+Feb 21, 2017 3:27:32 PM org.apache.catalina.core.StandardService startInternal
+INFO: Starting service Catalina
+Feb 21, 2017 3:27:32 PM org.apache.catalina.core.StandardEngine startInternal
+INFO: Starting Servlet Engine: Apache Tomcat (TomEE)/7.0.68 (1.7.4)
+Feb 21, 2017 3:27:32 PM org.apache.catalina.startup.HostConfig deployDescriptor
+INFO: Deploying configuration descriptor C:\NSF Projects\AvianMigration\apache-tomee-webprofile-1.7.4\conf\Catalina\localhost\avianMigration.xml
+Feb 21, 2017 3:27:32 PM org.apache.tomee.catalina.TomcatWebAppBuilder init
+INFO: ------------------------- localhost -> /avianMigration
+Feb 21, 2017 3:27:33 PM org.apache.catalina.loader.WebappClassLoaderBase validateJarFile
+INFO: validateJarFile(C:\NSF Projects\AvianMigration\avianMigration\build\web\WEB-INF\lib\servlet-api.jar) - jar not loaded. See Servlet Spec 3.0, section 10.7.2. Offending class: javax/servlet/Servlet.class
+Feb 21, 2017 3:27:34 PM org.apache.openejb.config.ConfigurationFactory configureApplication
+INFO: Configuring enterprise application: C:\NSF Projects\AvianMigration\avianMigration\build\web
+Feb 21, 2017 3:27:35 PM org.apache.openejb.config.ConfigurationFactory configureService
+INFO: Configuring Service(id=web/jdbc/TestDB, type=Resource, provider-id=Default JDBC Database)
+Feb 21, 2017 3:27:35 PM org.apache.openejb.assembler.classic.Assembler createRecipe
+INFO: Creating Resource(id=web/jdbc/TestDB)
+Feb 21, 2017 3:27:35 PM org.apache.tomee.jdbc.TomEEDataSourceCreator$TomEEDataSource readOnly
+INFO: Disabling testOnBorrow since no validation query is provided
+Feb 21, 2017 3:27:35 PM org.apache.tomcat.jdbc.pool.ConnectionPool checkPoolConfiguration
+WARNING: maxIdle is larger than maxActive, setting maxIdle to: 20
+Feb 21, 2017 3:27:35 PM org.apache.openejb.assembler.classic.Assembler unusedProperty
+WARNING: Property "maxTotal" not supported by "web/jdbc/TestDB"
+Feb 21, 2017 3:27:35 PM org.apache.openejb.assembler.classic.Assembler unusedProperty
+WARNING: Property "maxWaitMillis" not supported by "web/jdbc/TestDB"
+Feb 21, 2017 3:27:35 PM org.apache.openejb.config.AppInfoBuilder build
+INFO: Enterprise application "C:\NSF Projects\AvianMigration\avianMigration\build\web" loaded.
+Feb 21, 2017 3:27:35 PM org.apache.openejb.assembler.classic.Assembler createApplication
+INFO: Assembling app: C:\NSF Projects\AvianMigration\avianMigration\build\web
+Feb 21, 2017 3:27:35 PM org.apache.openejb.cdi.CdiBuilder initSingleton
+INFO: Existing thread singleton service in SystemInstance(): org.apache.openejb.cdi.ThreadSingletonServiceImpl@5427c60c
+Feb 21, 2017 3:27:35 PM org.apache.openejb.cdi.OpenEJBLifecycle startApplication
+INFO: OpenWebBeans Container is starting...
+Feb 21, 2017 3:27:35 PM org.apache.webbeans.plugins.PluginLoader startUp
+INFO: Adding OpenWebBeansPlugin : [CdiPlugin]
+Feb 21, 2017 3:27:35 PM org.apache.webbeans.plugins.PluginLoader startUp
+INFO: Adding OpenWebBeansPlugin : [OpenWebBeansJsfPlugin]
+Feb 21, 2017 3:27:35 PM org.apache.webbeans.config.BeansDeployer validateInjectionPoints
+INFO: All injection points were validated successfully.
+Feb 21, 2017 3:27:35 PM org.apache.openejb.cdi.OpenEJBLifecycle startApplication
+INFO: OpenWebBeans Container has started, it took 47 ms.
+Feb 21, 2017 3:27:35 PM org.apache.tomee.catalina.TomcatWebAppBuilder deployWebApps
+INFO: using context file C:\NSF Projects\AvianMigration\avianMigration\build\web\META-INF\context.xml
+Feb 21, 2017 3:27:35 PM org.apache.openejb.assembler.classic.Assembler createApplication
+INFO: Deployed Application(path=C:\NSF Projects\AvianMigration\avianMigration\build\web)
+Feb 21, 2017 3:27:35 PM org.springframework.web.context.ContextLoader initWebApplicationContext
+INFO: Root WebApplicationContext: initialization started
+Feb 21, 2017 3:27:35 PM org.springframework.context.support.AbstractApplicationContext prepareRefresh
+INFO: Refreshing Root WebApplicationContext: startup date [Tue Feb 21 15:27:35 EST 2017]; root of context hierarchy
+Feb 21, 2017 3:27:35 PM org.springframework.beans.factory.xml.XmlBeanDefinitionReader loadBeanDefinitions
+INFO: Loading XML bean definitions from ServletContext resource [/WEB-INF/applicationContext.xml]
+Feb 21, 2017 3:27:36 PM org.springframework.beans.factory.support.DefaultListableBeanFactory preInstantiateSingletons
+INFO: Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@3ab89597: defining beans []; root of factory hierarchy
+Feb 21, 2017 3:27:36 PM org.springframework.web.context.ContextLoader initWebApplicationContext
+INFO: Root WebApplicationContext: initialization completed in 329 ms
+Feb 21, 2017 3:27:36 PM org.springframework.web.servlet.FrameworkServlet initServletBean
+INFO: FrameworkServlet 'dispatcher': initialization started
+Feb 21, 2017 3:27:36 PM org.springframework.context.support.AbstractApplicationContext prepareRefresh
+INFO: Refreshing WebApplicationContext for namespace 'dispatcher-servlet': startup date [Tue Feb 21 15:27:36 EST 2017]; parent: Root WebApplicationContext
+Feb 21, 2017 3:27:36 PM org.springframework.beans.factory.xml.XmlBeanDefinitionReader loadBeanDefinitions
+INFO: Loading XML bean definitions from ServletContext resource [/WEB-INF/dispatcher-servlet.xml]
+Feb 21, 2017 3:27:36 PM org.springframework.beans.factory.support.DefaultListableBeanFactory preInstantiateSingletons
+INFO: Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@613065bd: defining beans [org.springframework.web.servlet.mvc.support.ControllerClassNameHandlerMapping#0,urlMapping,viewResolver,indexController]; parent: org.springframework.beans.factory.support.DefaultListableBeanFactory@3ab89597
+Feb 21, 2017 3:27:36 PM org.springframework.web.servlet.handler.AbstractUrlHandlerMapping registerHandler
+INFO: Mapped URL path [/index.htm] onto handler 'indexController'
+Feb 21, 2017 3:27:36 PM org.springframework.web.servlet.FrameworkServlet initServletBean
+INFO: FrameworkServlet 'dispatcher': initialization completed in 188 ms
+Feb 21, 2017 3:27:36 PM org.apache.catalina.startup.HostConfig deployDescriptor
+INFO: Deployment of configuration descriptor C:\NSF Projects\AvianMigration\apache-tomee-webprofile-1.7.4\conf\Catalina\localhost\avianMigration.xml has finished in 3,967 ms
+Feb 21, 2017 3:27:36 PM org.apache.catalina.startup.HostConfig deployDescriptor
+INFO: Deploying configuration descriptor C:\NSF Projects\AvianMigration\apache-tomee-webprofile-1.7.4\conf\Catalina\localhost\majorclassifier.xml
+Feb 21, 2017 3:27:36 PM org.apache.tomee.catalina.TomcatWebAppBuilder init
+INFO: ------------------------- localhost -> /majorclassifier
+Feb 21, 2017 3:27:36 PM org.apache.openejb.util.JarExtractor extract
+INFO: Extracting jar: C:\NSF Projects\AvianMigration\apache-tomee-webprofile-1.7.4\webapps\C:\Users\cjedwards1\Desktop\MajorClassifier\majorclassifier\build\web
+Feb 21, 2017 3:27:36 PM org.apache.tomee.catalina.TomcatWebAppBuilder init
+SEVERE: can't unpack 'C:\NSF Projects\AvianMigration\apache-tomee-webprofile-1.7.4\webapps\C:\Users\cjedwards1\Desktop\MajorClassifier\majorclassifier\build\web'
+Feb 21, 2017 3:27:36 PM org.apache.catalina.core.StandardContext resourcesStart
+SEVERE: Error starting static Resources
+java.lang.IllegalArgumentException: Document base C:\Users\cjedwards1\Desktop\MajorClassifier\majorclassifier\build\web does not exist or is not a readable directory
+	at org.apache.naming.resources.FileDirContext.setDocBase(FileDirContext.java:136)
+	at org.apache.catalina.core.StandardContext.resourcesStart(StandardContext.java:5197)
+	at org.apache.catalina.core.StandardContext.startInternal(StandardContext.java:5386)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:147)
+	at org.apache.catalina.core.ContainerBase.addChildInternal(ContainerBase.java:899)
+	at org.apache.catalina.core.ContainerBase.addChild(ContainerBase.java:875)
+	at org.apache.catalina.core.StandardHost.addChild(StandardHost.java:652)
+	at org.apache.catalina.startup.HostConfig.deployDescriptor(HostConfig.java:677)
+	at org.apache.catalina.startup.HostConfig$DeployDescriptor.run(HostConfig.java:1962)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+
+Feb 21, 2017 3:27:36 PM org.apache.catalina.core.ContainerBase addChildInternal
+SEVERE: ContainerBase.addChild: start: 
+org.apache.catalina.LifecycleException: Failed to start component [StandardEngine[Catalina].StandardHost[localhost].StandardContext[/majorclassifier]]
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:153)
+	at org.apache.catalina.core.ContainerBase.addChildInternal(ContainerBase.java:899)
+	at org.apache.catalina.core.ContainerBase.addChild(ContainerBase.java:875)
+	at org.apache.catalina.core.StandardHost.addChild(StandardHost.java:652)
+	at org.apache.catalina.startup.HostConfig.deployDescriptor(HostConfig.java:677)
+	at org.apache.catalina.startup.HostConfig$DeployDescriptor.run(HostConfig.java:1962)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: org.apache.catalina.LifecycleException: Error in resourceStart()
+	at org.apache.catalina.core.StandardContext.startInternal(StandardContext.java:5387)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:147)
+	... 10 more
+
+Feb 21, 2017 3:27:36 PM org.apache.catalina.startup.HostConfig deployDescriptor
+SEVERE: Error deploying configuration descriptor C:\NSF Projects\AvianMigration\apache-tomee-webprofile-1.7.4\conf\Catalina\localhost\majorclassifier.xml
+java.lang.IllegalStateException: ContainerBase.addChild: start: org.apache.catalina.LifecycleException: Failed to start component [StandardEngine[Catalina].StandardHost[localhost].StandardContext[/majorclassifier]]
+	at org.apache.catalina.core.ContainerBase.addChildInternal(ContainerBase.java:903)
+	at org.apache.catalina.core.ContainerBase.addChild(ContainerBase.java:875)
+	at org.apache.catalina.core.StandardHost.addChild(StandardHost.java:652)
+	at org.apache.catalina.startup.HostConfig.deployDescriptor(HostConfig.java:677)
+	at org.apache.catalina.startup.HostConfig$DeployDescriptor.run(HostConfig.java:1962)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+
+Feb 21, 2017 3:27:36 PM org.apache.catalina.startup.HostConfig deployDescriptor
+INFO: Deployment of configuration descriptor C:\NSF Projects\AvianMigration\apache-tomee-webprofile-1.7.4\conf\Catalina\localhost\majorclassifier.xml has finished in 47 ms
+Feb 21, 2017 3:27:36 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deploying web application directory C:\NSF Projects\AvianMigration\apache-tomee-webprofile-1.7.4\webapps\docs
+Feb 21, 2017 3:27:36 PM org.apache.tomee.catalina.TomcatWebAppBuilder init
+INFO: ------------------------- localhost -> /docs
+Feb 21, 2017 3:27:36 PM org.apache.openejb.config.ConfigurationFactory configureApplication
+INFO: Configuring enterprise application: C:\NSF Projects\AvianMigration\apache-tomee-webprofile-1.7.4\webapps\docs
+Feb 21, 2017 3:27:36 PM org.apache.openejb.config.ConfigurationFactory configureService
+INFO: Configuring Service(id=docs/jdbc/TestDB, type=Resource, provider-id=Default JDBC Database)
+Feb 21, 2017 3:27:36 PM org.apache.openejb.assembler.classic.Assembler createRecipe
+INFO: Creating Resource(id=docs/jdbc/TestDB)
+Feb 21, 2017 3:27:36 PM org.apache.tomee.jdbc.TomEEDataSourceCreator$TomEEDataSource readOnly
+INFO: Disabling testOnBorrow since no validation query is provided
+Feb 21, 2017 3:27:36 PM org.apache.tomcat.jdbc.pool.ConnectionPool checkPoolConfiguration
+WARNING: maxIdle is larger than maxActive, setting maxIdle to: 20
+Feb 21, 2017 3:27:36 PM org.apache.openejb.assembler.classic.Assembler unusedProperty
+WARNING: Property "maxTotal" not supported by "docs/jdbc/TestDB"
+Feb 21, 2017 3:27:36 PM org.apache.openejb.assembler.classic.Assembler unusedProperty
+WARNING: Property "maxWaitMillis" not supported by "docs/jdbc/TestDB"
+Feb 21, 2017 3:27:36 PM org.apache.openejb.config.AppInfoBuilder build
+INFO: Enterprise application "C:\NSF Projects\AvianMigration\apache-tomee-webprofile-1.7.4\webapps\docs" loaded.
+Feb 21, 2017 3:27:36 PM org.apache.openejb.assembler.classic.Assembler createApplication
+INFO: Assembling app: C:\NSF Projects\AvianMigration\apache-tomee-webprofile-1.7.4\webapps\docs
+Feb 21, 2017 3:27:36 PM org.apache.openejb.cdi.CdiBuilder initSingleton
+INFO: Existing thread singleton service in SystemInstance(): org.apache.openejb.cdi.ThreadSingletonServiceImpl@5427c60c
+Feb 21, 2017 3:27:36 PM org.apache.openejb.cdi.OpenEJBLifecycle startApplication
+INFO: OpenWebBeans Container is starting...
+Feb 21, 2017 3:27:36 PM org.apache.webbeans.plugins.PluginLoader startUp
+INFO: Adding OpenWebBeansPlugin : [CdiPlugin]
+Feb 21, 2017 3:27:36 PM org.apache.webbeans.plugins.PluginLoader startUp
+INFO: Adding OpenWebBeansPlugin : [OpenWebBeansJsfPlugin]
+Feb 21, 2017 3:27:36 PM org.apache.webbeans.config.BeansDeployer validateInjectionPoints
+INFO: All injection points were validated successfully.
+Feb 21, 2017 3:27:36 PM org.apache.openejb.cdi.OpenEJBLifecycle startApplication
+INFO: OpenWebBeans Container has started, it took 16 ms.
+Feb 21, 2017 3:27:36 PM org.apache.openejb.assembler.classic.Assembler createApplication
+INFO: Deployed Application(path=C:\NSF Projects\AvianMigration\apache-tomee-webprofile-1.7.4\webapps\docs)
+Feb 21, 2017 3:27:36 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deployment of web application directory C:\NSF Projects\AvianMigration\apache-tomee-webprofile-1.7.4\webapps\docs has finished in 94 ms
+Feb 21, 2017 3:27:36 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deploying web application directory C:\NSF Projects\AvianMigration\apache-tomee-webprofile-1.7.4\webapps\host-manager
+Feb 21, 2017 3:27:36 PM org.apache.tomee.catalina.TomcatWebAppBuilder init
+INFO: ------------------------- localhost -> /host-manager
+Feb 21, 2017 3:27:36 PM org.apache.openejb.config.ConfigurationFactory configureApplication
+INFO: Configuring enterprise application: C:\NSF Projects\AvianMigration\apache-tomee-webprofile-1.7.4\webapps\host-manager
+Feb 21, 2017 3:27:36 PM org.apache.openejb.config.ConfigurationFactory configureService
+INFO: Configuring Service(id=host-manager/jdbc/TestDB, type=Resource, provider-id=Default JDBC Database)
+Feb 21, 2017 3:27:36 PM org.apache.openejb.assembler.classic.Assembler createRecipe
+INFO: Creating Resource(id=host-manager/jdbc/TestDB)
+Feb 21, 2017 3:27:36 PM org.apache.tomee.jdbc.TomEEDataSourceCreator$TomEEDataSource readOnly
+INFO: Disabling testOnBorrow since no validation query is provided
+Feb 21, 2017 3:27:36 PM org.apache.tomcat.jdbc.pool.ConnectionPool checkPoolConfiguration
+WARNING: maxIdle is larger than maxActive, setting maxIdle to: 20
+Feb 21, 2017 3:27:36 PM org.apache.openejb.assembler.classic.Assembler unusedProperty
+WARNING: Property "maxTotal" not supported by "host-manager/jdbc/TestDB"
+Feb 21, 2017 3:27:36 PM org.apache.openejb.assembler.classic.Assembler unusedProperty
+WARNING: Property "maxWaitMillis" not supported by "host-manager/jdbc/TestDB"
+Feb 21, 2017 3:27:36 PM org.apache.openejb.config.AppInfoBuilder build
+INFO: Enterprise application "C:\NSF Projects\AvianMigration\apache-tomee-webprofile-1.7.4\webapps\host-manager" loaded.
+Feb 21, 2017 3:27:36 PM org.apache.openejb.assembler.classic.Assembler createApplication
+INFO: Assembling app: C:\NSF Projects\AvianMigration\apache-tomee-webprofile-1.7.4\webapps\host-manager
+Feb 21, 2017 3:27:36 PM org.apache.openejb.cdi.CdiBuilder initSingleton
+INFO: Existing thread singleton service in SystemInstance(): org.apache.openejb.cdi.ThreadSingletonServiceImpl@5427c60c
+Feb 21, 2017 3:27:36 PM org.apache.openejb.cdi.OpenEJBLifecycle startApplication
+INFO: OpenWebBeans Container is starting...
+Feb 21, 2017 3:27:36 PM org.apache.webbeans.plugins.PluginLoader startUp
+INFO: Adding OpenWebBeansPlugin : [CdiPlugin]
+Feb 21, 2017 3:27:36 PM org.apache.webbeans.plugins.PluginLoader startUp
+INFO: Adding OpenWebBeansPlugin : [OpenWebBeansJsfPlugin]
+Feb 21, 2017 3:27:36 PM org.apache.webbeans.config.BeansDeployer validateInjectionPoints
+INFO: All injection points were validated successfully.
+Feb 21, 2017 3:27:36 PM org.apache.openejb.cdi.OpenEJBLifecycle startApplication
+INFO: OpenWebBeans Container has started, it took 0 ms.
+Feb 21, 2017 3:27:36 PM org.apache.tomee.catalina.TomcatWebAppBuilder deployWebApps
+INFO: using context file C:\NSF Projects\AvianMigration\apache-tomee-webprofile-1.7.4\webapps\host-manager\META-INF\context.xml
+Feb 21, 2017 3:27:36 PM org.apache.openejb.assembler.classic.Assembler createApplication
+INFO: Deployed Application(path=C:\NSF Projects\AvianMigration\apache-tomee-webprofile-1.7.4\webapps\host-manager)
+Feb 21, 2017 3:27:36 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deployment of web application directory C:\NSF Projects\AvianMigration\apache-tomee-webprofile-1.7.4\webapps\host-manager has finished in 203 ms
+Feb 21, 2017 3:27:36 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deploying web application directory C:\NSF Projects\AvianMigration\apache-tomee-webprofile-1.7.4\webapps\manager
+Feb 21, 2017 3:27:36 PM org.apache.tomee.catalina.TomcatWebAppBuilder init
+INFO: ------------------------- localhost -> /manager
+Feb 21, 2017 3:27:36 PM org.apache.openejb.config.ConfigurationFactory configureApplication
+INFO: Configuring enterprise application: C:\NSF Projects\AvianMigration\apache-tomee-webprofile-1.7.4\webapps\manager
+Feb 21, 2017 3:27:36 PM org.apache.openejb.config.ConfigurationFactory configureService
+INFO: Configuring Service(id=manager/jdbc/TestDB, type=Resource, provider-id=Default JDBC Database)
+Feb 21, 2017 3:27:36 PM org.apache.openejb.assembler.classic.Assembler createRecipe
+INFO: Creating Resource(id=manager/jdbc/TestDB)
+Feb 21, 2017 3:27:36 PM org.apache.tomee.jdbc.TomEEDataSourceCreator$TomEEDataSource readOnly
+INFO: Disabling testOnBorrow since no validation query is provided
+Feb 21, 2017 3:27:36 PM org.apache.tomcat.jdbc.pool.ConnectionPool checkPoolConfiguration
+WARNING: maxIdle is larger than maxActive, setting maxIdle to: 20
+Feb 21, 2017 3:27:36 PM org.apache.openejb.assembler.classic.Assembler unusedProperty
+WARNING: Property "maxTotal" not supported by "manager/jdbc/TestDB"
+Feb 21, 2017 3:27:36 PM org.apache.openejb.assembler.classic.Assembler unusedProperty
+WARNING: Property "maxWaitMillis" not supported by "manager/jdbc/TestDB"
+Feb 21, 2017 3:27:36 PM org.apache.openejb.config.AppInfoBuilder build
+INFO: Enterprise application "C:\NSF Projects\AvianMigration\apache-tomee-webprofile-1.7.4\webapps\manager" loaded.
+Feb 21, 2017 3:27:36 PM org.apache.openejb.assembler.classic.Assembler createApplication
+INFO: Assembling app: C:\NSF Projects\AvianMigration\apache-tomee-webprofile-1.7.4\webapps\manager
+Feb 21, 2017 3:27:36 PM org.apache.openejb.cdi.CdiBuilder initSingleton
+INFO: Existing thread singleton service in SystemInstance(): org.apache.openejb.cdi.ThreadSingletonServiceImpl@5427c60c
+Feb 21, 2017 3:27:36 PM org.apache.openejb.cdi.OpenEJBLifecycle startApplication
+INFO: OpenWebBeans Container is starting...
+Feb 21, 2017 3:27:36 PM org.apache.webbeans.plugins.PluginLoader startUp
+INFO: Adding OpenWebBeansPlugin : [CdiPlugin]
+Feb 21, 2017 3:27:36 PM org.apache.webbeans.plugins.PluginLoader startUp
+INFO: Adding OpenWebBeansPlugin : [OpenWebBeansJsfPlugin]
+Feb 21, 2017 3:27:36 PM org.apache.webbeans.config.BeansDeployer validateInjectionPoints
+INFO: All injection points were validated successfully.
+Feb 21, 2017 3:27:36 PM org.apache.openejb.cdi.OpenEJBLifecycle startApplication
+INFO: OpenWebBeans Container has started, it took 16 ms.
+Feb 21, 2017 3:27:36 PM org.apache.tomee.catalina.TomcatWebAppBuilder deployWebApps
+INFO: using context file C:\NSF Projects\AvianMigration\apache-tomee-webprofile-1.7.4\webapps\manager\META-INF\context.xml
+Feb 21, 2017 3:27:36 PM org.apache.openejb.assembler.classic.Assembler createApplication
+INFO: Deployed Application(path=C:\NSF Projects\AvianMigration\apache-tomee-webprofile-1.7.4\webapps\manager)
+Feb 21, 2017 3:27:36 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deployment of web application directory C:\NSF Projects\AvianMigration\apache-tomee-webprofile-1.7.4\webapps\manager has finished in 78 ms
+Feb 21, 2017 3:27:36 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deploying web application directory C:\NSF Projects\AvianMigration\apache-tomee-webprofile-1.7.4\webapps\ROOT
+Feb 21, 2017 3:27:36 PM org.apache.tomee.catalina.TomcatWebAppBuilder init
+INFO: ------------------------- localhost -> /
+Feb 21, 2017 3:27:36 PM org.apache.openejb.config.ConfigurationFactory configureApplication
+INFO: Configuring enterprise application: C:\NSF Projects\AvianMigration\apache-tomee-webprofile-1.7.4\webapps\ROOT
+Feb 21, 2017 3:27:36 PM org.apache.openejb.config.ConfigurationFactory configureService
+INFO: Configuring Service(id=ROOT/jdbc/TestDB, type=Resource, provider-id=Default JDBC Database)
+Feb 21, 2017 3:27:36 PM org.apache.openejb.assembler.classic.Assembler createRecipe
+INFO: Creating Resource(id=ROOT/jdbc/TestDB)
+Feb 21, 2017 3:27:36 PM org.apache.tomee.jdbc.TomEEDataSourceCreator$TomEEDataSource readOnly
+INFO: Disabling testOnBorrow since no validation query is provided
+Feb 21, 2017 3:27:36 PM org.apache.tomcat.jdbc.pool.ConnectionPool checkPoolConfiguration
+WARNING: maxIdle is larger than maxActive, setting maxIdle to: 20
+Feb 21, 2017 3:27:36 PM org.apache.openejb.assembler.classic.Assembler unusedProperty
+WARNING: Property "maxTotal" not supported by "ROOT/jdbc/TestDB"
+Feb 21, 2017 3:27:36 PM org.apache.openejb.assembler.classic.Assembler unusedProperty
+WARNING: Property "maxWaitMillis" not supported by "ROOT/jdbc/TestDB"
+Feb 21, 2017 3:27:36 PM org.apache.openejb.config.AppInfoBuilder build
+INFO: Enterprise application "C:\NSF Projects\AvianMigration\apache-tomee-webprofile-1.7.4\webapps\ROOT" loaded.
+Feb 21, 2017 3:27:36 PM org.apache.openejb.assembler.classic.Assembler createApplication
+INFO: Assembling app: C:\NSF Projects\AvianMigration\apache-tomee-webprofile-1.7.4\webapps\ROOT
+Feb 21, 2017 3:27:36 PM org.apache.openejb.cdi.CdiBuilder initSingleton
+INFO: Existing thread singleton service in SystemInstance(): org.apache.openejb.cdi.ThreadSingletonServiceImpl@5427c60c
+Feb 21, 2017 3:27:36 PM org.apache.openejb.cdi.OpenEJBLifecycle startApplication
+INFO: OpenWebBeans Container is starting...
+Feb 21, 2017 3:27:36 PM org.apache.webbeans.plugins.PluginLoader startUp
+INFO: Adding OpenWebBeansPlugin : [CdiPlugin]
+Feb 21, 2017 3:27:36 PM org.apache.webbeans.plugins.PluginLoader startUp
+INFO: Adding OpenWebBeansPlugin : [OpenWebBeansJsfPlugin]
+Feb 21, 2017 3:27:36 PM org.apache.webbeans.config.BeansDeployer validateInjectionPoints
+INFO: All injection points were validated successfully.
+Feb 21, 2017 3:27:36 PM org.apache.openejb.cdi.OpenEJBLifecycle startApplication
+INFO: OpenWebBeans Container has started, it took 0 ms.
+Feb 21, 2017 3:27:36 PM org.apache.openejb.assembler.classic.Assembler createApplication
+INFO: Deployed Application(path=C:\NSF Projects\AvianMigration\apache-tomee-webprofile-1.7.4\webapps\ROOT)
+Feb 21, 2017 3:27:36 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deployment of web application directory C:\NSF Projects\AvianMigration\apache-tomee-webprofile-1.7.4\webapps\ROOT has finished in 63 ms
+Feb 21, 2017 3:27:36 PM org.apache.coyote.AbstractProtocol start
+INFO: Starting ProtocolHandler ["http-bio-8080"]
+Feb 21, 2017 3:27:36 PM org.apache.coyote.AbstractProtocol start
+INFO: Starting ProtocolHandler ["ajp-bio-8009"]
+Feb 21, 2017 3:27:36 PM org.apache.catalina.startup.Catalina start
+INFO: Server startup in 4496 ms
+Feb 21, 2017 3:35:00 PM org.apache.catalina.core.StandardServer await
+INFO: A valid shutdown command was received via the shutdown port. Stopping the Server instance.
+Feb 21, 2017 3:35:00 PM org.apache.coyote.AbstractProtocol pause
+INFO: Pausing ProtocolHandler ["http-bio-8080"]
+Feb 21, 2017 3:35:00 PM org.apache.coyote.AbstractProtocol pause
+INFO: Pausing ProtocolHandler ["ajp-bio-8009"]
+Feb 21, 2017 3:35:00 PM org.apache.catalina.core.StandardService stopInternal
+INFO: Stopping service Catalina
+Feb 21, 2017 3:35:00 PM org.springframework.context.support.AbstractApplicationContext doClose
+INFO: Closing WebApplicationContext for namespace 'dispatcher-servlet': startup date [Tue Feb 21 15:27:36 EST 2017]; parent: Root WebApplicationContext
+Feb 21, 2017 3:35:00 PM org.springframework.beans.factory.support.DefaultSingletonBeanRegistry destroySingletons
+INFO: Destroying singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@613065bd: defining beans [org.springframework.web.servlet.mvc.support.ControllerClassNameHandlerMapping#0,urlMapping,viewResolver,indexController]; parent: org.springframework.beans.factory.support.DefaultListableBeanFactory@3ab89597
+Feb 21, 2017 3:35:00 PM org.springframework.context.support.AbstractApplicationContext doClose
+INFO: Closing Root WebApplicationContext: startup date [Tue Feb 21 15:27:35 EST 2017]; root of context hierarchy
+Feb 21, 2017 3:35:00 PM org.springframework.beans.factory.support.DefaultSingletonBeanRegistry destroySingletons
+INFO: Destroying singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@3ab89597: defining beans []; root of factory hierarchy
+Feb 21, 2017 3:35:00 PM org.apache.openejb.assembler.classic.Assembler destroyApplication
+INFO: Undeploying app: C:\NSF Projects\AvianMigration\avianMigration\build\web
+Feb 21, 2017 3:35:00 PM org.apache.openejb.assembler.classic.Assembler destroyResource
+INFO: Closing DataSource: web/jdbc/TestDB
+Feb 21, 2017 3:35:01 PM org.apache.openejb.util.OptionsLog info
+INFO: Using 'openjpa.Log=org.apache.openejb.openjpa.JULOpenJPALogFactory'
+Feb 21, 2017 3:35:01 PM org.apache.openejb.assembler.classic.Assembler destroyApplication
+INFO: Undeployed app: C:\NSF Projects\AvianMigration\avianMigration\build\web
+Feb 21, 2017 3:35:01 PM org.apache.catalina.loader.WebappClassLoaderBase clearReferencesJdbc
+SEVERE: The web application [/avianMigration] registered the JDBC driver [com.microsoft.sqlserver.jdbc.SQLServerDriver] but failed to unregister it when the web application was stopped. To prevent a memory leak, the JDBC Driver has been forcibly unregistered.
+Feb 21, 2017 3:35:01 PM org.apache.catalina.loader.WebappClassLoaderBase checkThreadLocalMapForLeaks
+SEVERE: The web application [/avianMigration] created a ThreadLocal with key of type [com.microsoft.sqlserver.jdbc.ActivityCorrelator$1] (value [com.microsoft.sqlserver.jdbc.ActivityCorrelator$1@367c626e]) and a value of type [com.microsoft.sqlserver.jdbc.ActivityId] (value [a45b4334-be97-4619-b86f-2681ff134a8a-0]) but failed to remove it when the web application was stopped. Threads are going to be renewed over time to try and avoid a probable memory leak.
+Feb 21, 2017 3:35:01 PM org.apache.catalina.loader.WebappClassLoaderBase checkThreadLocalMapForLeaks
+SEVERE: The web application [/avianMigration] created a ThreadLocal with key of type [com.microsoft.sqlserver.jdbc.ActivityCorrelator$1] (value [com.microsoft.sqlserver.jdbc.ActivityCorrelator$1@367c626e]) and a value of type [com.microsoft.sqlserver.jdbc.ActivityId] (value [1e0cbefe-08dc-4249-ab3b-3537589ea736-1]) but failed to remove it when the web application was stopped. Threads are going to be renewed over time to try and avoid a probable memory leak.
+Feb 21, 2017 3:35:01 PM org.apache.openejb.assembler.classic.Assembler destroyApplication
+INFO: Undeploying app: C:\NSF Projects\AvianMigration\apache-tomee-webprofile-1.7.4\webapps\docs
+Feb 21, 2017 3:35:01 PM org.apache.openejb.assembler.classic.Assembler destroyResource
+INFO: Closing DataSource: docs/jdbc/TestDB
+Feb 21, 2017 3:35:01 PM org.apache.openejb.util.OptionsLog info
+INFO: Using 'openjpa.Log=org.apache.openejb.openjpa.JULOpenJPALogFactory'
+Feb 21, 2017 3:35:01 PM org.apache.openejb.assembler.classic.Assembler destroyApplication
+INFO: Undeployed app: C:\NSF Projects\AvianMigration\apache-tomee-webprofile-1.7.4\webapps\docs
+Feb 21, 2017 3:35:01 PM org.apache.openejb.assembler.classic.Assembler destroyApplication
+INFO: Undeploying app: C:\NSF Projects\AvianMigration\apache-tomee-webprofile-1.7.4\webapps\host-manager
+Feb 21, 2017 3:35:01 PM org.apache.openejb.assembler.classic.Assembler destroyResource
+INFO: Closing DataSource: host-manager/jdbc/TestDB
+Feb 21, 2017 3:35:01 PM org.apache.openejb.util.OptionsLog info
+INFO: Using 'openjpa.Log=org.apache.openejb.openjpa.JULOpenJPALogFactory'
+Feb 21, 2017 3:35:01 PM org.apache.openejb.assembler.classic.Assembler destroyApplication
+INFO: Undeployed app: C:\NSF Projects\AvianMigration\apache-tomee-webprofile-1.7.4\webapps\host-manager
+Feb 21, 2017 3:35:01 PM org.apache.openejb.assembler.classic.Assembler destroyApplication
+INFO: Undeploying app: C:\NSF Projects\AvianMigration\apache-tomee-webprofile-1.7.4\webapps\manager
+Feb 21, 2017 3:35:01 PM org.apache.openejb.assembler.classic.Assembler destroyResource
+INFO: Closing DataSource: manager/jdbc/TestDB
+Feb 21, 2017 3:35:01 PM org.apache.openejb.util.OptionsLog info
+INFO: Using 'openjpa.Log=org.apache.openejb.openjpa.JULOpenJPALogFactory'
+Feb 21, 2017 3:35:01 PM org.apache.openejb.assembler.classic.Assembler destroyApplication
+INFO: Undeployed app: C:\NSF Projects\AvianMigration\apache-tomee-webprofile-1.7.4\webapps\manager
+Feb 21, 2017 3:35:01 PM org.apache.openejb.assembler.classic.Assembler destroyApplication
+INFO: Undeploying app: C:\NSF Projects\AvianMigration\apache-tomee-webprofile-1.7.4\webapps\ROOT
+Feb 21, 2017 3:35:01 PM org.apache.openejb.assembler.classic.Assembler destroyResource
+INFO: Closing DataSource: ROOT/jdbc/TestDB
+Feb 21, 2017 3:35:01 PM org.apache.openejb.util.OptionsLog info
+INFO: Using 'openjpa.Log=org.apache.openejb.openjpa.JULOpenJPALogFactory'
+Feb 21, 2017 3:35:01 PM org.apache.openejb.assembler.classic.Assembler destroyApplication
+INFO: Undeployed app: C:\NSF Projects\AvianMigration\apache-tomee-webprofile-1.7.4\webapps\ROOT
+Feb 21, 2017 3:35:01 PM org.apache.coyote.AbstractProtocol stop
+INFO: Stopping ProtocolHandler ["http-bio-8080"]
+Feb 21, 2017 3:35:01 PM org.apache.coyote.AbstractProtocol stop
+INFO: Stopping ProtocolHandler ["ajp-bio-8009"]
+Feb 21, 2017 3:35:01 PM org.apache.openejb.server.SimpleServiceManager stop
+INFO: Stopping server services
+Feb 21, 2017 3:35:01 PM org.apache.openejb.assembler.classic.Assembler destroyApplication
+INFO: Undeploying app: openejb
+Feb 21, 2017 3:35:01 PM org.apache.openejb.util.OptionsLog info
+INFO: Using 'openjpa.Log=org.apache.openejb.openjpa.JULOpenJPALogFactory'
+Feb 21, 2017 3:35:01 PM org.apache.openejb.assembler.classic.Assembler destroyApplication
+INFO: Undeployed app: openejb
+Feb 21, 2017 3:35:01 PM org.apache.coyote.AbstractProtocol destroy
+INFO: Destroying ProtocolHandler ["http-bio-8080"]
+Feb 21, 2017 3:35:01 PM org.apache.coyote.AbstractProtocol destroy
+INFO: Destroying ProtocolHandler ["ajp-bio-8009"]
+Feb 21, 2017 3:35:01 PM org.apache.catalina.deploy.NamingResources cleanUp
+WARNING: Failed to retrieve JNDI naming context for container [StandardEngine[Catalina].StandardHost[localhost].StandardContext[/majorclassifier]] so no cleanup was performed for that container
+javax.naming.NamingException: No naming context bound to this class loader
+	at org.apache.naming.ContextBindings.getClassLoader(ContextBindings.java:350)
+	at org.apache.catalina.deploy.NamingResources.cleanUp(NamingResources.java:985)
+	at org.apache.catalina.deploy.NamingResources.stopInternal(NamingResources.java:968)
+	at org.apache.catalina.util.LifecycleBase.stop(LifecycleBase.java:224)
+	at org.apache.catalina.core.StandardContext.stopInternal(StandardContext.java:5796)
+	at org.apache.catalina.util.LifecycleBase.stop(LifecycleBase.java:224)
+	at org.apache.catalina.util.LifecycleBase.destroy(LifecycleBase.java:263)
+	at org.apache.catalina.core.ContainerBase.removeChild(ContainerBase.java:1038)
+	at org.apache.catalina.core.ContainerBase.destroyInternal(ContainerBase.java:1231)
+	at org.apache.catalina.util.LifecycleBase.destroy(LifecycleBase.java:297)
+	at org.apache.catalina.core.ContainerBase.removeChild(ContainerBase.java:1038)
+	at org.apache.catalina.core.ContainerBase.destroyInternal(ContainerBase.java:1231)
+	at org.apache.catalina.util.LifecycleBase.destroy(LifecycleBase.java:297)
+	at org.apache.catalina.core.StandardService.destroyInternal(StandardService.java:594)
+	at org.apache.catalina.util.LifecycleBase.destroy(LifecycleBase.java:297)
+	at org.apache.catalina.core.StandardServer.destroyInternal(StandardServer.java:828)
+	at org.apache.catalina.util.LifecycleBase.destroy(LifecycleBase.java:297)
+	at org.apache.catalina.startup.Catalina.stop(Catalina.java:767)
+	at org.apache.catalina.startup.Catalina.start(Catalina.java:728)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.apache.catalina.startup.Bootstrap.start(Bootstrap.java:294)
+	at org.apache.catalina.startup.Bootstrap.main(Bootstrap.java:428)
+
+Feb 21, 2017 3:39:04 PM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Server version:        Apache Tomcat (TomEE)/7.0.68 (1.7.4)
+Feb 21, 2017 3:39:04 PM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Server built:          Feb 8 2016 20:25:54 UTC
+Feb 21, 2017 3:39:04 PM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Server number:         7.0.68.0
+Feb 21, 2017 3:39:04 PM org.apache.catalina.startup.VersionLoggerListener log
+INFO: OS Name:               Windows 10
+Feb 21, 2017 3:39:04 PM org.apache.catalina.startup.VersionLoggerListener log
+INFO: OS Version:            10.0
+Feb 21, 2017 3:39:04 PM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Architecture:          amd64
+Feb 21, 2017 3:39:04 PM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Java Home:             C:\Program Files\Java\jdk1.8.0_101\jre
+Feb 21, 2017 3:39:04 PM org.apache.catalina.startup.VersionLoggerListener log
+INFO: JVM Version:           1.8.0_101-b13
+Feb 21, 2017 3:39:04 PM org.apache.catalina.startup.VersionLoggerListener log
+INFO: JVM Vendor:            Oracle Corporation
+Feb 21, 2017 3:39:04 PM org.apache.catalina.startup.VersionLoggerListener log
+INFO: CATALINA_BASE:         C:\NSF Projects\AvianMigration\apache-tomee-webprofile-1.7.4
+Feb 21, 2017 3:39:04 PM org.apache.catalina.startup.VersionLoggerListener log
+INFO: CATALINA_HOME:         C:\NSF Projects\AvianMigration\apache-tomee-webprofile-1.7.4
+Feb 21, 2017 3:39:04 PM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Command line argument: -javaagent:C:\NSF Projects\AvianMigration\apache-tomee-webprofile-1.7.4\lib\openejb-javaagent.jar
+Feb 21, 2017 3:39:04 PM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Command line argument: -Djava.util.logging.config.file=C:\NSF Projects\AvianMigration\apache-tomee-webprofile-1.7.4\conf\logging.properties
+Feb 21, 2017 3:39:04 PM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Command line argument: -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+Feb 21, 2017 3:39:04 PM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Command line argument: -Djava.endorsed.dirs=C:\NSF Projects\AvianMigration\apache-tomee-webprofile-1.7.4\endorsed
+Feb 21, 2017 3:39:04 PM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Command line argument: -Dcatalina.base=C:\NSF Projects\AvianMigration\apache-tomee-webprofile-1.7.4
+Feb 21, 2017 3:39:04 PM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Command line argument: -Dcatalina.home=C:\NSF Projects\AvianMigration\apache-tomee-webprofile-1.7.4
+Feb 21, 2017 3:39:04 PM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Command line argument: -Djava.io.tmpdir=C:\NSF Projects\AvianMigration\apache-tomee-webprofile-1.7.4\temp
+Feb 21, 2017 3:39:04 PM org.apache.catalina.core.AprLifecycleListener lifecycleEvent
+INFO: The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: C:\Program Files\Java\jdk1.8.0_101\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\ProgramData\Oracle\Java\javapath;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\Microsoft SQL Server\110\Tools\Binn\ManagementStudio\;C:\Program Files (x86)\Microsoft SQL Server\110\Tools\Binn\;C:\Program Files\Microsoft SQL Server\110\Tools\Binn\;C:\Program Files (x86)\Microsoft SQL Server\110\DTS\Binn\;C:\Program Files (x86)\Microsoft SQL Server\Client SDK\ODBC\130\Tools\Binn\;C:\Program Files (x86)\Microsoft SQL Server\130\Tools\Binn\;C:\Program Files (x86)\Microsoft SQL Server\130\DTS\Binn\;C:\Program Files (x86)\Microsoft SQL Server\130\Tools\Binn\ManagementStudio\;C:\Program Files (x86)\QuickTime\QTSystem\;C:\Users\cjedwards1\AppData\Local\Microsoft\WindowsApps;C:\Program Files\Java\jdk1.8.0_101\bin;C:\Users\cjedwards1\Desktop\apache-maven-3.3.9\bin;C:\Users\cjedwards1\AppData\Local\Programs\Git\cmd;C:\apache-ant-1.10.1\bin;.
+Feb 21, 2017 3:39:04 PM org.apache.coyote.AbstractProtocol init
+INFO: Initializing ProtocolHandler ["http-bio-8080"]
+Feb 21, 2017 3:39:04 PM org.apache.coyote.AbstractProtocol init
+INFO: Initializing ProtocolHandler ["ajp-bio-8009"]
+Feb 21, 2017 3:39:04 PM org.apache.openejb.util.OptionsLog info
+INFO: Using 'openejb.jdbc.datasource-creator=org.apache.tomee.jdbc.TomEEDataSourceCreator'
+Feb 21, 2017 3:39:04 PM org.apache.openejb.OpenEJB$Instance <init>
+INFO: ********************************************************************************
+Feb 21, 2017 3:39:04 PM org.apache.openejb.OpenEJB$Instance <init>
+INFO: OpenEJB http://tomee.apache.org/
+Feb 21, 2017 3:39:04 PM org.apache.openejb.OpenEJB$Instance <init>
+INFO: Startup: Tue Feb 21 15:39:04 EST 2017
+Feb 21, 2017 3:39:04 PM org.apache.openejb.OpenEJB$Instance <init>
+INFO: Copyright 1999-2015 (C) Apache OpenEJB/TomEE Project, All Rights Reserved.
+Feb 21, 2017 3:39:04 PM org.apache.openejb.OpenEJB$Instance <init>
+INFO: Version: 4.7.4
+Feb 21, 2017 3:39:04 PM org.apache.openejb.OpenEJB$Instance <init>
+INFO: Build date: 20160304
+Feb 21, 2017 3:39:04 PM org.apache.openejb.OpenEJB$Instance <init>
+INFO: Build time: 09:05
+Feb 21, 2017 3:39:04 PM org.apache.openejb.OpenEJB$Instance <init>
+INFO: ********************************************************************************
+Feb 21, 2017 3:39:04 PM org.apache.openejb.OpenEJB$Instance <init>
+INFO: openejb.home = C:\NSF Projects\AvianMigration\apache-tomee-webprofile-1.7.4
+Feb 21, 2017 3:39:04 PM org.apache.openejb.OpenEJB$Instance <init>
+INFO: openejb.base = C:\NSF Projects\AvianMigration\apache-tomee-webprofile-1.7.4
+Feb 21, 2017 3:39:04 PM org.apache.openejb.cdi.CdiBuilder initializeOWB
+INFO: Created new singletonService org.apache.openejb.cdi.ThreadSingletonServiceImpl@5427c60c
+Feb 21, 2017 3:39:04 PM org.apache.openejb.cdi.CdiBuilder initializeOWB
+INFO: Succeeded in installing singleton service
+Feb 21, 2017 3:39:04 PM org.apache.openejb.config.ConfigurationFactory init
+INFO: openejb configuration file is 'C:\NSF Projects\AvianMigration\apache-tomee-webprofile-1.7.4\conf\tomee.xml'
+Feb 21, 2017 3:39:04 PM org.apache.openejb.config.ConfigurationFactory configureService
+INFO: Configuring Service(id=Tomcat Security Service, type=SecurityService, provider-id=Tomcat Security Service)
+Feb 21, 2017 3:39:04 PM org.apache.openejb.config.ConfigurationFactory configureService
+INFO: Configuring Service(id=Default Transaction Manager, type=TransactionManager, provider-id=Default Transaction Manager)
+Feb 21, 2017 3:39:04 PM org.apache.openejb.util.OptionsLog info
+INFO: Using 'openejb.system.apps=true'
+Feb 21, 2017 3:39:04 PM org.apache.openejb.config.ConfigurationFactory configureApplication
+INFO: Configuring enterprise application: openejb
+Feb 21, 2017 3:39:04 PM org.apache.openejb.config.InitEjbDeployments deploy
+INFO: Using openejb.deploymentId.format '{ejbName}'
+Feb 21, 2017 3:39:04 PM org.apache.openejb.config.InitEjbDeployments deploy
+INFO: Auto-deploying ejb openejb/Deployer: EjbDeployment(deployment-id=openejb/Deployer)
+Feb 21, 2017 3:39:04 PM org.apache.openejb.config.InitEjbDeployments deploy
+INFO: Auto-deploying ejb openejb/ConfigurationInfo: EjbDeployment(deployment-id=openejb/ConfigurationInfo)
+Feb 21, 2017 3:39:04 PM org.apache.openejb.config.InitEjbDeployments deploy
+INFO: Auto-deploying ejb MEJB: EjbDeployment(deployment-id=MEJB)
+Feb 21, 2017 3:39:04 PM org.apache.openejb.config.ConfigurationFactory configureService
+INFO: Configuring Service(id=Default Stateless Container, type=Container, provider-id=Default Stateless Container)
+Feb 21, 2017 3:39:04 PM org.apache.openejb.config.AutoConfig createContainer
+INFO: Auto-creating a container for bean openejb/Deployer: Container(type=STATELESS, id=Default Stateless Container)
+Feb 21, 2017 3:39:05 PM org.apache.openejb.config.AppInfoBuilder build
+INFO: Enterprise application "openejb" loaded.
+Feb 21, 2017 3:39:05 PM org.apache.openejb.assembler.classic.Assembler createRecipe
+INFO: Creating TransactionManager(id=Default Transaction Manager)
+Feb 21, 2017 3:39:05 PM org.apache.openejb.assembler.classic.Assembler createRecipe
+INFO: Creating SecurityService(id=Tomcat Security Service)
+Feb 21, 2017 3:39:05 PM org.apache.openejb.assembler.classic.Assembler createRecipe
+INFO: Creating Container(id=Default Stateless Container)
+Feb 21, 2017 3:39:05 PM org.apache.openejb.assembler.classic.Assembler createAppClassLoader
+INFO: Not creating another application classloader for openejb
+Feb 21, 2017 3:39:05 PM org.apache.openejb.assembler.classic.Assembler createApplication
+INFO: Assembling app: openejb
+Feb 21, 2017 3:39:05 PM org.apache.openejb.util.OptionsLog info
+INFO: Using 'openejb.jndiname.format={deploymentId}{interfaceType.openejbLegacyName}'
+Feb 21, 2017 3:39:05 PM org.apache.openejb.assembler.classic.JndiBuilder bind
+INFO: Jndi(name=openejb/DeployerBusinessRemote) --> Ejb(deployment-id=openejb/Deployer)
+Feb 21, 2017 3:39:05 PM org.apache.openejb.assembler.classic.JndiBuilder bind
+INFO: Jndi(name=global/openejb/openejb/Deployer!org.apache.openejb.assembler.Deployer) --> Ejb(deployment-id=openejb/Deployer)
+Feb 21, 2017 3:39:05 PM org.apache.openejb.assembler.classic.JndiBuilder bind
+INFO: Jndi(name=global/openejb/openejb/Deployer) --> Ejb(deployment-id=openejb/Deployer)
+Feb 21, 2017 3:39:05 PM org.apache.openejb.assembler.classic.JndiBuilder bind
+INFO: Jndi(name=openejb/ConfigurationInfoBusinessRemote) --> Ejb(deployment-id=openejb/ConfigurationInfo)
+Feb 21, 2017 3:39:05 PM org.apache.openejb.assembler.classic.JndiBuilder bind
+INFO: Jndi(name=global/openejb/openejb/ConfigurationInfo!org.apache.openejb.assembler.classic.cmd.ConfigurationInfo) --> Ejb(deployment-id=openejb/ConfigurationInfo)
+Feb 21, 2017 3:39:05 PM org.apache.openejb.assembler.classic.JndiBuilder bind
+INFO: Jndi(name=global/openejb/openejb/ConfigurationInfo) --> Ejb(deployment-id=openejb/ConfigurationInfo)
+Feb 21, 2017 3:39:05 PM org.apache.openejb.assembler.classic.JndiBuilder bind
+INFO: Jndi(name=MEJB) --> Ejb(deployment-id=MEJB)
+Feb 21, 2017 3:39:05 PM org.apache.openejb.assembler.classic.JndiBuilder bind
+INFO: Jndi(name=global/openejb/MEJB!javax.management.j2ee.ManagementHome) --> Ejb(deployment-id=MEJB)
+Feb 21, 2017 3:39:05 PM org.apache.openejb.assembler.classic.JndiBuilder bind
+INFO: Jndi(name=global/openejb/MEJB) --> Ejb(deployment-id=MEJB)
+Feb 21, 2017 3:39:05 PM org.apache.openejb.assembler.classic.Assembler startEjbs
+INFO: Created Ejb(deployment-id=MEJB, ejb-name=MEJB, container=Default Stateless Container)
+Feb 21, 2017 3:39:05 PM org.apache.openejb.assembler.classic.Assembler startEjbs
+INFO: Created Ejb(deployment-id=openejb/ConfigurationInfo, ejb-name=openejb/ConfigurationInfo, container=Default Stateless Container)
+Feb 21, 2017 3:39:05 PM org.apache.openejb.assembler.classic.Assembler startEjbs
+INFO: Created Ejb(deployment-id=openejb/Deployer, ejb-name=openejb/Deployer, container=Default Stateless Container)
+Feb 21, 2017 3:39:05 PM org.apache.openejb.assembler.classic.Assembler startEjbs
+INFO: Started Ejb(deployment-id=MEJB, ejb-name=MEJB, container=Default Stateless Container)
+Feb 21, 2017 3:39:05 PM org.apache.openejb.assembler.classic.Assembler startEjbs
+INFO: Started Ejb(deployment-id=openejb/ConfigurationInfo, ejb-name=openejb/ConfigurationInfo, container=Default Stateless Container)
+Feb 21, 2017 3:39:05 PM org.apache.openejb.assembler.classic.Assembler startEjbs
+INFO: Started Ejb(deployment-id=openejb/Deployer, ejb-name=openejb/Deployer, container=Default Stateless Container)
+Feb 21, 2017 3:39:05 PM org.apache.openejb.assembler.classic.Assembler deployMBean
+INFO: Deployed MBean(openejb.user.mbeans:application=openejb,group=org.apache.openejb.assembler.monitoring,name=JMXDeployer)
+Feb 21, 2017 3:39:05 PM org.apache.openejb.assembler.classic.Assembler createApplication
+INFO: Deployed Application(path=openejb)
+Feb 21, 2017 3:39:05 PM org.apache.openejb.server.SimpleServiceManager start
+INFO:   ** Bound Services **
+Feb 21, 2017 3:39:05 PM org.apache.openejb.server.SimpleServiceManager printRow
+INFO:   NAME                 IP              PORT  
+Feb 21, 2017 3:39:05 PM org.apache.openejb.server.SimpleServiceManager start
+INFO: -------
+Feb 21, 2017 3:39:05 PM org.apache.openejb.server.SimpleServiceManager start
+INFO: Ready!
+Feb 21, 2017 3:39:05 PM org.apache.catalina.startup.Catalina load
+INFO: Initialization processed in 1176 ms
+Feb 21, 2017 3:39:05 PM org.apache.tomee.catalina.OpenEJBNamingContextListener bindResource
+INFO: Importing a Tomcat Resource with id 'UserDatabase' of type 'org.apache.catalina.UserDatabase'.
+Feb 21, 2017 3:39:05 PM org.apache.openejb.assembler.classic.Assembler createRecipe
+INFO: Creating Resource(id=UserDatabase)
+Feb 21, 2017 3:39:05 PM org.apache.catalina.core.StandardService startInternal
+INFO: Starting service Catalina
+Feb 21, 2017 3:39:05 PM org.apache.catalina.core.StandardEngine startInternal
+INFO: Starting Servlet Engine: Apache Tomcat (TomEE)/7.0.68 (1.7.4)
+Feb 21, 2017 3:39:05 PM org.apache.catalina.startup.HostConfig deployDescriptor
+INFO: Deploying configuration descriptor C:\NSF Projects\AvianMigration\apache-tomee-webprofile-1.7.4\conf\Catalina\localhost\avianMigration.xml
+Feb 21, 2017 3:39:05 PM org.apache.tomee.catalina.TomcatWebAppBuilder init
+INFO: ------------------------- localhost -> /avianMigration
+Feb 21, 2017 3:39:05 PM org.apache.catalina.loader.WebappClassLoaderBase validateJarFile
+INFO: validateJarFile(C:\NSF Projects\AvianMigration\avianMigration\build\web\WEB-INF\lib\servlet-api.jar) - jar not loaded. See Servlet Spec 3.0, section 10.7.2. Offending class: javax/servlet/Servlet.class
+Feb 21, 2017 3:39:06 PM org.apache.openejb.config.ConfigurationFactory configureApplication
+INFO: Configuring enterprise application: C:\NSF Projects\AvianMigration\avianMigration\build\web
+Feb 21, 2017 3:39:06 PM org.apache.openejb.config.ConfigurationFactory configureService
+INFO: Configuring Service(id=web/jdbc/TestDB, type=Resource, provider-id=Default JDBC Database)
+Feb 21, 2017 3:39:06 PM org.apache.openejb.assembler.classic.Assembler createRecipe
+INFO: Creating Resource(id=web/jdbc/TestDB)
+Feb 21, 2017 3:39:06 PM org.apache.tomee.jdbc.TomEEDataSourceCreator$TomEEDataSource readOnly
+INFO: Disabling testOnBorrow since no validation query is provided
+Feb 21, 2017 3:39:06 PM org.apache.tomcat.jdbc.pool.ConnectionPool checkPoolConfiguration
+WARNING: maxIdle is larger than maxActive, setting maxIdle to: 20
+Feb 21, 2017 3:39:06 PM org.apache.openejb.assembler.classic.Assembler unusedProperty
+WARNING: Property "maxTotal" not supported by "web/jdbc/TestDB"
+Feb 21, 2017 3:39:06 PM org.apache.openejb.assembler.classic.Assembler unusedProperty
+WARNING: Property "maxWaitMillis" not supported by "web/jdbc/TestDB"
+Feb 21, 2017 3:39:06 PM org.apache.openejb.config.AppInfoBuilder build
+INFO: Enterprise application "C:\NSF Projects\AvianMigration\avianMigration\build\web" loaded.
+Feb 21, 2017 3:39:06 PM org.apache.openejb.assembler.classic.Assembler createApplication
+INFO: Assembling app: C:\NSF Projects\AvianMigration\avianMigration\build\web
+Feb 21, 2017 3:39:07 PM org.apache.openejb.cdi.CdiBuilder initSingleton
+INFO: Existing thread singleton service in SystemInstance(): org.apache.openejb.cdi.ThreadSingletonServiceImpl@5427c60c
+Feb 21, 2017 3:39:07 PM org.apache.openejb.cdi.OpenEJBLifecycle startApplication
+INFO: OpenWebBeans Container is starting...
+Feb 21, 2017 3:39:07 PM org.apache.webbeans.plugins.PluginLoader startUp
+INFO: Adding OpenWebBeansPlugin : [CdiPlugin]
+Feb 21, 2017 3:39:07 PM org.apache.webbeans.plugins.PluginLoader startUp
+INFO: Adding OpenWebBeansPlugin : [OpenWebBeansJsfPlugin]
+Feb 21, 2017 3:39:07 PM org.apache.webbeans.config.BeansDeployer validateInjectionPoints
+INFO: All injection points were validated successfully.
+Feb 21, 2017 3:39:07 PM org.apache.openejb.cdi.OpenEJBLifecycle startApplication
+INFO: OpenWebBeans Container has started, it took 83 ms.
+Feb 21, 2017 3:39:07 PM org.apache.tomee.catalina.TomcatWebAppBuilder deployWebApps
+INFO: using context file C:\NSF Projects\AvianMigration\avianMigration\build\web\META-INF\context.xml
+Feb 21, 2017 3:39:07 PM org.apache.openejb.assembler.classic.Assembler createApplication
+INFO: Deployed Application(path=C:\NSF Projects\AvianMigration\avianMigration\build\web)
+Feb 21, 2017 3:39:07 PM org.springframework.web.context.ContextLoader initWebApplicationContext
+INFO: Root WebApplicationContext: initialization started
+Feb 21, 2017 3:39:07 PM org.springframework.context.support.AbstractApplicationContext prepareRefresh
+INFO: Refreshing Root WebApplicationContext: startup date [Tue Feb 21 15:39:07 EST 2017]; root of context hierarchy
+Feb 21, 2017 3:39:07 PM org.springframework.beans.factory.xml.XmlBeanDefinitionReader loadBeanDefinitions
+INFO: Loading XML bean definitions from ServletContext resource [/WEB-INF/applicationContext.xml]
+Feb 21, 2017 3:39:07 PM org.springframework.beans.factory.support.DefaultListableBeanFactory preInstantiateSingletons
+INFO: Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@3ac93dc3: defining beans []; root of factory hierarchy
+Feb 21, 2017 3:39:07 PM org.springframework.web.context.ContextLoader initWebApplicationContext
+INFO: Root WebApplicationContext: initialization completed in 278 ms
+Feb 21, 2017 3:39:07 PM org.springframework.web.servlet.FrameworkServlet initServletBean
+INFO: FrameworkServlet 'dispatcher': initialization started
+Feb 21, 2017 3:39:07 PM org.springframework.context.support.AbstractApplicationContext prepareRefresh
+INFO: Refreshing WebApplicationContext for namespace 'dispatcher-servlet': startup date [Tue Feb 21 15:39:07 EST 2017]; parent: Root WebApplicationContext
+Feb 21, 2017 3:39:07 PM org.springframework.beans.factory.xml.XmlBeanDefinitionReader loadBeanDefinitions
+INFO: Loading XML bean definitions from ServletContext resource [/WEB-INF/dispatcher-servlet.xml]
+Feb 21, 2017 3:39:07 PM org.springframework.beans.factory.support.DefaultListableBeanFactory preInstantiateSingletons
+INFO: Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@6e3a7546: defining beans [org.springframework.web.servlet.mvc.support.ControllerClassNameHandlerMapping#0,urlMapping,viewResolver,indexController]; parent: org.springframework.beans.factory.support.DefaultListableBeanFactory@3ac93dc3
+Feb 21, 2017 3:39:07 PM org.springframework.web.servlet.handler.AbstractUrlHandlerMapping registerHandler
+INFO: Mapped URL path [/index.htm] onto handler 'indexController'
+Feb 21, 2017 3:39:07 PM org.springframework.web.servlet.FrameworkServlet initServletBean
+INFO: FrameworkServlet 'dispatcher': initialization completed in 173 ms
+Feb 21, 2017 3:39:08 PM org.apache.catalina.startup.HostConfig deployDescriptor
+INFO: Deployment of configuration descriptor C:\NSF Projects\AvianMigration\apache-tomee-webprofile-1.7.4\conf\Catalina\localhost\avianMigration.xml has finished in 2,747 ms
+Feb 21, 2017 3:39:08 PM org.apache.catalina.startup.HostConfig deployDescriptor
+INFO: Deploying configuration descriptor C:\NSF Projects\AvianMigration\apache-tomee-webprofile-1.7.4\conf\Catalina\localhost\majorclassifier.xml
+Feb 21, 2017 3:39:08 PM org.apache.tomee.catalina.TomcatWebAppBuilder init
+INFO: ------------------------- localhost -> /majorclassifier
+Feb 21, 2017 3:39:08 PM org.apache.openejb.util.JarExtractor extract
+INFO: Extracting jar: C:\NSF Projects\AvianMigration\apache-tomee-webprofile-1.7.4\webapps\C:\Users\cjedwards1\Desktop\MajorClassifier\majorclassifier\build\web
+Feb 21, 2017 3:39:08 PM org.apache.tomee.catalina.TomcatWebAppBuilder init
+SEVERE: can't unpack 'C:\NSF Projects\AvianMigration\apache-tomee-webprofile-1.7.4\webapps\C:\Users\cjedwards1\Desktop\MajorClassifier\majorclassifier\build\web'
+Feb 21, 2017 3:39:08 PM org.apache.catalina.core.StandardContext resourcesStart
+SEVERE: Error starting static Resources
+java.lang.IllegalArgumentException: Document base C:\Users\cjedwards1\Desktop\MajorClassifier\majorclassifier\build\web does not exist or is not a readable directory
+	at org.apache.naming.resources.FileDirContext.setDocBase(FileDirContext.java:136)
+	at org.apache.catalina.core.StandardContext.resourcesStart(StandardContext.java:5197)
+	at org.apache.catalina.core.StandardContext.startInternal(StandardContext.java:5386)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:147)
+	at org.apache.catalina.core.ContainerBase.addChildInternal(ContainerBase.java:899)
+	at org.apache.catalina.core.ContainerBase.addChild(ContainerBase.java:875)
+	at org.apache.catalina.core.StandardHost.addChild(StandardHost.java:652)
+	at org.apache.catalina.startup.HostConfig.deployDescriptor(HostConfig.java:677)
+	at org.apache.catalina.startup.HostConfig$DeployDescriptor.run(HostConfig.java:1962)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+
+Feb 21, 2017 3:39:08 PM org.apache.catalina.core.ContainerBase addChildInternal
+SEVERE: ContainerBase.addChild: start: 
+org.apache.catalina.LifecycleException: Failed to start component [StandardEngine[Catalina].StandardHost[localhost].StandardContext[/majorclassifier]]
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:153)
+	at org.apache.catalina.core.ContainerBase.addChildInternal(ContainerBase.java:899)
+	at org.apache.catalina.core.ContainerBase.addChild(ContainerBase.java:875)
+	at org.apache.catalina.core.StandardHost.addChild(StandardHost.java:652)
+	at org.apache.catalina.startup.HostConfig.deployDescriptor(HostConfig.java:677)
+	at org.apache.catalina.startup.HostConfig$DeployDescriptor.run(HostConfig.java:1962)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: org.apache.catalina.LifecycleException: Error in resourceStart()
+	at org.apache.catalina.core.StandardContext.startInternal(StandardContext.java:5387)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:147)
+	... 10 more
+
+Feb 21, 2017 3:39:08 PM org.apache.catalina.startup.HostConfig deployDescriptor
+SEVERE: Error deploying configuration descriptor C:\NSF Projects\AvianMigration\apache-tomee-webprofile-1.7.4\conf\Catalina\localhost\majorclassifier.xml
+java.lang.IllegalStateException: ContainerBase.addChild: start: org.apache.catalina.LifecycleException: Failed to start component [StandardEngine[Catalina].StandardHost[localhost].StandardContext[/majorclassifier]]
+	at org.apache.catalina.core.ContainerBase.addChildInternal(ContainerBase.java:903)
+	at org.apache.catalina.core.ContainerBase.addChild(ContainerBase.java:875)
+	at org.apache.catalina.core.StandardHost.addChild(StandardHost.java:652)
+	at org.apache.catalina.startup.HostConfig.deployDescriptor(HostConfig.java:677)
+	at org.apache.catalina.startup.HostConfig$DeployDescriptor.run(HostConfig.java:1962)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+
+Feb 21, 2017 3:39:08 PM org.apache.catalina.startup.HostConfig deployDescriptor
+INFO: Deployment of configuration descriptor C:\NSF Projects\AvianMigration\apache-tomee-webprofile-1.7.4\conf\Catalina\localhost\majorclassifier.xml has finished in 31 ms
+Feb 21, 2017 3:39:08 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deploying web application directory C:\NSF Projects\AvianMigration\apache-tomee-webprofile-1.7.4\webapps\docs
+Feb 21, 2017 3:39:08 PM org.apache.tomee.catalina.TomcatWebAppBuilder init
+INFO: ------------------------- localhost -> /docs
+Feb 21, 2017 3:39:08 PM org.apache.openejb.config.ConfigurationFactory configureApplication
+INFO: Configuring enterprise application: C:\NSF Projects\AvianMigration\apache-tomee-webprofile-1.7.4\webapps\docs
+Feb 21, 2017 3:39:08 PM org.apache.openejb.config.ConfigurationFactory configureService
+INFO: Configuring Service(id=docs/jdbc/TestDB, type=Resource, provider-id=Default JDBC Database)
+Feb 21, 2017 3:39:08 PM org.apache.openejb.assembler.classic.Assembler createRecipe
+INFO: Creating Resource(id=docs/jdbc/TestDB)
+Feb 21, 2017 3:39:08 PM org.apache.tomee.jdbc.TomEEDataSourceCreator$TomEEDataSource readOnly
+INFO: Disabling testOnBorrow since no validation query is provided
+Feb 21, 2017 3:39:08 PM org.apache.tomcat.jdbc.pool.ConnectionPool checkPoolConfiguration
+WARNING: maxIdle is larger than maxActive, setting maxIdle to: 20
+Feb 21, 2017 3:39:08 PM org.apache.openejb.assembler.classic.Assembler unusedProperty
+WARNING: Property "maxTotal" not supported by "docs/jdbc/TestDB"
+Feb 21, 2017 3:39:08 PM org.apache.openejb.assembler.classic.Assembler unusedProperty
+WARNING: Property "maxWaitMillis" not supported by "docs/jdbc/TestDB"
+Feb 21, 2017 3:39:08 PM org.apache.openejb.config.AppInfoBuilder build
+INFO: Enterprise application "C:\NSF Projects\AvianMigration\apache-tomee-webprofile-1.7.4\webapps\docs" loaded.
+Feb 21, 2017 3:39:08 PM org.apache.openejb.assembler.classic.Assembler createApplication
+INFO: Assembling app: C:\NSF Projects\AvianMigration\apache-tomee-webprofile-1.7.4\webapps\docs
+Feb 21, 2017 3:39:08 PM org.apache.openejb.cdi.CdiBuilder initSingleton
+INFO: Existing thread singleton service in SystemInstance(): org.apache.openejb.cdi.ThreadSingletonServiceImpl@5427c60c
+Feb 21, 2017 3:39:08 PM org.apache.openejb.cdi.OpenEJBLifecycle startApplication
+INFO: OpenWebBeans Container is starting...
+Feb 21, 2017 3:39:08 PM org.apache.webbeans.plugins.PluginLoader startUp
+INFO: Adding OpenWebBeansPlugin : [CdiPlugin]
+Feb 21, 2017 3:39:08 PM org.apache.webbeans.plugins.PluginLoader startUp
+INFO: Adding OpenWebBeansPlugin : [OpenWebBeansJsfPlugin]
+Feb 21, 2017 3:39:08 PM org.apache.webbeans.config.BeansDeployer validateInjectionPoints
+INFO: All injection points were validated successfully.
+Feb 21, 2017 3:39:08 PM org.apache.openejb.cdi.OpenEJBLifecycle startApplication
+INFO: OpenWebBeans Container has started, it took 0 ms.
+Feb 21, 2017 3:39:08 PM org.apache.openejb.assembler.classic.Assembler createApplication
+INFO: Deployed Application(path=C:\NSF Projects\AvianMigration\apache-tomee-webprofile-1.7.4\webapps\docs)
+Feb 21, 2017 3:39:08 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deployment of web application directory C:\NSF Projects\AvianMigration\apache-tomee-webprofile-1.7.4\webapps\docs has finished in 78 ms
+Feb 21, 2017 3:39:08 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deploying web application directory C:\NSF Projects\AvianMigration\apache-tomee-webprofile-1.7.4\webapps\host-manager
+Feb 21, 2017 3:39:08 PM org.apache.tomee.catalina.TomcatWebAppBuilder init
+INFO: ------------------------- localhost -> /host-manager
+Feb 21, 2017 3:39:08 PM org.apache.openejb.config.ConfigurationFactory configureApplication
+INFO: Configuring enterprise application: C:\NSF Projects\AvianMigration\apache-tomee-webprofile-1.7.4\webapps\host-manager
+Feb 21, 2017 3:39:08 PM org.apache.openejb.config.ConfigurationFactory configureService
+INFO: Configuring Service(id=host-manager/jdbc/TestDB, type=Resource, provider-id=Default JDBC Database)
+Feb 21, 2017 3:39:08 PM org.apache.openejb.assembler.classic.Assembler createRecipe
+INFO: Creating Resource(id=host-manager/jdbc/TestDB)
+Feb 21, 2017 3:39:08 PM org.apache.tomee.jdbc.TomEEDataSourceCreator$TomEEDataSource readOnly
+INFO: Disabling testOnBorrow since no validation query is provided
+Feb 21, 2017 3:39:08 PM org.apache.tomcat.jdbc.pool.ConnectionPool checkPoolConfiguration
+WARNING: maxIdle is larger than maxActive, setting maxIdle to: 20
+Feb 21, 2017 3:39:08 PM org.apache.openejb.assembler.classic.Assembler unusedProperty
+WARNING: Property "maxTotal" not supported by "host-manager/jdbc/TestDB"
+Feb 21, 2017 3:39:08 PM org.apache.openejb.assembler.classic.Assembler unusedProperty
+WARNING: Property "maxWaitMillis" not supported by "host-manager/jdbc/TestDB"
+Feb 21, 2017 3:39:08 PM org.apache.openejb.config.AppInfoBuilder build
+INFO: Enterprise application "C:\NSF Projects\AvianMigration\apache-tomee-webprofile-1.7.4\webapps\host-manager" loaded.
+Feb 21, 2017 3:39:08 PM org.apache.openejb.assembler.classic.Assembler createApplication
+INFO: Assembling app: C:\NSF Projects\AvianMigration\apache-tomee-webprofile-1.7.4\webapps\host-manager
+Feb 21, 2017 3:39:08 PM org.apache.openejb.cdi.CdiBuilder initSingleton
+INFO: Existing thread singleton service in SystemInstance(): org.apache.openejb.cdi.ThreadSingletonServiceImpl@5427c60c
+Feb 21, 2017 3:39:08 PM org.apache.openejb.cdi.OpenEJBLifecycle startApplication
+INFO: OpenWebBeans Container is starting...
+Feb 21, 2017 3:39:08 PM org.apache.webbeans.plugins.PluginLoader startUp
+INFO: Adding OpenWebBeansPlugin : [CdiPlugin]
+Feb 21, 2017 3:39:08 PM org.apache.webbeans.plugins.PluginLoader startUp
+INFO: Adding OpenWebBeansPlugin : [OpenWebBeansJsfPlugin]
+Feb 21, 2017 3:39:08 PM org.apache.webbeans.config.BeansDeployer validateInjectionPoints
+INFO: All injection points were validated successfully.
+Feb 21, 2017 3:39:08 PM org.apache.openejb.cdi.OpenEJBLifecycle startApplication
+INFO: OpenWebBeans Container has started, it took 16 ms.
+Feb 21, 2017 3:39:08 PM org.apache.tomee.catalina.TomcatWebAppBuilder deployWebApps
+INFO: using context file C:\NSF Projects\AvianMigration\apache-tomee-webprofile-1.7.4\webapps\host-manager\META-INF\context.xml
+Feb 21, 2017 3:39:08 PM org.apache.openejb.assembler.classic.Assembler createApplication
+INFO: Deployed Application(path=C:\NSF Projects\AvianMigration\apache-tomee-webprofile-1.7.4\webapps\host-manager)
+Feb 21, 2017 3:39:08 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deployment of web application directory C:\NSF Projects\AvianMigration\apache-tomee-webprofile-1.7.4\webapps\host-manager has finished in 109 ms
+Feb 21, 2017 3:39:08 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deploying web application directory C:\NSF Projects\AvianMigration\apache-tomee-webprofile-1.7.4\webapps\manager
+Feb 21, 2017 3:39:08 PM org.apache.tomee.catalina.TomcatWebAppBuilder init
+INFO: ------------------------- localhost -> /manager
+Feb 21, 2017 3:39:08 PM org.apache.openejb.config.ConfigurationFactory configureApplication
+INFO: Configuring enterprise application: C:\NSF Projects\AvianMigration\apache-tomee-webprofile-1.7.4\webapps\manager
+Feb 21, 2017 3:39:08 PM org.apache.openejb.config.ConfigurationFactory configureService
+INFO: Configuring Service(id=manager/jdbc/TestDB, type=Resource, provider-id=Default JDBC Database)
+Feb 21, 2017 3:39:08 PM org.apache.openejb.assembler.classic.Assembler createRecipe
+INFO: Creating Resource(id=manager/jdbc/TestDB)
+Feb 21, 2017 3:39:08 PM org.apache.tomee.jdbc.TomEEDataSourceCreator$TomEEDataSource readOnly
+INFO: Disabling testOnBorrow since no validation query is provided
+Feb 21, 2017 3:39:08 PM org.apache.tomcat.jdbc.pool.ConnectionPool checkPoolConfiguration
+WARNING: maxIdle is larger than maxActive, setting maxIdle to: 20
+Feb 21, 2017 3:39:08 PM org.apache.openejb.assembler.classic.Assembler unusedProperty
+WARNING: Property "maxTotal" not supported by "manager/jdbc/TestDB"
+Feb 21, 2017 3:39:08 PM org.apache.openejb.assembler.classic.Assembler unusedProperty
+WARNING: Property "maxWaitMillis" not supported by "manager/jdbc/TestDB"
+Feb 21, 2017 3:39:08 PM org.apache.openejb.config.AppInfoBuilder build
+INFO: Enterprise application "C:\NSF Projects\AvianMigration\apache-tomee-webprofile-1.7.4\webapps\manager" loaded.
+Feb 21, 2017 3:39:08 PM org.apache.openejb.assembler.classic.Assembler createApplication
+INFO: Assembling app: C:\NSF Projects\AvianMigration\apache-tomee-webprofile-1.7.4\webapps\manager
+Feb 21, 2017 3:39:08 PM org.apache.openejb.cdi.CdiBuilder initSingleton
+INFO: Existing thread singleton service in SystemInstance(): org.apache.openejb.cdi.ThreadSingletonServiceImpl@5427c60c
+Feb 21, 2017 3:39:08 PM org.apache.openejb.cdi.OpenEJBLifecycle startApplication
+INFO: OpenWebBeans Container is starting...
+Feb 21, 2017 3:39:08 PM org.apache.webbeans.plugins.PluginLoader startUp
+INFO: Adding OpenWebBeansPlugin : [CdiPlugin]
+Feb 21, 2017 3:39:08 PM org.apache.webbeans.plugins.PluginLoader startUp
+INFO: Adding OpenWebBeansPlugin : [OpenWebBeansJsfPlugin]
+Feb 21, 2017 3:39:08 PM org.apache.webbeans.config.BeansDeployer validateInjectionPoints
+INFO: All injection points were validated successfully.
+Feb 21, 2017 3:39:08 PM org.apache.openejb.cdi.OpenEJBLifecycle startApplication
+INFO: OpenWebBeans Container has started, it took 0 ms.
+Feb 21, 2017 3:39:08 PM org.apache.tomee.catalina.TomcatWebAppBuilder deployWebApps
+INFO: using context file C:\NSF Projects\AvianMigration\apache-tomee-webprofile-1.7.4\webapps\manager\META-INF\context.xml
+Feb 21, 2017 3:39:08 PM org.apache.openejb.assembler.classic.Assembler createApplication
+INFO: Deployed Application(path=C:\NSF Projects\AvianMigration\apache-tomee-webprofile-1.7.4\webapps\manager)
+Feb 21, 2017 3:39:08 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deployment of web application directory C:\NSF Projects\AvianMigration\apache-tomee-webprofile-1.7.4\webapps\manager has finished in 63 ms
+Feb 21, 2017 3:39:08 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deploying web application directory C:\NSF Projects\AvianMigration\apache-tomee-webprofile-1.7.4\webapps\ROOT
+Feb 21, 2017 3:39:08 PM org.apache.tomee.catalina.TomcatWebAppBuilder init
+INFO: ------------------------- localhost -> /
+Feb 21, 2017 3:39:08 PM org.apache.openejb.config.ConfigurationFactory configureApplication
+INFO: Configuring enterprise application: C:\NSF Projects\AvianMigration\apache-tomee-webprofile-1.7.4\webapps\ROOT
+Feb 21, 2017 3:39:08 PM org.apache.openejb.config.ConfigurationFactory configureService
+INFO: Configuring Service(id=ROOT/jdbc/TestDB, type=Resource, provider-id=Default JDBC Database)
+Feb 21, 2017 3:39:08 PM org.apache.openejb.assembler.classic.Assembler createRecipe
+INFO: Creating Resource(id=ROOT/jdbc/TestDB)
+Feb 21, 2017 3:39:08 PM org.apache.tomee.jdbc.TomEEDataSourceCreator$TomEEDataSource readOnly
+INFO: Disabling testOnBorrow since no validation query is provided
+Feb 21, 2017 3:39:08 PM org.apache.tomcat.jdbc.pool.ConnectionPool checkPoolConfiguration
+WARNING: maxIdle is larger than maxActive, setting maxIdle to: 20
+Feb 21, 2017 3:39:08 PM org.apache.openejb.assembler.classic.Assembler unusedProperty
+WARNING: Property "maxTotal" not supported by "ROOT/jdbc/TestDB"
+Feb 21, 2017 3:39:08 PM org.apache.openejb.assembler.classic.Assembler unusedProperty
+WARNING: Property "maxWaitMillis" not supported by "ROOT/jdbc/TestDB"
+Feb 21, 2017 3:39:08 PM org.apache.openejb.config.AppInfoBuilder build
+INFO: Enterprise application "C:\NSF Projects\AvianMigration\apache-tomee-webprofile-1.7.4\webapps\ROOT" loaded.
+Feb 21, 2017 3:39:08 PM org.apache.openejb.assembler.classic.Assembler createApplication
+INFO: Assembling app: C:\NSF Projects\AvianMigration\apache-tomee-webprofile-1.7.4\webapps\ROOT
+Feb 21, 2017 3:39:08 PM org.apache.openejb.cdi.CdiBuilder initSingleton
+INFO: Existing thread singleton service in SystemInstance(): org.apache.openejb.cdi.ThreadSingletonServiceImpl@5427c60c
+Feb 21, 2017 3:39:08 PM org.apache.openejb.cdi.OpenEJBLifecycle startApplication
+INFO: OpenWebBeans Container is starting...
+Feb 21, 2017 3:39:08 PM org.apache.webbeans.plugins.PluginLoader startUp
+INFO: Adding OpenWebBeansPlugin : [CdiPlugin]
+Feb 21, 2017 3:39:08 PM org.apache.webbeans.plugins.PluginLoader startUp
+INFO: Adding OpenWebBeansPlugin : [OpenWebBeansJsfPlugin]
+Feb 21, 2017 3:39:08 PM org.apache.webbeans.config.BeansDeployer validateInjectionPoints
+INFO: All injection points were validated successfully.
+Feb 21, 2017 3:39:08 PM org.apache.openejb.cdi.OpenEJBLifecycle startApplication
+INFO: OpenWebBeans Container has started, it took 0 ms.
+Feb 21, 2017 3:39:08 PM org.apache.openejb.assembler.classic.Assembler createApplication
+INFO: Deployed Application(path=C:\NSF Projects\AvianMigration\apache-tomee-webprofile-1.7.4\webapps\ROOT)
+Feb 21, 2017 3:39:08 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deployment of web application directory C:\NSF Projects\AvianMigration\apache-tomee-webprofile-1.7.4\webapps\ROOT has finished in 62 ms
+Feb 21, 2017 3:39:08 PM org.apache.coyote.AbstractProtocol start
+INFO: Starting ProtocolHandler ["http-bio-8080"]
+Feb 21, 2017 3:39:08 PM org.apache.coyote.AbstractProtocol start
+INFO: Starting ProtocolHandler ["ajp-bio-8009"]
+Feb 21, 2017 3:39:08 PM org.apache.catalina.startup.Catalina start
+INFO: Server startup in 3136 ms
+Feb 21, 2017 3:58:24 PM org.apache.catalina.core.StandardServer await
+INFO: A valid shutdown command was received via the shutdown port. Stopping the Server instance.
+Feb 21, 2017 3:58:24 PM org.apache.coyote.AbstractProtocol pause
+INFO: Pausing ProtocolHandler ["http-bio-8080"]
+Feb 21, 2017 3:58:25 PM org.apache.coyote.AbstractProtocol pause
+INFO: Pausing ProtocolHandler ["ajp-bio-8009"]
+Feb 21, 2017 3:58:25 PM org.apache.catalina.core.StandardService stopInternal
+INFO: Stopping service Catalina
+Feb 21, 2017 3:58:25 PM org.springframework.context.support.AbstractApplicationContext doClose
+INFO: Closing WebApplicationContext for namespace 'dispatcher-servlet': startup date [Tue Feb 21 15:39:07 EST 2017]; parent: Root WebApplicationContext
+Feb 21, 2017 3:58:25 PM org.springframework.beans.factory.support.DefaultSingletonBeanRegistry destroySingletons
+INFO: Destroying singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@6e3a7546: defining beans [org.springframework.web.servlet.mvc.support.ControllerClassNameHandlerMapping#0,urlMapping,viewResolver,indexController]; parent: org.springframework.beans.factory.support.DefaultListableBeanFactory@3ac93dc3
+Feb 21, 2017 3:58:25 PM org.springframework.context.support.AbstractApplicationContext doClose
+INFO: Closing Root WebApplicationContext: startup date [Tue Feb 21 15:39:07 EST 2017]; root of context hierarchy
+Feb 21, 2017 3:58:25 PM org.springframework.beans.factory.support.DefaultSingletonBeanRegistry destroySingletons
+INFO: Destroying singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@3ac93dc3: defining beans []; root of factory hierarchy
+Feb 21, 2017 3:58:25 PM org.apache.openejb.assembler.classic.Assembler destroyApplication
+INFO: Undeploying app: C:\NSF Projects\AvianMigration\avianMigration\build\web
+Feb 21, 2017 3:58:25 PM org.apache.openejb.assembler.classic.Assembler destroyResource
+INFO: Closing DataSource: web/jdbc/TestDB
+Feb 21, 2017 3:58:25 PM org.apache.openejb.util.OptionsLog info
+INFO: Using 'openjpa.Log=org.apache.openejb.openjpa.JULOpenJPALogFactory'
+Feb 21, 2017 3:58:25 PM org.apache.openejb.assembler.classic.Assembler destroyApplication
+INFO: Undeployed app: C:\NSF Projects\AvianMigration\avianMigration\build\web
+Feb 21, 2017 3:58:25 PM org.apache.catalina.loader.WebappClassLoaderBase clearReferencesJdbc
+SEVERE: The web application [/avianMigration] registered the JDBC driver [com.microsoft.sqlserver.jdbc.SQLServerDriver] but failed to unregister it when the web application was stopped. To prevent a memory leak, the JDBC Driver has been forcibly unregistered.
+Feb 21, 2017 3:58:25 PM org.apache.catalina.loader.WebappClassLoaderBase checkThreadLocalMapForLeaks
+SEVERE: The web application [/avianMigration] created a ThreadLocal with key of type [com.microsoft.sqlserver.jdbc.ActivityCorrelator$1] (value [com.microsoft.sqlserver.jdbc.ActivityCorrelator$1@5f1d2765]) and a value of type [com.microsoft.sqlserver.jdbc.ActivityId] (value [52e92401-bf81-40f7-9704-bce68a867be6-1]) but failed to remove it when the web application was stopped. Threads are going to be renewed over time to try and avoid a probable memory leak.
+Feb 21, 2017 3:58:25 PM org.apache.catalina.loader.WebappClassLoaderBase checkThreadLocalMapForLeaks
+SEVERE: The web application [/avianMigration] created a ThreadLocal with key of type [com.microsoft.sqlserver.jdbc.ActivityCorrelator$1] (value [com.microsoft.sqlserver.jdbc.ActivityCorrelator$1@5f1d2765]) and a value of type [com.microsoft.sqlserver.jdbc.ActivityId] (value [54a3c394-87ea-4fe4-9a52-bffae44ff152-0]) but failed to remove it when the web application was stopped. Threads are going to be renewed over time to try and avoid a probable memory leak.
+Feb 21, 2017 3:58:25 PM org.apache.openejb.assembler.classic.Assembler destroyApplication
+INFO: Undeploying app: C:\NSF Projects\AvianMigration\apache-tomee-webprofile-1.7.4\webapps\docs
+Feb 21, 2017 3:58:25 PM org.apache.openejb.assembler.classic.Assembler destroyResource
+INFO: Closing DataSource: docs/jdbc/TestDB
+Feb 21, 2017 3:58:25 PM org.apache.openejb.util.OptionsLog info
+INFO: Using 'openjpa.Log=org.apache.openejb.openjpa.JULOpenJPALogFactory'
+Feb 21, 2017 3:58:25 PM org.apache.openejb.assembler.classic.Assembler destroyApplication
+INFO: Undeployed app: C:\NSF Projects\AvianMigration\apache-tomee-webprofile-1.7.4\webapps\docs
+Feb 21, 2017 3:58:25 PM org.apache.openejb.assembler.classic.Assembler destroyApplication
+INFO: Undeploying app: C:\NSF Projects\AvianMigration\apache-tomee-webprofile-1.7.4\webapps\host-manager
+Feb 21, 2017 3:58:25 PM org.apache.openejb.assembler.classic.Assembler destroyResource
+INFO: Closing DataSource: host-manager/jdbc/TestDB
+Feb 21, 2017 3:58:25 PM org.apache.openejb.util.OptionsLog info
+INFO: Using 'openjpa.Log=org.apache.openejb.openjpa.JULOpenJPALogFactory'
+Feb 21, 2017 3:58:25 PM org.apache.openejb.assembler.classic.Assembler destroyApplication
+INFO: Undeployed app: C:\NSF Projects\AvianMigration\apache-tomee-webprofile-1.7.4\webapps\host-manager
+Feb 21, 2017 3:58:25 PM org.apache.openejb.assembler.classic.Assembler destroyApplication
+INFO: Undeploying app: C:\NSF Projects\AvianMigration\apache-tomee-webprofile-1.7.4\webapps\manager
+Feb 21, 2017 3:58:25 PM org.apache.openejb.assembler.classic.Assembler destroyResource
+INFO: Closing DataSource: manager/jdbc/TestDB
+Feb 21, 2017 3:58:25 PM org.apache.openejb.util.OptionsLog info
+INFO: Using 'openjpa.Log=org.apache.openejb.openjpa.JULOpenJPALogFactory'
+Feb 21, 2017 3:58:25 PM org.apache.openejb.assembler.classic.Assembler destroyApplication
+INFO: Undeployed app: C:\NSF Projects\AvianMigration\apache-tomee-webprofile-1.7.4\webapps\manager
+Feb 21, 2017 3:58:25 PM org.apache.openejb.assembler.classic.Assembler destroyApplication
+INFO: Undeploying app: C:\NSF Projects\AvianMigration\apache-tomee-webprofile-1.7.4\webapps\ROOT
+Feb 21, 2017 3:58:25 PM org.apache.openejb.assembler.classic.Assembler destroyResource
+INFO: Closing DataSource: ROOT/jdbc/TestDB
+Feb 21, 2017 3:58:25 PM org.apache.openejb.util.OptionsLog info
+INFO: Using 'openjpa.Log=org.apache.openejb.openjpa.JULOpenJPALogFactory'
+Feb 21, 2017 3:58:25 PM org.apache.openejb.assembler.classic.Assembler destroyApplication
+INFO: Undeployed app: C:\NSF Projects\AvianMigration\apache-tomee-webprofile-1.7.4\webapps\ROOT
+Feb 21, 2017 3:58:25 PM org.apache.coyote.AbstractProtocol stop
+INFO: Stopping ProtocolHandler ["http-bio-8080"]
+Feb 21, 2017 3:58:25 PM org.apache.coyote.AbstractProtocol stop
+INFO: Stopping ProtocolHandler ["ajp-bio-8009"]
+Feb 21, 2017 3:58:25 PM org.apache.openejb.server.SimpleServiceManager stop
+INFO: Stopping server services
+Feb 21, 2017 3:58:25 PM org.apache.openejb.assembler.classic.Assembler destroyApplication
+INFO: Undeploying app: openejb
+Feb 21, 2017 3:58:25 PM org.apache.openejb.util.OptionsLog info
+INFO: Using 'openjpa.Log=org.apache.openejb.openjpa.JULOpenJPALogFactory'
+Feb 21, 2017 3:58:25 PM org.apache.openejb.assembler.classic.Assembler destroyApplication
+INFO: Undeployed app: openejb
+Feb 21, 2017 3:58:25 PM org.apache.coyote.AbstractProtocol destroy
+INFO: Destroying ProtocolHandler ["http-bio-8080"]
+Feb 21, 2017 3:58:25 PM org.apache.coyote.AbstractProtocol destroy
+INFO: Destroying ProtocolHandler ["ajp-bio-8009"]
+Feb 21, 2017 3:58:25 PM org.apache.catalina.deploy.NamingResources cleanUp
+WARNING: Failed to retrieve JNDI naming context for container [StandardEngine[Catalina].StandardHost[localhost].StandardContext[/majorclassifier]] so no cleanup was performed for that container
+javax.naming.NamingException: No naming context bound to this class loader
+	at org.apache.naming.ContextBindings.getClassLoader(ContextBindings.java:350)
+	at org.apache.catalina.deploy.NamingResources.cleanUp(NamingResources.java:985)
+	at org.apache.catalina.deploy.NamingResources.stopInternal(NamingResources.java:968)
+	at org.apache.catalina.util.LifecycleBase.stop(LifecycleBase.java:224)
+	at org.apache.catalina.core.StandardContext.stopInternal(StandardContext.java:5796)
+	at org.apache.catalina.util.LifecycleBase.stop(LifecycleBase.java:224)
+	at org.apache.catalina.util.LifecycleBase.destroy(LifecycleBase.java:263)
+	at org.apache.catalina.core.ContainerBase.removeChild(ContainerBase.java:1038)
+	at org.apache.catalina.core.ContainerBase.destroyInternal(ContainerBase.java:1231)
+	at org.apache.catalina.util.LifecycleBase.destroy(LifecycleBase.java:297)
+	at org.apache.catalina.core.ContainerBase.removeChild(ContainerBase.java:1038)
+	at org.apache.catalina.core.ContainerBase.destroyInternal(ContainerBase.java:1231)
+	at org.apache.catalina.util.LifecycleBase.destroy(LifecycleBase.java:297)
+	at org.apache.catalina.core.StandardService.destroyInternal(StandardService.java:594)
+	at org.apache.catalina.util.LifecycleBase.destroy(LifecycleBase.java:297)
+	at org.apache.catalina.core.StandardServer.destroyInternal(StandardServer.java:828)
+	at org.apache.catalina.util.LifecycleBase.destroy(LifecycleBase.java:297)
+	at org.apache.catalina.startup.Catalina.stop(Catalina.java:767)
+	at org.apache.catalina.startup.Catalina.start(Catalina.java:728)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.apache.catalina.startup.Bootstrap.start(Bootstrap.java:294)
+	at org.apache.catalina.startup.Bootstrap.main(Bootstrap.java:428)
+

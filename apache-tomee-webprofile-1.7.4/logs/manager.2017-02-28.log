@@ -1,0 +1,303 @@
+Feb 28, 2017 7:41:08 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: init: Associated with Deployer 'Catalina:type=Deployer,host=localhost'
+Feb 28, 2017 7:41:08 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: init: Global resources are available
+Feb 28, 2017 7:41:08 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Feb 28, 2017 7:41:08 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Feb 28, 2017 7:41:08 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: restart: Reloading web application '/avianMigration'
+Feb 28, 2017 7:42:39 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Feb 28, 2017 7:42:39 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: restart: Reloading web application '/avianMigration'
+Feb 28, 2017 7:47:16 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: init: Associated with Deployer 'Catalina:type=Deployer,host=localhost'
+Feb 28, 2017 7:47:16 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: init: Global resources are available
+Feb 28, 2017 7:47:16 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Feb 28, 2017 7:47:16 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Feb 28, 2017 7:47:16 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: undeploy: Undeploying web application at '/avianMigration'
+Feb 28, 2017 7:47:17 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: install: Installing context configuration at 'file:/C:/Users/CJEDWA~1/AppData/Local/Temp/context7427631766093449004.xml'
+Feb 28, 2017 7:47:18 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: start: Starting web application '/avianMigration'
+Feb 28, 2017 7:48:04 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: init: Associated with Deployer 'Catalina:type=Deployer,host=localhost'
+Feb 28, 2017 7:48:04 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: init: Global resources are available
+Feb 28, 2017 7:48:04 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Feb 28, 2017 7:48:04 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Feb 28, 2017 7:48:04 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: undeploy: Undeploying web application at '/avianMigration'
+Feb 28, 2017 7:48:05 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: install: Installing context configuration at 'file:/C:/Users/CJEDWA~1/AppData/Local/Temp/context6482990179412313384.xml'
+Feb 28, 2017 7:48:07 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: start: Starting web application '/avianMigration'
+Feb 28, 2017 7:56:10 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Feb 28, 2017 7:56:10 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: restart: Reloading web application '/avianMigration'
+Feb 28, 2017 8:04:27 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Feb 28, 2017 8:04:27 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: restart: Reloading web application '/avianMigration'
+Feb 28, 2017 8:12:39 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Feb 28, 2017 8:12:39 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: restart: Reloading web application '/majorclassifier'
+Feb 28, 2017 8:12:39 AM org.apache.catalina.core.ApplicationContext log
+SEVERE: Manager: ManagerServlet.reload[/majorclassifier]
+java.lang.IllegalStateException: Context with name [/majorclassifier] has not yet been started
+	at org.apache.catalina.core.StandardContext.reload(StandardContext.java:4070)
+	at org.apache.catalina.manager.ManagerServlet.reload(ManagerServlet.java:1002)
+	at org.apache.catalina.manager.ManagerServlet.doGet(ManagerServlet.java:371)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:624)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:731)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:303)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:208)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:241)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:208)
+	at org.apache.catalina.filters.SetCharacterEncodingFilter.doFilter(SetCharacterEncodingFilter.java:108)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:241)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:208)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:220)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:122)
+	at org.apache.tomee.catalina.OpenEJBValve.invoke(OpenEJBValve.java:44)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:614)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:169)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:103)
+	at org.apache.catalina.valves.AccessLogValve.invoke(AccessLogValve.java:956)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:116)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:436)
+	at org.apache.coyote.http11.AbstractHttp11Processor.process(AbstractHttp11Processor.java:1078)
+	at org.apache.coyote.AbstractProtocol$AbstractConnectionHandler.process(AbstractProtocol.java:625)
+	at org.apache.tomcat.util.net.JIoEndpoint$SocketProcessor.run(JIoEndpoint.java:318)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:745)
+
+Feb 28, 2017 8:12:40 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Feb 28, 2017 8:12:40 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Feb 28, 2017 8:12:40 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: undeploy: Undeploying web application at '/majorclassifier'
+Feb 28, 2017 8:12:40 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: install: Installing context configuration at 'file:/C:/Users/CJEDWA~1/AppData/Local/Temp/context61742865446041283.xml'
+Feb 28, 2017 8:12:42 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: start: Starting web application '/majorclassifier'
+Feb 28, 2017 8:12:43 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Feb 28, 2017 8:12:43 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: restart: Reloading web application '/avianMigration'
+Feb 28, 2017 8:15:15 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: init: Associated with Deployer 'Catalina:type=Deployer,host=localhost'
+Feb 28, 2017 8:15:15 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: init: Global resources are available
+Feb 28, 2017 8:15:15 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Feb 28, 2017 8:15:15 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Feb 28, 2017 8:15:15 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: restart: Reloading web application '/avianMigration'
+Feb 28, 2017 8:16:03 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Feb 28, 2017 8:16:03 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: restart: Reloading web application '/avianMigration'
+Feb 28, 2017 8:18:39 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Feb 28, 2017 8:18:39 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: restart: Reloading web application '/avianMigration'
+Feb 28, 2017 8:20:46 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Feb 28, 2017 8:20:46 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: restart: Reloading web application '/avianMigration'
+Feb 28, 2017 8:22:28 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Feb 28, 2017 8:22:28 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: restart: Reloading web application '/avianMigration'
+Feb 28, 2017 8:23:58 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Feb 28, 2017 8:23:58 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: restart: Reloading web application '/avianMigration'
+Feb 28, 2017 8:24:35 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Feb 28, 2017 8:24:35 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: restart: Reloading web application '/avianMigration'
+Feb 28, 2017 8:32:38 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Feb 28, 2017 8:32:38 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: restart: Reloading web application '/avianMigration'
+Feb 28, 2017 8:33:41 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Feb 28, 2017 8:33:41 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: restart: Reloading web application '/avianMigration'
+Feb 28, 2017 8:43:08 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Feb 28, 2017 8:43:08 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: restart: Reloading web application '/avianMigration'
+Feb 28, 2017 8:45:51 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Feb 28, 2017 8:45:51 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: restart: Reloading web application '/avianMigration'
+Feb 28, 2017 8:48:01 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Feb 28, 2017 8:48:02 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: restart: Reloading web application '/avianMigration'
+Feb 28, 2017 8:48:05 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Feb 28, 2017 8:48:05 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: restart: Reloading web application '/majorclassifier'
+Feb 28, 2017 8:50:01 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Feb 28, 2017 8:50:01 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: restart: Reloading web application '/avianMigration'
+Feb 28, 2017 8:51:37 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Feb 28, 2017 8:51:37 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: restart: Reloading web application '/avianMigration'
+Feb 28, 2017 8:51:38 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Feb 28, 2017 8:51:38 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: restart: Reloading web application '/avianMigration'
+Feb 28, 2017 8:51:55 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Feb 28, 2017 8:51:55 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: restart: Reloading web application '/avianMigration'
+Feb 28, 2017 8:53:34 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Feb 28, 2017 8:53:34 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: restart: Reloading web application '/avianMigration'
+Feb 28, 2017 8:54:45 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Feb 28, 2017 8:54:45 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: restart: Reloading web application '/avianMigration'
+Feb 28, 2017 8:57:42 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Feb 28, 2017 8:57:42 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: restart: Reloading web application '/avianMigration'
+Feb 28, 2017 12:09:13 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: init: Associated with Deployer 'Catalina:type=Deployer,host=localhost'
+Feb 28, 2017 12:09:13 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: init: Global resources are available
+Feb 28, 2017 12:09:13 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Feb 28, 2017 12:09:13 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Feb 28, 2017 12:09:13 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: undeploy: Undeploying web application at '/avianMigration'
+Feb 28, 2017 12:09:14 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: install: Installing context configuration at 'file:/C:/Users/CJEDWA~1/AppData/Local/Temp/context8878117965630394643.xml'
+Feb 28, 2017 12:09:15 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: start: Starting web application '/avianMigration'
+Feb 28, 2017 12:11:33 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Feb 28, 2017 12:11:33 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Feb 28, 2017 12:11:33 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: undeploy: Undeploying web application at '/avianMigration'
+Feb 28, 2017 12:11:34 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: install: Installing context configuration at 'file:/C:/Users/CJEDWA~1/AppData/Local/Temp/context14296863218953875.xml'
+Feb 28, 2017 12:11:36 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: start: Starting web application '/avianMigration'
+Feb 28, 2017 12:39:25 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Feb 28, 2017 12:39:25 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: restart: Reloading web application '/avianMigration'
+Feb 28, 2017 12:41:08 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Feb 28, 2017 12:41:08 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: restart: Reloading web application '/avianMigration'
+Feb 28, 2017 12:44:00 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Feb 28, 2017 12:44:00 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Feb 28, 2017 12:44:00 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: undeploy: Undeploying web application at '/avianMigration'
+Feb 28, 2017 12:44:00 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: install: Installing context configuration at 'file:/C:/Users/CJEDWA~1/AppData/Local/Temp/context8628770604336546955.xml'
+Feb 28, 2017 12:44:02 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: start: Starting web application '/avianMigration'
+Feb 28, 2017 12:44:53 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Feb 28, 2017 12:44:53 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: restart: Reloading web application '/avianMigration'
+Feb 28, 2017 12:45:43 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Feb 28, 2017 12:45:43 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Feb 28, 2017 12:45:43 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: undeploy: Undeploying web application at '/avianMigration'
+Feb 28, 2017 12:45:44 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: install: Installing context configuration at 'file:/C:/Users/CJEDWA~1/AppData/Local/Temp/context5435923454946537922.xml'
+Feb 28, 2017 12:45:45 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: start: Starting web application '/avianMigration'
+Feb 28, 2017 12:47:30 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Feb 28, 2017 12:47:30 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Feb 28, 2017 12:47:30 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: undeploy: Undeploying web application at '/avianMigration'
+Feb 28, 2017 12:47:31 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: install: Installing context configuration at 'file:/C:/Users/CJEDWA~1/AppData/Local/Temp/context1871610410956738986.xml'
+Feb 28, 2017 12:47:33 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: start: Starting web application '/avianMigration'
+Feb 28, 2017 2:28:39 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Feb 28, 2017 2:28:39 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Feb 28, 2017 2:28:39 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: undeploy: Undeploying web application at '/avianMigration'
+Feb 28, 2017 2:28:40 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: install: Installing context configuration at 'file:/C:/Users/CJEDWA~1/AppData/Local/Temp/context2435514856199651149.xml'
+Feb 28, 2017 2:28:42 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: start: Starting web application '/avianMigration'
+Feb 28, 2017 2:30:28 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Feb 28, 2017 2:30:28 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Feb 28, 2017 2:30:28 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: undeploy: Undeploying web application at '/avianMigration'
+Feb 28, 2017 2:30:29 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: install: Installing context configuration at 'file:/C:/Users/CJEDWA~1/AppData/Local/Temp/context4391507756073259462.xml'
+Feb 28, 2017 2:30:31 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: start: Starting web application '/avianMigration'
+Feb 28, 2017 2:31:32 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Feb 28, 2017 2:31:32 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Feb 28, 2017 2:31:32 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: undeploy: Undeploying web application at '/avianMigration'
+Feb 28, 2017 2:31:32 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: install: Installing context configuration at 'file:/C:/Users/CJEDWA~1/AppData/Local/Temp/context8500955385785702192.xml'
+Feb 28, 2017 2:31:34 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: start: Starting web application '/avianMigration'
+Feb 28, 2017 3:14:14 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Feb 28, 2017 3:14:14 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Feb 28, 2017 3:14:14 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: undeploy: Undeploying web application at '/avianMigration'
+Feb 28, 2017 3:14:18 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: install: Installing context configuration at 'file:/C:/Users/CJEDWA~1/AppData/Local/Temp/context6384250931444883752.xml'
+Feb 28, 2017 3:14:19 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: start: Starting web application '/avianMigration'
+Feb 28, 2017 3:15:41 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Feb 28, 2017 3:15:41 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Feb 28, 2017 3:15:41 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: undeploy: Undeploying web application at '/avianMigration'
+Feb 28, 2017 3:15:41 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: install: Installing context configuration at 'file:/C:/Users/CJEDWA~1/AppData/Local/Temp/context4094317692341725152.xml'
+Feb 28, 2017 3:15:43 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: start: Starting web application '/avianMigration'

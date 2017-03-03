@@ -1,0 +1,4 @@
+Windows task scheduler will call a batch file that will start a jar file in the dist folder. That jar file will then go up 2 directories and proceed to read each excel file name.
+It will be looking specifically at the TTL (Time to live) part of the file name. That part is in the form of a timestamp that says when the file was created, but the program will take
+the file and add 7 days to that then compare that timestamp with the current one. If the 2 are within maybe 3-4 hours or so the program will use the email part of the file to 
+send an email to the user saying that they have so many hours till the file is deleted. If the 2 timestamps are overlapped, then the file will be deleted.

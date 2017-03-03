@@ -1,0 +1,14 @@
+Feb 22, 2017 9:22:56 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: init: Associated with Deployer 'Catalina:type=Deployer,host=localhost'
+Feb 22, 2017 9:22:56 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: init: Global resources are available
+Feb 22, 2017 9:22:56 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Feb 22, 2017 9:22:56 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Feb 22, 2017 9:22:56 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: undeploy: Undeploying web application at '/avianMigration'
+Feb 22, 2017 9:22:56 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: install: Installing context configuration at 'file:/C:/Users/CJEDWA~1/AppData/Local/Temp/context4943611335612774589.xml'
+Feb 22, 2017 9:22:58 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: start: Starting web application '/avianMigration'
