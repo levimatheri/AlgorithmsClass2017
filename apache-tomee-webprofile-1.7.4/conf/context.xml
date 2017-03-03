@@ -32,7 +32,7 @@
 
 <Resource name="jdbc/TestDB" auth="Container" type="javax.sql.DataSource"
                maxTotal="100" maxIdle="30" maxWaitMillis="10000" 
-               username="cjedwards1" password="saturn23" driverClassName="com.microsoft.sqlserver.jdbc.SQLServerDriver"
-               url="jdbc:sqlserver://Solomon:8133"/>
+               username="nsfcourtertomcat" password="German!Scott!Invasion18" driverClassName="com.microsoft.sqlserver.jdbc.SQLServerDriver"
+               url="jdbc:sqlserver://srv-david:8133"/>
 
 </Context>

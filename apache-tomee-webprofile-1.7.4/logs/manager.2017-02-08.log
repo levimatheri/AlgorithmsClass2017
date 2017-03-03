@@ -246,3 +246,53 @@ Feb 08, 2017 7:37:08 AM org.apache.catalina.core.ApplicationContext log
 INFO: Manager: list: Listing contexts for virtual host 'localhost'
 Feb 08, 2017 7:38:08 AM org.apache.catalina.core.ApplicationContext log
 INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Feb 08, 2017 12:41:06 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: init: Associated with Deployer 'Catalina:type=Deployer,host=localhost'
+Feb 08, 2017 12:41:06 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: init: Global resources are available
+Feb 08, 2017 12:41:06 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Feb 08, 2017 12:41:06 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Feb 08, 2017 12:41:06 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: install: Installing context configuration at 'file:/C:/Users/CJEDWA~1/AppData/Local/Temp/context7773148798276507565.xml'
+Feb 08, 2017 12:41:08 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: start: Starting web application '/avianMigration'
+Feb 08, 2017 2:19:44 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Feb 08, 2017 2:19:44 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Feb 08, 2017 2:22:19 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Feb 08, 2017 2:22:19 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Feb 08, 2017 2:22:19 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: undeploy: Undeploying web application at '/avianMigration'
+Feb 08, 2017 2:22:20 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: install: Installing context configuration at 'file:/C:/Users/CJEDWA~1/AppData/Local/Temp/context2491513193926759281.xml'
+Feb 08, 2017 2:22:22 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: start: Starting web application '/avianMigration'
+Feb 08, 2017 2:22:59 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Feb 08, 2017 2:23:03 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Feb 08, 2017 2:23:03 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Feb 08, 2017 2:23:03 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: undeploy: Undeploying web application at '/avianMigration'
+Feb 08, 2017 2:23:03 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: install: Installing context configuration at 'file:/C:/Users/CJEDWA~1/AppData/Local/Temp/context235004350083582750.xml'
+Feb 08, 2017 2:23:05 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: start: Starting web application '/avianMigration'
+Feb 08, 2017 2:25:30 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Feb 08, 2017 2:25:30 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Feb 08, 2017 2:25:30 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: undeploy: Undeploying web application at '/avianMigration'
+Feb 08, 2017 2:25:31 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: install: Installing context configuration at 'file:/C:/Users/CJEDWA~1/AppData/Local/Temp/context7666284846937017237.xml'
+Feb 08, 2017 2:25:32 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: start: Starting web application '/avianMigration'
+Feb 08, 2017 2:30:56 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'

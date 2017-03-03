@@ -1,0 +1,272 @@
+Mar 01, 2017 6:27:46 AM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/avianMigration] has started
+Mar 01, 2017 6:27:46 AM org.springframework.context.support.AbstractApplicationContext doClose
+INFO: Closing WebApplicationContext for namespace 'dispatcher-servlet': startup date [Tue Feb 28 15:15:43 EST 2017]; parent: Root WebApplicationContext
+Mar 01, 2017 6:27:46 AM org.springframework.beans.factory.support.DefaultSingletonBeanRegistry destroySingletons
+INFO: Destroying singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@71118c6a: defining beans [org.springframework.web.servlet.mvc.support.ControllerClassNameHandlerMapping#0,urlMapping,viewResolver,indexController]; parent: org.springframework.beans.factory.support.DefaultListableBeanFactory@57d3de2f
+Mar 01, 2017 6:27:46 AM org.springframework.context.support.AbstractApplicationContext doClose
+INFO: Closing Root WebApplicationContext: startup date [Tue Feb 28 15:15:42 EST 2017]; root of context hierarchy
+Mar 01, 2017 6:27:46 AM org.springframework.beans.factory.support.DefaultSingletonBeanRegistry destroySingletons
+INFO: Destroying singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@57d3de2f: defining beans []; root of factory hierarchy
+Mar 01, 2017 6:27:46 AM org.apache.openejb.assembler.classic.Assembler destroyApplication
+INFO: Undeploying app: C:\NSF Projects\AvianMigration\avianMigration\build\web
+Mar 01, 2017 6:27:46 AM org.apache.openejb.assembler.classic.Assembler destroyResource
+INFO: Closing DataSource: web/jdbc/TestDB
+Mar 01, 2017 6:27:47 AM org.apache.openejb.util.OptionsLog info
+INFO: Using 'openjpa.Log=org.apache.openejb.openjpa.JULOpenJPALogFactory'
+Mar 01, 2017 6:27:47 AM org.apache.openejb.assembler.classic.Assembler destroyApplication
+INFO: Undeployed app: C:\NSF Projects\AvianMigration\avianMigration\build\web
+Mar 01, 2017 6:27:47 AM org.apache.catalina.loader.WebappClassLoaderBase clearReferencesJdbc
+SEVERE: The web application [/avianMigration] registered the JDBC driver [com.microsoft.sqlserver.jdbc.SQLServerDriver] but failed to unregister it when the web application was stopped. To prevent a memory leak, the JDBC Driver has been forcibly unregistered.
+Mar 01, 2017 6:27:47 AM org.apache.catalina.loader.WebappClassLoaderBase checkThreadLocalMapForLeaks
+SEVERE: The web application [/avianMigration] created a ThreadLocal with key of type [com.microsoft.sqlserver.jdbc.ActivityCorrelator$1] (value [com.microsoft.sqlserver.jdbc.ActivityCorrelator$1@37ff6cf9]) and a value of type [com.microsoft.sqlserver.jdbc.ActivityId] (value [22bc665e-509e-4b62-ae6b-bba11f7d9b8d-0]) but failed to remove it when the web application was stopped. Threads are going to be renewed over time to try and avoid a probable memory leak.
+Mar 01, 2017 6:27:47 AM org.apache.catalina.loader.WebappClassLoaderBase checkThreadLocalMapForLeaks
+SEVERE: The web application [/avianMigration] created a ThreadLocal with key of type [org.apache.poi.util.LocaleUtil$1] (value [org.apache.poi.util.LocaleUtil$1@5362151b]) and a value of type [sun.util.calendar.ZoneInfo] (value [sun.util.calendar.ZoneInfo[id="America/New_York",offset=-18000000,dstSavings=3600000,useDaylight=true,transitions=235,lastRule=java.util.SimpleTimeZone[id=America/New_York,offset=-18000000,dstSavings=3600000,useDaylight=true,startYear=0,startMode=3,startMonth=2,startDay=8,startDayOfWeek=1,startTime=7200000,startTimeMode=0,endMode=3,endMonth=10,endDay=1,endDayOfWeek=1,endTime=7200000,endTimeMode=0]]]) but failed to remove it when the web application was stopped. Threads are going to be renewed over time to try and avoid a probable memory leak.
+Mar 01, 2017 6:27:47 AM org.apache.catalina.loader.WebappClassLoaderBase checkThreadLocalMapForLeaks
+SEVERE: The web application [/avianMigration] created a ThreadLocal with key of type [org.apache.poi.util.LocaleUtil$2] (value [org.apache.poi.util.LocaleUtil$2@187bc813]) and a value of type [java.util.Locale] (value [en_US]) but failed to remove it when the web application was stopped. Threads are going to be renewed over time to try and avoid a probable memory leak.
+Mar 01, 2017 6:27:47 AM org.apache.catalina.loader.WebappClassLoaderBase checkThreadLocalMapForLeaks
+SEVERE: The web application [/avianMigration] created a ThreadLocal with key of type [org.apache.xmlbeans.XmlBeans$1] (value [org.apache.xmlbeans.XmlBeans$1@6724bfb4]) and a value of type [java.lang.ref.SoftReference] (value [java.lang.ref.SoftReference@2b709f0d]) but failed to remove it when the web application was stopped. Threads are going to be renewed over time to try and avoid a probable memory leak.
+Mar 01, 2017 6:27:47 AM org.apache.catalina.loader.WebappClassLoaderBase checkThreadLocalMapForLeaks
+SEVERE: The web application [/avianMigration] created a ThreadLocal with key of type [org.apache.xmlbeans.impl.schema.SchemaTypeLoaderImpl$SchemaTypeLoaderCache$1] (value [org.apache.xmlbeans.impl.schema.SchemaTypeLoaderImpl$SchemaTypeLoaderCache$1@68799db5]) and a value of type [java.util.ArrayList] (value [[java.lang.ref.SoftReference@2e04ebf9]]) but failed to remove it when the web application was stopped. Threads are going to be renewed over time to try and avoid a probable memory leak.
+Mar 01, 2017 6:27:47 AM org.apache.catalina.loader.WebappClassLoaderBase checkThreadLocalMapForLeaks
+SEVERE: The web application [/avianMigration] created a ThreadLocal with key of type [org.apache.xmlbeans.impl.store.Locale$1] (value [org.apache.xmlbeans.impl.store.Locale$1@6c1f3892]) and a value of type [java.lang.ref.SoftReference] (value [java.lang.ref.SoftReference@43384aeb]) but failed to remove it when the web application was stopped. Threads are going to be renewed over time to try and avoid a probable memory leak.
+Mar 01, 2017 6:27:47 AM org.apache.catalina.loader.WebappClassLoaderBase checkThreadLocalMapForLeaks
+SEVERE: The web application [/avianMigration] created a ThreadLocal with key of type [com.microsoft.sqlserver.jdbc.ActivityCorrelator$1] (value [com.microsoft.sqlserver.jdbc.ActivityCorrelator$1@37ff6cf9]) and a value of type [com.microsoft.sqlserver.jdbc.ActivityId] (value [aa18ce2a-2b4e-42b6-b769-1a70923c63bd-0]) but failed to remove it when the web application was stopped. Threads are going to be renewed over time to try and avoid a probable memory leak.
+Mar 01, 2017 6:27:50 AM org.apache.catalina.loader.WebappClassLoaderBase validateJarFile
+INFO: validateJarFile(C:\NSF Projects\AvianMigration\avianMigration\build\web\WEB-INF\lib\servlet-api.jar) - jar not loaded. See Servlet Spec 3.0, section 10.7.2. Offending class: javax/servlet/Servlet.class
+Mar 01, 2017 6:27:51 AM org.apache.openejb.config.ConfigurationFactory configureApplication
+INFO: Configuring enterprise application: C:\NSF Projects\AvianMigration\avianMigration\build\web
+Mar 01, 2017 6:27:51 AM org.apache.openejb.config.ConfigurationFactory configureService
+INFO: Configuring Service(id=web/jdbc/TestDB, type=Resource, provider-id=Default JDBC Database)
+Mar 01, 2017 6:27:51 AM org.apache.openejb.assembler.classic.Assembler createRecipe
+INFO: Creating Resource(id=web/jdbc/TestDB)
+Mar 01, 2017 6:27:51 AM org.apache.openejb.assembler.classic.Assembler unusedProperty
+WARNING: Property "maxTotal" not supported by "web/jdbc/TestDB"
+Mar 01, 2017 6:27:51 AM org.apache.openejb.assembler.classic.Assembler unusedProperty
+WARNING: Property "mappedName" not supported by "web/jdbc/TestDB"
+Mar 01, 2017 6:27:51 AM org.apache.openejb.assembler.classic.Assembler unusedProperty
+WARNING: Property "factory" not supported by "web/jdbc/TestDB"
+Mar 01, 2017 6:27:51 AM org.apache.openejb.assembler.classic.Assembler unusedProperty
+WARNING: Property "resourceid" not supported by "web/jdbc/TestDB"
+Mar 01, 2017 6:27:51 AM org.apache.openejb.assembler.classic.Assembler unusedProperty
+WARNING: Property "maxWaitMillis" not supported by "web/jdbc/TestDB"
+Mar 01, 2017 6:27:51 AM org.apache.openejb.config.AppInfoBuilder build
+INFO: Enterprise application "C:\NSF Projects\AvianMigration\avianMigration\build\web" loaded.
+Mar 01, 2017 6:27:51 AM org.apache.openejb.assembler.classic.Assembler createApplication
+INFO: Assembling app: C:\NSF Projects\AvianMigration\avianMigration\build\web
+Mar 01, 2017 6:27:51 AM org.apache.openejb.cdi.CdiBuilder initSingleton
+INFO: Existing thread singleton service in SystemInstance(): org.apache.openejb.cdi.ThreadSingletonServiceImpl@5427c60c
+Mar 01, 2017 6:27:51 AM org.apache.openejb.cdi.OpenEJBLifecycle startApplication
+INFO: OpenWebBeans Container is starting...
+Mar 01, 2017 6:27:51 AM org.apache.openejb.cdi.OpenEJBLifecycle startApplication
+INFO: OpenWebBeans Container has started, it took 16 ms.
+Mar 01, 2017 6:27:51 AM org.apache.tomee.catalina.TomcatWebAppBuilder deployWebApps
+INFO: using context file C:\NSF Projects\AvianMigration\avianMigration\build\web\META-INF\context.xml
+Mar 01, 2017 6:27:51 AM org.apache.openejb.assembler.classic.Assembler createApplication
+INFO: Deployed Application(path=C:\NSF Projects\AvianMigration\avianMigration\build\web)
+Mar 01, 2017 6:27:51 AM org.springframework.web.context.ContextLoader initWebApplicationContext
+INFO: Root WebApplicationContext: initialization started
+Mar 01, 2017 6:27:51 AM org.springframework.context.support.AbstractApplicationContext prepareRefresh
+INFO: Refreshing Root WebApplicationContext: startup date [Wed Mar 01 06:27:51 EST 2017]; root of context hierarchy
+Mar 01, 2017 6:27:51 AM org.springframework.beans.factory.xml.XmlBeanDefinitionReader loadBeanDefinitions
+INFO: Loading XML bean definitions from ServletContext resource [/WEB-INF/applicationContext.xml]
+Mar 01, 2017 6:27:51 AM org.springframework.beans.factory.support.DefaultListableBeanFactory preInstantiateSingletons
+INFO: Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@68acc26d: defining beans []; root of factory hierarchy
+Mar 01, 2017 6:27:51 AM org.springframework.web.context.ContextLoader initWebApplicationContext
+INFO: Root WebApplicationContext: initialization completed in 219 ms
+Mar 01, 2017 6:27:51 AM org.springframework.web.servlet.FrameworkServlet initServletBean
+INFO: FrameworkServlet 'dispatcher': initialization started
+Mar 01, 2017 6:27:51 AM org.springframework.context.support.AbstractApplicationContext prepareRefresh
+INFO: Refreshing WebApplicationContext for namespace 'dispatcher-servlet': startup date [Wed Mar 01 06:27:51 EST 2017]; parent: Root WebApplicationContext
+Mar 01, 2017 6:27:51 AM org.springframework.beans.factory.xml.XmlBeanDefinitionReader loadBeanDefinitions
+INFO: Loading XML bean definitions from ServletContext resource [/WEB-INF/dispatcher-servlet.xml]
+Mar 01, 2017 6:27:51 AM org.springframework.beans.factory.support.DefaultListableBeanFactory preInstantiateSingletons
+INFO: Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@543208d1: defining beans [org.springframework.web.servlet.mvc.support.ControllerClassNameHandlerMapping#0,urlMapping,viewResolver,indexController]; parent: org.springframework.beans.factory.support.DefaultListableBeanFactory@68acc26d
+Mar 01, 2017 6:27:51 AM org.springframework.web.servlet.handler.AbstractUrlHandlerMapping registerHandler
+INFO: Mapped URL path [/index.htm] onto handler 'indexController'
+Mar 01, 2017 6:27:52 AM org.springframework.web.servlet.FrameworkServlet initServletBean
+INFO: FrameworkServlet 'dispatcher': initialization completed in 156 ms
+Mar 01, 2017 6:27:52 AM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/avianMigration] is completed
+Mar 01, 2017 6:27:52 AM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/avianMigration] has started
+Mar 01, 2017 6:27:52 AM org.springframework.context.support.AbstractApplicationContext doClose
+INFO: Closing WebApplicationContext for namespace 'dispatcher-servlet': startup date [Wed Mar 01 06:27:51 EST 2017]; parent: Root WebApplicationContext
+Mar 01, 2017 6:27:52 AM org.springframework.beans.factory.support.DefaultSingletonBeanRegistry destroySingletons
+INFO: Destroying singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@543208d1: defining beans [org.springframework.web.servlet.mvc.support.ControllerClassNameHandlerMapping#0,urlMapping,viewResolver,indexController]; parent: org.springframework.beans.factory.support.DefaultListableBeanFactory@68acc26d
+Mar 01, 2017 6:27:52 AM org.springframework.context.support.AbstractApplicationContext doClose
+INFO: Closing Root WebApplicationContext: startup date [Wed Mar 01 06:27:51 EST 2017]; root of context hierarchy
+Mar 01, 2017 6:27:52 AM org.springframework.beans.factory.support.DefaultSingletonBeanRegistry destroySingletons
+INFO: Destroying singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@68acc26d: defining beans []; root of factory hierarchy
+Mar 01, 2017 6:27:52 AM org.apache.openejb.assembler.classic.Assembler destroyApplication
+INFO: Undeploying app: C:\NSF Projects\AvianMigration\avianMigration\build\web
+Mar 01, 2017 6:27:52 AM org.apache.openejb.assembler.classic.Assembler destroyResource
+INFO: Closing DataSource: web/jdbc/TestDB
+Mar 01, 2017 6:27:52 AM org.apache.openejb.util.OptionsLog info
+INFO: Using 'openjpa.Log=org.apache.openejb.openjpa.JULOpenJPALogFactory'
+Mar 01, 2017 6:27:52 AM org.apache.openejb.assembler.classic.Assembler destroyApplication
+INFO: Undeployed app: C:\NSF Projects\AvianMigration\avianMigration\build\web
+Mar 01, 2017 6:27:52 AM org.apache.catalina.loader.WebappClassLoaderBase clearReferencesJdbc
+SEVERE: The web application [/avianMigration] registered the JDBC driver [com.microsoft.sqlserver.jdbc.SQLServerDriver] but failed to unregister it when the web application was stopped. To prevent a memory leak, the JDBC Driver has been forcibly unregistered.
+Mar 01, 2017 6:27:52 AM org.apache.catalina.loader.WebappClassLoaderBase validateJarFile
+INFO: validateJarFile(C:\NSF Projects\AvianMigration\avianMigration\build\web\WEB-INF\lib\servlet-api.jar) - jar not loaded. See Servlet Spec 3.0, section 10.7.2. Offending class: javax/servlet/Servlet.class
+Mar 01, 2017 6:27:52 AM org.apache.openejb.config.ConfigurationFactory configureApplication
+INFO: Configuring enterprise application: C:\NSF Projects\AvianMigration\avianMigration\build\web
+Mar 01, 2017 6:27:53 AM org.apache.openejb.config.ConfigurationFactory configureService
+INFO: Configuring Service(id=web/jdbc/TestDB, type=Resource, provider-id=Default JDBC Database)
+Mar 01, 2017 6:27:53 AM org.apache.openejb.assembler.classic.Assembler createRecipe
+INFO: Creating Resource(id=web/jdbc/TestDB)
+Mar 01, 2017 6:27:53 AM org.apache.openejb.assembler.classic.Assembler unusedProperty
+WARNING: Property "maxTotal" not supported by "web/jdbc/TestDB"
+Mar 01, 2017 6:27:53 AM org.apache.openejb.assembler.classic.Assembler unusedProperty
+WARNING: Property "mappedName" not supported by "web/jdbc/TestDB"
+Mar 01, 2017 6:27:53 AM org.apache.openejb.assembler.classic.Assembler unusedProperty
+WARNING: Property "factory" not supported by "web/jdbc/TestDB"
+Mar 01, 2017 6:27:53 AM org.apache.openejb.assembler.classic.Assembler unusedProperty
+WARNING: Property "resourceid" not supported by "web/jdbc/TestDB"
+Mar 01, 2017 6:27:53 AM org.apache.openejb.assembler.classic.Assembler unusedProperty
+WARNING: Property "maxWaitMillis" not supported by "web/jdbc/TestDB"
+Mar 01, 2017 6:27:53 AM org.apache.openejb.config.AppInfoBuilder build
+INFO: Enterprise application "C:\NSF Projects\AvianMigration\avianMigration\build\web" loaded.
+Mar 01, 2017 6:27:53 AM org.apache.openejb.assembler.classic.Assembler createApplication
+INFO: Assembling app: C:\NSF Projects\AvianMigration\avianMigration\build\web
+Mar 01, 2017 6:27:53 AM org.apache.openejb.cdi.CdiBuilder initSingleton
+INFO: Existing thread singleton service in SystemInstance(): org.apache.openejb.cdi.ThreadSingletonServiceImpl@5427c60c
+Mar 01, 2017 6:27:53 AM org.apache.openejb.cdi.OpenEJBLifecycle startApplication
+INFO: OpenWebBeans Container is starting...
+Mar 01, 2017 6:27:53 AM org.apache.openejb.cdi.OpenEJBLifecycle startApplication
+INFO: OpenWebBeans Container has started, it took 15 ms.
+Mar 01, 2017 6:27:53 AM org.apache.tomee.catalina.TomcatWebAppBuilder deployWebApps
+INFO: using context file C:\NSF Projects\AvianMigration\avianMigration\build\web\META-INF\context.xml
+Mar 01, 2017 6:27:53 AM org.apache.openejb.assembler.classic.Assembler createApplication
+INFO: Deployed Application(path=C:\NSF Projects\AvianMigration\avianMigration\build\web)
+Mar 01, 2017 6:27:53 AM org.springframework.web.context.ContextLoader initWebApplicationContext
+INFO: Root WebApplicationContext: initialization started
+Mar 01, 2017 6:27:53 AM org.springframework.context.support.AbstractApplicationContext prepareRefresh
+INFO: Refreshing Root WebApplicationContext: startup date [Wed Mar 01 06:27:53 EST 2017]; root of context hierarchy
+Mar 01, 2017 6:27:53 AM org.springframework.beans.factory.xml.XmlBeanDefinitionReader loadBeanDefinitions
+INFO: Loading XML bean definitions from ServletContext resource [/WEB-INF/applicationContext.xml]
+Mar 01, 2017 6:27:53 AM org.springframework.beans.factory.support.DefaultListableBeanFactory preInstantiateSingletons
+INFO: Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@53a7898f: defining beans []; root of factory hierarchy
+Mar 01, 2017 6:27:53 AM org.springframework.web.context.ContextLoader initWebApplicationContext
+INFO: Root WebApplicationContext: initialization completed in 156 ms
+Mar 01, 2017 6:27:53 AM org.springframework.web.servlet.FrameworkServlet initServletBean
+INFO: FrameworkServlet 'dispatcher': initialization started
+Mar 01, 2017 6:27:53 AM org.springframework.context.support.AbstractApplicationContext prepareRefresh
+INFO: Refreshing WebApplicationContext for namespace 'dispatcher-servlet': startup date [Wed Mar 01 06:27:53 EST 2017]; parent: Root WebApplicationContext
+Mar 01, 2017 6:27:53 AM org.springframework.beans.factory.xml.XmlBeanDefinitionReader loadBeanDefinitions
+INFO: Loading XML bean definitions from ServletContext resource [/WEB-INF/dispatcher-servlet.xml]
+Mar 01, 2017 6:27:53 AM org.springframework.beans.factory.support.DefaultListableBeanFactory preInstantiateSingletons
+INFO: Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@222f1abe: defining beans [org.springframework.web.servlet.mvc.support.ControllerClassNameHandlerMapping#0,urlMapping,viewResolver,indexController]; parent: org.springframework.beans.factory.support.DefaultListableBeanFactory@53a7898f
+Mar 01, 2017 6:27:53 AM org.springframework.web.servlet.handler.AbstractUrlHandlerMapping registerHandler
+INFO: Mapped URL path [/index.htm] onto handler 'indexController'
+Mar 01, 2017 6:27:53 AM org.springframework.web.servlet.FrameworkServlet initServletBean
+INFO: FrameworkServlet 'dispatcher': initialization completed in 140 ms
+Mar 01, 2017 6:27:53 AM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/avianMigration] is completed
+Mar 01, 2017 6:28:39 AM org.springframework.context.support.AbstractApplicationContext doClose
+INFO: Closing WebApplicationContext for namespace 'dispatcher-servlet': startup date [Wed Mar 01 06:27:53 EST 2017]; parent: Root WebApplicationContext
+Mar 01, 2017 6:28:39 AM org.springframework.beans.factory.support.DefaultSingletonBeanRegistry destroySingletons
+INFO: Destroying singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@222f1abe: defining beans [org.springframework.web.servlet.mvc.support.ControllerClassNameHandlerMapping#0,urlMapping,viewResolver,indexController]; parent: org.springframework.beans.factory.support.DefaultListableBeanFactory@53a7898f
+Mar 01, 2017 6:28:39 AM org.springframework.context.support.AbstractApplicationContext doClose
+INFO: Closing Root WebApplicationContext: startup date [Wed Mar 01 06:27:53 EST 2017]; root of context hierarchy
+Mar 01, 2017 6:28:39 AM org.springframework.beans.factory.support.DefaultSingletonBeanRegistry destroySingletons
+INFO: Destroying singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@53a7898f: defining beans []; root of factory hierarchy
+Mar 01, 2017 6:28:39 AM org.apache.openejb.assembler.classic.Assembler destroyApplication
+INFO: Undeploying app: C:\NSF Projects\AvianMigration\avianMigration\build\web
+Mar 01, 2017 6:28:39 AM org.apache.openejb.assembler.classic.Assembler destroyResource
+INFO: Closing DataSource: web/jdbc/TestDB
+Mar 01, 2017 6:28:39 AM org.apache.openejb.util.OptionsLog info
+INFO: Using 'openjpa.Log=org.apache.openejb.openjpa.JULOpenJPALogFactory'
+Mar 01, 2017 6:28:39 AM org.apache.openejb.assembler.classic.Assembler destroyApplication
+INFO: Undeployed app: C:\NSF Projects\AvianMigration\avianMigration\build\web
+Mar 01, 2017 6:28:39 AM org.apache.catalina.loader.WebappClassLoaderBase clearReferencesJdbc
+SEVERE: The web application [/avianMigration] registered the JDBC driver [com.microsoft.sqlserver.jdbc.SQLServerDriver] but failed to unregister it when the web application was stopped. To prevent a memory leak, the JDBC Driver has been forcibly unregistered.
+Mar 01, 2017 6:28:39 AM org.apache.catalina.startup.HostConfig undeploy
+INFO: Undeploying context [/avianMigration]
+Mar 01, 2017 9:28:21 AM org.apache.catalina.core.StandardServer await
+INFO: A valid shutdown command was received via the shutdown port. Stopping the Server instance.
+Mar 01, 2017 9:28:22 AM org.apache.coyote.AbstractProtocol pause
+INFO: Pausing ProtocolHandler ["http-bio-8080"]
+Mar 01, 2017 9:28:22 AM org.apache.coyote.AbstractProtocol pause
+INFO: Pausing ProtocolHandler ["ajp-bio-8009"]
+Mar 01, 2017 9:28:22 AM org.apache.catalina.core.StandardService stopInternal
+INFO: Stopping service Catalina
+Mar 01, 2017 9:28:22 AM org.springframework.context.support.AbstractApplicationContext doClose
+INFO: Closing WebApplicationContext for namespace 'dispatcher-servlet': startup date [Tue Feb 28 12:09:12 EST 2017]; parent: Root WebApplicationContext
+Mar 01, 2017 9:28:22 AM org.springframework.beans.factory.support.DefaultSingletonBeanRegistry destroySingletons
+INFO: Destroying singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@6b0cc5a6: defining beans [org.springframework.web.servlet.mvc.support.ControllerClassNameHandlerMapping#0,urlMapping,viewResolver,indexController]; parent: org.springframework.beans.factory.support.DefaultListableBeanFactory@618ec9fb
+Mar 01, 2017 9:28:22 AM org.springframework.context.support.AbstractApplicationContext doClose
+INFO: Closing Root WebApplicationContext: startup date [Tue Feb 28 12:09:11 EST 2017]; root of context hierarchy
+Mar 01, 2017 9:28:22 AM org.springframework.beans.factory.support.DefaultSingletonBeanRegistry destroySingletons
+INFO: Destroying singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@618ec9fb: defining beans []; root of factory hierarchy
+Mar 01, 2017 9:28:22 AM org.apache.openejb.assembler.classic.Assembler destroyApplication
+INFO: Undeploying app: C:\NSF Projects\MajorClassifier\majorclassifier\build\web
+Mar 01, 2017 9:28:22 AM org.apache.tomee.catalina.TomcatWebAppBuilder afterStop
+SEVERE: Unable to stop web application /majorclassifier: Exception: null
+java.lang.NullPointerException
+	at org.apache.openejb.assembler.classic.Assembler.destroyApplication(Assembler.java:1873)
+	at org.apache.openejb.assembler.classic.Assembler.destroyApplication(Assembler.java:1840)
+	at org.apache.tomee.catalina.TomcatWebAppBuilder.afterStop(TomcatWebAppBuilder.java:1938)
+	at org.apache.tomee.catalina.GlobalListenerSupport.lifecycleEvent(GlobalListenerSupport.java:126)
+	at org.apache.catalina.util.LifecycleSupport.fireLifecycleEvent(LifecycleSupport.java:117)
+	at org.apache.catalina.util.LifecycleBase.fireLifecycleEvent(LifecycleBase.java:90)
+	at org.apache.catalina.util.LifecycleBase.setStateInternal(LifecycleBase.java:394)
+	at org.apache.catalina.util.LifecycleBase.stop(LifecycleBase.java:244)
+	at org.apache.catalina.core.ContainerBase$StopChild.call(ContainerBase.java:1588)
+	at org.apache.catalina.core.ContainerBase$StopChild.call(ContainerBase.java:1577)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+
+Mar 01, 2017 9:28:22 AM org.apache.catalina.loader.WebappClassLoaderBase clearReferencesJdbc
+SEVERE: The web application [/majorclassifier] registered the JDBC driver [com.microsoft.sqlserver.jdbc.SQLServerDriver] but failed to unregister it when the web application was stopped. To prevent a memory leak, the JDBC Driver has been forcibly unregistered.
+Mar 01, 2017 9:28:22 AM org.apache.openejb.assembler.classic.Assembler destroyApplication
+INFO: Undeploying app: C:\NSF Projects\AvianMigration\apache-tomee-webprofile-1.7.4\webapps\docs
+Mar 01, 2017 9:28:22 AM org.apache.openejb.assembler.classic.Assembler destroyResource
+INFO: Closing DataSource: docs/jdbc/TestDB
+Mar 01, 2017 9:28:22 AM org.apache.openejb.util.OptionsLog info
+INFO: Using 'openjpa.Log=org.apache.openejb.openjpa.JULOpenJPALogFactory'
+Mar 01, 2017 9:28:22 AM org.apache.openejb.assembler.classic.Assembler destroyApplication
+INFO: Undeployed app: C:\NSF Projects\AvianMigration\apache-tomee-webprofile-1.7.4\webapps\docs
+Mar 01, 2017 9:28:22 AM org.apache.openejb.assembler.classic.Assembler destroyApplication
+INFO: Undeploying app: C:\NSF Projects\AvianMigration\apache-tomee-webprofile-1.7.4\webapps\host-manager
+Mar 01, 2017 9:28:22 AM org.apache.openejb.assembler.classic.Assembler destroyResource
+INFO: Closing DataSource: host-manager/jdbc/TestDB
+Mar 01, 2017 9:28:22 AM org.apache.openejb.util.OptionsLog info
+INFO: Using 'openjpa.Log=org.apache.openejb.openjpa.JULOpenJPALogFactory'
+Mar 01, 2017 9:28:22 AM org.apache.openejb.assembler.classic.Assembler destroyApplication
+INFO: Undeployed app: C:\NSF Projects\AvianMigration\apache-tomee-webprofile-1.7.4\webapps\host-manager
+Mar 01, 2017 9:28:22 AM org.apache.openejb.assembler.classic.Assembler destroyApplication
+INFO: Undeploying app: C:\NSF Projects\AvianMigration\apache-tomee-webprofile-1.7.4\webapps\manager
+Mar 01, 2017 9:28:22 AM org.apache.openejb.assembler.classic.Assembler destroyResource
+INFO: Closing DataSource: manager/jdbc/TestDB
+Mar 01, 2017 9:28:22 AM org.apache.openejb.util.OptionsLog info
+INFO: Using 'openjpa.Log=org.apache.openejb.openjpa.JULOpenJPALogFactory'
+Mar 01, 2017 9:28:22 AM org.apache.openejb.assembler.classic.Assembler destroyApplication
+INFO: Undeployed app: C:\NSF Projects\AvianMigration\apache-tomee-webprofile-1.7.4\webapps\manager
+Mar 01, 2017 9:28:22 AM org.apache.openejb.assembler.classic.Assembler destroyApplication
+INFO: Undeploying app: C:\NSF Projects\AvianMigration\apache-tomee-webprofile-1.7.4\webapps\ROOT
+Mar 01, 2017 9:28:22 AM org.apache.openejb.assembler.classic.Assembler destroyResource
+INFO: Closing DataSource: ROOT/jdbc/TestDB
+Mar 01, 2017 9:28:23 AM org.apache.openejb.util.OptionsLog info
+INFO: Using 'openjpa.Log=org.apache.openejb.openjpa.JULOpenJPALogFactory'
+Mar 01, 2017 9:28:23 AM org.apache.openejb.assembler.classic.Assembler destroyApplication
+INFO: Undeployed app: C:\NSF Projects\AvianMigration\apache-tomee-webprofile-1.7.4\webapps\ROOT
+Mar 01, 2017 9:28:23 AM org.apache.coyote.AbstractProtocol stop
+INFO: Stopping ProtocolHandler ["http-bio-8080"]
+Mar 01, 2017 9:28:23 AM org.apache.coyote.AbstractProtocol stop
+INFO: Stopping ProtocolHandler ["ajp-bio-8009"]
+Mar 01, 2017 9:28:23 AM org.apache.openejb.server.SimpleServiceManager stop
+INFO: Stopping server services
+Mar 01, 2017 9:28:23 AM org.apache.openejb.assembler.classic.Assembler destroyApplication
+INFO: Undeploying app: openejb
+Mar 01, 2017 9:28:23 AM org.apache.openejb.util.OptionsLog info
+INFO: Using 'openjpa.Log=org.apache.openejb.openjpa.JULOpenJPALogFactory'
+Mar 01, 2017 9:28:23 AM org.apache.openejb.assembler.classic.Assembler destroyApplication
+INFO: Undeployed app: openejb
+Mar 01, 2017 9:28:23 AM org.apache.coyote.AbstractProtocol destroy
+INFO: Destroying ProtocolHandler ["http-bio-8080"]
+Mar 01, 2017 9:28:23 AM org.apache.coyote.AbstractProtocol destroy
+INFO: Destroying ProtocolHandler ["ajp-bio-8009"]

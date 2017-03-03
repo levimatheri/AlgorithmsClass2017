@@ -1,4 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Context antiJARLocking="true" docBase="C:\Users\cjedwards1\Desktop\MajorClassifier\majorclassifier\build\web" path="/majorclassifier">
+<Context antiJARLocking="true" docBase="C:\NSF Projects\MajorClassifier\majorclassifier\build\web" path="/majorclassifier">
   <Resource auth="Container" driverClassName="com.microsoft.sqlserver.jdbc.SQLServerDriver" maxIdle="30" maxTotal="100" maxWaitMillis="10000" name="jdbc/TestDB" password="saturn23" type="javax.sql.DataSource" url="jdbc:sqlserver://Solomon:8133" username="cjedwards1"/>
 </Context>
