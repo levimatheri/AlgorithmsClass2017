@@ -127,11 +127,14 @@ public class EntryPoint extends HttpServlet
                 File folder = new File("..\\webapps\\avianMigration\\query_files");
                 File[] listOfFiles = folder.listFiles();
                 
-                for(File tempFile : listOfFiles)
+                if(listOfFiles != null)
                 {
-                    if(tempFile.isFile())
-                        if(tempFile.getName().contains(user))
-                            listFiles.put(tempFile.getName());
+                    for(File tempFile : listOfFiles)
+                    {
+                        if(tempFile.isFile())
+                            if(tempFile.getName().contains(user))
+                                listFiles.put(tempFile.getName());
+                    }
                 }
                 files.put("files", listFiles);
                 
