@@ -70,10 +70,27 @@
 							        <div id="location" style="display:none" onChange="inputRadioChange(event)">
 								        <b>Pick a location type to search for.</b><br>
 								        <input type="radio" name="location" value="cd"> Climate Division<br>
-								        <div id="cd" style="display:none">
+								        <!--<div id="cd" style="display:none">
 									        <a href="#" id="cdIframeLink" onclick="openCdMap()">Load climate divison map. This may take a few minutes...</a>
 									        <iframe id="cdIframe" src="climDiv.html" height="320" width="520" style="border:none;display:none"></iframe>                                                                                                                                                                                            
+								        </div>-->
+                                                                          <div id="cd" style="display:none">
+									        <b>Plug in values for the state and climate division then press Add.</b><br>
+                                                                                State:  <div class="ui-front" style="display: inline; margin-bottom: 10px;"><input type="text" id="state_cd" style="margin-bottom:1em" onchange="getClimateDiv()"></div>                                                                                                                                                
+									        <div class="tabbed"></div> 
+                                                                                Climate Division:   <div class="ui-front" style="display: inline"><input type="text" class="ui-autocomplete-input" id="cdiv"><br></div>									        
+									        <div class="tabbed"></div>
+									        <button type="button" onclick="addStateClimateDivRow()">Add</button>
+									        <table id="stateClimateDivInputTable" class="showData" style="width:30%" onclick="deleteStateClimateDivRow(event)">
+										        <caption>State Climate_Div inputs table</caption>
+										        <tr>
+											        <th>State</th>
+											        <th>Climate Division</th>						        
+										        </tr>
+									        </table>
+									        <div id="stateClimateDivFinalInput" style="display:none"></div>
 								        </div>
+                                                                        
 								        <input type="radio" name="location" value="ll"> Latitude, Longitude<br>
 								        <div id="ll" style="display:none">
 									        <b>Plug in values for the latitude and longitude then press Add.</b><br>
