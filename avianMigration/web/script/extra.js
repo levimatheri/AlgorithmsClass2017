@@ -30,6 +30,59 @@ function openTab(evt, tabName) {
     }
 }
 
+function addStateClimateDivRow()
+{
+    //Create and insert a new row into the State Climate Div table.
+    
+    //if state and climDiv textboxes are not empty
+    if((document.getElementById('state_cd').value !== "") && (document.getElementById('cdiv').value !== "")){
+        //Insert the data into the new row.
+        var row = document.getElementById('stateClimateDivInputTable').insertRow(document.getElementById('stateClimateDivInputTable').rows.length);
+        row.insertCell(0).innerHTML = document.getElementById('state_cd').value;
+        row.insertCell(1).innerHTML = document.getElementById('cdiv').value;    
+        row.insertCell(2).innerHTML = "<input id='edit1' type='submit' name='delete' value='Delete'>";
+
+        //Access the div holder that is holding the final string for the state climDiv option.
+        var tempHolder = document.getElementById('stateClimateDivFinalInput').innerHTML;
+
+        //If there is more than one option in the holder already.
+        if (tempHolder.includes("/")) {
+            tempHolder += "," + document.getElementById('state_cd').value + "/" + document.getElementById('cdiv').value;
+        }
+        else {
+            tempHolder = document.getElementById('state_cd').value + "/" + document.getElementById('cdiv').value;
+        }
+
+        //Put back the holder's new inner html.
+        document.getElementById('stateClimateDivFinalInput').innerHTML = tempHolder;
+
+        //Reset the text boxes.
+        document.getElementById('state_cd').value = "";
+        document.getElementById('cdiv').value = "";
+    }      
+}
+
+//To delete a State Climate Div option.
+function deleteStateClimateDivRow(evt) {
+    var node = evt.target || evt.srcElement;
+    var cells = node.parentElement.parentElement.cells;
+    var checkString = cells[0].innerHTML + "/" + cells[1].innerHTML;
+
+    var tempHolder = document.getElementById('stateClimateDivFinalInput').innerHTML;
+    if (tempHolder.includes("," + checkString)) {
+        tempHolder = tempHolder.replace("," + checkString, "");
+    }
+    else {
+        tempHolder = tempHolder.replace(checkString, "");
+        if (tempHolder.startsWith(",")) {
+            tempHolder = tempHolder.substring(1, tempHolder.length);
+        }
+    }
+    document.getElementById('stateClimateDivFinalInput').innerHTML = tempHolder;
+
+    document.getElementById(node.parentElement.parentElement.parentElement.parentElement.id).deleteRow(node.parentElement.parentElement.rowIndex);
+}
+
 //when either general or historical tab is clicked
 function onHistRadioClick() {
     //if historical radio button is clicked hide day, am/pm, observation and calculations div
@@ -178,6 +231,26 @@ function start()
                 console.log(div);
             }
         }
-    }
+    };
     xmlhttp.send(params);
+    
+    var xobj1 = new XMLHttpRequest();
+    xobj1.overrideMimeType("application/json");
+    xobj1.open('GET', 'statesToClimDiv.json', true);
+    xobj1.onreadystatechange = function (){
+        if(xobj1.readyState == 4 && xobj1.status == "200"){
+            //callback(xobj.responseText);
+            actual_JSON_ClimDiv = JSON.parse(xobj1.responseText);
+            
+            var states_cd = [];
+            for(var key in actual_JSON_ClimDiv){
+                states_cd.push(key);
+               // console.log(key);
+            }      
+            $("#state_cd").autocomplete({
+                source: states_cd                               
+            });      
+        }
+    };
+    xobj1.send(null);   
 }
