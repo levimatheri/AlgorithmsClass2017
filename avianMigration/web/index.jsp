@@ -12,6 +12,9 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" type="text/css" href="/avianMigration/css/style.css">
 	<link rel="stylesheet" type="text/css" href="bootstrap-3.3.7-dist/css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="/avianMigration/css/jquery-ui 1.12.1.css">
+        <script type="text/javascript" src="/avianMigration/script/jquery-3.1.1.min.js"></script>   
+        <script type="text/javascript" src="/avianMigration/script/jquery-ui 1.12.1.js"></script>
         <script type="text/javascript" src="/avianMigration/script/iframe.js"></script>
         <script type="text/javascript" src="/avianMigration/script/submit.js"></script>
         <script type="text/javascript" src="/avianMigration/script/change option.js"></script>
@@ -123,11 +126,15 @@
 								        <b>Enter a year range, or to search for 1 year, have both fields equal.</b><br>
 								        <div id="beginYear" style="display:inline-block">
 									        Beginning year:<br>
-									        <input type="text" id="beginYearText">	
-								        </div>
+									        <select id="beginYearText">
+                                                                                    
+                                                                                </select> 	
+								        </div>&nbsp;&nbsp;&nbsp;&nbsp;
 								        <div id="endYear" style="display:inline-block">
 									        Ending year:<br>
-									        <input type="text" id="endYearText">
+									        <select id="endYearText">
+                                                                                    
+                                                                                </select>     
 								        </div><br><br>
 							        </div>
 								
