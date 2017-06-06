@@ -150,6 +150,48 @@ public class EntryPoint extends HttpServlet
             }
         }
         
+        else if(request.getParameter("yearText") != null)
+        {
+            
+            //System.out.println("Got it!");
+            response.setContentType("application/json");
+            
+            try (PrintWriter out = response.getWriter())
+            {
+                Table rows = access.getTable("SELECT DISTINCT YEAR([Date and time recorded]) AS DATE FROM NSFCourter2016.dbo.MAIN_VIEW GROUP BY [Date and time recorded] HAVING YEAR([Date and time recorded]) "
+                        + "BETWEEN MIN(YEAR([Date and time recorded])) AND MAX(YEAR([Date and time recorded])) ORDER BY DATE");
+                
+                //Creat the returning json object.
+                JSONObject returnObject = new JSONObject();
+                
+                //Set up the json array that will hold the variable names.
+                JSONArray array = new JSONArray();
+              
+                //rowNames.next();
+                while(rows.next())
+                {
+                    array.put(rows.getInt("DATE"));
+                }              
+                //Insert the array into the returning object.
+                returnObject.put("years", array);
+                System.out.println(returnObject.toString());
+                
+                //Write the object to the printstream.
+                out.write(returnObject.toString());
+                
+                //Flush the stream to reset.
+                out.flush();
+                
+                //Close the table object.
+                rows.close();
+            }
+            catch(Exception ex)
+            {
+                ex.printStackTrace();
+            }
+            
+        }
+        
         else if(request.getParameter("vars") != null)
         {
             //Set return type to json object.
