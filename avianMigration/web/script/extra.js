@@ -175,6 +175,24 @@ function deleteLatLongRow(evt) {
     document.getElementById(node.parentElement.parentElement.parentElement.parentElement.id).deleteRow(node.parentElement.parentElement.rowIndex);
 }
 
+function getClimateDiv(){
+    var climDivs = [];
+    
+    var key = document.getElementById('state_cd').value;
+    
+    var climDivsArray = actual_JSON_ClimDiv[key];
+    
+    //console.log(actual_JSON[key]);
+    for(var climDiv in climDivsArray){
+        //console.log(countyArray[county]);
+        climDivs.push(climDivsArray[climDiv]);
+    }
+    
+    $("#cdiv").autocomplete({
+        source: climDivs                               
+    });    
+}
+
 function start()
 {
     //Set the main tab as selected.
@@ -233,6 +251,25 @@ function start()
         }
     };
     xmlhttp.send(params);
+    
+    //request to get year span from database
+    xmlhttp = new XMLHttpRequest();
+    var url = "/avianMigration/submit_job";
+    var params = "?yearText=true";
+    xmlhttp.open("Get", url + params, true);
+    xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    xmlhttp.onreadystatechange = function (){
+        if(xmlhttp.readyState == 4 && xmlhttp.status == "200"){   
+            var arr = JSON.parse(this.responseText);
+            
+            for(var j in arr["years"]){
+               $("#beginYearText").append(new Option(arr["years"][j]));
+               $("#endYearText").append(new Option(arr["years"][j]));
+            }      
+            
+        }
+    };
+    xmlhttp.send(params);  
     
     var xobj1 = new XMLHttpRequest();
     xobj1.overrideMimeType("application/json");
