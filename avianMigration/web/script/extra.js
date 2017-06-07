@@ -207,7 +207,7 @@ function start()
     xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     xmlhttp.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
-            console.log(this.responseText);
+            //console.log(this.responseText);
             var myArr = JSON.parse(this.responseText);
             if (myArr) {
                 for (var i in myArr["names"]) {
@@ -234,7 +234,7 @@ function start()
     xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     xmlhttp.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
-            console.log(this.responseText);
+            //console.log(this.responseText);
             var myArr = JSON.parse(this.responseText);
             if (myArr) {
                 var div = document.getElementById("downloadView");
