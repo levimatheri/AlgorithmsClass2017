@@ -126,7 +126,7 @@
 								        <b>Enter a year range, or to search for 1 year, have both fields equal.</b><br>
 								        <div id="beginYear" style="display:inline-block">
 									        Beginning year:<br>
-									        <select id="beginYearText">
+                                                                                <select id="beginYearText" onchange="selectOption(event)">
                                                                                     
                                                                                 </select> 	
 								        </div>&nbsp;&nbsp;&nbsp;&nbsp;
