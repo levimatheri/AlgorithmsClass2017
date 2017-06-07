@@ -49,30 +49,35 @@ function inputOptionChange(evt) {
 
 }
 
-//this will ensure a user cannot select an ending year that is less than the beginning year
-function selectOption(evt)
+//this will ensure a user cannot select an ending year/month/day that is less than the beginning year/month/day
+function selectOption(evt, ele)
 {
-    var beginYear = evt.target.value;
+    //make sure JS sees this as a number an not a string using the unary plus(+)
+    var begin = +(evt.target.value);
     
-    var endYearOptions = document.getElementById('endYearText');
+    var elements = document.getElementsByClassName(ele.className);
+    
+    //get the end part of the variable i.e endYear or endMonth etc.
+    var endOptions = document.getElementById(elements[1].id);
     
     //set every option to default display at the beginning of each change
-    for(var j = 0; j < endYearOptions.length; j++)
+    for(var j = 0; j < endOptions.length; j++)
     {
-        endYearOptions[j].style="display:";
+        endOptions[j].style="display:";
     }
     
     //loop through the options in end year and hide options that are less than the beginning year
     //also make sure the first element in the list is always beginYear
-    for(var i = 0; i < endYearOptions.length; i++)
+    for(var i = 0; i < endOptions.length; i++)
     {
-        //console.log(endYearOptions[i].value);
-        if(endYearOptions[i].value < beginYear)
+        //make sure JS sees endOptions[i].value as a number an not a string using the unary plus(+)
+        if(+endOptions[i].value < begin)
         {
-            endYearOptions[i].style.display = "none";
+            //console.log(+endOptions[i].value);
+            endOptions[i].style.display = "none";
         }
-        if(endYearOptions[i].value === beginYear)
-            endYearOptions[i].selected = true;
+        if(+endOptions[i].value === begin)
+            endOptions[i].selected = true;
     }
 }
 
