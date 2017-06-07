@@ -127,13 +127,13 @@
 								        <div id="beginYear" style="display:inline-block">
 									        Beginning year:<br>
                                                                                 <select id="beginYearText" class="year" onchange="selectOption(event, this)">
-                                                                                    
+                                                                                    <option class="base">Please Select</option>
                                                                                 </select> 	
 								        </div>&nbsp;&nbsp;&nbsp;&nbsp;
 								        <div id="endYear" style="display:inline-block">
 									        Ending year:<br>
 									        <select class="year" id="endYearText">
-                                                                                    
+                                                                                    <option class="base">Please Select</option>
                                                                                 </select>     
 								        </div><br><br>
 							        </div>
@@ -143,35 +143,37 @@
 								        <div id="beginMonth" style="display:inline-block">
 									        Beginning month:<br>
                                                                                 <select id="beginMonthText" class="month" onchange="selectOption(event, this)">
-                                                                                    <option>1</option>
-                                                                                    <option>2</option>
-                                                                                    <option>3</option>
-                                                                                    <option>4</option>
-                                                                                    <option>5</option>
-                                                                                    <option>6</option>
-                                                                                    <option>7</option>
-                                                                                    <option>8</option>
-                                                                                    <option>9</option>
-                                                                                    <option>10</option>
-                                                                                    <option>11</option>
-                                                                                    <option>12</option>
+                                                                                    <option class="base">Please Select</option>
+                                                                                    <option value="1">1</option>
+                                                                                    <option value="2">2</option>
+                                                                                    <option value="3">3</option>
+                                                                                    <option value="4">4</option>
+                                                                                    <option value="5">5</option>
+                                                                                    <option value="6">6</option>
+                                                                                    <option value="7">7</option>
+                                                                                    <option value="8">8</option>
+                                                                                    <option value="9">9</option>
+                                                                                    <option value="10">10</option>
+                                                                                    <option value="11">11</option>
+                                                                                    <option value="12">12</option>
                                                                                 </select>
 								        </div>&nbsp;&nbsp;&nbsp;&nbsp;
 								        <div id="endMonth" style="display:inline-block">
 									        Ending month:<br>
 									        <select id="endMonthText" class="month">
-                                                                                    <option>1</option>
-                                                                                    <option>2</option>
-                                                                                    <option>3</option>
-                                                                                    <option>4</option>
-                                                                                    <option>5</option>
-                                                                                    <option>6</option>
-                                                                                    <option>7</option>
-                                                                                    <option>8</option>
-                                                                                    <option>9</option>
-                                                                                    <option>10</option>
-                                                                                    <option>11</option>
-                                                                                    <option>12</option>
+                                                                                    <option class="base">Please Select</option>
+                                                                                    <option value="1">1</option>
+                                                                                    <option value="2">2</option>
+                                                                                    <option value="3">3</option>
+                                                                                    <option value="4">4</option>
+                                                                                    <option value="5">5</option>
+                                                                                    <option value="6">6</option>
+                                                                                    <option value="7">7</option>
+                                                                                    <option value="8">8</option>
+                                                                                    <option value="9">9</option>
+                                                                                    <option value="10">10</option>
+                                                                                    <option value="11">11</option>
+                                                                                    <option value="12">12</option>
                                                                                 </select>
 								        </div><br><br>
 							        </div>
@@ -183,73 +185,27 @@
 								        <div id="beginDay" style="display:inline-block">
 									        Beginning day:<br>
 									        <select id="beginDayText" class="dayOpt" onchange="selectOption(event, this)">
-                                                                                    <option>1</option>
-                                                                                    <option>2</option>
-                                                                                    <option>3</option>
-                                                                                    <option>4</option>
-                                                                                    <option>5</option>
-                                                                                    <option>6</option>
-                                                                                    <option>7</option>
-                                                                                    <option>8</option>
-                                                                                    <option>9</option>
-                                                                                    <option>10</option>
-                                                                                    <option>11</option>
-                                                                                    <option>12</option>
-                                                                                    <option>13</option>
-                                                                                    <option>14</option>
-                                                                                    <option>15</option>
-                                                                                    <option>16</option>
-                                                                                    <option>17</option>
-                                                                                    <option>18</option>
-                                                                                    <option>19</option>
-                                                                                    <option>20</option>
-                                                                                    <option>21</option>
-                                                                                    <option>22</option>
-                                                                                    <option>23</option>
-                                                                                    <option>24</option>
-                                                                                    <option>25</option>
-                                                                                    <option>26</option>
-                                                                                    <option>27</option>
-                                                                                    <option>28</option>
-                                                                                    <option>29</option>
-                                                                                    <option>30</option>
-                                                                                    <option>31</option>
+                                                                                    <option class="base">Please Select</option>
+                                                                                    <option value="2">M</option>
+                                                                                    <option value="3">T</option>
+                                                                                    <option value="4">W</option>
+                                                                                    <option value="5">H</option>
+                                                                                    <option value="6">F</option>
+                                                                                    <option value="7">Sa</option>
+                                                                                    <option value="1">Su</option>                                                                                    
                                                                                 </select>	
 								        </div>&nbsp;&nbsp;&nbsp;&nbsp;
 								        <div id="endDay" style="display:inline-block">
 									        Ending day:<br>
-									        <select id="endDayText" class="dayOpt" onchange="selectOption(event, this)">
-                                                                                    <option>1</option>
-                                                                                    <option>2</option>
-                                                                                    <option>3</option>
-                                                                                    <option>4</option>
-                                                                                    <option>5</option>
-                                                                                    <option>6</option>
-                                                                                    <option>7</option>
-                                                                                    <option>8</option>
-                                                                                    <option>9</option>
-                                                                                    <option>10</option>
-                                                                                    <option>11</option>
-                                                                                    <option>12</option>
-                                                                                    <option>13</option>
-                                                                                    <option>14</option>
-                                                                                    <option>15</option>
-                                                                                    <option>16</option>
-                                                                                    <option>17</option>
-                                                                                    <option>18</option>
-                                                                                    <option>19</option>
-                                                                                    <option>20</option>
-                                                                                    <option>21</option>
-                                                                                    <option>22</option>
-                                                                                    <option>23</option>
-                                                                                    <option>24</option>
-                                                                                    <option>25</option>
-                                                                                    <option>26</option>
-                                                                                    <option>27</option>
-                                                                                    <option>28</option>
-                                                                                    <option>29</option>
-                                                                                    <option>30</option>
-                                                                                    <option>31</option>
+									        <select id="endDayText" class="dayOpt">
+                                                                                    <option class="base">Please Select</option>
+                                                                                    <option value="2">M</option>
+                                                                                    <option value="3">T</option>
+                                                                                    <option value="4">W</option>
+                                                                                    <option value="5">H</option>
+                                                                                    <option value="6">F</option>
+                                                                                    <option value="7">Sa</option>
+                                                                                    <option value="1">Su</option>                                       
                                                                                 </select>	
 								        </div><br><br>
 							        </div>
