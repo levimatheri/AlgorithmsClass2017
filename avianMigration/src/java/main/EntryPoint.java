@@ -382,9 +382,9 @@ public class EntryPoint extends HttpServlet
                             for(String option : options)
                             {
                                 if(query.toString().contains("WHERE"))
-                                    query.append(" AND DATEPART(DAY, [Date and time recorded]) BETWEEN ").append(option.split("/")[0]).append(" AND ").append(option.split("/")[1]);
+                                    query.append(" AND DATEPART(DW, [Date and time recorded]) BETWEEN ").append(option.split("/")[0]).append(" AND ").append(option.split("/")[1]);
                                 else
-                                    query.append(" WHERE DATEPART(DAY, [Date and time recorded]) BETWEEN ").append(option.split("/")[0]).append(" AND ").append(option.split("/")[1]);
+                                    query.append(" WHERE DATEPART(DW, [Date and time recorded]) BETWEEN ").append(option.split("/")[0]).append(" AND ").append(option.split("/")[1]);
                             }
                             break;
                             
