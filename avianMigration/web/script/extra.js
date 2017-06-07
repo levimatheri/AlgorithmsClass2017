@@ -263,8 +263,9 @@ function start()
             var arr = JSON.parse(this.responseText);
             
             for(var j in arr["years"]){
-               $("#beginYearText").append(new Option(arr["years"][j]));
-               $("#endYearText").append(new Option(arr["years"][j]));
+                //append option(text, value)
+               $("#beginYearText").append(new Option((arr["years"][j]), arr["years"][j]));
+               $("#endYearText").append(new Option((arr["years"][j]), arr["years"][j]));
             }      
             
         }
