@@ -49,6 +49,32 @@ function inputOptionChange(evt) {
 
 }
 
+//this will ensure a user cannot select an ending year that is less than the beginning year
+function selectOption(evt)
+{
+    var beginYear = evt.target.value;
+    
+    var endYearOptions = document.getElementById('endYearText');
+    
+    //set every option to default display at the beginning of each change
+    for(var j = 0; j < endYearOptions.length; j++)
+    {
+        endYearOptions[j].style="display:";
+    }
+    
+    //loop through the options in end year and hide options that are less than the beginning year
+    //also make sure the first element in the list is always beginYear
+    for(var i = 0; i < endYearOptions.length; i++)
+    {
+        //console.log(endYearOptions[i].value);
+        if(endYearOptions[i].value < beginYear)
+        {
+            endYearOptions[i].style.display = "none";
+        }
+        if(endYearOptions[i].value === beginYear)
+            endYearOptions[i].selected = true;
+    }
+}
 
 
 //If a radio button is pressed anywhere on the page.
