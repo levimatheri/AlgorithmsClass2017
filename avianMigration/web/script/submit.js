@@ -227,8 +227,12 @@ function finishSubmit(application) {
                     //be added again. So just have an if prepared for when it does.
                     if (checkBox.value == "date") {
                         var beginDate = document.getElementById('beginDateText').value;
+                        
+                        //console.log("Begin date: " + beginDate);
 
                         var endDate = document.getElementById('endDateText').value;
+                        
+                        //console.log("End date: " + endDate);
 
                         if (!params) {
                             params = "dt=" + beginDate + "/" + endDate;
@@ -240,10 +244,9 @@ function finishSubmit(application) {
 
                     //For first arrival date.
                     if (checkBox.value == "firstArrival") {
-                        var beginDate = document.getElementById('beginDateText').value;
-
-                        var endDate = document.getElementById('endDateText').value;
-
+                        var beginDate = document.getElementById('beginDateText_fArrival').value;                        
+                        var endDate = document.getElementById('endDateText_fArrival').value;
+                        
                         if (!params) {
                             params = "dt=" + beginDate + "/" + endDate;
                         }
