@@ -15,10 +15,33 @@
         <link rel="stylesheet" type="text/css" href="/avianMigration/css/jquery-ui 1.12.1.css">
         <script type="text/javascript" src="/avianMigration/script/jquery-3.1.1.min.js"></script>   
         <script type="text/javascript" src="/avianMigration/script/jquery-ui 1.12.1.js"></script>
+        <script>
+            $(function() {             
+                $( "#beginDateText" ).datepicker({ 
+                    minDate: new Date(2005,0,1),
+                    yearRange: "2005:+nn",
+                    maxDate: new Date(),
+                    changeMonth: true,
+                    changeYear: true,
+                    showButtonPanel: true
+                }); 
+                $( "#beginDateText" ).datepicker ("option", "dateFormat", "yy-mm-dd"); 
+                
+                $( "#endDateText" ).datepicker({ 
+                    minDate: new Date(2005,0,1),
+                    yearRange: "2005:+nn",
+                    maxDate: new Date(),
+                    changeMonth: true,
+                    changeYear: true,
+                    showButtonPanel: true
+                }); 
+                $( "#endDateText" ).datepicker ("option", "dateFormat", "yy-mm-dd"); 
+           });
+        </script>
         <script type="text/javascript" src="/avianMigration/script/iframe.js"></script>
         <script type="text/javascript" src="/avianMigration/script/submit.js"></script>
         <script type="text/javascript" src="/avianMigration/script/change option.js"></script>
-        <script type="text/javascript" src="/avianMigration/script/extra.js"></script>
+        <script type="text/javascript" src="/avianMigration/script/extra.js"></script>       
 	<title>Avian data retrieval</title>
 </head>
   <body onload="start()">
@@ -211,28 +234,28 @@
 							        </div>
                                                                 
                                                                 <div id="firstArrival" style="display:none">
-								        <b>Select start and end date.</b><br>
+								        <b>Select start and end date (YYYY-MM-DD)</b><br>
 								        <span id="warningText" style="display:none; color: red"><b>The date select option overrides year and month options.</b><br></span>
 								        <div id="beginDate" style="display:inline-block">
 									        Beginning date:<br>
-									        <input type="date" id="beginDateText">	
+									        <input type="date" id="beginDateText_fArrival">	
 								        </div>
 								        <div id="endDate" style="display:inline-block">
 									        Ending date:<br>
-									        <input type="date" id="endDateText">
+									        <input type="date" id="endDateText_fArrival">
 								        </div><br><br>
 							        </div>
 								
 							        <div id="date" style="display:none">
-								        <b>Select start and end date.</b><br>
+								        <b>Select start and end date</b><br>
 								        <span id="warningText" style="display:none; color: red"><b>The date select option overrides year, month, and day options.</b><br></span>
 								        <div id="beginDate" style="display:inline-block">
 									        Beginning date:<br>
-									        <input type="date" id="beginDateText">	
+									        <input id="beginDateText">	
 								        </div>
 								        <div id="endDate" style="display:inline-block">
 									        Ending date:<br>
-									        <input type="date" id="endDateText">
+									        <input  id="endDateText">
 								        </div><br><br>
 							        </div>
 								
