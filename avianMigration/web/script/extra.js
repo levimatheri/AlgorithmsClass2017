@@ -1,4 +1,4 @@
-﻿//When you click on a tab.
+//When you click on a tab.
 function openTab(evt, tabName) {
     // Declare all variables
     var i, tabcontent, tablinks;
