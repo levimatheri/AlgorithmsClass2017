@@ -271,9 +271,32 @@ function finishSubmit(application) {
                         }
                     }
                 }
-            }
+            }           
         }
 
+        var returnOptions;
+        var jsonArr = [];
+        
+        if(document.getElementById('gen_rd').checked)
+            returnOptions = document.getElementsByName("myReturnVars");
+
+        else if(document.getElementById('hist_rd').checked)
+            returnOptions = document.getElementsByName("myHistReturnVars");
+        
+        console.log(returnOptions.length);
+
+
+        for(var j = 0; j < returnOptions.length; j++)
+        {           
+           if(returnOptions[j].checked){    
+               jsonArr.push("[" + returnOptions[j].value + "]");     
+           }
+        }
+
+        console.log(jsonArr);
+
+        params += "&ckbx=" + jsonArr;
+        
         //Find which calculation option is selected.
         options = document.getElementById('calcOptions');
 
