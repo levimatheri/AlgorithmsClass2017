@@ -12,32 +12,10 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" type="text/css" href="/avianMigration/css/style.css">
 	<link rel="stylesheet" type="text/css" href="bootstrap-3.3.7-dist/css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="bootstrap-3.3.7-dist/css/bootstrap.css">
         <link rel="stylesheet" type="text/css" href="/avianMigration/css/jquery-ui 1.12.1.css">
         <script type="text/javascript" src="/avianMigration/script/jquery-3.1.1.min.js"></script>   
         <script type="text/javascript" src="/avianMigration/script/jquery-ui 1.12.1.js"></script>
-        <script>
-            $(function() {             
-                $( "#beginDateText" ).datepicker({ 
-                    minDate: new Date(2005,0,1),
-                    yearRange: "2005:+nn",
-                    maxDate: new Date(),
-                    changeMonth: true,
-                    changeYear: true,
-                    showButtonPanel: true
-                }); 
-                $( "#beginDateText" ).datepicker ("option", "dateFormat", "yy-mm-dd"); 
-                
-                $( "#endDateText" ).datepicker({ 
-                    minDate: new Date(2005,0,1),
-                    yearRange: "2005:+nn",
-                    maxDate: new Date(),
-                    changeMonth: true,
-                    changeYear: true,
-                    showButtonPanel: true
-                }); 
-                $( "#endDateText" ).datepicker ("option", "dateFormat", "yy-mm-dd"); 
-           });
-        </script>
         <script type="text/javascript" src="/avianMigration/script/iframe.js"></script>
         <script type="text/javascript" src="/avianMigration/script/submit.js"></script>
         <script type="text/javascript" src="/avianMigration/script/change option.js"></script>
@@ -235,7 +213,7 @@
                                                                 
                                                                 <div id="firstArrival" style="display:none">
 								        <b>Select start and end date (YYYY-MM-DD)</b><br>
-								        <span id="warningText" style="display:none; color: red"><b>The date select option overrides year and month options.</b><br></span>
+								        <span id="firstWarningText" style="display:none; color: red"><b>The date select option overrides year and month options.</b><br></span>
 								        <div id="beginDate" style="display:inline-block">
 									        Beginning date:<br>
 									        <input type="date" id="beginDateText_fArrival">	
@@ -252,7 +230,7 @@
 								        <div id="beginDate" style="display:inline-block">
 									        Beginning date:<br>
 									        <input id="beginDateText">	
-								        </div>
+                                                                        </div>&nbsp;&nbsp;
 								        <div id="endDate" style="display:inline-block">
 									        Ending date:<br>
 									        <input  id="endDateText">
@@ -423,7 +401,20 @@
 				    </div>
 			    </div>
 		    </div>
-		</div>
+		</div> 
+                <div>
+                    <p style="margin-left: 3.5em">Return Variables:</p>
+                    <input id="checkAll" type="checkbox" style="margin-left: 3.8em" onclick="toggle(this)"> <i>Check/Uncheck All</i>
+                    <div class="returnDiv">                                                                           
+                        <div class="returnSide" id="returnVariables">
+
+                        </div>
+                        
+                        <div class="returnSide" id="histReturnVariables">
+
+                        </div>
+                    </div>
+                </div>
 		<!--Div to hold the submit and export buttons.-->
 		<div class="row">
 		    <div id="buttons" class="col-xs-12">
