@@ -85,6 +85,10 @@ function deleteStateClimateDivRow(evt) {
 
 //when either general or historical tab is clicked
 function onHistRadioClick() {
+    
+    var hist_checkButtons = document.getElementById('histReturnVariables').childNodes;
+        
+    var gen_checkButtons = document.getElementById('returnVariables').childNodes;
     //if historical radio button is clicked hide day, am/pm, observation and calculations div
     if (document.getElementById('hist_rd').checked) {
         document.getElementById('day_chbx').style.display = 'none';
@@ -105,9 +109,31 @@ function onHistRadioClick() {
         document.getElementById('checkDay').checked = false;
         document.getElementById('checkAmpm').checked = false;
         document.getElementById('checkObserver').checked = false;
+        
+        dayBoolean = false;
+        
+        if(!yearBoolean && !monthBoolean){
+            document.getElementById('firstWarningText').style = "display:none; color:red";
+            document.getElementById('warningText').style = "display:none; color:red";
+        }
+        
+        document.getElementById('returnVariables').style.display = 'none';
+        document.getElementById('histReturnVariables').style = 'display:';
+        
+        //make sure to uncheck the toggle button 
+        document.getElementById('checkAll').checked = false;
+        
+        
+        
+        
+        for(var k = 0; k < hist_checkButtons.length; k++)
+        {
+            hist_checkButtons[k].checked = false;
+        }
+        
     }
 
-    else {
+    else if(document.getElementById('gen_rd').checked) {
         //if general radio button is clicked, go back to original state
         document.getElementById('day_chbx').style.display = 'inline';
         document.getElementById('firstArrive').style.display = 'none';
@@ -118,6 +144,19 @@ function onHistRadioClick() {
 
         document.getElementById('firstArrival').style.display = 'none';
         document.getElementById('checkFirstArrival').checked = false;
+
+        document.getElementById('histReturnVariables').style.display = 'none';
+        document.getElementById('returnVariables').style = 'display:';
+        
+        //make sure to uncheck the toggle button 
+        document.getElementById('checkAll').checked = false;
+        
+        for(var k = 0; k < gen_checkButtons.length; k++)
+        {
+            gen_checkButtons[k].checked = false;
+        }
+        
+
     }
 }
 
@@ -197,12 +236,44 @@ function start()
 {
     //Set the main tab as selected.
     document.getElementById('mainTab').click();
+    
+    
+    
+    $( "#beginDateText" ).datepicker({ 
+        minDate: new Date(2005,0,1),
+        yearRange: "2005:+nn",
+        maxDate: new Date(),
+        changeMonth: true,
+        changeYear: true,
+        showButtonPanel: true,
+        showOn: "button",
+        buttonImage: "css/images/calendar.gif",
+        buttonImageOnly: true,
+        buttonText: "Select date"
+    }); 
+    $( "#beginDateText" ).datepicker ("option", "dateFormat", "yy-mm-dd"); 
 
+    $( "#endDateText" ).datepicker({ 
+        minDate: new Date(2005,0,1),
+        yearRange: "2005:+nn",
+        maxDate: new Date(),
+        changeMonth: true,
+        changeYear: true,
+        showButtonPanel: true,
+        showOn: "button",
+        buttonImage: "css/images/calendar.gif",
+        buttonImageOnly: true,
+        buttonText: "Select date"
+    }); 
+    $( "#endDateText" ).datepicker ("option", "dateFormat", "yy-mm-dd"); 
+    
+    
 
     //Do a request to get all of the possible variables that can be used.
     var xmlhttp = new XMLHttpRequest();
     var url = "/avianMigration/submit_job";
     var params = "?vars=true";
+    
     xmlhttp.open("Get", url + params, true);
     xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     xmlhttp.onreadystatechange = function () {
@@ -213,6 +284,9 @@ function start()
                 for (var i in myArr["names"]) {
                     //Names will be put in a select list for the calculating variable section.
                     document.getElementById('variableOptions').innerHTML += "<input type=\"radio\" name=\"variables\" value=\"" + myArr["names"][i] + "\">" + myArr["names"][i] + "<br>";
+                    
+                    document.getElementById('returnVariables').innerHTML += "<input type=\"checkbox\" id=\"" + myArr["names"][i] + "\"" + "name=\"myReturnVars\" value=\"" + myArr["names"][i] + "\">" + "&nbsp;" + myArr["names"][i] + "<br>"; 
+                    
 
                     //This part would have been used for the map tab.
                     if (myArr["names"][i].toLowerCase().includes("precipitation") || myArr["names"][i].toLowerCase().includes("average") || myArr["names"][i].toLowerCase().includes("maximum") || myArr["names"][i].toLowerCase().includes("minimum") || myArr["names"][i].toLowerCase().includes("palmer")) {
@@ -226,6 +300,27 @@ function start()
         }
     }
     xmlhttp.send(params);
+    
+    var xmlhttp = new XMLHttpRequest();
+    var url = "/avianMigration/submit_job";
+    var params = "?hist_vars=true";
+    
+    xmlhttp.open("Get", url + params, true);
+    xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    xmlhttp.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+            //console.log(this.responseText);
+            var myArr = JSON.parse(this.responseText);
+            if (myArr) {
+                for (var i in myArr["hist_names"]) {
+                    document.getElementById('histReturnVariables').innerHTML += "<input type=\"checkbox\" id=\"" + myArr["hist_names"][i] + "\"" + "name=\"myHistReturnVars\" value=\"" + myArr["hist_names"][i] + "\">" + "&nbsp;" + myArr["hist_names"][i] + "<br>"; 
+                }
+            }
+        }
+    }
+    xmlhttp.send(params);
+    
+    document.getElementById('histReturnVariables').style.display = 'none';
 
     xmlhttp = new XMLHttpRequest();
     var url = "/avianMigration/submit_job";
@@ -246,7 +341,7 @@ function start()
                     div.appendChild(document.createElement("br"));
                     div.appendChild(a);
                 }
-                console.log(div);
+                //console.log(div);
             }
         }
     };
