@@ -18,9 +18,11 @@ function inputOptionChange(evt) {
             dayBoolean = true;
         }
 
+        
         //If any of them were clicked show the warning text.
         if (yearBoolean || monthBoolean || dayBoolean) {
-            document.getElementById('warningText').style = "display:";
+            document.getElementById('firstWarningText').style = "color: red";
+            document.getElementById('warningText').style = "color: red";
         }
 
         //Display the corresponding div to the check box by making the display option be its default.
@@ -40,7 +42,8 @@ function inputOptionChange(evt) {
         }
 
         if (!yearBoolean && !monthBoolean && !dayBoolean) {
-            document.getElementById('warningText').style = "display:none";
+            document.getElementById('firstWarningText').style = "display:none; color:red";
+            document.getElementById('warningText').style = "display:none; color:red";
         }
 
         //If a checbox is unchecked then hide its div.
@@ -48,6 +51,25 @@ function inputOptionChange(evt) {
     }
 
 }
+
+function toggle(source)
+{
+    var checkboxes;
+    
+    if(document.getElementById('gen_rd').checked)
+        checkboxes = document.getElementsByName("myReturnVars");
+    else if(document.getElementById('hist_rd').checked)
+        checkboxes = document.getElementsByName("myHistReturnVars");
+    
+    
+    //console.log(checkboxes);
+    for(var i = 0, n = checkboxes.length; i < n; i++)
+    {
+        checkboxes[i].checked = source.checked;
+    }
+}
+
+
 
 //this will ensure a user cannot select an ending year/month/day that is less than the beginning year/month/day
 function selectOption(evt, ele)
