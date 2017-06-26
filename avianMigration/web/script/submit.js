@@ -11,7 +11,7 @@ function getOptionString(option) {
     switch (option) {
         //Climate division selection.
         case "cd":
-            result += cdFrameResults;
+            result += document.getElementById('stateClimateDivFinalInput').innerHTML;
             break;
 
             //Lat Long selection.
