@@ -146,11 +146,24 @@ function submit() {
 
 //Will finish the submit process based off of what button calls it.
 function finishSubmit(application) {
+    var checked = document.querySelectorAll(".returnSide input:checked");
+    
+    //console.log(checked);
+    
+    if(checked.length === 0)
+    {
+        document.getElementById('warningCheck').style = "display:";
+        return;
+    }
+    else
+        document.getElementById('warningCheck').style.display = 'none';
+    
+    
     if (!application) {
         //Activate the loading icon to show the user something is happening.
         document.getElementById('load').className = "loader";
     }
-
+    
     //Prepare a request.
     var xmlhttp = new XMLHttpRequest();
 
@@ -187,7 +200,7 @@ function finishSubmit(application) {
     }
     else if (id == "mainTab") {
         var options = document.getElementById('options');
-        console.log(options);
+        //console.log(options);
 
         for (var i = 0; i < options.childNodes.length; i++) {
             var checkBox = options.childNodes[i];
@@ -258,7 +271,7 @@ function finishSubmit(application) {
                     //If it is any other variable then go out and get the correct data for it and return.
                     var sections = document.getElementById(checkBox.value);
                     for (var x = 0; x < sections.childNodes.length; x++) {
-                        console.log(sections.childNodes[x].type);
+                        //console.log(sections.childNodes[x].type);
                         if (sections.childNodes[x].type == "radio") {
                             if (sections.childNodes[x].checked) {
                                 if (!params) {
@@ -283,7 +296,7 @@ function finishSubmit(application) {
         else if(document.getElementById('hist_rd').checked)
             returnOptions = document.getElementsByName("myHistReturnVars");
         
-        console.log(returnOptions.length);
+        //console.log(returnOptions.length);
 
 
         for(var j = 0; j < returnOptions.length; j++)
@@ -293,7 +306,7 @@ function finishSubmit(application) {
            }
         }
 
-        console.log(jsonArr);
+        //console.log(jsonArr);
 
         params += "&ckbx=" + jsonArr;
         
@@ -312,7 +325,7 @@ function finishSubmit(application) {
         }
     }
 
-    console.log(document.getElementById("gen_rd").checked)
+    //console.log(document.getElementById("gen_rd").checked)
     if (document.getElementById("gen_rd").checked) {
         if (!params)
             params = "select=gen";
@@ -327,7 +340,7 @@ function finishSubmit(application) {
     }
 
     //For debugging what will be going over to the server.
-    console.log(params);
+    //console.log(params);
 
     //Open the connection using the url and set it to a Post request.
     xmlhttp.open("Post", url, true);
