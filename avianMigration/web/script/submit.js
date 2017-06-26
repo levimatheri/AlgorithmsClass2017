@@ -150,7 +150,7 @@ function finishSubmit(application) {
     
     //console.log(checked);
     
-    if(checked.length === 0)
+    if(checked.length === 0 && document.getElementById('noneChbx').checked)
     {
         document.getElementById('warningCheck').style = "display:";
         return;
@@ -340,7 +340,7 @@ function finishSubmit(application) {
     }
 
     //For debugging what will be going over to the server.
-    //console.log(params);
+    console.log(params);
 
     //Open the connection using the url and set it to a Post request.
     xmlhttp.open("Post", url, true);
