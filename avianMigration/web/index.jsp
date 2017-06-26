@@ -404,9 +404,10 @@
 		</div> 
                 <div>
                     <p style="margin-left: 3.5em">Return Variables:</p>
+                    <p style="display: none" id="warningCheck"><font color="red"><b>Check one or more!</b></font></p>
                     <input id="checkAll" type="checkbox" style="margin-left: 3.8em" onclick="toggle(this)"> <i>Check/Uncheck All</i>
                     <div class="returnDiv">                                                                           
-                        <div class="returnSide" id="returnVariables">
+                        <div class="returnSide" id="returnVariables" onchange="returnSideChange()">
 
                         </div>
                         
