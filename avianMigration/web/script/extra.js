@@ -23,10 +23,13 @@ function openTab(evt, tabName) {
     if (tabName == "aboutView" || tabName == "downloadView" || tabName == "creditView") {
         document.getElementById('tableResults').style = "display:none";
         document.getElementById('buttons').style = "display:none";
+        document.getElementById('lowerDiv').style = "display:none";
     }
     else {
         document.getElementById('tableResults').style = "display:";
         document.getElementById('buttons').style = "display:";
+        if(document.getElementById('noneChbx').checked)
+            document.getElementById('lowerDiv').style = "display:";
     }
 }
 
@@ -285,9 +288,8 @@ function start()
                     //Names will be put in a select list for the calculating variable section.
                     document.getElementById('variableOptions').innerHTML += "<input type=\"radio\" name=\"variables\" value=\"" + myArr["names"][i] + "\">" + myArr["names"][i] + "<br>";
                     
-                    document.getElementById('returnVariables').innerHTML += "<input type=\"checkbox\" id=\"" + myArr["names"][i] + "\"" + "name=\"myReturnVars\" value=\"" + myArr["names"][i] + "\">" + "&nbsp;" + myArr["names"][i] + "<br>"; 
-                    
 
+                        document.getElementById('returnVariables').innerHTML += "<input type=\"checkbox\" id=\"" + myArr["names"][i] + "\"" + "name=\"myReturnVars\" value=\"" + myArr["names"][i] + "\">" + "&nbsp;" + myArr["names"][i] + "<br>";               
                     //This part would have been used for the map tab.
                     if (myArr["names"][i].toLowerCase().includes("precipitation") || myArr["names"][i].toLowerCase().includes("average") || myArr["names"][i].toLowerCase().includes("maximum") || myArr["names"][i].toLowerCase().includes("minimum") || myArr["names"][i].toLowerCase().includes("palmer")) {
                         document.getElementById('mapVariableOptionsRadio').innerHTML += "<input type=\"radio\" name=\"mapRadioVariables\" value=\"" + myArr["names"][i] + "\">" + myArr["names"][i] + "<br>";
