@@ -127,6 +127,12 @@ function inputRadioChange(evt) {
                 //Set it to the default display and tab over 1.
                 document.getElementById(node.childNodes[i].value).style = "display:;padding-left: 4em";
             }
+ 
+            if(node.childNodes[i].id === 'noneChbx')
+                document.getElementById('lowerDiv').style.display = 'block';
+            
+            else
+                document.getElementById('lowerDiv').style.display = 'none';
         }
         else if (node.childNodes[i].type == "radio") {
             if (document.getElementById(node.childNodes[i].value)) {
