@@ -324,15 +324,26 @@ public class EntryPoint extends HttpServlet
                     {
                         //climate divisions
                         case "cd":
-                            //If not already set, set the correct starting String.
-                            if(main.isEmpty())
-                                 main = "SELECT * FROM NSFCourter2016.DBO." + view + " ";
-
-                            //Check whether the query already has the WHERE or not to add the parameter correctly.
+                            //If not already set, set the correct starting String. 
+                            options = inputOption.split(",");
+                            
                             if(query.toString().contains("WHERE"))
-                                query.append(" and [Climate Division ID] IN (").append(inputOption).append(")");
+                                query.append(" AND (");
                             else
-                                query.append("WHERE [Climate Division ID] IN (").append(inputOption).append(")");
+                                query.append(" WHERE ");
+                            
+                           
+                            for(String option : options)
+                            {
+                                String[] secondOptions = option.split("/");
+                                
+                                if(query.toString().contains("[STATE]")){
+                                    query.deleteCharAt(query.length() - 1);
+                                    query.append(" OR [STATE]= '").append(secondOptions[0]).append("'").append(" AND [Climate division name]= '").append(secondOptions[1]).append("')");
+                                }
+                                else 
+                                    query.append("([STATE]= '").append(secondOptions[0]).append("'").append(" AND [Climate division name]= '").append(secondOptions[1]).append("')");
+                            }
                             break;
                             
                         //lat long ranges
@@ -631,8 +642,8 @@ public class EntryPoint extends HttpServlet
                 if(request.getParameter("application") == null)
                 {
                     top = " TOP(100) ";
-                    main = main.replaceAll("SELECT", "SELECT TOP(100) ");
-                    bird = bird.replaceAll("SELECT", "SELECT TOP(100) ");
+                    main = main.replaceAll("SELECT", "SELECT TOP(100)");
+                    bird = bird.replaceAll("SELECT", "SELECT TOP(100)");
                 }
                 
                 //Must be after the other options to have the WHERE clause set up 
