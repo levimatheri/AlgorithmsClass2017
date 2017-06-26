@@ -54,6 +54,7 @@ function inputOptionChange(evt) {
 
 function toggle(source)
 {
+    document.getElementById("warningCheck").style.display = "none"; 
     var checkboxes;
     
     if(document.getElementById('gen_rd').checked)
@@ -69,7 +70,10 @@ function toggle(source)
     }
 }
 
-
+function returnSideChange()
+{
+    document.getElementById("warningCheck").style.display = "none"; 
+}
 
 //this will ensure a user cannot select an ending year/month/day that is less than the beginning year/month/day
 function selectOption(evt, ele)
