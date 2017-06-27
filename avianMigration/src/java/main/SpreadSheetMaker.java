@@ -16,6 +16,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.activation.CommandMap;
 import javax.activation.MailcapCommandMap;
+import static main.EntryPoint.access;
 import org.apache.commons.mail.EmailException;
 import org.apache.commons.mail.MultiPartEmail;
 import org.apache.poi.ss.usermodel.Cell;
@@ -39,16 +40,77 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
  */
 public class SpreadSheetMaker {
     
-    //The 3 different styles used in the workbook.
-    XSSFCellStyle cellStyleEven;
-    XSSFCellStyle cellStyleOdd;
-    XSSFCellStyle header;
-    
     public void export(Table results, String user, String fileName) throws IOException
     {
         try(XSSFWorkbook wb = new XSSFWorkbook())
         {
-            formatWorkBook(wb);
+            //The 3 different styles used in the workbook.
+            XSSFCellStyle cellStyleEven;
+            XSSFCellStyle cellStyleOdd;
+            XSSFCellStyle header;
+            
+            //Create the cell style for the header row of the sheet.
+            header = wb.createCellStyle();
+
+            //Set both verticle and horizontal alignments to center for the text
+            header.setAlignment(CellStyle.ALIGN_CENTER);
+            header.setVerticalAlignment(VerticalAlignment.CENTER);
+
+            //Create the font style that will be used by the header.
+            XSSFFont headerFont = wb.createFont();
+
+            //Set the font to be bold.
+            headerFont.setBold(true);
+
+            //Set the size of the font to be 14.
+            headerFont.setFontHeightInPoints((short) 14);
+
+            //Set the font to be used.
+            headerFont.setFontName("Times New Roman");
+
+            //Set the color of the font.
+            headerFont.setColor(IndexedColors.WHITE.getIndex());
+
+            //Set the new font style for the header.
+            header.setFont(headerFont);
+
+            //Set the background of the cell to be a grey color and make it visible
+            header.setFillForegroundColor(IndexedColors.GREY_40_PERCENT.getIndex());
+            header.setFillPattern(CellStyle.SOLID_FOREGROUND);
+
+            //Set both left and right border to be a medium thikness bold line.
+            header.setBorderLeft(XSSFCellStyle.BORDER_MEDIUM);
+            header.setBorderRight(XSSFCellStyle.BORDER_MEDIUM);
+
+            //Now do the same thing as the header with 2 new styles for
+            //even and odd rows.
+            cellStyleOdd = wb.createCellStyle();
+            cellStyleOdd.setAlignment(CellStyle.ALIGN_CENTER);
+            cellStyleOdd.setVerticalAlignment(VerticalAlignment.CENTER);
+            XSSFFont oddFont = wb.createFont();
+            oddFont.setBold(false);
+            oddFont.setFontHeightInPoints((short) 12);
+            oddFont.setFontName("Times New Roman");
+            oddFont.setColor(IndexedColors.WHITE.getIndex());
+            cellStyleOdd.setFont(oddFont);
+            cellStyleOdd.setFillForegroundColor(IndexedColors.GREY_40_PERCENT.getIndex());
+            cellStyleOdd.setFillPattern(CellStyle.SOLID_FOREGROUND);
+            cellStyleOdd.setBorderLeft(XSSFCellStyle.BORDER_MEDIUM);
+            cellStyleOdd.setBorderRight(XSSFCellStyle.BORDER_MEDIUM);
+
+            cellStyleEven = wb.createCellStyle();
+            cellStyleEven.setAlignment(CellStyle.ALIGN_CENTER);
+            cellStyleEven.setVerticalAlignment(VerticalAlignment.CENTER);
+            XSSFFont evenFont = wb.createFont();
+            evenFont.setBold(false);
+            evenFont.setFontHeightInPoints((short) 12);
+            evenFont.setFontName("Times New Roman");
+            evenFont.setColor(IndexedColors.BLACK.getIndex());
+            cellStyleEven.setFont(evenFont);
+            cellStyleEven.setFillForegroundColor(IndexedColors.WHITE.getIndex());
+            cellStyleEven.setFillPattern(CellStyle.SOLID_FOREGROUND);
+            cellStyleEven.setBorderLeft(XSSFCellStyle.BORDER_MEDIUM);
+            cellStyleEven.setBorderRight(XSSFCellStyle.BORDER_MEDIUM);
             
             XSSFSheet sheet = createSheet(wb, results, "main");
             if(sheet != null)
@@ -90,14 +152,18 @@ public class SpreadSheetMaker {
 //            else
 //            {
                 //Send the file through email, and save it to the server.
-                File output = new File("..\\webapps\\avianMigration\\query_files\\" + fileName + ".xlsx");
+//                File output = new File("..\\webapps\\avianMigration\\query_files\\" + fileName + ".xlsx");
+                File output = new File("..\\..\\avianMigration\\web\\query_files\\" + fileName + ".xlsx");
                 try(FileOutputStream out = new FileOutputStream(output))
                 {
                     wb.write(out);
-                    successSendEmail();
+                    System.out.println("INSERT INTO NSFCourter2016.dbo.FILES (FILE_ID, FILE_NAME, DATE, USER_ID, SIZE) VALUES (" + fileName + "," + fileName + ", GETDATE(), 1, " + (output.length() / 1000) + ")");
+                    access.execute("INSERT INTO NSFCourter2016.dbo.FILES (FILE_ID, FILE_NAME, DATE, USER_ID, SIZE) VALUES ('" + fileName + "','" + fileName + "', GETDATE(), 1, " + (output.length() / 1000) + ")");
+//                    successSendEmail();
                 }
                 catch(Exception ex)
                 {
+                    ex.printStackTrace();
                 }
 //            }
         }
@@ -144,72 +210,6 @@ public class SpreadSheetMaker {
         //In mega bytes
         int userSizeLimit = 2;
         return (double) (userSize / userSizeLimit) * 100; //% of data used.
-    }
-    
-    private void formatWorkBook(XSSFWorkbook wb)
-    {
-        //Create the cell style for the header row of the sheet.
-        header = wb.createCellStyle();
-
-        //Set both verticle and horizontal alignments to center for the text
-        header.setAlignment(CellStyle.ALIGN_CENTER);
-        header.setVerticalAlignment(VerticalAlignment.CENTER);
-
-        //Create the font style that will be used by the header.
-        XSSFFont headerFont = wb.createFont();
-
-        //Set the font to be bold.
-        headerFont.setBold(true);
-
-        //Set the size of the font to be 14.
-        headerFont.setFontHeightInPoints((short) 14);
-
-        //Set the font to be used.
-        headerFont.setFontName("Times New Roman");
-
-        //Set the color of the font.
-        headerFont.setColor(IndexedColors.WHITE.getIndex());
-
-        //Set the new font style for the header.
-        header.setFont(headerFont);
-
-        //Set the background of the cell to be a grey color and make it visible
-        header.setFillForegroundColor(IndexedColors.GREY_40_PERCENT.getIndex());
-        header.setFillPattern(CellStyle.SOLID_FOREGROUND);
-
-        //Set both left and right border to be a medium thikness bold line.
-        header.setBorderLeft(XSSFCellStyle.BORDER_MEDIUM);
-        header.setBorderRight(XSSFCellStyle.BORDER_MEDIUM);
-
-        //Now do the same thing as the header with 2 new styles for
-        //even and odd rows.
-        cellStyleOdd = wb.createCellStyle();
-        cellStyleOdd.setAlignment(CellStyle.ALIGN_CENTER);
-        cellStyleOdd.setVerticalAlignment(VerticalAlignment.CENTER);
-        XSSFFont oddFont = wb.createFont();
-        oddFont.setBold(false);
-        oddFont.setFontHeightInPoints((short) 12);
-        oddFont.setFontName("Times New Roman");
-        oddFont.setColor(IndexedColors.WHITE.getIndex());
-        cellStyleOdd.setFont(oddFont);
-        cellStyleOdd.setFillForegroundColor(IndexedColors.GREY_40_PERCENT.getIndex());
-        cellStyleOdd.setFillPattern(CellStyle.SOLID_FOREGROUND);
-        cellStyleOdd.setBorderLeft(XSSFCellStyle.BORDER_MEDIUM);
-        cellStyleOdd.setBorderRight(XSSFCellStyle.BORDER_MEDIUM);
-
-        cellStyleEven = wb.createCellStyle();
-        cellStyleEven.setAlignment(CellStyle.ALIGN_CENTER);
-        cellStyleEven.setVerticalAlignment(VerticalAlignment.CENTER);
-        XSSFFont evenFont = wb.createFont();
-        evenFont.setBold(false);
-        evenFont.setFontHeightInPoints((short) 12);
-        evenFont.setFontName("Times New Roman");
-        evenFont.setColor(IndexedColors.BLACK.getIndex());
-        cellStyleEven.setFont(evenFont);
-        cellStyleEven.setFillForegroundColor(IndexedColors.WHITE.getIndex());
-        cellStyleEven.setFillPattern(CellStyle.SOLID_FOREGROUND);
-        cellStyleEven.setBorderLeft(XSSFCellStyle.BORDER_MEDIUM);
-        cellStyleEven.setBorderRight(XSSFCellStyle.BORDER_MEDIUM);
     }
     
     private void failedSendMail()

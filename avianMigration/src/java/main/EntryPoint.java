@@ -30,7 +30,7 @@ import org.json.JSONObject;
 public class EntryPoint extends HttpServlet
 {
     //The class that will be used to hold an abstract connection to the sql server.
-    public Access access = new Access();
+    public static final Access access = new Access();
     
     //The class that will make and hold a spreadsheet every time the user 
     //clicks the submit button.
