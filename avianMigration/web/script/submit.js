@@ -11,7 +11,7 @@ function getOptionString(option) {
     switch (option) {
         //Climate division selection.
         case "cd":
-            result += cdFrameResults;
+            result += document.getElementById('stateClimateDivFinalInput').innerHTML;
             break;
 
             //Lat Long selection.
@@ -146,11 +146,24 @@ function submit() {
 
 //Will finish the submit process based off of what button calls it.
 function finishSubmit(application) {
+    var checked = document.querySelectorAll(".returnSide input:checked");
+    
+    //console.log(checked);
+    
+    if(checked.length === 0 && document.getElementById('noneChbx').checked)
+    {
+        document.getElementById('warningCheck').style = "display:";
+        return;
+    }
+    else
+        document.getElementById('warningCheck').style.display = 'none';
+    
+    
     if (!application) {
         //Activate the loading icon to show the user something is happening.
         document.getElementById('load').className = "loader";
     }
-
+    
     //Prepare a request.
     var xmlhttp = new XMLHttpRequest();
 
@@ -187,7 +200,7 @@ function finishSubmit(application) {
     }
     else if (id == "mainTab") {
         var options = document.getElementById('options');
-        console.log(options);
+        //console.log(options);
 
         for (var i = 0; i < options.childNodes.length; i++) {
             var checkBox = options.childNodes[i];
@@ -227,8 +240,12 @@ function finishSubmit(application) {
                     //be added again. So just have an if prepared for when it does.
                     if (checkBox.value == "date") {
                         var beginDate = document.getElementById('beginDateText').value;
+                        
+                        //console.log("Begin date: " + beginDate);
 
                         var endDate = document.getElementById('endDateText').value;
+                        
+                        //console.log("End date: " + endDate);
 
                         if (!params) {
                             params = "dt=" + beginDate + "/" + endDate;
@@ -240,10 +257,9 @@ function finishSubmit(application) {
 
                     //For first arrival date.
                     if (checkBox.value == "firstArrival") {
-                        var beginDate = document.getElementById('beginDateText').value;
-
-                        var endDate = document.getElementById('endDateText').value;
-
+                        var beginDate = document.getElementById('beginDateText_fArrival').value;                        
+                        var endDate = document.getElementById('endDateText_fArrival').value;
+                        
                         if (!params) {
                             params = "dt=" + beginDate + "/" + endDate;
                         }
@@ -255,7 +271,7 @@ function finishSubmit(application) {
                     //If it is any other variable then go out and get the correct data for it and return.
                     var sections = document.getElementById(checkBox.value);
                     for (var x = 0; x < sections.childNodes.length; x++) {
-                        console.log(sections.childNodes[x].type);
+                        //console.log(sections.childNodes[x].type);
                         if (sections.childNodes[x].type == "radio") {
                             if (sections.childNodes[x].checked) {
                                 if (!params) {
@@ -268,9 +284,32 @@ function finishSubmit(application) {
                         }
                     }
                 }
-            }
+            }           
         }
 
+        var returnOptions;
+        var jsonArr = [];
+        
+        if(document.getElementById('gen_rd').checked)
+            returnOptions = document.getElementsByName("myReturnVars");
+
+        else if(document.getElementById('hist_rd').checked)
+            returnOptions = document.getElementsByName("myHistReturnVars");
+        
+        //console.log(returnOptions.length);
+
+
+        for(var j = 0; j < returnOptions.length; j++)
+        {           
+           if(returnOptions[j].checked){    
+               jsonArr.push("[" + returnOptions[j].value + "]");     
+           }
+        }
+
+        //console.log(jsonArr);
+
+        params += "&ckbx=" + jsonArr;
+        
         //Find which calculation option is selected.
         options = document.getElementById('calcOptions');
 
@@ -286,7 +325,7 @@ function finishSubmit(application) {
         }
     }
 
-    console.log(document.getElementById("gen_rd").checked)
+    //console.log(document.getElementById("gen_rd").checked)
     if (document.getElementById("gen_rd").checked) {
         if (!params)
             params = "select=gen";

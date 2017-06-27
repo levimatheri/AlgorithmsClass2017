@@ -1,4 +1,4 @@
-﻿//When you click on a tab.
+//When you click on a tab.
 function openTab(evt, tabName) {
     // Declare all variables
     var i, tabcontent, tablinks;
@@ -23,15 +23,75 @@ function openTab(evt, tabName) {
     if (tabName == "aboutView" || tabName == "downloadView" || tabName == "creditView") {
         document.getElementById('tableResults').style = "display:none";
         document.getElementById('buttons').style = "display:none";
+        document.getElementById('lowerDiv').style = "display:none";
     }
     else {
         document.getElementById('tableResults').style = "display:";
         document.getElementById('buttons').style = "display:";
+        if(document.getElementById('noneChbx').checked)
+            document.getElementById('lowerDiv').style = "display:";
     }
+}
+
+function addStateClimateDivRow()
+{
+    //Create and insert a new row into the State Climate Div table.
+    
+    //if state and climDiv textboxes are not empty
+    if((document.getElementById('state_cd').value !== "") && (document.getElementById('cdiv').value !== "")){
+        //Insert the data into the new row.
+        var row = document.getElementById('stateClimateDivInputTable').insertRow(document.getElementById('stateClimateDivInputTable').rows.length);
+        row.insertCell(0).innerHTML = document.getElementById('state_cd').value;
+        row.insertCell(1).innerHTML = document.getElementById('cdiv').value;    
+        row.insertCell(2).innerHTML = "<input id='edit1' type='submit' name='delete' value='Delete'>";
+
+        //Access the div holder that is holding the final string for the state climDiv option.
+        var tempHolder = document.getElementById('stateClimateDivFinalInput').innerHTML;
+
+        //If there is more than one option in the holder already.
+        if (tempHolder.includes("/")) {
+            tempHolder += "," + document.getElementById('state_cd').value + "/" + document.getElementById('cdiv').value;
+        }
+        else {
+            tempHolder = document.getElementById('state_cd').value + "/" + document.getElementById('cdiv').value;
+        }
+
+        //Put back the holder's new inner html.
+        document.getElementById('stateClimateDivFinalInput').innerHTML = tempHolder;
+
+        //Reset the text boxes.
+        document.getElementById('state_cd').value = "";
+        document.getElementById('cdiv').value = "";
+    }      
+}
+
+//To delete a State Climate Div option.
+function deleteStateClimateDivRow(evt) {
+    var node = evt.target || evt.srcElement;
+    var cells = node.parentElement.parentElement.cells;
+    var checkString = cells[0].innerHTML + "/" + cells[1].innerHTML;
+
+    var tempHolder = document.getElementById('stateClimateDivFinalInput').innerHTML;
+    if (tempHolder.includes("," + checkString)) {
+        tempHolder = tempHolder.replace("," + checkString, "");
+    }
+    else {
+        tempHolder = tempHolder.replace(checkString, "");
+        if (tempHolder.startsWith(",")) {
+            tempHolder = tempHolder.substring(1, tempHolder.length);
+        }
+    }
+    document.getElementById('stateClimateDivFinalInput').innerHTML = tempHolder;
+
+    document.getElementById(node.parentElement.parentElement.parentElement.parentElement.id).deleteRow(node.parentElement.parentElement.rowIndex);
 }
 
 //when either general or historical tab is clicked
 function onHistRadioClick() {
+    
+    var hist_checkButtons = document.getElementById('histReturnVariables').childNodes;
+        
+    var gen_checkButtons = document.getElementById('returnVariables').childNodes;
     //if historical radio button is clicked hide day, am/pm, observation and calculations div
     if (document.getElementById('hist_rd').checked) {
         document.getElementById('day_chbx').style.display = 'none';
@@ -52,9 +112,31 @@ function onHistRadioClick() {
         document.getElementById('checkDay').checked = false;
         document.getElementById('checkAmpm').checked = false;
         document.getElementById('checkObserver').checked = false;
+        
+        dayBoolean = false;
+        
+        if(!yearBoolean && !monthBoolean){
+            document.getElementById('firstWarningText').style = "display:none; color:red";
+            document.getElementById('warningText').style = "display:none; color:red";
+        }
+        
+        document.getElementById('returnVariables').style.display = 'none';
+        document.getElementById('histReturnVariables').style = 'display:';
+        
+        //make sure to uncheck the toggle button 
+        document.getElementById('checkAll').checked = false;
+        
+        
+        
+        
+        for(var k = 0; k < hist_checkButtons.length; k++)
+        {
+            hist_checkButtons[k].checked = false;
+        }
+        
     }
 
-    else {
+    else if(document.getElementById('gen_rd').checked) {
         //if general radio button is clicked, go back to original state
         document.getElementById('day_chbx').style.display = 'inline';
         document.getElementById('firstArrive').style.display = 'none';
@@ -65,6 +147,19 @@ function onHistRadioClick() {
 
         document.getElementById('firstArrival').style.display = 'none';
         document.getElementById('checkFirstArrival').checked = false;
+
+        document.getElementById('histReturnVariables').style.display = 'none';
+        document.getElementById('returnVariables').style = 'display:';
+        
+        //make sure to uncheck the toggle button 
+        document.getElementById('checkAll').checked = false;
+        
+        for(var k = 0; k < gen_checkButtons.length; k++)
+        {
+            gen_checkButtons[k].checked = false;
+        }
+        
+
     }
 }
 
@@ -122,27 +217,79 @@ function deleteLatLongRow(evt) {
     document.getElementById(node.parentElement.parentElement.parentElement.parentElement.id).deleteRow(node.parentElement.parentElement.rowIndex);
 }
 
+function getClimateDiv(){
+    var climDivs = [];
+    
+    var key = document.getElementById('state_cd').value;
+    
+    var climDivsArray = actual_JSON_ClimDiv[key];
+    
+    //console.log(actual_JSON[key]);
+    for(var climDiv in climDivsArray){
+        //console.log(countyArray[county]);
+        climDivs.push(climDivsArray[climDiv]);
+    }
+    
+    $("#cdiv").autocomplete({
+        source: climDivs                               
+    });    
+}
+
 function start()
 {
     //Set the main tab as selected.
     document.getElementById('mainTab').click();
+    
+    
+    
+    $( "#beginDateText" ).datepicker({ 
+        minDate: new Date(2005,0,1),
+        yearRange: "2005:+nn",
+        maxDate: new Date(),
+        changeMonth: true,
+        changeYear: true,
+        showButtonPanel: true,
+        showOn: "button",
+        buttonImage: "css/images/calendar.gif",
+        buttonImageOnly: true,
+        buttonText: "Select date"
+    }); 
+    $( "#beginDateText" ).datepicker ("option", "dateFormat", "yy-mm-dd"); 
 
+    $( "#endDateText" ).datepicker({ 
+        minDate: new Date(2005,0,1),
+        yearRange: "2005:+nn",
+        maxDate: new Date(),
+        changeMonth: true,
+        changeYear: true,
+        showButtonPanel: true,
+        showOn: "button",
+        buttonImage: "css/images/calendar.gif",
+        buttonImageOnly: true,
+        buttonText: "Select date"
+    }); 
+    $( "#endDateText" ).datepicker ("option", "dateFormat", "yy-mm-dd"); 
+    
+    
 
     //Do a request to get all of the possible variables that can be used.
     var xmlhttp = new XMLHttpRequest();
     var url = "/avianMigration/submit_job";
     var params = "?vars=true";
+    
     xmlhttp.open("Get", url + params, true);
     xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     xmlhttp.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
-            console.log(this.responseText);
+            //console.log(this.responseText);
             var myArr = JSON.parse(this.responseText);
             if (myArr) {
                 for (var i in myArr["names"]) {
                     //Names will be put in a select list for the calculating variable section.
                     document.getElementById('variableOptions').innerHTML += "<input type=\"radio\" name=\"variables\" value=\"" + myArr["names"][i] + "\">" + myArr["names"][i] + "<br>";
+                    
 
+                        document.getElementById('returnVariables').innerHTML += "<input type=\"checkbox\" id=\"" + myArr["names"][i] + "\"" + "name=\"myReturnVars\" value=\"" + myArr["names"][i] + "\">" + "&nbsp;" + myArr["names"][i] + "<br>";               
                     //This part would have been used for the map tab.
                     if (myArr["names"][i].toLowerCase().includes("precipitation") || myArr["names"][i].toLowerCase().includes("average") || myArr["names"][i].toLowerCase().includes("maximum") || myArr["names"][i].toLowerCase().includes("minimum") || myArr["names"][i].toLowerCase().includes("palmer")) {
                         document.getElementById('mapVariableOptionsRadio').innerHTML += "<input type=\"radio\" name=\"mapRadioVariables\" value=\"" + myArr["names"][i] + "\">" + myArr["names"][i] + "<br>";
@@ -155,6 +302,27 @@ function start()
         }
     }
     xmlhttp.send(params);
+    
+    var xmlhttp = new XMLHttpRequest();
+    var url = "/avianMigration/submit_job";
+    var params = "?hist_vars=true";
+    
+    xmlhttp.open("Get", url + params, true);
+    xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    xmlhttp.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+            //console.log(this.responseText);
+            var myArr = JSON.parse(this.responseText);
+            if (myArr) {
+                for (var i in myArr["hist_names"]) {
+                    document.getElementById('histReturnVariables').innerHTML += "<input type=\"checkbox\" id=\"" + myArr["hist_names"][i] + "\"" + "name=\"myHistReturnVars\" value=\"" + myArr["hist_names"][i] + "\">" + "&nbsp;" + myArr["hist_names"][i] + "<br>"; 
+                }
+            }
+        }
+    }
+    xmlhttp.send(params);
+    
+    document.getElementById('histReturnVariables').style.display = 'none';
 
     xmlhttp = new XMLHttpRequest();
     var url = "/avianMigration/submit_job";
@@ -163,7 +331,7 @@ function start()
     xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     xmlhttp.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
-            console.log(this.responseText);
+            //console.log(this.responseText);
             var myArr = JSON.parse(this.responseText);
             if (myArr) {
                 var div = document.getElementById("downloadView");
@@ -175,9 +343,49 @@ function start()
                     div.appendChild(document.createElement("br"));
                     div.appendChild(a);
                 }
-                console.log(div);
+                //console.log(div);
             }
         }
-    }
+    };
     xmlhttp.send(params);
+    
+    //request to get year span from database
+    xmlhttp = new XMLHttpRequest();
+    var url = "/avianMigration/submit_job";
+    var params = "?yearText=true";
+    xmlhttp.open("Get", url + params, true);
+    xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    xmlhttp.onreadystatechange = function (){
+        if(xmlhttp.readyState == 4 && xmlhttp.status == "200"){   
+            var arr = JSON.parse(this.responseText);
+            
+            for(var j in arr["years"]){
+                //append option(text, value)
+               $("#beginYearText").append(new Option((arr["years"][j]), arr["years"][j]));
+               $("#endYearText").append(new Option((arr["years"][j]), arr["years"][j]));
+            }      
+            
+        }
+    };
+    xmlhttp.send(params);  
+    
+    var xobj1 = new XMLHttpRequest();
+    xobj1.overrideMimeType("application/json");
+    xobj1.open('GET', 'statesToClimDiv.json', true);
+    xobj1.onreadystatechange = function (){
+        if(xobj1.readyState == 4 && xobj1.status == "200"){
+            //callback(xobj.responseText);
+            actual_JSON_ClimDiv = JSON.parse(xobj1.responseText);
+            
+            var states_cd = [];
+            for(var key in actual_JSON_ClimDiv){
+                states_cd.push(key);
+               // console.log(key);
+            }      
+            $("#state_cd").autocomplete({
+                source: states_cd                               
+            });      
+        }
+    };
+    xobj1.send(null);   
 }

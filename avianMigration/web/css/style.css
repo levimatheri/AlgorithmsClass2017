@@ -93,7 +93,34 @@ ul.tab li a:focus, .active {background-color: #ccc;}
 	width: 100%;
 	height: 100%;
 	z-index: 9999;
-	background: url('page-loader.gif') 50% 50% no-repeat rgb(249,249,249);
+	background: url('images/page-loader.gif') 50% 50% no-repeat rgb(249,249,249);
+}
+
+.returnSide {
+        border: 1px solid black;       
+        padding: .5em .5em .5em .2em;
+        /*left: 5em;*/
+        margin-left: 3.5em;
+        margin-bottom: .5em;
+        float: left;
+}
+
+.returnDiv {
+        width: 30em;
+        height: 60em;
+}
+
+.dropbtn {
+        color: black;
+        cursor: pointer;
+        border: 1px solid black;
+        float: right;
+}
+
+#dropdown-content {
+        position: relative;
+        display: inline-block;
+        float: right;
 }
 
 /*As of right now, this will not be used. It is here for a feature that is not being added to the final site.*/

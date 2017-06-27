@@ -12,15 +12,12 @@ import java.io.PrintWriter;
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 import java.util.Enumeration;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import org.json.JSONArray;
-import org.json.JSONException;
 import org.json.JSONObject;
 
 /**
@@ -150,6 +147,46 @@ public class EntryPoint extends HttpServlet
             }
         }
         
+        else if(request.getParameter("yearText") != null)
+        {            
+            response.setContentType("application/json");
+            
+            try (PrintWriter out = response.getWriter())
+            {
+                Table rows = access.getTable("SELECT DISTINCT YEAR([Date and time recorded]) AS DATE FROM NSFCourter2016.dbo.MAIN_VIEW GROUP BY [Date and time recorded] HAVING YEAR([Date and time recorded]) "
+                        + "BETWEEN MIN(YEAR([Date and time recorded])) AND MAX(YEAR([Date and time recorded])) ORDER BY DATE");
+                
+                //Creat the returning json object.
+                JSONObject returnObject = new JSONObject();
+                
+                //Set up the json array that will hold the variable names.
+                JSONArray array = new JSONArray();
+              
+                //rowNames.next();
+                while(rows.next())
+                {
+                    array.put(rows.getInt("DATE"));
+                }              
+                //Insert the array into the returning object.
+                returnObject.put("years", array);
+                System.out.println(returnObject.toString());
+                
+                //Write the object to the printstream.
+                out.write(returnObject.toString());
+                
+                //Flush the stream to reset.
+                out.flush();
+                
+                //Close the table object.
+                rows.close();
+            }
+            catch(Exception ex)
+            {
+                ex.printStackTrace();
+            }
+            
+        }
+        
         else if(request.getParameter("vars") != null)
         {
             //Set return type to json object.
@@ -191,6 +228,49 @@ public class EntryPoint extends HttpServlet
                 ex.printStackTrace();
             }
         }
+        
+        else if(request.getParameter("hist_vars") != null)
+        {
+            //Set return type to json object.
+            response.setContentType("application/json");
+            
+            //Print writers are for returning text.
+            try (PrintWriter out = response.getWriter())
+            {
+                //Get simply the first row of the view.
+                Table columnNames = access.getTable("SELECT TOP(1) * FROM NSFCourter2016.dbo.HISTORICAL_VIEW");
+                
+                //Creat the returning json object.
+                JSONObject returnObject = new JSONObject();
+                
+                //Set up the json array that will hold the variable names.
+                JSONArray array = new JSONArray();
+                
+                columnNames.next();
+                for(int i = 1; i < columnNames.getColumnCount() + 1; i++)
+                {
+                    array.put(columnNames.getColumnName(i));
+                }
+                
+                //Insert the array into the returning object.
+                returnObject.put("hist_names", array);
+                System.out.println(returnObject.toString());
+                
+                //Write the object to the printstream.
+                out.write(returnObject.toString());
+                
+                //Flush the stream to reset.
+                out.flush();
+                
+                //Close the table object.
+                columnNames.close();
+            }
+            catch(Exception ex)
+            {
+                ex.printStackTrace();
+            }
+        }
+        
         else
         {
             response.setContentType("application/json");
@@ -213,6 +293,11 @@ public class EntryPoint extends HttpServlet
                     view = "MAIN_VIEW";
                 else
                     view = "HISTORICAL_VIEW";
+                
+                if(request.getParameter("ckbx") != null)
+                    main = "SELECT  "  + request.getParameter("ckbx") + " FROM NSFCourter2016.dbo." + view;
+                else
+                    main = "SELECT * FROM NSFCourter2016.dbo." + view;
                 
                 //Will hold the WHERE part of the query.
                 StringBuilder query = new StringBuilder("");
@@ -239,15 +324,26 @@ public class EntryPoint extends HttpServlet
                     {
                         //climate divisions
                         case "cd":
-                            //If not already set, set the correct starting String.
-                            if(main.isEmpty())
-                                 main = "SELECT * FROM NSFCourter2016.DBO." + view + " ";
-
-                            //Check whether the query already has the WHERE or not to add the parameter correctly.
+                            //If not already set, set the correct starting String. 
+                            options = inputOption.split(",");
+                            
                             if(query.toString().contains("WHERE"))
-                                query.append(" and [Climate Division ID] IN (").append(inputOption).append(")");
+                                query.append(" AND (");
                             else
-                                query.append("WHERE [Climate Division ID] IN (").append(inputOption).append(")");
+                                query.append(" WHERE ");
+                            
+                           
+                            for(String option : options)
+                            {
+                                String[] secondOptions = option.split("/");
+                                
+                                if(query.toString().contains("[STATE]")){
+                                    query.deleteCharAt(query.length() - 1);
+                                    query.append(" OR [STATE]= '").append(secondOptions[0]).append("'").append(" AND [Climate division name]= '").append(secondOptions[1]).append("')");
+                                }
+                                else 
+                                    query.append("([STATE]= '").append(secondOptions[0]).append("'").append(" AND [Climate division name]= '").append(secondOptions[1]).append("')");
+                            }
                             break;
                             
                         //lat long ranges
@@ -339,10 +435,11 @@ public class EntryPoint extends HttpServlet
                             
                             for(String option : options)
                             {
+                                //grab the date of the month using the day of the week
                                 if(query.toString().contains("WHERE"))
-                                    query.append(" AND DATEPART(DAY, [Date and time recorded]) BETWEEN ").append(option.split("/")[0]).append(" AND ").append(option.split("/")[1]);
+                                    query.append(" AND DATEPART(DW, [Date and time recorded]) BETWEEN ").append(option.split("/")[0]).append(" AND ").append(option.split("/")[1]);
                                 else
-                                    query.append(" WHERE DATEPART(DAY, [Date and time recorded]) BETWEEN ").append(option.split("/")[0]).append(" AND ").append(option.split("/")[1]);
+                                    query.append(" WHERE DATEPART(DW, [Date and time recorded]) BETWEEN ").append(option.split("/")[0]).append(" AND ").append(option.split("/")[1]);
                             }
                             break;
                             
@@ -361,8 +458,10 @@ public class EntryPoint extends HttpServlet
                                     query.append(" AND CONVERT(VARCHAR(8), [Date and time recorded], 112) BETWEEN ").append(option.split("/")[0].replaceAll("-", "")).append(" AND ").append(option.split("/")[1].replaceAll("-", ""));
                                 }
                                 else
-                                    query.append(" CONVERT(VARCHAR(8), [Date and time recorded], 112) BETWEEN ").append(option.split("/")[0].replaceAll("-", "")).append(" AND ").append(option.split("/")[1].replaceAll("-", ""));
+                                    query.append(" WHERE CONVERT(VARCHAR(8), [Date and time recorded], 112) BETWEEN ").append(option.split("/")[0].replaceAll("-", "")).append(" AND ").append(option.split("/")[1].replaceAll("-", ""));
                             }
+                            
+                            query.append(" ORDER BY [Date and time recorded]"); //chronological order
                             break;
                         
                         //Am or PM
@@ -543,8 +642,8 @@ public class EntryPoint extends HttpServlet
                 if(request.getParameter("application") == null)
                 {
                     top = " TOP(100) ";
-                    main = main.replaceAll("SELECT", "SELECT TOP(100) ");
-                    bird = bird.replaceAll("SELECT", "SELECT TOP(100) ");
+                    main = main.replaceAll("SELECT", "SELECT TOP(100)");
+                    bird = bird.replaceAll("SELECT", "SELECT TOP(100)");
                 }
                 
                 //Must be after the other options to have the WHERE clause set up 

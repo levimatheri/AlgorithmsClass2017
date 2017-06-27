@@ -12,10 +12,14 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" type="text/css" href="/avianMigration/css/style.css">
 	<link rel="stylesheet" type="text/css" href="bootstrap-3.3.7-dist/css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="bootstrap-3.3.7-dist/css/bootstrap.css">
+        <link rel="stylesheet" type="text/css" href="/avianMigration/css/jquery-ui 1.12.1.css">
+        <script type="text/javascript" src="/avianMigration/script/jquery-3.1.1.min.js"></script>   
+        <script type="text/javascript" src="/avianMigration/script/jquery-ui 1.12.1.js"></script>
         <script type="text/javascript" src="/avianMigration/script/iframe.js"></script>
         <script type="text/javascript" src="/avianMigration/script/submit.js"></script>
         <script type="text/javascript" src="/avianMigration/script/change option.js"></script>
-        <script type="text/javascript" src="/avianMigration/script/extra.js"></script>
+        <script type="text/javascript" src="/avianMigration/script/extra.js"></script>       
 	<title>Avian data retrieval</title>
 </head>
   <body onload="start()">
@@ -70,10 +74,27 @@
 							        <div id="location" style="display:none" onChange="inputRadioChange(event)">
 								        <b>Pick a location type to search for.</b><br>
 								        <input type="radio" name="location" value="cd"> Climate Division<br>
-								        <div id="cd" style="display:none">
+								        <!--<div id="cd" style="display:none">
 									        <a href="#" id="cdIframeLink" onclick="openCdMap()">Load climate divison map. This may take a few minutes...</a>
 									        <iframe id="cdIframe" src="climDiv.html" height="320" width="520" style="border:none;display:none"></iframe>                                                                                                                                                                                            
+								        </div>-->
+                                                                          <div id="cd" style="display:none">
+									        <b>Plug in values for the state and climate division then press Add.</b><br>
+                                                                                State:  <div class="ui-front" style="display: inline; margin-bottom: 10px;"><input type="text" id="state_cd" style="margin-bottom:1em" onchange="getClimateDiv()"></div>                                                                                                                                                
+									        <div class="tabbed"></div> 
+                                                                                Climate Division:   <div class="ui-front" style="display: inline"><input type="text" class="ui-autocomplete-input" id="cdiv"><br></div>									        
+									        <div class="tabbed"></div>
+									        <button type="button" onclick="addStateClimateDivRow()">Add</button>
+									        <table id="stateClimateDivInputTable" class="showData" style="width:30%" onclick="deleteStateClimateDivRow(event)">
+										        <caption>State Climate_Div inputs table</caption>
+										        <tr>
+											        <th>State</th>
+											        <th>Climate Division</th>						        
+										        </tr>
+									        </table>
+									        <div id="stateClimateDivFinalInput" style="display:none"></div>
 								        </div>
+                                                                        
 								        <input type="radio" name="location" value="ll"> Latitude, Longitude<br>
 								        <div id="ll" style="display:none">
 									        <b>Plug in values for the latitude and longitude then press Add.</b><br>
@@ -106,11 +127,15 @@
 								        <b>Enter a year range, or to search for 1 year, have both fields equal.</b><br>
 								        <div id="beginYear" style="display:inline-block">
 									        Beginning year:<br>
-									        <input type="text" id="beginYearText">	
-								        </div>
+                                                                                <select id="beginYearText" class="year" onchange="selectOption(event, this)">
+                                                                                    <option class="base">Please Select</option>
+                                                                                </select> 	
+								        </div>&nbsp;&nbsp;&nbsp;&nbsp;
 								        <div id="endYear" style="display:inline-block">
 									        Ending year:<br>
-									        <input type="text" id="endYearText">
+									        <select class="year" id="endYearText">
+                                                                                    <option class="base">Please Select</option>
+                                                                                </select>     
 								        </div><br><br>
 							        </div>
 								
@@ -118,11 +143,39 @@
 								        <b>Enter a month range, or to search for 1 month, have both fields equal.</b><br>
 								        <div id="beginMonth" style="display:inline-block">
 									        Beginning month:<br>
-									        <input type="text" id="beginMonthText">	
-								        </div>
+                                                                                <select id="beginMonthText" class="month" onchange="selectOption(event, this)">
+                                                                                    <option class="base">Please Select</option>
+                                                                                    <option value="1">1</option>
+                                                                                    <option value="2">2</option>
+                                                                                    <option value="3">3</option>
+                                                                                    <option value="4">4</option>
+                                                                                    <option value="5">5</option>
+                                                                                    <option value="6">6</option>
+                                                                                    <option value="7">7</option>
+                                                                                    <option value="8">8</option>
+                                                                                    <option value="9">9</option>
+                                                                                    <option value="10">10</option>
+                                                                                    <option value="11">11</option>
+                                                                                    <option value="12">12</option>
+                                                                                </select>
+								        </div>&nbsp;&nbsp;&nbsp;&nbsp;
 								        <div id="endMonth" style="display:inline-block">
 									        Ending month:<br>
-									        <input type="text" id="endMonthText">
+									        <select id="endMonthText" class="month">
+                                                                                    <option class="base">Please Select</option>
+                                                                                    <option value="1">1</option>
+                                                                                    <option value="2">2</option>
+                                                                                    <option value="3">3</option>
+                                                                                    <option value="4">4</option>
+                                                                                    <option value="5">5</option>
+                                                                                    <option value="6">6</option>
+                                                                                    <option value="7">7</option>
+                                                                                    <option value="8">8</option>
+                                                                                    <option value="9">9</option>
+                                                                                    <option value="10">10</option>
+                                                                                    <option value="11">11</option>
+                                                                                    <option value="12">12</option>
+                                                                                </select>
 								        </div><br><br>
 							        </div>
 								
@@ -132,37 +185,55 @@
 								        <input type="radio" name="day" value="week">Day of week EX: M, T, W, H, F, Sa, Su<br><br>-->
 								        <div id="beginDay" style="display:inline-block">
 									        Beginning day:<br>
-									        <input type="text" id="beginDayText">	
-								        </div>
+									        <select id="beginDayText" class="dayOpt" onchange="selectOption(event, this)">
+                                                                                    <option class="base">Please Select</option>
+                                                                                    <option value="2">M</option>
+                                                                                    <option value="3">T</option>
+                                                                                    <option value="4">W</option>
+                                                                                    <option value="5">H</option>
+                                                                                    <option value="6">F</option>
+                                                                                    <option value="7">Sa</option>
+                                                                                    <option value="1">Su</option>                                                                                    
+                                                                                </select>	
+								        </div>&nbsp;&nbsp;&nbsp;&nbsp;
 								        <div id="endDay" style="display:inline-block">
 									        Ending day:<br>
-									        <input type="text" id="endDayText">
+									        <select id="endDayText" class="dayOpt">
+                                                                                    <option class="base">Please Select</option>
+                                                                                    <option value="2">M</option>
+                                                                                    <option value="3">T</option>
+                                                                                    <option value="4">W</option>
+                                                                                    <option value="5">H</option>
+                                                                                    <option value="6">F</option>
+                                                                                    <option value="7">Sa</option>
+                                                                                    <option value="1">Su</option>                                       
+                                                                                </select>	
 								        </div><br><br>
 							        </div>
                                                                 
-                                    <div id="firstArrival" style="display:none">
-								        <b>Select start and end date.</b><br>
-								        <span id="warningText" style="display:none; color: red"><b>The date select option overrides year and month options.</b><br></span>
+                                                                <div id="firstArrival" style="display:none">
+								        <b>Select start and end date (YYYY-MM-DD)</b><br>
+								        <span id="firstWarningText" style="display:none; color: red"><b>The date select option overrides year and month options.</b><br></span>
 								        <div id="beginDate" style="display:inline-block">
 									        Beginning date:<br>
-									        <input type="date" id="beginDateText">	
+									        <input type="date" id="beginDateText_fArrival">	
 								        </div>
 								        <div id="endDate" style="display:inline-block">
 									        Ending date:<br>
-									        <input type="date" id="endDateText">
+									        <input type="date" id="endDateText_fArrival">
 								        </div><br><br>
 							        </div>
 								
 							        <div id="date" style="display:none">
-								        <b>Select start and end date.</b><br>
+								        <b>Select start and end date</b><br>
 								        <span id="warningText" style="display:none; color: red"><b>The date select option overrides year, month, and day options.</b><br></span>
 								        <div id="beginDate" style="display:inline-block">
 									        Beginning date:<br>
-									        <input type="date" id="beginDateText">	
-								        </div>
+									        <input id="beginDateText">	
+                                                                        </div>&nbsp;&nbsp;
 								        <div id="endDate" style="display:inline-block">
 									        Ending date:<br>
-									        <input type="date" id="endDateText">
+									        <input  id="endDateText">
 								        </div><br><br>
 							        </div>
 								
@@ -205,7 +276,7 @@
 								    <h1>Calculations</h1>
 								    <b>NOTE:</b> The filters will be applied to the calculation.<br><br>
 								    <div id="calcOptions" onChange="inputRadioChange(event)">
-									    <input type="radio" name="calc" value="nn" checked>None
+									    <input type="radio" name="calc" value="nn" id="noneChbx" checked>None
 									    <input type="radio" name="calc" value="cs"> Observers with # of checklists
 									    <input type="radio" name="calc" value="bs"> Number of certain birds seen per checklist
 									    <input type="radio" name="calc" value="cl"> Calculate number of variable
@@ -330,7 +401,21 @@
 				    </div>
 			    </div>
 		    </div>
-		</div>
+		</div> 
+                <div id="lowerDiv">
+                    <p style="margin-left: 3.5em">Return Variables:</p>
+                    <p style="display: none" id="warningCheck"><font color="red"><b>Check one or more!</b></font></p>
+                    <input id="checkAll" type="checkbox" style="margin-left: 3.8em" onclick="toggle(this)"> <i>Check/Uncheck All</i>
+                    <div class="returnDiv">                                                                           
+                        <div class="returnSide" id="returnVariables" onchange="returnSideChange()">
+
+                        </div>
+                        
+                        <div class="returnSide" id="histReturnVariables">
+
+                        </div>
+                    </div>
+                </div>
 		<!--Div to hold the submit and export buttons.-->
 		<div class="row">
 		    <div id="buttons" class="col-xs-12">
