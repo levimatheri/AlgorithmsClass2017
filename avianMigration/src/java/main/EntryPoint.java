@@ -642,8 +642,8 @@ public class EntryPoint extends HttpServlet
                 if(request.getParameter("application") == null)
                 {
                     top = " TOP(100) ";
-                    main = main.replaceAll("SELECT", "SELECT TOP(100)");
-                    bird = bird.replaceAll("SELECT", "SELECT TOP(100)");
+                    main = main.replaceAll("SELECT ", ("SELECT DISTINCT " + top));
+                    bird = bird.replaceAll("SELECT ", ("SELECT DISTINCT " + top));
                 }
                 
                 //Must be after the other options to have the WHERE clause set up 
