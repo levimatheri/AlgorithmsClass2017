@@ -277,9 +277,9 @@
 								    <b>NOTE:</b> The filters will be applied to the calculation.<br><br>
 								    <div id="calcOptions" onChange="inputRadioChange(event)">
 									    <input type="radio" name="calc" value="nn" id="noneChbx" checked>None
-									    <input type="radio" name="calc" value="cs"> Observers with # of checklists
-									    <input type="radio" name="calc" value="bs"> Number of certain birds seen per checklist
-									    <input type="radio" name="calc" value="cl"> Calculate number of variable
+									    <input type="radio" name="calc" value="cs" id="obschlt"> Observers with # of checklists
+									    <input type="radio" name="calc" value="bs" id="bpchlt"> Number of certain birds seen per checklist
+									    <input type="radio" name="calc" value="cl" id="novar"> Calculate number of variable
 								    </div>
 								
 								    <br><br>
@@ -377,6 +377,7 @@
 			    <!--This will have all of the user specific files that a user wants to download.-->
 			    <div id="downloadView" class="tabcontent">
 				    Files ready for download:
+                                   
 			    </div>
 				
 			    <!--This will be the section that will have all of the references and who did what.-->
