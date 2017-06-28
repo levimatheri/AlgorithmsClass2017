@@ -117,23 +117,42 @@ public class EntryPoint extends HttpServlet
             try(PrintWriter out = response.getWriter())
             {
                 String user = request.getParameter("user");
-                JSONObject files = new JSONObject();
-                JSONArray listFiles = new JSONArray();
+//                JSONObject files = new JSONObject();
+//                JSONArray listFiles = new JSONArray();
+//                
+//                System.out.println("Directory: " + System.getProperty("user.dir"));
+//                File folder = new File("..\\webapps\\avianMigration\\query_files");
+//                File[] listOfFiles = folder.listFiles();
+//                
+//                if(listOfFiles != null)
+//                {
+//                    for(File tempFile : listOfFiles)
+//                    {
+//                        if(tempFile.isFile())
+//                            if(tempFile.getName().contains(user))
+//                                listFiles.put(tempFile.getName());
+//                    }
+//                }
+//                files.put("files", listFiles);
+//                
+//                 //Write the object to the printstream.
+//                out.write(files.toString());
+//                
+//                //Flush the stream to reset.
+//                out.flush();
+
+                Table filesTable = access.getTable("SELECT * FROM NSFCourter2016.dbo.FILES WHERE USER_ID = 1");
+                JSONArray files = new JSONArray();
                 
-                System.out.println("Directory: " + System.getProperty("user.dir"));
-                File folder = new File("..\\webapps\\avianMigration\\query_files");
-                File[] listOfFiles = folder.listFiles();
-                
-                if(listOfFiles != null)
+                while(filesTable.next())
                 {
-                    for(File tempFile : listOfFiles)
-                    {
-                        if(tempFile.isFile())
-                            if(tempFile.getName().contains(user))
-                                listFiles.put(tempFile.getName());
-                    }
+                    JSONObject file = new JSONObject();
+                    file.put("id", filesTable.getString("FILE_ID"));
+                    file.put("name", filesTable.getString("FILE_NAME"));
+                    file.put("date", filesTable.getDate("DATE"));
+                    file.put("size", filesTable.getDouble("SIZE"));
+                    files.put(file);
                 }
-                files.put("files", listFiles);
                 
                  //Write the object to the printstream.
                 out.write(files.toString());
