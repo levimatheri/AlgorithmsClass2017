@@ -323,31 +323,8 @@ function start()
     xmlhttp.send(params);
     
     document.getElementById('histReturnVariables').style.display = 'none';
-
-    xmlhttp = new XMLHttpRequest();
-    var url = "/avianMigration/submit_job";
-    var params = "?files=true&user=jcourter";
-    xmlhttp.open("Get", url + params, true);
-    xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    xmlhttp.onreadystatechange = function () {
-        if (this.readyState == 4 && this.status == 200) {
-            //console.log(this.responseText);
-            var myArr = JSON.parse(this.responseText);
-            if (myArr) {
-                var div = document.getElementById("downloadView");
-                for (var i in myArr["files"]) {
-                    var a = document.createElement('a');
-                    a.href = "/avianMigration/query_files/" + myArr["files"][i];
-                    a.download = myArr["files"][i];
-                    a.innerHTML = myArr["files"][i];
-                    div.appendChild(document.createElement("br"));
-                    div.appendChild(a);
-                }
-                //console.log(div);
-            }
-        }
-    };
-    xmlhttp.send(params);
+    
+    refreshDownloads();
     
     //request to get year span from database
     xmlhttp = new XMLHttpRequest();
@@ -388,4 +365,149 @@ function start()
         }
     };
     xobj1.send(null);   
+}
+
+function refreshDownloads()
+{
+    $.get( "/avianMigration/submit_job", {files: true, user: "jcourter"}, function( data ) {
+        //Old way of showing files.
+//        var myArr = JSON.parse(data);
+//        if (myArr) {
+//            var div = document.getElementById("downloadView");
+//            for (var i in myArr["files"]) {
+//                var a = document.createElement('a');
+//                a.href = "/avianMigration/query_files/" + myArr["files"][i];
+//                a.download = myArr["files"][i];
+//                a.innerHTML = myArr["files"][i];
+//                div.appendChild(document.createElement("br"));
+//                div.appendChild(a);
+//            }
+//            //console.log(div);
+//        }
+        
+        
+        var myArr = JSON.parse(data);
+        if (myArr) 
+        {
+            
+            //How much data the user currently has.
+            var totalSize;
+            
+            //Change this to be the id of the table.
+            var table = document.getElementById("table");
+            
+            //Clear the table.
+            for(var index in table.rows)
+            {
+                if(index !== 0)
+                    table.deleteRow(index);
+            }
+            
+            for(var index in myArr)
+            {
+                var row = table.insertRow(table.rows.length);
+                
+                //Row number
+                var cell = row.insertCell(0);
+                cell.innerHTML = table.rows.length;
+                
+                //Date file was created or refreshed.
+                cell = row.insertCell(1);
+                cell.innerHTML = myArr[index]["date"];
+                
+                //Name of file (might think about changing from onchange to button press to change name?).
+                cell = row.insertCell(2);
+                var text = document.createElement("input");
+                text.setAttribute("type", "text");
+                text.setAttribute("value", myArr[index]["name"]);
+                text.setAttribute("onchange", "changeFileName(event, " + myArr[index]["id"] + ")"); //This will be the method to update the name of the file in the database.
+                cell.appendChild(text);
+                
+                //TTL of file.
+                cell = row.insertCell(3);
+                
+                //Code for date difference found from here: http://www.howi.in/2017/03/find-difference-between-two-dates-in-angularjs.html
+                var today = new Date();
+                var dd = today.getDate();
+                var mm = today.getMonth()+1; //January is 0!
+                var yyyy = today.getFullYear();
+                if(dd<10) {
+                    dd='0'+dd;
+                }
+                if(mm<10) {
+                    mm='0'+mm;
+                }
+                today = yyyy+'/'+mm+'/'+dd;
+                var date2 = new Date(today);
+                var date1 = new Date(myArr[index]["date"]);
+                var timeDiff = Math.abs(date2.getTime() - date1.getTime());
+                cell.innerHTML = Math.ceil(timeDiff / (1000 * 3600 * 24)) + " days";
+                
+                //Size in KB of file.
+                cell = row.insertCell(4);
+                totalSize += parseFloat(myArr[index]["size"]);
+                cell.innerHTML = myArr[index]["size"] + " KB";
+                
+                //Refresh button.
+                cell = row.insertCell(5);
+                var refresh = document.createElement("input");
+                refresh.setAttribute("type", "button");
+                refresh.setAttribute("value", "refresh");
+                refresh.setAttribute("onchange", "refreshFile(" + myArr[index]["id"] + ")"); //Will tell the database to set the "DATE" attribute to the current date.
+                cell.appendChild(refresh);
+                
+                //Download button.
+                cell = row.insertCell(6);
+                var download = document.createElement("input");
+                download.setAttribute("type", "button");
+                download.setAttribute("value", "download");
+                download.setAttribute("onchange", "downloadFile(" + myArr[index]["id"] + ")"); //Will call the database to download the file and give it the currect name.
+                cell.appendChild(download);
+                
+                //Delete button.
+                cell = row.insertCell(7);
+                var deleteButton = document.createElement("input");
+                deleteButton.setAttribute("type", "button");
+                deleteButton.setAttribute("value", "delete");
+                deleteButton.setAttribute("onchange", "deletFile(" + myArr[index]["id"] + ")"); //Will call database to delete the row, then delete the file from the server.
+                cell.appendChild(deleteButton);
+            }
+            
+            //These 2 will be at the bottom of the page like we talked about. We will change the 1000 to a calculated number based on who the user is.
+            document.getElementById("totalSize").innerHTML = "Total size of files: " + totalSize + " KB";
+            document.getElementById("totalLeft").innerHTML = "Amount left till full: " + (1000 - totalSize) + " KB";
+        }
+    });
+}
+
+function changeFileName(e, id)
+{
+    var node = e.target || e.srcElement;
+    var row = node.parentElement.parentElement;
+    var name = row.cells[2].childNodes[0].value;
+    
+    $.get( "/avianMigration/change_file_name", {id: id, name: name}, function( data ) {
+        refreshDownloads();
+    });
+}
+
+function refreshFile(id)
+{
+    $.get( "/avianMigration/refresh_file", {id: id}, function( data ) {
+        refreshDownloads();
+    });
+}
+
+function downloadFile(id)
+{
+    $.get( "/avianMigration/download_file", {id: id}, function( data ) {
+        refreshDownloads();
+    });
+}
+
+function deletFile(id)
+{
+    $.get( "/avianMigration/delete_file", {id: id}, function( data ) {
+        refreshDownloads();
+    });
 }
