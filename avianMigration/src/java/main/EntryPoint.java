@@ -218,7 +218,7 @@ public class EntryPoint extends HttpServlet
 //                //Flush the stream to reset.
 //                out.flush();
 
-                Table filesTable = access.getTable("SELECT * FROM NSFCourter2016.dbo.FILES WHERE USER_ID = 1");
+                Table filesTable = access.getTable("SELECT *, ABS(DATEDIFF(DAY, DATEADD(DD, 7, DATE), GETDATE())) AS NEXT_DATE FROM NSFCourter2016.dbo.FILES WHERE USER_ID = 1");
                 JSONArray files = new JSONArray();
                 
                 while(filesTable.next())
@@ -227,6 +227,7 @@ public class EntryPoint extends HttpServlet
                     file.put("id", filesTable.getString("FILE_ID"));
                     file.put("name", filesTable.getString("FILE_NAME"));
                     file.put("date", filesTable.getDate("DATE"));
+                    file.put("next date", filesTable.getInt("NEXT_DATE"));
                     file.put("size", filesTable.getDouble("SIZE"));
                     files.put(file);
                 }
@@ -969,7 +970,7 @@ public class EntryPoint extends HttpServlet
                         //Create the spreadsheet.
                         String user = "jcourter@malone.edu";
                         new SpreadSheetMaker().export(results, user,
-                                user + " " + new SimpleDateFormat("yyyyMMddHHmmss").format(new Timestamp(System.currentTimeMillis())));
+                                user + "" + new SimpleDateFormat("yyyyMMddHHmmss").format(new Timestamp(System.currentTimeMillis())));
                         
                     }
                     

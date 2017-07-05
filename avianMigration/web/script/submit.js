@@ -364,7 +364,7 @@ function finishSubmit(application) {
                 var header = table.insertRow(0);
                 var i = 0;
                 for (var key in myArr["order"]) {
-                    header.insertCell(i).outerHTML = "<th>" + myArr["order"][key] + "</th>";
+                    header.insertCell(i).outerHTML = "<th class='showData'>" + myArr["order"][key] + "</th>";
                     i++;
                 }
 
