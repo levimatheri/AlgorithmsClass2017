@@ -386,7 +386,7 @@
 			    <div id="downloadView" class="tabcontent">
 				    Files ready for download:
                                     <iframe name="tmpFrame" id="tmpFrame" width="1" height="1" style="visibility:hidden;position:absolute;display:none"></iframe>
-                                    <table id="table" border="1">
+                                    <table id="table" border="1" class="showData">
                                         <tr id="headerRow">
                                             <th>#</th>
                                             <th>Date</th>
@@ -395,6 +395,9 @@
                                             <th>Size</th>
                                         </tr>                                       
                                     </table>
+                                    
+                                    <p id="totalSize"></p>
+                                    <p id="totalLeft"></p>
                                    
 			    </div>
 				
