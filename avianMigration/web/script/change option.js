@@ -131,8 +131,8 @@ function inputRadioChange(evt) {
             if(node.childNodes[i].id === 'noneChbx')
                 document.getElementById('lowerDiv').style.display = 'block';
             
-            else if(node.childNodes[i].id === 'obschlt' || node.childNodes[i].id === 'bpchlt' || node.childNodes[i].id === 'novar')
-                document.getElementById('lowerDiv').style.display = 'none';
+//            else if(node.childNodes[i].id === 'obschlt' || node.childNodes[i].id === 'bpchlt' || node.childNodes[i].id === 'novar')
+//                document.getElementById('lowerDiv').style.display = 'none';
         }
         else if (node.childNodes[i].type == "radio") {
             if (document.getElementById(node.childNodes[i].value)) {
