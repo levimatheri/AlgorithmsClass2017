@@ -384,7 +384,10 @@
 				
 			    <!--This will have all of the user specific files that a user wants to download.-->
 			    <div id="downloadView" class="tabcontent">
+
+				    
                                     <table id="table" class='showData'>
+
                                         <tr id="headerRow">
                                             <th class='showData'>#</th>
                                             <th class='showData'>Date</th>
@@ -394,6 +397,12 @@
                                             <th class='hiddenCell' colspan="3"></th>
                                         </tr>                                       
                                     </table>
+
+                                    
+                                    <p id="totalSize"></p>
+                                    <p id="totalLeft"></p>
+                                   
+
 			    </div>
 				
 			    <!--This will be the section that will have all of the references and who did what.-->
