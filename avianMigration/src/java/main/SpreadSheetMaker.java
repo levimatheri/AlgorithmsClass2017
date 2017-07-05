@@ -159,9 +159,6 @@ public class SpreadSheetMaker {
                 //File output = new File("..\\webapps\\avianMigration\\query_files\\" + fileName + ".xlsx");
                 File output = new File("C:\\Server Files\\avianMigration\\" + fileName + ".xlsx");
 
-//                File output = new File("..\\webapps\\avianMigration\\query_files\\" + fileName + ".xlsx");
-                File output = new File("C:\\Server Files\\avianMigration\\" + fileName + ".xlsx");
-
                 try(FileOutputStream out = new FileOutputStream(output))
                 {
                     wb.write(out);
