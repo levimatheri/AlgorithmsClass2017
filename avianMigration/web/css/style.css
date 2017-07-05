@@ -6,39 +6,45 @@
 }
 */
 table.showData {
-	width:100%;
+	width:100%; 
 }
 
 /*Make each row and header have a border and be just big enough to hold data.*/
-table.showData table, table.showData th, table.showData td {
+ th[class="showData"], td[class="showData"] {
 	border: 1px solid black;
-	border-collapse: collapse;
-}
-
-/*Make all of the cells have padding and be aligned to the left.*/
-table.showData th, table.showData td {
-	padding: 5px;
-	text-align: left;
-	white-space: nowrap;
+        
 }
 
 /*Have every odd row be gray.*/
 table.showData tr:nth-child(odd) {
 	background-color: #b5b5b5;
-	color: white;
+	color: black;
+        padding: 5px;
+	white-space: nowrap;
+        text-align: center;
 }
 
 /*Have every even row be white.*/
-table.showData tr:nth-child(even) {
+.showData tr:nth-child(even) {
    background-color: white;
    color: black;
+   padding: 5px;
+   white-space: nowrap;
+   text-align: center;
 }
 
 /*Have the headers be gray and aligned left.*/
-table.showData th {
+th[class="showData"] {
 	background-color: #b5b5b5;
-	color: white;
-	text-align: left;
+	color: black;
+        font-weight: bold;
+}
+
+/*For cells in a table that need to be hidden.*/
+.hiddenCell {
+    border: 0; 
+    background-color: window;
+    color: black;
 }
 
 /*Style for the tabs at the top of the page.*/
