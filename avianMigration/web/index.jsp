@@ -384,18 +384,16 @@
 				
 			    <!--This will have all of the user specific files that a user wants to download.-->
 			    <div id="downloadView" class="tabcontent">
-				    Files ready for download:
-                                    <iframe name="tmpFrame" id="tmpFrame" width="1" height="1" style="visibility:hidden;position:absolute;display:none"></iframe>
-                                    <table id="table" border="1">
+                                    <table id="table" class='showData'>
                                         <tr id="headerRow">
-                                            <th>#</th>
-                                            <th>Date</th>
-                                            <th>Name</th>
-                                            <th>Time left</th>
-                                            <th>Size</th>
+                                            <th class='showData'>#</th>
+                                            <th class='showData'>Date</th>
+                                            <th class='showData'>Name</th>
+                                            <th class='showData'>Time left</th>
+                                            <th class='showData'>Size</th>
+                                            <th class='hiddenCell' colspan="3"></th>
                                         </tr>                                       
                                     </table>
-                                   
 			    </div>
 				
 			    <!--This will be the section that will have all of the references and who did what.-->

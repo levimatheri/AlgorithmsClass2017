@@ -433,23 +433,7 @@ function refreshDownloads()
                 
                 //TTL of file.
                 cell = row.insertCell(3);
-                
-                //Code for date difference found from here: http://www.howi.in/2017/03/find-difference-between-two-dates-in-angularjs.html
-                var today = new Date();
-                var dd = today.getDate();
-                var mm = today.getMonth()+1; //January is 0!
-                var yyyy = today.getFullYear();
-                if(dd < 10) {
-                    dd = '0'+ dd;
-                }
-                if(mm < 10) {
-                    mm = '0'+ mm;
-                }
-                today = yyyy+'/'+mm+'/'+dd;
-                var date2 = new Date(today);
-                var date1 = new Date(myArr[index]["date"]);
-                var timeDiff = Math.abs(date2.getTime() - date1.getTime());
-                cell.innerHTML = Math.ceil(timeDiff / (1000 * 3600 * 24)) + " days";
+                cell.innerHTML = myArr[index]["next date"] + " days";
                 
                 //Size in KB of file.
                 cell = row.insertCell(4);
@@ -458,6 +442,7 @@ function refreshDownloads()
                 
                 //Refresh button.
                 cell = row.insertCell(5);
+                //cell.setAttribute("class", "hiddenCell");
                 var refresh = document.createElement("input");
                 refresh.setAttribute("type", "button");
                 refresh.setAttribute("value", "refresh");
@@ -466,6 +451,7 @@ function refreshDownloads()
                 
                 //Download button.
                 cell = row.insertCell(6);
+                //cell.setAttribute("class", "hiddenCell");
                 var download = document.createElement("input");
                 download.setAttribute("type", "button");
                 download.setAttribute("value", "download");
@@ -474,6 +460,7 @@ function refreshDownloads()
                 
                 //Delete button.
                 cell = row.insertCell(7);
+                //cell.setAttribute("class", "hiddenCell");
                 var deleteButton = document.createElement("input");
                 deleteButton.setAttribute("type", "button");
                 deleteButton.setAttribute("value", "delete");
