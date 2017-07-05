@@ -155,14 +155,23 @@ public class SpreadSheetMaker {
 //            else
 //            {
                 //Send the file through email, and save it to the server.
+
                 //File output = new File("..\\webapps\\avianMigration\\query_files\\" + fileName + ".xlsx");
                 File output = new File("C:\\Server Files\\avianMigration\\" + fileName + ".xlsx");
+
+//                File output = new File("..\\webapps\\avianMigration\\query_files\\" + fileName + ".xlsx");
+                File output = new File("C:\\Server Files\\avianMigration\\" + fileName + ".xlsx");
+
                 try(FileOutputStream out = new FileOutputStream(output))
                 {
                     wb.write(out);
                     System.out.println("INSERT INTO NSFCourter2016.dbo.FILES (FILE_ID, FILE_NAME, DATE, USER_ID, SIZE) VALUES ('" + fileName + "','" + fileName + "', GETDATE(), 1, " + (output.length() / 1000.0) + ")");
                     access.execute("INSERT INTO NSFCourter2016.dbo.FILES (FILE_ID, FILE_NAME, DATE, USER_ID, SIZE) VALUES ('" + fileName + "','" + fileName + "', GETDATE(), 1, " + (output.length() / 1000.0) + ")");
+
                     //successSendEmail();
+
+                    //successSendEmail();
+
                 }
                 
                 

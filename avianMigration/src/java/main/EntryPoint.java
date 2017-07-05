@@ -773,7 +773,7 @@ public class EntryPoint extends HttpServlet
                             break;
                     }
                     
-                    Table tempTable = access.getTable("WITH MAIN AS (SELECT " + top + " * FROM NSFCourter2016.DBO.MAIN_VIEW" + query.toString() + ") " +
+                    Table tempTable = access.getTable("WITH MAIN AS (SELECT * FROM NSFCourter2016.DBO.MAIN_VIEW" + query.toString() + ") " +
                                         "SELECT * FROM (SELECT [Observer ID], COUNT([Observer ID]) AS [Number of checlists]"
                                         + " FROM MAIN GROUP BY [Observer ID]) AS M WHERE [Number of checlists]" + compare + options[1] + " ORDER BY  [Observer ID] ASC");
                     
@@ -827,21 +827,56 @@ public class EntryPoint extends HttpServlet
                     }
 
                     //Include group checklists.
-                    if(options[0].equals("yes"))
-                    {
-                        results = access.executeProcedure("NSFCourter2016.dbo.GET_OBSERVERS_WITH_CHECKLISTS_W_GROUPS", new String[]{query.toString(), operation + options[2], top});
-                    }
+//                    if(options[0].equals("yes"))
+//                    {
+//                        results = access.executeProcedure("NSFCourter2016.dbo.GET_OBSERVERS_WITH_CHECKLISTS_W_GROUPS", new String[]{query.toString(), operation + options[2], top});
+//                    }
+//                    else
+//                    {
+//                        results = access.executeProcedure("NSFCourter2016.dbo.GET_OBSERVERS_WITH_CHECKLISTS_WO_GROUPS", new String[]{query.toString(), operation + options[2], top});
+//                    }
+
+                    String variables;
+                    
+                    if(request.getParameter("ckbx") != null)
+                        variables = request.getParameter("ckbx");
                     else
-                    {
-                        results = access.executeProcedure("NSFCourter2016.dbo.GET_OBSERVERS_WITH_CHECKLISTS_WO_GROUPS", new String[]{query.toString(), operation + options[2], top});
-                    }
+                        variables = "[Observer ID]";
+                    
+                    //This is whithout groups.
+                    results = access.getTable("WITH MAIN AS (SELECT * FROM NSFCourter2016.DBO.MAIN_VIEW " + query.toString() + ")"
+                        + "SELECT " + top + " N.*, M.[Number of checlists] FROM  "
+                            + "(SELECT  * FROM "
+                                + "(SELECT [Observer ID], COUNT([Observer ID]) AS [Number of checlists] FROM MAIN GROUP BY [Observer ID]) AS TEMP"
+                            + " WHERE [Number of checlists] " + operation + " " + options[2] + ") AS M, "
+                            + "(SELECT  " + variables + " FROM MAIN) AS N "
+                        + "WHERE N.[OBSERVER ID] = M.[OBSERVER ID]");
                 }
                 
                 //Count number of a variable
                 else if(request.getParameter("cl") != null)
                 {
                     String variable = request.getParameter("cl");
-                    results = access.getTable("SELECT " + top + " [" + variable + "], COUNT([" + variable + "]) AS [Count of varaible] FROM NSFCourter2016.dbo.MAIN_VIEW" + query.toString() + " GROUP BY [" + variable + "]");
+                    
+                    String variables;
+                    
+                    if(request.getParameter("ckbx") != null)
+                    {
+                        variables = request.getParameter("ckbx");
+                        
+                        if(!variables.equals(""))
+                            variables += ",";
+                    }
+                    else
+                        variables = "";
+                    
+                    if(variables.contains(",[" + variable + "]"))
+                        variables = variables.replace(",[" + variable + "]", "");
+                    
+                    else if(variables.contains("[" + variable + "],"))
+                        variables = variables.replace("[" + variable + "],", "");
+                    
+                    results = access.getTable("SELECT " + top + " N.*, M.[Count of varaible] FROM (SELECT [" + variable + "], COUNT([" + variable + "]) AS [Count of varaible] FROM NSFCourter2016.dbo.MAIN_VIEW " + query.toString() + " GROUP BY [" + variable + "]) AS M, (SELECT " + variables + "[" + variable + "] FROM NSFCourter2016.dbo.MAIN_VIEW " + query.toString() + ") AS N WHERE N.[" + variable + "] = M.[" + variable + "]");
                 }
                 
                 //Get the number of a certain list of birds for a group of checklists
@@ -871,11 +906,41 @@ public class EntryPoint extends HttpServlet
                     
                     for(int i = 1; i < options.length; i++)
                         names += ",[" + options[i] + "]";
+                   
+                    String variables;
                     
-                    System.out.println(variable);
-                    System.out.println(names);
-                    System.out.println(query.toString());
-                    results = access.executeProcedure("NSFCourter2016.dbo.PIVOT_BIRD", new String[]{variable, names, query.toString(), top});
+                    if(request.getParameter("ckbx") != null)
+                    {
+                        variables = request.getParameter("ckbx");
+                        
+                        if(variables.equals(""))
+                        {
+                            Table columns = access.getTable("SELECT TOP(0) * FROM [NSFCourter2016].[dbo].[MAIN_VIEW]");
+                        
+                            for(int i = 1; i < columns.getColumnCount() + 1; i++)
+                                variables += "[" + columns.getColumnName(i) + "],";
+                        }
+                        else
+                            variables += ",";
+                    }
+                    else
+                    {
+                        variables = "";
+                        Table columns = access.getTable("SELECT TOP(0) * FROM [NSFCourter2016].[dbo].[MAIN_VIEW]");
+                        
+                        for(int i = 1; i < columns.getColumnCount() + 1; i++)
+                            variables += "[" + columns.getColumnName(i) + "],";
+                    }
+                    
+                    results = access.getTable("SELECT " + top + " " + variables + names + " FROM" +
+                            "(SELECT tmp.*, tmptwo.* From " +
+                            "(SELECT * FROM [NSFCourter2016].[dbo].[MAIN_VIEW]) as tmp, " +
+                            "(SELECT M.VAR_SELECTED, N.SUB, N.NUM_BIRDS FROM " +
+                            "(SELECT TAXONOMY, " + variable + " AS VAR_SELECTED FROM BIRDS) AS M, " +
+                            "(SELECT BIRD_TAXONOMY, SUBMISSION_ID AS SUB, CASE WHEN NUM_BIRDS >= 0 THEN NUM_BIRDS ELSE 1 END AS NUM_BIRDS FROM OBSERVATION_BIRD) AS N " +
+                            "WHERE M.TAXONOMY = N.BIRD_TAXONOMY) as tmptwo " +
+                            "WHERE tmp.[Submission ID of checlist] = tmptwo.SUB) AS TOTAL_TABLE pivot " +
+                            "(SUM(NUM_BIRDS) FOR VAR_SELECTED IN (" + names + ")) as tbl " + query.toString());
                 }
                 
                 //Else the nn option was select I.E. none
