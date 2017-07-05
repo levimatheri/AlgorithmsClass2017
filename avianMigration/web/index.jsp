@@ -311,7 +311,15 @@
 								    <div id="cl" style="display:none">
 									    <b>Choose a variable that you would like the count of.</b><br>
 									    <div id="variableOptions" style="display:inline-block;padding-right:2em;height:120px;border:1px solid #ccc;overflow:auto;" 
-										    onChange="var radios = document.getElementsByName('variables'); var selected; for(var i = 0; i &#60; radios.length; i++) {if (radios[i].checked){selected = radios[i].value; break;}document.getElementById('variableOptionsSelectedOption').innerHTML = &quot <b>Selected variable:</b> &quot + selected">
+                                                                                 onChange="var radios = document.getElementById('variableOptions').children; var selected; 
+                                                                                     for(var i = 0; i &#60; radios.length; i++) 
+                                                                                     {
+                                                                                         if(radios[i].checked)
+                                                                                         {
+                                                                                            selected = radios[i].value; break;
+                                                                                         }
+                                                                                     }
+                                                                                     document.getElementById('variableOptionsSelectedOption').innerHTML = &quot <b>Selected variable:</b> &quot + selected">
 									    </div>
 									    <div id="variableOptionsSelectedOption" style="display:inline-block">
 										    <b>Selected variable:</b>
