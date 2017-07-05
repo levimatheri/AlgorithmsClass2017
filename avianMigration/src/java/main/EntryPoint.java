@@ -7,16 +7,24 @@
 package main;
 
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.OutputStream;
 import java.io.PrintWriter;
+import java.sql.SQLException;
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 import java.util.Enumeration;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.ServletException;
+import javax.servlet.ServletOutputStream;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import org.apache.commons.compress.utils.IOUtils;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -41,8 +49,77 @@ public class EntryPoint extends HttpServlet
     public void doGet(HttpServletRequest request, HttpServletResponse response)
                throws ServletException, IOException
     {
+        if(request.getParameter("download_file") != null)
+        {
+            try(OutputStream os = response.getOutputStream())
+            {
+                String fileName = request.getParameter("name");
+                
+                File f = new File("C:\\Server Files\\avianMigration\\" + request.getParameter("id") + ".xlsx");
+
+                FileInputStream in = new FileInputStream(f);
+                
+                //System.out.println(f.getAbsolutePath());
+                
+                
+
+                //Set type to excel sheet.
+                response.setContentType("application/vnd.openxmlformats-officedocument.spreadsheetml.sheet ");
+
+                //This must be set along with the filename. The filename determines the actual name of the file and nothing else can.
+                response.setHeader("Content-disposition","attachment; filename=\"" + fileName + ".xlsx\"");
+                
+                IOUtils.copy(in, os);
+
+                os.flush();
+            }
+            catch(Exception e)
+            {
+                e.printStackTrace();
+            }        
+        }
+        
+        else if(request.getParameter("change_file_name") != null)
+        {
+            try {
+                access.execute("UPDATE NSFCourter2016.dbo.FILES SET FILE_NAME = '" + request.getParameter("name") + "' WHERE FILE_ID = '" + request.getParameter("id") + "'");
+            } catch (SQLException ex) {
+                Logger.getLogger(EntryPoint.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
+            File file = new File("C:\\Server Files\\avianMigration\\" + request.getParameter("id") + ".xlsx");
+            
+            File file1 = new File("C:\\Server Files\\avianMigration\\" + request.getParameter("name") + ".xlsx");
+            
+            boolean success = file.renameTo(file1);
+            
+            if(!success)
+            {
+                System.err.println("Rename failed");
+            }           
+        }
+        
+        else if(request.getParameter("refresh_file") != null)
+        {
+            try {
+                access.execute("UPDATE NSFCourter2016.dbo.FILES SET date = GETDATE()");
+            } catch (SQLException ex) {
+                Logger.getLogger(EntryPoint.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        
+        else if(request.getParameter("delete_file") != null)
+        {
+            System.out.println("DELETE FROM NSFCourter2016.dbo.FILES WHERE FILE_ID = '" + request.getParameter("id") + "'");
+            try {
+                access.execute("DELETE FROM NSFCourter2016.dbo.FILES WHERE FILE_ID = '" + request.getParameter("id") + "'");
+            } catch (SQLException ex) {
+                Logger.getLogger(EntryPoint.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        
         //Get all of the data for the autocomplete options for the text boxes.
-        if(request.getParameter("vnd") != null)
+        else if(request.getParameter("vnd") != null)
         {
             //Cannot be used due to limitations with HTML, save code for later.
             //This was not finished.

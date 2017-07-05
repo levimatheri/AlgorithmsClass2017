@@ -385,6 +385,16 @@
 			    <!--This will have all of the user specific files that a user wants to download.-->
 			    <div id="downloadView" class="tabcontent">
 				    Files ready for download:
+                                    <iframe name="tmpFrame" id="tmpFrame" width="1" height="1" style="visibility:hidden;position:absolute;display:none"></iframe>
+                                    <table id="table" border="1">
+                                        <tr id="headerRow">
+                                            <th>#</th>
+                                            <th>Date</th>
+                                            <th>Name</th>
+                                            <th>Time left</th>
+                                            <th>Size</th>
+                                        </tr>                                       
+                                    </table>
                                    
 			    </div>
 				

@@ -396,20 +396,24 @@ function refreshDownloads()
             //Change this to be the id of the table.
             var table = document.getElementById("table");
             
-            //Clear the table.
-            for(var index in table.rows)
-            {
-                if(index !== 0)
-                    table.deleteRow(index);
-            }
+            //console.log(table.rows.length);
             
+            //Clear the table.
+            
+            $('#table tr').each(function() {
+                if($(this).attr('id') !== 'headerRow')
+                {
+                    $(this).remove();
+                }
+            });
+           
             for(var index in myArr)
-            {
+            {               
                 var row = table.insertRow(table.rows.length);
                 
                 //Row number
                 var cell = row.insertCell(0);
-                cell.innerHTML = table.rows.length;
+                cell.innerHTML = table.rows.length - 1;
                 
                 //Date file was created or refreshed.
                 cell = row.insertCell(1);
@@ -418,10 +422,14 @@ function refreshDownloads()
                 //Name of file (might think about changing from onchange to button press to change name?).
                 cell = row.insertCell(2);
                 var text = document.createElement("input");
+                var buttonChangeName = document.createElement("input");
+                buttonChangeName.setAttribute("type", "button");
                 text.setAttribute("type", "text");
                 text.setAttribute("value", myArr[index]["name"]);
-                text.setAttribute("onchange", "changeFileName(event, " + myArr[index]["id"] + ")"); //This will be the method to update the name of the file in the database.
+                buttonChangeName.setAttribute("value", "change name");
+                buttonChangeName.setAttribute("onclick", "changeFileName(event, '" + myArr[index]["id"] + "')"); //This will be the method to update the name of the file in the database.
                 cell.appendChild(text);
+                cell.appendChild(buttonChangeName);
                 
                 //TTL of file.
                 cell = row.insertCell(3);
@@ -431,11 +439,11 @@ function refreshDownloads()
                 var dd = today.getDate();
                 var mm = today.getMonth()+1; //January is 0!
                 var yyyy = today.getFullYear();
-                if(dd<10) {
-                    dd='0'+dd;
+                if(dd < 10) {
+                    dd = '0'+ dd;
                 }
-                if(mm<10) {
-                    mm='0'+mm;
+                if(mm < 10) {
+                    mm = '0'+ mm;
                 }
                 today = yyyy+'/'+mm+'/'+dd;
                 var date2 = new Date(today);
@@ -461,7 +469,7 @@ function refreshDownloads()
                 var download = document.createElement("input");
                 download.setAttribute("type", "button");
                 download.setAttribute("value", "download");
-                download.setAttribute("onchange", "downloadFile(" + myArr[index]["id"] + ")"); //Will call the database to download the file and give it the currect name.
+                download.setAttribute("onclick", "downloadFile(event, '" + myArr[index]["id"] + "')"); //Will call the database to download the file and give it the currect name.
                 cell.appendChild(download);
                 
                 //Delete button.
@@ -469,8 +477,9 @@ function refreshDownloads()
                 var deleteButton = document.createElement("input");
                 deleteButton.setAttribute("type", "button");
                 deleteButton.setAttribute("value", "delete");
-                deleteButton.setAttribute("onchange", "deletFile(" + myArr[index]["id"] + ")"); //Will call database to delete the row, then delete the file from the server.
+                deleteButton.setAttribute("onclick", "deleteFile('" + myArr[index]["id"] + "')"); //Will call database to delete the row, then delete the file from the server.
                 cell.appendChild(deleteButton);
+
             }
             
             //These 2 will be at the bottom of the page like we talked about. We will change the 1000 to a calculated number based on who the user is.
@@ -486,28 +495,54 @@ function changeFileName(e, id)
     var row = node.parentElement.parentElement;
     var name = row.cells[2].childNodes[0].value;
     
-    $.get( "/avianMigration/change_file_name", {id: id, name: name}, function( data ) {
+    $.get( "/avianMigration/submit_job", {change_file_name: true, id: id, name: name}, function( data ) {
         refreshDownloads();
     });
 }
 
 function refreshFile(id)
 {
-    $.get( "/avianMigration/refresh_file", {id: id}, function( data ) {
+    $.get( "/avianMigration/submit_job", {refresh_file: true, id: id}, function( data ) {
         refreshDownloads();
     });
 }
 
-function downloadFile(id)
+function downloadExcel(url, data)
 {
-    $.get( "/avianMigration/download_file", {id: id}, function( data ) {
-        refreshDownloads();
-    });
+    var form = $('<form></form>').attr('action', url).attr('method', 'post');
+
+    Object.keys(data).forEach(function(key){
+        var value = data[key];
+
+        if(value instanceof Array) {
+            value.forEach(function (v) {
+                form.append($("<input></input>").attr('type', 'hidden').attr('name', key).attr('value', v));
+            });
+        } else {
+            form.append($("<input></input>").attr('type', 'hidden').attr('name', key).attr('value', value));
+        }
+
+    });    
+
+    //send request
+    form.appendTo('body').submit().remove();
 }
 
-function deletFile(id)
+function downloadFile(e, id)
 {
-    $.get( "/avianMigration/delete_file", {id: id}, function( data ) {
+    //console.log("here");
+    var node = e.target || e.srcElement;
+    var row = node.parentElement.parentElement;
+    var name = row.cells[2].childNodes[0].value;
+    
+    downloadExcel("/avianMigration/submit_job", {download_file: true, id: id, name: name});
+    
+    refreshDownloads();
+}
+  
+function deleteFile(id)
+{
+    $.get( "/avianMigration/submit_job", {delete_file: true, id: id}, function( data ) {
         refreshDownloads();
     });
 }

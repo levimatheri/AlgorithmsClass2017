@@ -112,6 +112,9 @@ public class SpreadSheetMaker {
             cellStyleEven.setBorderLeft(XSSFCellStyle.BORDER_MEDIUM);
             cellStyleEven.setBorderRight(XSSFCellStyle.BORDER_MEDIUM);
             
+            
+
+            
             XSSFSheet sheet = createSheet(wb, results, "main");
             if(sheet != null)
             {
@@ -152,15 +155,23 @@ public class SpreadSheetMaker {
 //            else
 //            {
                 //Send the file through email, and save it to the server.
-//                File output = new File("..\\webapps\\avianMigration\\query_files\\" + fileName + ".xlsx");
-                File output = new File("..\\..\\avianMigration\\web\\query_files\\" + fileName + ".xlsx");
+
+                //File output = new File("..\\webapps\\avianMigration\\query_files\\" + fileName + ".xlsx");
+                File output = new File("C:\\Server Files\\avianMigration\\" + fileName + ".xlsx");
+
                 try(FileOutputStream out = new FileOutputStream(output))
                 {
                     wb.write(out);
                     System.out.println("INSERT INTO NSFCourter2016.dbo.FILES (FILE_ID, FILE_NAME, DATE, USER_ID, SIZE) VALUES ('" + fileName + "','" + fileName + "', GETDATE(), 1, " + (output.length() / 1000.0) + ")");
                     access.execute("INSERT INTO NSFCourter2016.dbo.FILES (FILE_ID, FILE_NAME, DATE, USER_ID, SIZE) VALUES ('" + fileName + "','" + fileName + "', GETDATE(), 1, " + (output.length() / 1000.0) + ")");
-//                    successSendEmail();
+
+                    //successSendEmail();
+
+                    //successSendEmail();
+
                 }
+                
+                
                 catch(Exception ex)
                 {
                     ex.printStackTrace();
@@ -175,7 +186,7 @@ public class SpreadSheetMaker {
     private double getUserPercentage(XSSFWorkbook wb, String user)
     {
         //Get all user files.
-        File filesDirectory = new File("..\\webapps\\avianMigration\\query_files");
+        File filesDirectory = new File("C:\\Server Files\\avianMigration");
         
         //Put files into array.
         File[] files = filesDirectory.listFiles();
