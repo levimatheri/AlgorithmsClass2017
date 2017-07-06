@@ -438,6 +438,7 @@ function refreshDownloads()
                 //Size in KB of file.
                 cell = row.insertCell(4);
                 totalSize += parseFloat(myArr[index]["size"]);
+                
                 cell.innerHTML = myArr[index]["size"] + " KB";
                 
                 //Refresh button.
@@ -446,8 +447,10 @@ function refreshDownloads()
                 var refresh = document.createElement("input");
                 refresh.setAttribute("type", "button");
                 refresh.setAttribute("value", "refresh");
-                refresh.setAttribute("onchange", "refreshFile(" + myArr[index]["id"] + ")"); //Will tell the database to set the "DATE" attribute to the current date.
+                refresh.setAttribute("onchange", "refreshFile('" + myArr[index]["id"] + "')"); //Will tell the database to set the "DATE" attribute to the current date.
                 cell.appendChild(refresh);
+                
+                //row.insertCell(5).innerHTML = "<input type='button' value='refresh' onclick=refreshFile(" + myArr[index]["id"] + ")>";
                 
                 //Download button.
                 cell = row.insertCell(6);
@@ -458,6 +461,8 @@ function refreshDownloads()
                 download.setAttribute("onclick", "downloadFile(event, '" + myArr[index]["id"] + "')"); //Will call the database to download the file and give it the currect name.
                 cell.appendChild(download);
                 
+                //row.insertCell(6).innerHTML = "<input type='button' value='download' onclick=downloadFile(event, '" + myArr[index]["id"] + "')>";
+                
                 //Delete button.
                 cell = row.insertCell(7);
                 //cell.setAttribute("class", "hiddenCell");
@@ -466,6 +471,8 @@ function refreshDownloads()
                 deleteButton.setAttribute("value", "delete");
                 deleteButton.setAttribute("onclick", "deleteFile('" + myArr[index]["id"] + "')"); //Will call database to delete the row, then delete the file from the server.
                 cell.appendChild(deleteButton);
+                
+                //row.insertCell(7).innerHTML = "<input type='button' value='delete' onclick=deleteFile('" + myArr[index]["id"] + "')>";
 
             }
             
