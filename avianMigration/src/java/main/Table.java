@@ -10,6 +10,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.sql.Date;
 import java.sql.Timestamp;
+import java.util.HashMap;
 
 /**
  *
@@ -27,11 +28,15 @@ public class Table {
     private int row = -1;
     
     private final Column[] columns;
+    
+    private final HashMap<String, Integer> columnMatches = new HashMap();
 
     //Create the columns for the table on initialization.
     public Table(int size) 
     {
         columns = new Column[size];
+        
+//        Arrays.fill(columns, 0, size, new Column());
         
         for(int i = 0; i < size; i++)
         {
@@ -53,16 +58,46 @@ public class Table {
     }
     
     /**
+     * Made so Table can be multi threaded.
+     * @param start The row to start getting data. exclusive
+     * @param finish The row to stop getting data. exclusive
+     * @return A clone of this table with data from rows start to finish.
+     * @throws SQLException 
+     */
+    public Table cloneTable(int start, int finish) throws SQLException
+    {
+        Table newTable = new Table(getColumnCount());
+        
+        int currentRow = getRow();
+        
+        setRow(0);
+        
+        while(next())
+        {
+            if(getRow() >= start && getRow() <= finish)
+            {
+                for(int i = 1; i <= getColumnCount(); i++)
+                {
+                    newTable.nameColumns(getColumnName(i), i - 1);
+                    newTable.giveData(getObject(i), i - 1);
+                }
+            }
+        }
+        
+        setRow(currentRow);
+        
+        return newTable;
+    }
+    
+    /**
      * Give each column its name.
      * 
      * @param temp The list of column names.
      */
-    public void nameColumns(ArrayList<String> temp)
+    public void nameColumns(String temp, int i)
     {
-        for(int i = 0; i < columns.length; i++)
-        {
-            columns[i].name = temp.get(i);
-        }
+            columns[i].name = temp;
+            columnMatches.put(temp, i);
     }
     
     /**
@@ -71,13 +106,9 @@ public class Table {
      * @param item The row item to add to the column.
      * @param columnName The column's name.
      */
-    public void giveData(Object item, String columnName)
+    public void giveData(Object item, int i)
     {
-        for(Column column : columns)
-        {
-            if(column.name.equals(columnName))
-                column.elements.add(item);
-        }
+        columns[i].elements.add(item);
     }
     
     /**
@@ -159,12 +190,10 @@ public class Table {
      */
     public Integer getInt(String columnName) throws SQLException, NumberFormatException, ArrayIndexOutOfBoundsException
     {
-        for(Column column : columns)
-        {
-            if(column.name.equals(columnName))
-                return column.retreiveInt(row);
-        }
-        throw new SQLException();
+        if(columnMatches.containsKey(columnName))
+            return columns[columnMatches.get(columnName)].retreiveInt(row);
+        else
+            throw new SQLException();
     }
     
     /**
@@ -192,12 +221,10 @@ public class Table {
      */
     public String getString(String columnName) throws SQLException, ArrayIndexOutOfBoundsException
     {
-        for(Column column : columns)
-        {
-            if(column.name.equals(columnName))
-                return column.retreiveString(row);
-        }
-        throw new SQLException();
+        if(columnMatches.containsKey(columnName))
+            return columns[columnMatches.get(columnName)].retreiveString(row);
+        else
+            throw new SQLException();
     }
     
     /**
@@ -224,12 +251,10 @@ public class Table {
      */
     public Object getObject(String columnName) throws SQLException, ArrayIndexOutOfBoundsException
     {
-        for(Column column : columns)
-        {
-            if(column.name.equals(columnName))
-                return column.retreiveObject(row);
-        }
-        throw new SQLException();
+        if(columnMatches.containsKey(columnName))
+            return columns[columnMatches.get(columnName)].retreiveObject(row);
+        else
+            throw new SQLException();
     }
     
     /**
@@ -257,12 +282,10 @@ public class Table {
      */
     public Double getDouble(String columnName) throws SQLException, NumberFormatException, ArrayIndexOutOfBoundsException
     {
-        for(Column column : columns)
-        {
-            if(column.name.equals(columnName))
-                return column.retreiveDouble(row);
-        }
-        throw new SQLException();
+        if(columnMatches.containsKey(columnName))
+            return columns[columnMatches.get(columnName)].retreiveDouble(row);
+        else
+            throw new SQLException();
     }
     
     /**
@@ -282,6 +305,38 @@ public class Table {
     }
     
     /**
+     * Get the Boolean from the given column based based off of the current row.
+     * @param columnName Column to find the Boolean from.
+     * @return A Boolean.
+     * @throws SQLException If the column name does not exist.
+     * @throws NumberFormatException If the object is not formated to be a Double.
+     * @throws ArrayIndexOutOfBoundsException If the row is invalid.
+     */
+    public Boolean getBoolean(String columnName) throws SQLException, NumberFormatException, ArrayIndexOutOfBoundsException
+    {
+        if(columnMatches.containsKey(columnName))
+            return columns[columnMatches.get(columnName)].retreiveBoolean(row);
+        else
+            throw new SQLException();
+    }
+    
+    /**
+     * Get the Boolean from the given column based based off of the current row.
+     * @param i Column number to find the Boolean from.
+     * @return A Boolean.
+     * @throws SQLException If the column does not exist.
+     * @throws NumberFormatException If the object is not formated to be a Double.
+     * @throws ArrayIndexOutOfBoundsException If the row is invalid.
+     */
+    public Boolean getBoolean(int i) throws SQLException, NumberFormatException, ArrayIndexOutOfBoundsException
+    {
+        if(columns.length >= i)
+            return columns[i - 1].retreiveBoolean(row);
+        else
+            throw new SQLException();
+    }
+    
+    /**
      * Get the Date from the given column based based off of the current row.
      * @param columnName Column to find the Date from.
      * @return A Date.
@@ -290,12 +345,10 @@ public class Table {
      */
     public Date getDate(String columnName) throws SQLException, ArrayIndexOutOfBoundsException
     {
-        for(Column column : columns)
-        {
-            if(column.name.equals(columnName))
-                return column.retreiveDate(row);
-        }
-        throw new SQLException();
+        if(columnMatches.containsKey(columnName))
+            return columns[columnMatches.get(columnName)].retreiveDate(row);
+        else
+            throw new SQLException();
     }
     
     /**
@@ -358,18 +411,7 @@ class Column {
         
         if(result != null)
         {
-            if(result.contains("'".subSequence(0, 1)))
-            {
-                String temp = "";
-                for(char item : result.toCharArray())
-                {
-                    if(item == '\'')
-                        temp += item + '\'';
-                    else 
-                        temp += item;
-                }
-                return temp;
-            }
+            result = result.replaceAll("'", "''");
             return result;
         }
         else
@@ -403,6 +445,18 @@ class Column {
             return Double.valueOf((String) elements.get(row));
         
         return (Double) elements.get(row);
+    }
+    
+    /**
+     * 
+     * @param row Row to look for in the column.
+     * @return A Boolean
+     * @throws ArrayIndexOutOfBoundsException If the row is invalid.
+     * @throws NumberFormatException If the Object cannot be formated to a Double.
+     */
+    protected Boolean retreiveBoolean(int row) throws NumberFormatException, ArrayIndexOutOfBoundsException
+    {
+        return (Boolean) elements.get(row);
     }
     
     /**

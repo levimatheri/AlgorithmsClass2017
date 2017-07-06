@@ -287,10 +287,10 @@
 								    <div id="nn">No calculations will be done, and the raw data from the filters will be returned</div>
 								
 								    <div id="cs" style="display:none">
-									    <b>Chose whether or not to add the number of submitted group checklists to the total or not. 
+									    <!--<b>Chose whether or not to add the number of submitted group checklists to the total or not. 
 										    If include is selected, it will only return people who have both group and none group checklists.</b><br>
 									    <input type="radio" name="groupCheck" value="yes" checked> Include group checklists<br>
-									    <input type="radio" name="groupCheck" value="no"> Don't include group checklists<br><br>
+									    <input type="radio" name="groupCheck" value="no"> Don't include group checklists<br><br>-->
 									    <b>Chose an operator then enter the number of checklists you want to search for. Separate with ",".</b><br> EX: 55,21,15<br>
 									    <input type="radio" name="operator" value="ge" checked> >=<br>
 									    <input type="radio" name="operator" value="g"> ><br>
@@ -386,21 +386,20 @@
 			    <div id="downloadView" class="tabcontent">
 
 				    
-                                    <table id="table" class='showData'>
+                                <table id="table" class='showData'>
+                                    <tr id="headerRow">
+                                        <th class='showData'>#</th>
+                                        <th class='showData'>Date</th>
+                                        <th class='showData'>Name</th>
+                                        <th class='showData'>Time left</th>
+                                        <th class='showData'>Size</th>
+                                        <th class='hiddenCell' colspan="3"></th>
+                                    </tr>                                       
+                                </table>
 
-                                        <tr id="headerRow">
-                                            <th class='showData'>#</th>
-                                            <th class='showData'>Date</th>
-                                            <th class='showData'>Name</th>
-                                            <th class='showData'>Time left</th>
-                                            <th class='showData'>Size</th>
-                                            <th class='hiddenCell' colspan="3"></th>
-                                        </tr>                                       
-                                    </table>
-
-                                    
-                                    <p id="totalSize"></p>
-                                    <p id="totalLeft"></p>
+                                <p></p>
+                                <p id="totalSize"></p>
+                                <p id="totalLeft"></p>
                                    
 
 			    </div>
