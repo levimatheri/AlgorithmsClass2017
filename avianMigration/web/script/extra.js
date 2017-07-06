@@ -217,6 +217,53 @@ function deleteLatLongRow(evt) {
     document.getElementById(node.parentElement.parentElement.parentElement.parentElement.id).deleteRow(node.parentElement.parentElement.rowIndex);
 }
 
+function addBird() {
+    //Create and insert a new row into the lat long table.
+    var row = document.getElementById('birdInputTable').insertRow(document.getElementById('birdInputTable').rows.length);
+
+    //Insert the data into the new row.
+    row.insertCell(0).innerHTML = document.getElementById('birdNameCalcInput').value;
+    row.insertCell(1).innerHTML = "<input id='edit1' type='submit' name='delete' value='Delete'>";
+
+    //Access the div holder that is holding the final string for the lat long option.
+    var tempHolder = document.getElementById('birdFinalInput').innerHTML;
+
+    //If there is more than one option in the holder already.
+    if (tempHolder.includes("/")) {
+        tempHolder += "," + document.getElementById('birdNameCalcInput').value;
+    }
+    else {
+        tempHolder = document.getElementById('birdNameCalcInput').value;
+    }
+
+    //Put back the holder's new inner html.
+    document.getElementById('birdFinalInput').innerHTML = tempHolder;
+
+    //Reset the text boxes.
+    document.getElementById('birdNameCalcInput').value = "";   
+}
+
+function deleteBirdRow(evt) {
+    var node = evt.target || evt.srcElement;
+    var cells = node.parentElement.parentElement.cells;
+    var checkString = cells[0].innerHTML;
+
+    var tempHolder = document.getElementById('birdFinalInput').innerHTML;
+    if (tempHolder.includes("," + checkString)) {
+        tempHolder = tempHolder.replace("," + checkString, "");
+    }
+    else {
+        tempHolder = tempHolder.replace(checkString, "");
+        if (tempHolder.startsWith(",")) {
+            tempHolder = tempHolder.substring(1, tempHolder.length);
+        }
+    }
+    document.getElementById('birdFinalInput').innerHTML = tempHolder;
+
+    document.getElementById(node.parentElement.parentElement.parentElement.parentElement.id).deleteRow(node.parentElement.parentElement.rowIndex);
+}
+
+
 function getClimateDiv(){
     var climDivs = [];
     
@@ -364,10 +411,15 @@ function start()
             });      
         }
     };
-    xobj1.send(null);  
+
+    xobj1.send(null); 
     
-    document.getElementById('load').className = "temp";
+    getBirdJSON("sci_radio");
+   
+
 }
+
+var totalSize = 0;
 
 function refreshDownloads()
 {
@@ -393,7 +445,7 @@ function refreshDownloads()
         {
             
             //How much data the user currently has.
-            var totalSize;
+            
             
             //Change this to be the id of the table.
             var table = document.getElementById("table");
@@ -408,6 +460,8 @@ function refreshDownloads()
                     $(this).remove();
                 }
             });
+            
+            totalSize = 0;
            
             for(var index in myArr)
             {               
@@ -441,9 +495,9 @@ function refreshDownloads()
                 
                 //Size in KB of file.
                 cell = row.insertCell(4);
-                totalSize += parseFloat(myArr[index]["size"]);
-                
-                cell.innerHTML = myArr[index]["size"] + " KB";
+                //console.log("total size " + totalSize);
+                totalSize += parseFloat(myArr[index]["size"]);               
+                cell.innerHTML = myArr[index]["size"].toFixed(2) + " MB";
                 
                 //Refresh button.
                 cell = row.insertCell(5);
@@ -481,8 +535,8 @@ function refreshDownloads()
             }
             
             //These 2 will be at the bottom of the page like we talked about. We will change the 1000 to a calculated number based on who the user is.
-            document.getElementById("totalSize").innerHTML = "Total size of files: " + totalSize + " KB";
-            document.getElementById("totalLeft").innerHTML = "Amount left till full: " + (1000 - totalSize) + " KB";
+            document.getElementById("totalSize").innerHTML = "Total size of files: " + totalSize.toFixed(2) + " MB";
+            document.getElementById("totalLeft").innerHTML = "Amount left till full: " + ((totalSize / 1000) * 100).toFixed(2) + " %";
         }
     });
 }

@@ -153,3 +153,7 @@ ul.tab li a:focus, .active {background-color: #ccc;}
 	margin-right: 100px;
 	margin-left: 50px;
 }
+
+#birdNameCalcInput {
+        width: 15em;
+}
