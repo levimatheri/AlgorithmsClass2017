@@ -8,7 +8,6 @@ package main;
 
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.io.PrintWriter;
@@ -19,7 +18,6 @@ import java.util.Enumeration;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.ServletException;
-import javax.servlet.ServletOutputStream;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -82,27 +80,27 @@ public class EntryPoint extends HttpServlet
         else if(request.getParameter("change_file_name") != null)
         {
             try {
-                access.execute("UPDATE NSFCourter2016.dbo.FILES SET FILE_NAME = '" + request.getParameter("name") + "' WHERE FILE_ID = '" + request.getParameter("id") + "'");
+                access.execute("UPDATE NSFCourter2016.dbo.FILES SET FILE_NAME = ? WHERE FILE_ID = ?", new Object[]{request.getParameter("name"), request.getParameter("id")});
             } catch (SQLException ex) {
                 Logger.getLogger(EntryPoint.class.getName()).log(Level.SEVERE, null, ex);
             }
             
-            File file = new File("C:\\Server Files\\avianMigration\\" + request.getParameter("id") + ".xlsx");
-            
-            File file1 = new File("C:\\Server Files\\avianMigration\\" + request.getParameter("name") + ".xlsx");
-            
-            boolean success = file.renameTo(file1);
-            
-            if(!success)
-            {
-                System.err.println("Rename failed");
-            }           
+//            File file = new File("C:\\Server Files\\avianMigration\\" + request.getParameter("id") + ".xlsx");
+//            
+//            File file1 = new File("C:\\Server Files\\avianMigration\\" + request.getParameter("name") + ".xlsx");
+//            
+//            boolean success = file.renameTo(file1);
+//            
+//            if(!success)
+//            {
+//                System.err.println("Rename failed");
+//            }           
         }
         
         else if(request.getParameter("refresh_file") != null)
         {
             try {
-                access.execute("UPDATE NSFCourter2016.dbo.FILES SET date = GETDATE()");
+                access.execute("UPDATE NSFCourter2016.dbo.FILES SET date = GETDATE()", new Object[]{});
             } catch (SQLException ex) {
                 Logger.getLogger(EntryPoint.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -112,7 +110,7 @@ public class EntryPoint extends HttpServlet
         {
             System.out.println("DELETE FROM NSFCourter2016.dbo.FILES WHERE FILE_ID = '" + request.getParameter("id") + "'");
             try {
-                access.execute("DELETE FROM NSFCourter2016.dbo.FILES WHERE FILE_ID = '" + request.getParameter("id") + "'");
+                access.execute("DELETE FROM NSFCourter2016.dbo.FILES WHERE FILE_ID = ?", new Object[]{request.getParameter("id")});
             } catch (SQLException ex) {
                 Logger.getLogger(EntryPoint.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -194,31 +192,8 @@ public class EntryPoint extends HttpServlet
             try(PrintWriter out = response.getWriter())
             {
                 String user = request.getParameter("user");
-//                JSONObject files = new JSONObject();
-//                JSONArray listFiles = new JSONArray();
-//                
-//                System.out.println("Directory: " + System.getProperty("user.dir"));
-//                File folder = new File("..\\webapps\\avianMigration\\query_files");
-//                File[] listOfFiles = folder.listFiles();
-//                
-//                if(listOfFiles != null)
-//                {
-//                    for(File tempFile : listOfFiles)
-//                    {
-//                        if(tempFile.isFile())
-//                            if(tempFile.getName().contains(user))
-//                                listFiles.put(tempFile.getName());
-//                    }
-//                }
-//                files.put("files", listFiles);
-//                
-//                 //Write the object to the printstream.
-//                out.write(files.toString());
-//                
-//                //Flush the stream to reset.
-//                out.flush();
 
-                Table filesTable = access.getTable("SELECT *, ABS(DATEDIFF(DAY, DATEADD(DD, 7, DATE), GETDATE())) AS NEXT_DATE FROM NSFCourter2016.dbo.FILES WHERE USER_ID = 1");
+                Table filesTable = access.getTable("SELECT *, ABS(DATEDIFF(DAY, DATEADD(DD, 7, DATE), GETDATE())) AS NEXT_DATE FROM NSFCourter2016.dbo.FILES WHERE USER_ID = 1", new Object[]{});
                 JSONArray files = new JSONArray();
                 
                 while(filesTable.next())
@@ -251,7 +226,7 @@ public class EntryPoint extends HttpServlet
             try (PrintWriter out = response.getWriter())
             {
                 Table rows = access.getTable("SELECT DISTINCT YEAR([Date and time recorded]) AS DATE FROM NSFCourter2016.dbo.MAIN_VIEW GROUP BY [Date and time recorded] HAVING YEAR([Date and time recorded]) "
-                        + "BETWEEN MIN(YEAR([Date and time recorded])) AND MAX(YEAR([Date and time recorded])) ORDER BY DATE");
+                        + "BETWEEN MIN(YEAR([Date and time recorded])) AND MAX(YEAR([Date and time recorded])) ORDER BY DATE", new Object[]{});
                 
                 //Creat the returning json object.
                 JSONObject returnObject = new JSONObject();
@@ -293,7 +268,7 @@ public class EntryPoint extends HttpServlet
             try (PrintWriter out = response.getWriter())
             {
                 //Get simply the first row of the view.
-                Table columnNames = access.getTable("SELECT TOP(1) * FROM NSFCourter2016.dbo.MAIN_VIEW");
+                Table columnNames = access.getTable("SELECT TOP(1) * FROM NSFCourter2016.dbo.MAIN_VIEW", new Object[]{});
                 
                 //Creat the returning json object.
                 JSONObject returnObject = new JSONObject();
@@ -335,7 +310,7 @@ public class EntryPoint extends HttpServlet
             try (PrintWriter out = response.getWriter())
             {
                 //Get simply the first row of the view.
-                Table columnNames = access.getTable("SELECT TOP(1) * FROM NSFCourter2016.dbo.HISTORICAL_VIEW");
+                Table columnNames = access.getTable("SELECT TOP(1) * FROM NSFCourter2016.dbo.HISTORICAL_VIEW", new Object[]{});
                 
                 //Creat the returning json object.
                 JSONObject returnObject = new JSONObject();
@@ -381,7 +356,7 @@ public class EntryPoint extends HttpServlet
                  * isn't to determine which view to get the data from and 
                  * how it will do so.
                  */
-                String main = "";
+                String main;
                 String bird = "";
                 
                 String view;
@@ -739,9 +714,10 @@ public class EntryPoint extends HttpServlet
                 if(request.getParameter("application") == null)
                 {
                     top = " TOP(100) ";
-                    main = main.replaceAll("SELECT ", ("SELECT DISTINCT " + top));
-                    bird = bird.replaceAll("SELECT ", ("SELECT DISTINCT " + top));
                 }
+                
+                main = main.replaceAll("SELECT ", ("SELECT DISTINCT " + top));
+                bird = bird.replaceAll("SELECT ", ("SELECT DISTINCT " + top));
                 
                 //Must be after the other options to have the WHERE clause set up 
                 //and before the calculations because there will be an updated
@@ -776,7 +752,7 @@ public class EntryPoint extends HttpServlet
                     
                     Table tempTable = access.getTable("WITH MAIN AS (SELECT * FROM NSFCourter2016.DBO.MAIN_VIEW" + query.toString() + ") " +
                                         "SELECT * FROM (SELECT [Observer ID], COUNT([Observer ID]) AS [Number of checlists]"
-                                        + " FROM MAIN GROUP BY [Observer ID]) AS M WHERE [Number of checlists]" + compare + options[1] + " ORDER BY  [Observer ID] ASC");
+                                        + " FROM MAIN GROUP BY [Observer ID]) AS M WHERE [Number of checlists]" + compare + options[1] + " ORDER BY  [Observer ID] ASC", new Object[]{});
                     
                     String observers = "";
                     
@@ -808,7 +784,7 @@ public class EntryPoint extends HttpServlet
                     String[] options = request.getParameter("cs").split("/");
 
                     String operation = null;
-                    switch(options[1])
+                    switch(options[0])
                     {
                         case "ge":
                             operation = ">=";
@@ -846,12 +822,12 @@ public class EntryPoint extends HttpServlet
                     
                     //This is whithout groups.
                     results = access.getTable("WITH MAIN AS (SELECT * FROM NSFCourter2016.DBO.MAIN_VIEW " + query.toString() + ")"
-                        + "SELECT " + top + " N.*, M.[Number of checlists] FROM  "
+                        + "SELECT " + top + " N.*, M.[Number of checklists] FROM  "
                             + "(SELECT  * FROM "
-                                + "(SELECT [Observer ID], COUNT([Observer ID]) AS [Number of checlists] FROM MAIN GROUP BY [Observer ID]) AS TEMP"
-                            + " WHERE [Number of checlists] " + operation + " " + options[2] + ") AS M, "
+                                + "(SELECT [Observer ID], COUNT([Observer ID]) AS [Number of checklists] FROM MAIN GROUP BY [Observer ID]) AS TEMP"
+                            + " WHERE [Number of checklists] " + operation + " " + options[1] + ") AS M, "
                             + "(SELECT  " + variables + " FROM MAIN) AS N "
-                        + "WHERE N.[OBSERVER ID] = M.[OBSERVER ID]");
+                        + "WHERE N.[OBSERVER ID] = M.[OBSERVER ID]", new Object[]{});
                 }
                 
                 //Count number of a variable
@@ -877,7 +853,10 @@ public class EntryPoint extends HttpServlet
                     else if(variables.contains("[" + variable + "],"))
                         variables = variables.replace("[" + variable + "],", "");
                     
-                    results = access.getTable("SELECT " + top + " N.*, M.[Count of varaible] FROM (SELECT [" + variable + "], COUNT([" + variable + "]) AS [Count of varaible] FROM NSFCourter2016.dbo.MAIN_VIEW " + query.toString() + " GROUP BY [" + variable + "]) AS M, (SELECT " + variables + "[" + variable + "] FROM NSFCourter2016.dbo.MAIN_VIEW " + query.toString() + ") AS N WHERE N.[" + variable + "] = M.[" + variable + "]");
+                    //Check to see if this is ok or not.
+                    results = access.getTable("SELECT " + top + " N.*, M.[Count of varaible] FROM "
+                        + "(SELECT [" + variable + "], COUNT([" + variable + "]) AS [Count of varaible] FROM NSFCourter2016.dbo.MAIN_VIEW " + query.toString() + " GROUP BY [" + variable + "]) AS M, "
+                            + "(SELECT " + variables + "[" + variable + "] FROM NSFCourter2016.dbo.MAIN_VIEW " + query.toString() + ") AS N WHERE N.[" + variable + "] = M.[" + variable + "]", new Object[]{});
                 }
                 
                 //Get the number of a certain list of birds for a group of checklists
@@ -916,7 +895,7 @@ public class EntryPoint extends HttpServlet
                         
                         if(variables.equals(""))
                         {
-                            Table columns = access.getTable("SELECT TOP(0) * FROM [NSFCourter2016].[dbo].[MAIN_VIEW]");
+                            Table columns = access.getTable("SELECT TOP(0) * FROM [NSFCourter2016].[dbo].[MAIN_VIEW]", new Object[]{});
                         
                             for(int i = 1; i < columns.getColumnCount() + 1; i++)
                                 variables += "[" + columns.getColumnName(i) + "],";
@@ -927,7 +906,7 @@ public class EntryPoint extends HttpServlet
                     else
                     {
                         variables = "";
-                        Table columns = access.getTable("SELECT TOP(0) * FROM [NSFCourter2016].[dbo].[MAIN_VIEW]");
+                        Table columns = access.getTable("SELECT TOP(0) * FROM [NSFCourter2016].[dbo].[MAIN_VIEW]", new Object[]{});
                         
                         for(int i = 1; i < columns.getColumnCount() + 1; i++)
                             variables += "[" + columns.getColumnName(i) + "],";
@@ -941,7 +920,8 @@ public class EntryPoint extends HttpServlet
                             "(SELECT BIRD_TAXONOMY, SUBMISSION_ID AS SUB, CASE WHEN NUM_BIRDS >= 0 THEN NUM_BIRDS ELSE 1 END AS NUM_BIRDS FROM OBSERVATION_BIRD) AS N " +
                             "WHERE M.TAXONOMY = N.BIRD_TAXONOMY) as tmptwo " +
                             "WHERE tmp.[Submission ID of checlist] = tmptwo.SUB) AS TOTAL_TABLE pivot " +
-                            "(SUM(NUM_BIRDS) FOR VAR_SELECTED IN (" + names + ")) as tbl " + query.toString());
+                            "(SUM(NUM_BIRDS) FOR VAR_SELECTED IN (" + names + ")) as tbl " + query.toString(),
+                            new Object[]{});
                 }
                 
                 //Else the nn option was select I.E. none
@@ -950,12 +930,12 @@ public class EntryPoint extends HttpServlet
                     if(!bird.isEmpty())
                     {
                         System.out.println(bird + query.toString());
-                        results = access.getTable(bird + query.toString());
+                        results = access.getTable(bird + query.toString(), new Object[]{});
                     }
                     else if(!main.isEmpty())
                     {
                         System.out.println(main + query.toString());
-                        results = access.getTable(main + query.toString());
+                        results = access.getTable(main + query.toString(), new Object[]{});
                     }
                 }
                 
@@ -969,8 +949,7 @@ public class EntryPoint extends HttpServlet
                     {
                         //Create the spreadsheet.
                         String user = "jcourter@malone.edu";
-                        new SpreadSheetMaker().export(results, user,
-                                user + "" + new SimpleDateFormat("yyyyMMddHHmmss").format(new Timestamp(System.currentTimeMillis())));
+                        SpreadSheetMaker.getInstance().export(results, user);
                         
                     }
                     
