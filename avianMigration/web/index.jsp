@@ -300,12 +300,20 @@
 									    # of checklists: <input type="text" id="checklistNumber">
 								    </div>
 								
-								    <div id="bs" style="display:none">
-									    <b>Chose a type of name then enter the correct name(s) for the choice. Separate with ",".</b><br> EX: Highland_Tinamou,White-throated_Tinamou {for science name}<br>
-									    <input type="radio" name="birdNameCalc" value="s" checked> Scientific name<br>
-									    <input type="radio" name="birdNameCalc" value="p"> Common name<br>
-									    <input type="radio" name="birdNameCalc" value="t"> Taxonomy<br>
-									    NAME: <input type="text" id="birdNameCalcInput"><br><br>
+                                                                    <div id="bs" style="display:none" onchange="inputRadioChange(event)">
+									    <b>Choose a type of name then start typing correct name(s) for the choice. Press add to insert to table</b><br><br>
+									    <input id="sci_radio" type="radio" name="birdNameCalc" value="s" checked> Scientific name<br>
+									    <input id="comm_radio" type="radio" name="birdNameCalc" value="p"> Common name<br>
+									    <input id="tax_radio" type="radio" name="birdNameCalc" value="t"> Taxonomy<br>
+                                                                            NAME: <input type="text" id="birdNameCalcInput"><br> &nbsp;&nbsp;&nbsp;&nbsp;
+                                                                            <table id="birdInputTable" class="showData" style="width:30%" onclick="deleteBirdRow(event)">
+                                                                                    <caption>Bird input</caption>
+                                                                                    <tr>
+                                                                                            <th>Bird Name</th>                                                                                       
+                                                                                    </tr>
+                                                                            </table><br><br>
+                                                                            <button type="button" onclick="addBird()">Add</button><br><br>
+                                                                            <div id="birdFinalInput" style="display:none"></div>
 								    </div>
 								
 								    <div id="cl" style="display:none">
@@ -355,7 +363,7 @@
 					    <input type="radio" name="birdNameDecision" value="p"> Common name<br>
 					    <input type="radio" name="birdNameDecision" value="f"> Family name<br>
 					    <input type="radio" name="birdNameDecision" value="o"> Order name<br>
-					    NAME: <input type="text" id="birdNameInput"><br><br>
+                                            NAME: <input type="text" id="birdNameInput" style="width: 300px"><br><br>
 				    </div>
 					
 				    <div id="ls" style="display:none">
@@ -383,11 +391,8 @@
 			    </div>
 				
 			    <!--This will have all of the user specific files that a user wants to download.-->
-			    <div id="downloadView" class="tabcontent">
-
-				    
+			    <div id="downloadView" class="tabcontent">  
                                     <table id="table" class='showData'>
-
                                         <tr id="headerRow">
                                             <th class='showData'>#</th>
                                             <th class='showData'>Date</th>
@@ -397,12 +402,9 @@
                                             <th class='hiddenCell' colspan="3"></th>
                                         </tr>                                       
                                     </table>
-
-                                    
+                                    <br><br>
                                     <p id="totalSize"></p>
-                                    <p id="totalLeft"></p>
-                                   
-
+                                    <p id="totalLeft"></p>                                 
 			    </div>
 				
 			    <!--This will be the section that will have all of the references and who did what.-->

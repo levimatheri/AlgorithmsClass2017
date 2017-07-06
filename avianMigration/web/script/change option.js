@@ -130,7 +130,13 @@ function inputRadioChange(evt) {
  
             if(node.childNodes[i].id === 'noneChbx')
                 document.getElementById('lowerDiv').style.display = 'block';
-            
+            else if(node.childNodes[i].id === 'sci_radio')
+                getBirdJSON(node.childNodes[i].id);
+            else if(node.childNodes[i].id === 'comm_radio')
+                getBirdJSON(node.childNodes[i].id);
+            else if(node.childNodes[i].id === 'tax_radio')
+               getBirdJSON(node.childNodes[i].id);
+                
 //            else if(node.childNodes[i].id === 'obschlt' || node.childNodes[i].id === 'bpchlt' || node.childNodes[i].id === 'novar')
 //                document.getElementById('lowerDiv').style.display = 'none';
         }
@@ -140,4 +146,18 @@ function inputRadioChange(evt) {
             }
         }
     }
+}
+
+function getBirdJSON(id)
+{
+    var responseBirdJSON = [];
+    $.getJSON('/avianMigration/submit_job', {birdData: true, id: id}, function(data) {
+        $.each(data, function(key, val) {
+            responseBirdJSON.push(val);
+        });
+    });
+    
+    $("#birdNameCalcInput").autocomplete({
+        source: responseBirdJSON                               
+    }); 
 }
