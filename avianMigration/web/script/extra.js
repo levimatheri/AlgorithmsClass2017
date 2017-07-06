@@ -287,7 +287,7 @@ function start()
     //Set the main tab as selected.
     document.getElementById('mainTab').click();
     
-    
+    document.getElementById('load').className = "loader";
     
     $( "#beginDateText" ).datepicker({ 
         minDate: new Date(2005,0,1),
@@ -411,11 +411,12 @@ function start()
             });      
         }
     };
+
     xobj1.send(null); 
     
     getBirdJSON("sci_radio");
-    
-    
+   
+
 }
 
 var totalSize = 0;
@@ -480,6 +481,8 @@ function refreshDownloads()
                 var buttonChangeName = document.createElement("input");
                 buttonChangeName.setAttribute("type", "button");
                 text.setAttribute("type", "text");
+                text.setAttribute("size", "50");
+                text.setAttribute("style", "margin-right: 10px");
                 text.setAttribute("value", myArr[index]["name"]);
                 buttonChangeName.setAttribute("value", "change name");
                 buttonChangeName.setAttribute("onclick", "changeFileName(event, '" + myArr[index]["id"] + "')"); //This will be the method to update the name of the file in the database.
@@ -544,9 +547,14 @@ function changeFileName(e, id)
     var row = node.parentElement.parentElement;
     var name = row.cells[2].childNodes[0].value;
     
-    $.get( "/avianMigration/submit_job", {change_file_name: true, id: id, name: name}, function( data ) {
-        refreshDownloads();
-    });
+    if(name.length <= 50)
+    {
+        $.get( "/avianMigration/submit_job", {change_file_name: true, id: id, name: name}, function( data ) {
+            refreshDownloads();
+        });
+    }
+    else
+        alert("Name must be 50 characters or less.")
 }
 
 function refreshFile(id)

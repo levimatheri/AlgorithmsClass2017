@@ -5,9 +5,11 @@
  */
 package main;
 
+import com.microsoft.sqlserver.jdbc.SQLServerException;
 import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
@@ -54,11 +56,21 @@ public class Access extends HttpServlet {
     
     public Access()
     {
+        createDatasource();
+    }
+
+    private Connection getConnection() throws SQLException 
+    {
+        return datasource.getConnection();
+    }
+    
+    private void createDatasource()
+    {
         try 
         {
             // Look up the JNDI data source only once at init time
             Context envCtx = (Context) new InitialContext().lookup("java:comp/env");
-            System.out.println(envCtx);
+//            System.out.println(envCtx);
             datasource = (DataSource) envCtx.lookup("jdbc/TestDB");
         }
         catch (Exception e) 
@@ -66,50 +78,131 @@ public class Access extends HttpServlet {
             e.printStackTrace();
         }
     }
-
-    private Connection getConnection() throws SQLException 
-    {
-        return datasource.getConnection();
-    }
-
+    
     /**
      * Executes the query string, creates the table, then returns the table.
      * @param sqlString The string that is a functioning SQL query.
      * @return The table that would normally result in the query being executed.
      * @throws Exception 
      */
-    synchronized public Table getTable(String sqlString) throws Exception
+    public Table getTable(String sqlString, Object[] variables) throws Exception
     {
-        Table table;
+        Table table = null;
         Connection connection = null;
-        Statement stmt = null;
+        PreparedStatement stmt = null;
         try
         {
             connection = getConnection();
-            stmt = connection.createStatement();
+            stmt = connection.prepareStatement(sqlString);
+            
+            for(int i = 0; i < variables.length; i++)
+            {
+                if(variables[i] instanceof Boolean)
+                    stmt.setBoolean(i + 1, (Boolean) variables[i]);
+                else if(variables[i] instanceof Integer)
+                    stmt.setInt(i + 1, (Integer) variables[i]);         
+                else if(variables[i] instanceof Byte)
+                    stmt.setByte(i + 1, (Byte) variables[i]);
+                else if(variables[i] instanceof byte[])
+                    stmt.setBytes(i + 1, (byte[]) variables[i]);
+                else if(variables[i] instanceof Double)
+                    stmt.setDouble(i + 1, (Double) variables[i]);           
+                else if(variables[i] instanceof String)
+                    stmt.setString(i + 1, variables[i].toString());
+                else if(variables[i] instanceof Object)
+                    stmt.setObject(i + 1, variables[i]);
+                else
+                    throw new SQLException(variables[i] + " is not an instance of Boolean, Integer, Byte, bytes[], Double, String, or Object.");
+            }
             
             //Set and execute a query.
-            ResultSet temp = stmt.executeQuery(sqlString);
-            ResultSetMetaData allColumns = temp.getMetaData();
-            int numberOfColumns = allColumns.getColumnCount();
-            ArrayList<String> tempHolder = new ArrayList();
-
-            for(int i = 1; i <= numberOfColumns; i++)
+            try(ResultSet temp = stmt.executeQuery())
             {
-                tempHolder.add(allColumns.getColumnName(i));
-            }
-            
-            table = new Table(tempHolder.size());
-            table.nameColumns(tempHolder);
-            
-            while(temp.next())
-            {
-                for(String item : tempHolder)
+                ResultSetMetaData allColumns = temp.getMetaData();
+                int numberOfColumns = allColumns.getColumnCount();
+                
+                table = new Table(allColumns.getColumnCount());
+                
+                while(temp.next())
                 {
-                    table.giveData(temp.getObject(item), item);
+                    for(int i = 1; i <= numberOfColumns; i++)
+                    {
+                        table.nameColumns(allColumns.getColumnName(i), i - 1);
+                        table.giveData(temp.getObject(i), i - 1);
+                    }
                 }
             }
-            temp.close();
+        }
+        catch(SQLServerException ex)
+        {
+            createDatasource();
+            return errorGetTable(sqlString, variables);
+        }
+        finally
+        {
+            if (connection != null)
+            {
+                try
+                {
+                    connection.close();
+                    
+                    if(stmt != null)
+                        stmt.close();
+                }
+                catch(SQLException e){}
+            }
+        }
+        
+        return table;
+    }
+    
+    private Table errorGetTable(String sqlString, Object[] variables) throws Exception
+    {
+        Table table = null;
+        Connection connection = null;
+        PreparedStatement stmt = null;
+        try
+        {
+            connection = getConnection();
+            stmt = connection.prepareStatement(sqlString);
+            
+            for(int i = 0; i < variables.length; i++)
+            {
+                if(variables[i] instanceof Boolean)
+                    stmt.setBoolean(i + 1, (Boolean) variables[i]);
+                else if(variables[i] instanceof Integer)
+                    stmt.setInt(i + 1, (int) variables[i]);         
+                else if(variables[i] instanceof Byte)
+                    stmt.setByte(i + 1, (byte) variables[i]);
+                else if(variables[i] instanceof byte[])
+                    stmt.setBytes(i + 1, (byte[]) variables[i]);
+                else if(variables[i] instanceof Double || variables[i] instanceof Float)
+                    stmt.setFloat(i + 1, (float) variables[i]);           
+                else if(variables[i] instanceof String)
+                    stmt.setString(i + 1, variables[i].toString());
+                else if(variables[i] instanceof Object)
+                    stmt.setObject(i + 1, variables[i]);
+                else
+                    throw new SQLException(variables[i] + " is not an instance of Boolean, Integer, Byte, bytes[], Double, String, or Object.");
+            }
+            
+            //Set and execute a query.
+            try(ResultSet temp = stmt.executeQuery())
+            {
+                ResultSetMetaData allColumns = temp.getMetaData();
+                int numberOfColumns = allColumns.getColumnCount();
+                
+                table = new Table(allColumns.getColumnCount());
+                
+                while(temp.next())
+                {
+                    for(int i = 1; i <= numberOfColumns; i++)
+                    {
+                        table.nameColumns(allColumns.getColumnName(i), i - 1);
+                        table.giveData(temp.getObject(i), i - 1);
+                    }
+                }
+            }
         }
         finally
         {
@@ -139,19 +232,19 @@ public class Access extends HttpServlet {
      * @return A Table of the results.
      * @throws Exception 
      */
-    public Table push(String sql, int id) throws Exception
-    {
-        String result = "";
-        for(char item : sql.toCharArray())
-        {
-            if(item == '?')
-                result += id;
-            else
-                result += item;
-        }
-        
-        return getTable(result);
-    }
+//    public Table push(String sql, int id) throws Exception
+//    {
+//        String result = "";
+//        for(char item : sql.toCharArray())
+//        {
+//            if(item == '?')
+//                result += id;
+//            else
+//                result += item;
+//        }
+//        
+//        return getTable(result);
+//    }
     
     /**
      * If for whatever reason the program does not need to return a ResultSet
@@ -160,15 +253,45 @@ public class Access extends HttpServlet {
      * @param query The functioning SQL query.
      * @throws SQLException 
      */
-    public void execute(String query) throws SQLException
+    public int execute(String query, Object[] variables) throws SQLException
     {
         Connection connection = null;
-        Statement stmt = null;
+        PreparedStatement stmt = null;
+        int result;
         try
         {
             connection = getConnection();
-            stmt = connection.createStatement();
-            stmt.execute(query);
+            stmt = connection.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
+            
+            for(int i = 0; i < variables.length; i++)
+            {
+                if(variables[i] instanceof Boolean)
+                    stmt.setBoolean(i + 1, (Boolean) variables[i]);
+                else if(variables[i] instanceof Integer)
+                    stmt.setInt(i + 1, (Integer) variables[i]);         
+                else if(variables[i] instanceof Byte)
+                    stmt.setByte(i + 1, (Byte) variables[i]);       
+                else if(variables[i] instanceof byte[])
+                    stmt.setBytes(i + 1, (byte[]) variables[i]);
+                else if(variables[i] instanceof Double)
+                    stmt.setDouble(i + 1, (Double) variables[i]);           
+                else if(variables[i] instanceof String)
+                    stmt.setString(i + 1, variables[i].toString());
+                else if(variables[i] instanceof Object)
+                    stmt.setObject(i + 1, variables[i]);
+                else
+                    throw new SQLException(variables[i] + " is not an instance of Boolean, Integer, Byte, bytes[], Double, String, or Object.");
+            }
+            stmt.execute();
+            connection.commit();
+            
+            ResultSet rs = stmt.getGeneratedKeys();
+            if(rs.next())
+            {
+                result = rs.getInt(1);
+            }
+            else
+                result = 0;
         }
         finally
         {
@@ -184,6 +307,8 @@ public class Access extends HttpServlet {
                 catch(SQLException e){}
             }
         }
+        
+        return result;
     }
     
     /**
@@ -235,30 +360,22 @@ public class Access extends HttpServlet {
                 if(results)
                 {
                     //Set and execute a query.
-                    ResultSet temp = cStmt.getResultSet();
-                    ResultSetMetaData allColumns = temp.getMetaData();
-                    int numberOfColumns = allColumns.getColumnCount();
-                    ArrayList<String> tempHolder = new ArrayList();
-
-                    //There may be columns of ID_NUM that cannot be used, 
-                    //so cannot be added. To make life easy, put all columns 
-                    //execpt those 2 into an ArrayList then take them out.
-                    for(int i = 1; i <= numberOfColumns; i++)
+                    try(ResultSet temp = cStmt.getResultSet())
                     {
-                        tempHolder.add(allColumns.getColumnName(i));
-                    }
+                        ResultSetMetaData allColumns = temp.getMetaData();
+                        int numberOfColumns = allColumns.getColumnCount();
 
-                    table = new Table(tempHolder.size());
-                    table.nameColumns(tempHolder);
+                        table = new Table(allColumns.getColumnCount());
 
-                    while(temp.next())
-                    {
-                        for(String item : tempHolder)
+                        while(temp.next())
                         {
-                            table.giveData(temp.getObject(item), item);
+                            for(int i = 1; i <= numberOfColumns; i++)
+                            {
+                                table.nameColumns(allColumns.getColumnName(i), i - 1);
+                                table.giveData(temp.getObject(i), i - 1);
+                            }
                         }
                     }
-                    temp.close();
                 }
                 cStmt.close();
             }

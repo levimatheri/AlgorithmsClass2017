@@ -12,6 +12,11 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.sql.SQLException;
+import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
+import java.util.Random;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.activation.CommandMap;
@@ -40,7 +45,25 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
  */
 public class SpreadSheetMaker {
     
-    public void export(Table results, String user, String fileName) throws IOException
+    //2 threads makes it run at 100% cpu on 4 cores.
+    public static final ExecutorService SHEETS = Executors.newFixedThreadPool(1);
+    private final int numberOfCells = 600000;
+    
+    private SpreadSheetMaker()
+    {
+    }
+    
+    public static SpreadSheetMaker getInstance()
+    {
+        return SpreadSheetMakerHolder.INSTANCE;
+    }
+    
+    private static class SpreadSheetMakerHolder
+    {
+        private static final SpreadSheetMaker INSTANCE = new SpreadSheetMaker();
+    }
+    
+    public void buildSheet(Table results, String user, String fileName, String fileNumber)
     {
         try(XSSFWorkbook wb = new XSSFWorkbook())
         {
@@ -162,13 +185,12 @@ public class SpreadSheetMaker {
                 try(FileOutputStream out = new FileOutputStream(output))
                 {
                     wb.write(out);
+
                     System.out.println("INSERT INTO NSFCourter2016.dbo.FILES (FILE_ID, FILE_NAME, DATE, USER_ID, SIZE) VALUES ('" + fileName + "','" + fileName + "', GETDATE(), 1, " + (output.length() / 1000000.0) + ")");
                     access.execute("INSERT INTO NSFCourter2016.dbo.FILES (FILE_ID, FILE_NAME, DATE, USER_ID, SIZE) VALUES ('" + fileName + "','" + fileName + "', GETDATE(), 1, " + (output.length() / 1000000.0) + ")");
 
-                    //successSendEmail();
 
                     //successSendEmail();
-
                 }
                 
                 
@@ -180,6 +202,43 @@ public class SpreadSheetMaker {
         }
         catch(Exception ex)
         {
+        }
+    }
+    
+    public synchronized void export(Table results, String user) throws IOException, SQLException, InterruptedException
+    {
+        int files = (int) Math.ceil((results.numberOfRows() * results.getColumnCount()) / (double) numberOfCells);
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMddHHmmssSS");
+        System.out.println(files);
+        
+        if(files > 1)
+        {
+            for(int i = 1; i <= files; i++)
+            {
+                String fileName = "file(" + i + ")";
+                Table table = results.cloneTable(((i - 1) * numberOfCells) + (i == 0 ? 0 : 1), i * numberOfCells);
+                
+                SHEETS.submit(new Runnable()
+                {
+                    @Override
+                    public void run()
+                    {
+                        try
+                        {
+                            Thread.sleep(new Random().nextInt(150));
+                            buildSheet(table, user, user + "" + System.nanoTime(), fileName);
+                        }
+                        catch(InterruptedException ex)
+                        {
+                            Logger.getLogger(SpreadSheetMaker.class.getName()).log(Level.SEVERE, null, ex);
+                        }
+                    }
+                });
+            }
+        }
+        else
+        {
+            buildSheet(results, user, user + "" + sdf.format(new Timestamp(System.currentTimeMillis())), "file");
         }
     }
     
