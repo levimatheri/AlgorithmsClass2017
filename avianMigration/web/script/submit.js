@@ -58,7 +58,8 @@ function getOptionString(option) {
                     }
                 }
             }
-            result += document.getElementById('birdNameCalcInput').value;
+            result += document.getElementById('birdFinalInput').innerHTML;
+            
             break;
 
             //long or short migration
@@ -117,7 +118,10 @@ function getOptionString(option) {
                     }
                 }
             }
-            result += document.getElementById('checklistNumber').value;
+            if(child.value === 'e')
+                result += document.getElementById('checkListFinalInput').innerHTML;
+            else
+                result += document.getElementById('checklistNumber').value;
             break;
 
             //Calculate the number of a certain variable.
@@ -146,17 +150,57 @@ function submit() {
 
 //Will finish the submit process based off of what button calls it.
 function finishSubmit(application) {
-    var checked = document.querySelectorAll(".returnSide input:checked");
+    var return_checked = document.querySelectorAll(".returnSide input:checked");
     
-    //console.log(checked);
+    var location_checked = document.querySelectorAll("#location input:checked");
     
-    if(checked.length === 0 && document.getElementById('noneChbx').checked)
+    var main_chkbx_check = document.querySelectorAll("#options input:checked");
+    
+    var observer_checked = document.querySelectorAll("#observer input:checked");
+    
+    //alert(document.getElementById('beginDateText').value);
+    
+    if(main_chkbx_check.length === 0)
+    {
+        document.getElementById('mainChbxCheck').style = "display:";
+        return;
+    }
+    
+    else if(document.getElementById('loc_chbx').checked && location_checked.length === 0)
+    {
+        document.getElementById('locationCheck').style = "display:";
+        return;
+    }
+    else if(document.getElementById('checkDate').checked && (document.getElementById('beginDateText').value === "" || document.getElementById('endDateText').value === ""))
+    {
+        document.getElementById('dateCheck').style = "display:";
+        return;
+    }
+    
+    else if(observer_checked.length === 0 && document.getElementById('checkObserver').checked)
+    {
+        document.getElementById('observerCheck').style = "display:";
+        return;
+    } 
+    else
+    {
+        document.getElementById('locationCheck').style.display = 'none';
+        document.getElementById('mainChbxCheck').style.display = 'none';
+        document.getElementById('dateCheck').style.display = 'none';
+        document.getElementById('observerCheck').style.display = 'none';
+    }
+    
+    if(return_checked.length === 0 && document.getElementById('noneChbx').checked)
     {
         document.getElementById('warningCheck').style = "display:";
         return;
     }
     else
         document.getElementById('warningCheck').style.display = 'none';
+    
+    
+    
+    
     
     
     if (!application) {

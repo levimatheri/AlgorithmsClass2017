@@ -325,7 +325,7 @@ public class EntryPoint extends HttpServlet
                 //Set up the json array that will hold the variable names.
                 JSONArray array = new JSONArray();
                 
-                columnNames.next();
+                //columnNames.next();
                 for(int i = 1; i < columnNames.getColumnCount() + 1; i++)
                 {
                     array.put(columnNames.getColumnName(i));
@@ -363,7 +363,7 @@ public class EntryPoint extends HttpServlet
                 switch(request.getParameter("id"))
                 {
                     case "sci_radio":
-                        Table sci_names = access.getTable("SELECT [Scientific Name] FROM [NSFCourter2016].[dbo].[BIRD_VIEW]");
+                        Table sci_names = access.getTable("SELECT [Scientific Name] FROM [NSFCourter2016].[dbo].[BIRD_VIEW]", new Object[]{});
   
                         while(sci_names.next())
                         {
@@ -377,7 +377,9 @@ public class EntryPoint extends HttpServlet
                     break;
                     
                     case "comm_radio":
-                        Table comm_names = access.getTable("SELECT [Common Name] FROM [NSFCourter2016].[dbo].[BIRD_VIEW]");
+                        Table comm_names = access.getTable("SELECT [Common Name] FROM [NSFCourter2016].[dbo].[BIRD_VIEW]", new Object[]{});
+                        
+                        
   
                         while(comm_names.next())
                         {
@@ -391,7 +393,7 @@ public class EntryPoint extends HttpServlet
                     break;
                     
                     case "tax_radio":
-                        Table taxonomy_names = access.getTable("SELECT [Taxonomy #] FROM [NSFCourter2016].[dbo].[BIRD_VIEW]");
+                        Table taxonomy_names = access.getTable("SELECT [Taxonomy #] FROM [NSFCourter2016].[dbo].[BIRD_VIEW]", new Object[]{});
                                            
                         while(taxonomy_names.next())
                         {
@@ -778,7 +780,7 @@ public class EntryPoint extends HttpServlet
                             if(query.toString().contains("WHERE"))
                                 query.append(" AND [Observer ID] IN (").append(inputOption).append(")");
                             else
-                                query.append("WHERE [Observer ID] IN (").append(inputOption).append(")");
+                                query.append(" WHERE [Observer ID] IN (").append(inputOption).append(")");
                             break;
                     }
                 }
@@ -873,7 +875,7 @@ public class EntryPoint extends HttpServlet
                             operation = "<";
                             break;
                         case "e":
-                            operation = "=";
+                            operation = "IN";                           
                             break;
                     }
 
@@ -899,7 +901,7 @@ public class EntryPoint extends HttpServlet
                         + "SELECT " + top + " N.*, M.[Number of checklists] FROM  "
                             + "(SELECT  * FROM "
                                 + "(SELECT [Observer ID], COUNT([Observer ID]) AS [Number of checklists] FROM MAIN GROUP BY [Observer ID]) AS TEMP"
-                            + " WHERE [Number of checklists] " + operation + " " + options[1] + ") AS M, "
+                            + " WHERE [Number of checklists] " + operation + " (" + options[1] + ")) AS M, "
                             + "(SELECT  " + variables + " FROM MAIN) AS N "
                         + "WHERE N.[OBSERVER ID] = M.[OBSERVER ID]", new Object[]{});
                 }

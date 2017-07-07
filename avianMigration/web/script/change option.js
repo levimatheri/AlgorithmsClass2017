@@ -1,6 +1,11 @@
 ﻿
 //When you click on a checkbox for options to be seen.
 function inputOptionChange(evt) {
+    
+    if(document.getElementById('mainChbxCheck').style.display !== 'none')
+        document.getElementById('mainChbxCheck').style.display = "none";
+
+    
     //Get the object clicked.
     var node = evt.target || evt.srcElement;
 
@@ -136,6 +141,18 @@ function inputRadioChange(evt) {
                 getBirdJSON(node.childNodes[i].id);
             else if(node.childNodes[i].id === 'tax_radio')
                getBirdJSON(node.childNodes[i].id);
+           
+           else if(node.childNodes[i].id === 'equals_sign')
+           {              
+               document.getElementById('addChkList').style = "display:";
+               document.getElementById('chkLstTableHeader').style = "display:";
+           }
+           
+           else if(node.childNodes[i].name === 'operator' && node.childNodes[i].id !== 'equals_sign')
+           {
+               document.getElementById('addChkList').style = "display:none";
+               document.getElementById('chkLstTableHeader').style = "display:none";
+           }
                 
 //            else if(node.childNodes[i].id === 'obschlt' || node.childNodes[i].id === 'bpchlt' || node.childNodes[i].id === 'novar')
 //                document.getElementById('lowerDiv').style.display = 'none';

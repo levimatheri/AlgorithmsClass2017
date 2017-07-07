@@ -229,7 +229,7 @@ function addBird() {
     var tempHolder = document.getElementById('birdFinalInput').innerHTML;
 
     //If there is more than one option in the holder already.
-    if (tempHolder.includes("/")) {
+    if (tempHolder !== "") {
         tempHolder += "," + document.getElementById('birdNameCalcInput').value;
     }
     else {
@@ -241,6 +241,8 @@ function addBird() {
 
     //Reset the text boxes.
     document.getElementById('birdNameCalcInput').value = "";   
+    
+    //console.log(tempHolder);
 }
 
 function deleteBirdRow(evt) {
@@ -259,6 +261,56 @@ function deleteBirdRow(evt) {
         }
     }
     document.getElementById('birdFinalInput').innerHTML = tempHolder;
+
+    document.getElementById(node.parentElement.parentElement.parentElement.parentElement.id).deleteRow(node.parentElement.parentElement.rowIndex);
+}
+
+function addCheckList()
+{
+    //Create and insert a new row into the lat long table.
+    var row = document.getElementById('checkListInputTable').insertRow(document.getElementById('checkListInputTable').rows.length);
+
+    //Insert the data into the new row.
+    row.insertCell(0).innerHTML = document.getElementById('checklistNumber').value;
+    row.insertCell(1).innerHTML = "<input id='edit1' type='submit' name='delete' value='Delete'>";
+
+    //Access the div holder that is holding the final string for the lat long option.
+    var tempHolder = document.getElementById('checkListFinalInput').innerHTML;
+
+    //If there is more than one option in the holder already.
+    if (tempHolder !== "") {
+        tempHolder += "," + document.getElementById('checklistNumber').value;
+    }
+    else {
+        tempHolder = document.getElementById('checklistNumber').value;
+    }
+
+    //Put back the holder's new inner html.
+    document.getElementById('checkListFinalInput').innerHTML = tempHolder;
+
+    //Reset the text boxes.
+    document.getElementById('checklistNumber').value = "";   
+    
+    //console.log(tempHolder);
+}
+
+function deleteCheckList(evt)
+{
+    var node = evt.target || evt.srcElement;
+    var cells = node.parentElement.parentElement.cells;
+    var checkString = cells[0].innerHTML;
+
+    var tempHolder = document.getElementById('checkListFinalInput').innerHTML;
+    if (tempHolder.includes("," + checkString)) {
+        tempHolder = tempHolder.replace("," + checkString, "");
+    }
+    else {
+        tempHolder = tempHolder.replace(checkString, "");
+        if (tempHolder.startsWith(",")) {
+            tempHolder = tempHolder.substring(1, tempHolder.length);
+        }
+    }
+    document.getElementById('checkListFinalInput').innerHTML = tempHolder;
 
     document.getElementById(node.parentElement.parentElement.parentElement.parentElement.id).deleteRow(node.parentElement.parentElement.rowIndex);
 }
@@ -412,11 +464,19 @@ function start()
         }
     };
 
-    xobj1.send(null); 
+    xobj1.send(null);
+    
+    document.getElementById('addChkList').style = "display:none";
+    document.getElementById('chkLstTableHeader').style = "display:none";
+    
+    
     
     getBirdJSON("sci_radio");
    
-
+    document.getElementById('load').className = "temp";
+    
+    document.getElementById('location').display = "display:";
+    
 }
 
 var totalSize = 0;
