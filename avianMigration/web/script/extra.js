@@ -33,10 +33,6 @@ function openTab(evt, tabName) {
     }
 }
 
-function refreshDownloadPage()
-{  
-    window.location.reload();
-}
 
 function addStateClimateDivRow()
 {

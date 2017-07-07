@@ -399,7 +399,7 @@
 			    <!--This will have all of the user specific files that a user wants to download.-->
 
 			    <div id="downloadView" class="tabcontent"> 
-                                <button style="float: right; height: 30px" onclick="refreshDownloadPage()">Refresh Page</button><br><br>
+                                <button style="float: right; height: 30px" onclick="refreshDownloads()">Refresh Page</button><br><br>
                                     <table id="table" class='showData'>
                                         <tr id="headerRow">
                                             <th class='showData'>#</th>
