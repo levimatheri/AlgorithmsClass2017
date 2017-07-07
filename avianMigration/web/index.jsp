@@ -58,20 +58,23 @@
                                     </div>
                                     <br><br>
                                                                 
-								    <div id="options" onChange="inputOptionChange(event)">
-									    <div style="display:inline"><input type="checkbox" value="location"> location</div>
-									    <div style="display:inline"><input type="checkbox" value="year"> year</div>
+                                    <div id="options" onChange="inputOptionChange(event)">
+                                        <p style="display: none" id="mainChbxCheck"><font color="red"><b>Check one or more options!</b></font></p>
+                                        <div style="display:inline"><input id="loc_chbx" type="checkbox" value="location" checked> location</div>
+                                        <div style="display:inline"><input type="checkbox" value="year"> year</div>
                                         <div style="display:inline"><input type="checkbox" value="month"> month</div>
                                         <div id="firstArrive" style="display:none"><input id="checkFirstArrival" type="checkbox" value="firstArrival"> first arrival date</div>                                                           									
                                         <div id="dateSelect" style="display:inline"><input id="checkDate" type="checkbox" value="date"> date</div>
                                         <div id="day_chbx" style="display:inline"><input id="checkDay" type="checkbox" value="day"> day</div>                                                                     
                                         <div id="ap_chbx" style="display:inline"><input id="checkAmpm" type="checkbox" value="ampm"> AM / PM</div>
-                                        <div id="obs_chbx" style="display:inline"><input id="checkObserver" type="checkbox" value="observer"> observer</div>
+                                        <div id="obs_chbx" style="display:inline"><input id="checkObserver" type="checkbox" value="observer"> observer</div><br>
+                                        
                                     </div>
 								
 							        <br><br>
 								
-							        <div id="location" style="display:none" onChange="inputRadioChange(event)">
+							        <div id="location" onChange="inputRadioChange(event)">
+                                                                        <p style="display: none" id="locationCheck"><font color="red"><b>Please select an option!</b></font></p>
 								        <b>Pick a location type to search for.</b><br>
 								        <input type="radio" name="location" value="cd"> Climate Division<br>
 								        <!--<div id="cd" style="display:none">
@@ -128,13 +131,11 @@
 								        <div id="beginYear" style="display:inline-block">
 									        Beginning year:<br>
                                                                                 <select id="beginYearText" class="year" onchange="selectOption(event, this)">
-                                                                                    <option class="base">Please Select</option>
                                                                                 </select> 	
 								        </div>&nbsp;&nbsp;&nbsp;&nbsp;
 								        <div id="endYear" style="display:inline-block">
 									        Ending year:<br>
 									        <select class="year" id="endYearText">
-                                                                                    <option class="base">Please Select</option>
                                                                                 </select>     
 								        </div><br><br>
 							        </div>
@@ -144,7 +145,6 @@
 								        <div id="beginMonth" style="display:inline-block">
 									        Beginning month:<br>
                                                                                 <select id="beginMonthText" class="month" onchange="selectOption(event, this)">
-                                                                                    <option class="base">Please Select</option>
                                                                                     <option value="1">1</option>
                                                                                     <option value="2">2</option>
                                                                                     <option value="3">3</option>
@@ -162,7 +162,6 @@
 								        <div id="endMonth" style="display:inline-block">
 									        Ending month:<br>
 									        <select id="endMonthText" class="month">
-                                                                                    <option class="base">Please Select</option>
                                                                                     <option value="1">1</option>
                                                                                     <option value="2">2</option>
                                                                                     <option value="3">3</option>
@@ -186,7 +185,6 @@
 								        <div id="beginDay" style="display:inline-block">
 									        Beginning day:<br>
 									        <select id="beginDayText" class="dayOpt" onchange="selectOption(event, this)">
-                                                                                    <option class="base">Please Select</option>
                                                                                     <option value="2">M</option>
                                                                                     <option value="3">T</option>
                                                                                     <option value="4">W</option>
@@ -199,7 +197,6 @@
 								        <div id="endDay" style="display:inline-block">
 									        Ending day:<br>
 									        <select id="endDayText" class="dayOpt">
-                                                                                    <option class="base">Please Select</option>
                                                                                     <option value="2">M</option>
                                                                                     <option value="3">T</option>
                                                                                     <option value="4">W</option>
@@ -211,63 +208,65 @@
 								        </div><br><br>
 							        </div>
                                                                 
-                                                                <div id="firstArrival" style="display:none">
-								        <b>Select start and end date (YYYY-MM-DD)</b><br>
-								        <span id="firstWarningText" style="display:none; color: red"><b>The date select option overrides year and month options.</b><br></span>
-								        <div id="beginDate" style="display:inline-block">
-									        Beginning date:<br>
-									        <input type="date" id="beginDateText_fArrival">	
-								        </div>
-								        <div id="endDate" style="display:inline-block">
-									        Ending date:<br>
-									        <input type="date" id="endDateText_fArrival">
-								        </div><br><br>
+                                                                <div id="firstArrival" style="display:none">   
+                                                                    <b>Select start and end date (YYYY-MM-DD)</b><br>
+                                                                    <span id="firstWarningText" style="display:none; color: red"><b>The date select option overrides year and month options.</b><br></span>
+                                                                    <div id="beginDate" style="display:inline-block">
+                                                                            Beginning date:<br>
+                                                                            <input type="date" id="beginDateText_fArrival">	
+                                                                    </div>
+                                                                    <div id="endDate" style="display:inline-block">
+                                                                            Ending date:<br>
+                                                                            <input type="date" id="endDateText_fArrival">
+                                                                    </div><br><br>
 							        </div>
 								
 							        <div id="date" style="display:none">
-								        <b>Select start and end date</b><br>
-								        <span id="warningText" style="display:none; color: red"><b>The date select option overrides year, month, and day options.</b><br></span>
-								        <div id="beginDate" style="display:inline-block">
-									        Beginning date:<br>
-									        <input id="beginDateText">	
-                                                                        </div>&nbsp;&nbsp;
-								        <div id="endDate" style="display:inline-block">
-									        Ending date:<br>
-									        <input  id="endDateText">
-								        </div><br><br>
+                                                                    <p style="display: none" id="dateCheck"><font color="red"><b>Please check for missing inputs!</b></font></p><br>
+                                                                    <b>Select start and end date</b><br>
+                                                                    <span id="warningText" style="display:none; color: red"><b>The date select option overrides year, month, and day options.</b><br></span>
+                                                                    <div id="beginDate" style="display:inline-block">
+                                                                            Beginning date:<br>
+                                                                            <input id="beginDateText">	
+                                                                    </div>&nbsp;&nbsp;
+                                                                    <div id="endDate" style="display:inline-block">
+                                                                            Ending date:<br>
+                                                                            <input  id="endDateText">
+                                                                    </div><br><br>
 							        </div>
 								
 							        <div id="ampm" style="display:none">
-								        <b>Pick a time of day type to search for.</b><br>
-								        <input type="radio" name="ampm" value="ap=AM" checked> AM<br>
-								        <input type="radio" name="ampm" value="ap=PM"> PM<br>
+                                                                    <b>Pick a time of day type to search for.</b><br>
+                                                                    <input type="radio" name="ampm" value="ap=AM" checked> AM<br>
+                                                                    <input type="radio" name="ampm" value="ap=PM"> PM<br>
 							        </div><br>
 								
 							        <div id="observer" style="display:none" onChange="inputRadioChange(event)">
-								        <b>Pick an observer variable to search for.</b><br>
-								        <input type="radio" name="observer" value="on"> Name<br>
-									    <div id="on" style="display:none">
-										    <b>Enter an observer's name. Separate with ",".</b><br> EX: Firstname Lastname,Firstname2 Lastname2<br>
-										    <input type="text" list="oNameList" id="oName">
-									    </div>
-								        <input type="radio" name="observer" value="od"> Observer id<br>
-									    <div id="od" style="display:none">
-										    <b>Enter an id. Separate numbers with ",".</b><br> EX: 967,1015<br>
-										    <input type="text" id="oid">
-									    </div>
-								        <input type="radio" name="observer" value="ct"> Observers with # of submitted checklists<br>
-									    <div id="ct" style="display:none">
-										    Observers with number of submitted checklists
-										    <select id="observerComparisonSelection">
-											    <option>>=</option>
-											    <option>></option>
-											    <option><=</option>
-											    <option><</option>
-											    <option>=</option>
-										    </select>
-										    <input type="text" id="ochN">
-									    </div>
-								    </div>
+                                                                    <p style="display: none" id="observerCheck"><font color="red"><b>Please select an option!</b></font></p><br>
+                                                                    <b>Pick an observer variable to search for.</b><br>
+                                                                    <input type="radio" name="observer" value="on"> Name<br>
+                                                                        <div id="on" style="display:none">
+                                                                                <b>Enter an observer's name. Separate with ",".</b><br> EX: Firstname Lastname,Firstname2 Lastname2<br>
+                                                                                <input type="text" list="oNameList" id="oName">
+                                                                        </div>
+                                                                    <input type="radio" name="observer" value="od"> Observer id<br>
+                                                                        <div id="od" style="display:none">
+                                                                                <b>Enter an id. Separate numbers with ",".</b><br> EX: 967,1015<br>
+                                                                                <input type="text" id="oid">
+                                                                        </div>
+                                                                    <input type="radio" name="observer" value="ct"> Observers with # of submitted checklists<br>
+                                                                        <div id="ct" style="display:none">
+                                                                                Observers with number of submitted checklists
+                                                                                <select id="observerComparisonSelection">
+                                                                                        <option>>=</option>
+                                                                                        <option>></option>
+                                                                                        <option><=</option>
+                                                                                        <option><</option>
+                                                                                        <option>=</option>
+                                                                                </select>
+                                                                                <input type="text" id="ochN">
+                                                                        </div>
+                                                                </div>
 							    </div>
 						    </td>
 						    <td style="border: 1px solid #ccc;vertical-align:top;white-space:nowrap;">
@@ -286,18 +285,25 @@
 								
 								    <div id="nn">No calculations will be done, and the raw data from the filters will be returned</div>
 								
-								    <div id="cs" style="display:none">
+                                                                    <div id="cs" style="display:none" onchange="inputRadioChange(event)">
 									    <!--<b>Chose whether or not to add the number of submitted group checklists to the total or not. 
 										    If include is selected, it will only return people who have both group and none group checklists.</b><br>
 									    <input type="radio" name="groupCheck" value="yes" checked> Include group checklists<br>
 									    <input type="radio" name="groupCheck" value="no"> Don't include group checklists<br><br>-->
-									    <b>Chose an operator then enter the number of checklists you want to search for. Separate with ",".</b><br> EX: 55,21,15<br>
+                                                                            <b>Chose an operator then enter the number of checklists you want to search for.</b><br>
 									    <input type="radio" name="operator" value="ge" checked> >=<br>
 									    <input type="radio" name="operator" value="g"> ><br>
 									    <input type="radio" name="operator" value="le"> <=<br>
 									    <input type="radio" name="operator" value="l"> <<br>
-									    <input type="radio" name="operator" value="e"> =<br>
+									    <input id="equals_sign" type="radio" name="operator" value="e"> =<br>
 									    # of checklists: <input type="text" id="checklistNumber">
+                                                                            <button id="addChkList" onclick="addCheckList()">Add</button><br><br>
+                                                                            <table id="checkListInputTable" class="showData" style="width:30%" onclick="deleteCheckList(event)">
+										        <tr id="chkLstTableHeader">
+                                                                                            <th>Number of checklists</th>   
+										        </tr>
+                                                                            </table>
+                                                                            <div id="checkListFinalInput" style="display:none"></div>
 								    </div>
 								
                                                                     <div id="bs" style="display:none" onchange="inputRadioChange(event)">
@@ -308,7 +314,7 @@
                                                                             NAME: <input type="text" id="birdNameCalcInput"><br> &nbsp;&nbsp;&nbsp;&nbsp;
                                                                             <table id="birdInputTable" class="showData" style="width:30%" onclick="deleteBirdRow(event)">
                                                                                     <caption>Bird input</caption>
-                                                                                    <tr>
+                                                                                    <tr id="birdHeader">
                                                                                             <th>Bird Name</th>                                                                                       
                                                                                     </tr>
                                                                             </table><br><br>
