@@ -143,13 +143,8 @@ function getOptionString(option) {
     return result;
 }
 
-//When the user clicks on submit.
-function submit() {
-    finishSubmit("");
-}
-
-//Will finish the submit process based off of what button calls it.
-function finishSubmit(application) {
+function checkMissing()
+{
     var return_checked = document.querySelectorAll(".returnSide input:checked");
     
     var location_checked = document.querySelectorAll("#location input:checked");
@@ -197,12 +192,16 @@ function finishSubmit(application) {
     }
     else
         document.getElementById('warningCheck').style.display = 'none';
-    
-    
-    
-    
-    
-    
+}
+
+//When the user clicks on submit.
+function submit() {
+    finishSubmit("");
+}
+
+//Will finish the submit process based off of what button calls it.
+function finishSubmit(application) {
+    checkMissing();
     if (!application) {
         //Activate the loading icon to show the user something is happening.
         document.getElementById('load').className = "loader";

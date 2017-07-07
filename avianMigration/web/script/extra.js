@@ -33,6 +33,11 @@ function openTab(evt, tabName) {
     }
 }
 
+function refreshDownloadPage()
+{  
+    window.location.reload();
+}
+
 function addStateClimateDivRow()
 {
     //Create and insert a new row into the State Climate Div table.

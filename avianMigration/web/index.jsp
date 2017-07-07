@@ -28,7 +28,7 @@
 		<div id="load" class="temp "></div>
 		
 		<!--The invisible list that keeps track of the tabs.-->
-		<div class="row">
+		<div class="row" id="my_tabs">
 			<ul class="tab col-xs-12" id="navbar">
 				<li class="col-xs-12 col-sm-3"><a class="col-xs-12 tablinks" href="javascript:void(0)" onclick="openTab(event, 'mainView')" id="mainTab">Observations</a></li>
 				<!--<li class="col-xs-12 col-sm-3"><a class="col-xs-12 tablinks" href="javascript:void(0)" onclick="openTab(event, 'birdView')" id="birdTab">Birds</a></li>-->
@@ -398,7 +398,8 @@
 				
 			    <!--This will have all of the user specific files that a user wants to download.-->
 
-			    <div id="downloadView" class="tabcontent">  
+			    <div id="downloadView" class="tabcontent"> 
+                                <button style="float: right; height: 30px" onclick="refreshDownloadPage()">Refresh Page</button><br><br>
                                     <table id="table" class='showData'>
                                         <tr id="headerRow">
                                             <th class='showData'>#</th>
@@ -406,8 +407,8 @@
                                             <th class='showData'>Name</th>
                                             <th class='showData'>Time left</th>
                                             <th class='showData'>Size</th>
-                                            <th class='hiddenCell' colspan="3"></th>
-                                        </tr>                                       
+                                            <th class='hiddenCell' colspan="3"></th>                                           
+                                        </tr>                                   
                                     </table>
                                     <br><br>
                                     <p id="totalSize"></p>
