@@ -185,8 +185,10 @@ public class SpreadSheetMaker {
                 try(FileOutputStream out = new FileOutputStream(output))
                 {
                     wb.write(out);
-                    System.out.println("INSERT INTO NSFCourter2016.dbo.FILES (FILE_ID, FILE_NAME, DATE, USER_ID, SIZE) VALUES ('" + fileName + "','" + fileNumber + "', GETDATE(), 1, " + (output.length() / 1000.0) + ")");
-                    access.execute("INSERT INTO NSFCourter2016.dbo.FILES (FILE_ID, FILE_NAME, DATE, USER_ID, SIZE) VALUES (?,?, GETDATE(), 1, ?)", new Object[]{fileName, fileNumber, (output.length() / 1000.0)});
+
+                    System.out.println("INSERT INTO NSFCourter2016.dbo.FILES (FILE_ID, FILE_NAME, DATE, USER_ID, SIZE) VALUES ('" + fileName + "','" + fileName + "', GETDATE(), 1, " + (output.length() / 1000000.0) + ")");
+                    access.execute("INSERT INTO NSFCourter2016.dbo.FILES (FILE_ID, FILE_NAME, DATE, USER_ID, SIZE) VALUES (?,?,GETDATE(), 1, ?)", new Object[]{fileName,fileNumber, (output.length() / 1000.0)});
+
 
                     //successSendEmail();
                 }

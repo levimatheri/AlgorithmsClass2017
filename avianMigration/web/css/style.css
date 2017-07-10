@@ -107,13 +107,14 @@ ul.tab li a:focus, .active {background-color: #ccc;}
         padding: .5em .5em .5em .2em;
         /*left: 5em;*/
         margin-left: 3.5em;
-        margin-bottom: .5em;
         float: left;
+        height: 300px;
+        overflow: auto;
 }
 
 .returnDiv {
         width: 30em;
-        height: 60em;
+        height: 25em;
 }
 
 .dropbtn {
@@ -152,4 +153,8 @@ ul.tab li a:focus, .active {background-color: #ccc;}
 #submitButtonWrapper{
 	margin-right: 100px;
 	margin-left: 50px;
+}
+
+#birdNameCalcInput {
+        width: 15em;
 }

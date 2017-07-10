@@ -108,12 +108,19 @@ public class EntryPoint extends HttpServlet
         
         else if(request.getParameter("delete_file") != null)
         {
-            System.out.println("DELETE FROM NSFCourter2016.dbo.FILES WHERE FILE_ID = '" + request.getParameter("id") + "'");
+            //System.out.println("DELETE FROM NSFCourter2016.dbo.FILES WHERE FILE_ID = '" + request.getParameter("id") + "'");
             try {
                 access.execute("DELETE FROM NSFCourter2016.dbo.FILES WHERE FILE_ID = ?", new Object[]{request.getParameter("id")});
             } catch (SQLException ex) {
                 Logger.getLogger(EntryPoint.class.getName()).log(Level.SEVERE, null, ex);
             }
+            
+            File myFile = new File("C:\\Server Files\\avianMigration\\" + request.getParameter("id") + ".xlsx");
+            
+            if(myFile.delete())
+                System.out.println("Successfully deleted file");
+            else
+                System.err.println("Couldn't delete file");
         }
         
         //Get all of the data for the autocomplete options for the text boxes.
@@ -318,7 +325,7 @@ public class EntryPoint extends HttpServlet
                 //Set up the json array that will hold the variable names.
                 JSONArray array = new JSONArray();
                 
-                columnNames.next();
+                //columnNames.next();
                 for(int i = 1; i < columnNames.getColumnCount() + 1; i++)
                 {
                     array.put(columnNames.getColumnName(i));
@@ -339,6 +346,75 @@ public class EntryPoint extends HttpServlet
             }
             catch(Exception ex)
             {
+                ex.printStackTrace();
+            }
+        }
+        
+        else if(request.getParameter("birdData") != null)
+        {
+            response.setContentType("application/json");
+            
+            JSONObject birdNameType = new JSONObject();
+                        
+            JSONArray birdNameArray = new JSONArray();
+            
+            try(PrintWriter p = response.getWriter())
+            {
+                switch(request.getParameter("id"))
+                {
+                    case "sci_radio":
+                        Table sci_names = access.getTable("SELECT [Scientific Name] FROM [NSFCourter2016].[dbo].[BIRD_VIEW]", new Object[]{});
+  
+                        while(sci_names.next())
+                        {
+                            birdNameArray.put(sci_names.getString("Scientific Name"));
+                        }
+                        
+                        birdNameType.put("sci_names", birdNameArray);
+                        
+                        sci_names.close();
+        
+                    break;
+                    
+                    case "comm_radio":
+                        Table comm_names = access.getTable("SELECT [Common Name] FROM [NSFCourter2016].[dbo].[BIRD_VIEW]", new Object[]{});
+                        
+                        
+  
+                        while(comm_names.next())
+                        {
+                            birdNameArray.put(comm_names.getString("Common Name"));
+                        }
+                        
+                        birdNameType.put("comm_names", birdNameArray);
+                        
+                        comm_names.close();
+     
+                    break;
+                    
+                    case "tax_radio":
+                        Table taxonomy_names = access.getTable("SELECT [Taxonomy #] FROM [NSFCourter2016].[dbo].[BIRD_VIEW]", new Object[]{});
+                                           
+                        while(taxonomy_names.next())
+                        {
+                            birdNameArray.put(taxonomy_names.getString("Taxonomy #"));
+                        }
+                        
+                        birdNameType.put("taxonomy_names", birdNameArray);
+                        
+                        taxonomy_names.close();
+       
+                    break;  
+                    
+                    default:
+                        return;
+                }
+                
+                p.write(birdNameArray.toString());
+                
+                p.flush();
+                   
+            } catch (Exception ex) {
                 ex.printStackTrace();
             }
         }
@@ -570,7 +646,7 @@ public class EntryPoint extends HttpServlet
                             for(int i = 0; i < birds.length; i++)
                                 birds[i] = birds[i].replaceAll("'", "''");
                             
-                            //For scientific names
+                            //For birdNameType names
                             switch(type)
                             {
                                 //For common names
@@ -704,7 +780,7 @@ public class EntryPoint extends HttpServlet
                             if(query.toString().contains("WHERE"))
                                 query.append(" AND [Observer ID] IN (").append(inputOption).append(")");
                             else
-                                query.append("WHERE [Observer ID] IN (").append(inputOption).append(")");
+                                query.append(" WHERE [Observer ID] IN (").append(inputOption).append(")");
                             break;
                     }
                 }
@@ -799,7 +875,7 @@ public class EntryPoint extends HttpServlet
                             operation = "<";
                             break;
                         case "e":
-                            operation = "=";
+                            operation = "IN";                           
                             break;
                     }
 
@@ -825,7 +901,7 @@ public class EntryPoint extends HttpServlet
                         + "SELECT " + top + " N.*, M.[Number of checklists] FROM  "
                             + "(SELECT  * FROM "
                                 + "(SELECT [Observer ID], COUNT([Observer ID]) AS [Number of checklists] FROM MAIN GROUP BY [Observer ID]) AS TEMP"
-                            + " WHERE [Number of checklists] " + operation + " " + options[1] + ") AS M, "
+                            + " WHERE [Number of checklists] " + operation + " (" + options[1] + ")) AS M, "
                             + "(SELECT  " + variables + " FROM MAIN) AS N "
                         + "WHERE N.[OBSERVER ID] = M.[OBSERVER ID]", new Object[]{});
                 }
