@@ -238,7 +238,7 @@ public class SpreadSheetMaker {
         }
         else
         {
-            buildSheet(results, user, user + "" + sdf.format(new Timestamp(System.currentTimeMillis())), "file");
+            buildSheet(results, user, user + "" + System.nanoTime(), "file");
         }
     }
     
