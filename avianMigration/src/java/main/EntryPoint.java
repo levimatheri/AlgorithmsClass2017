@@ -317,7 +317,7 @@ public class EntryPoint extends HttpServlet
             try (PrintWriter out = response.getWriter())
             {
                 //Get simply the first row of the view.
-                Table columnNames = access.getTable("SELECT TOP(1) * FROM NSFCourter2016.dbo.HISTORICAL_VIEW", new Object[]{});
+                Table columnNames = access.getTable("SELECT TOP(0) * FROM NSFCourter2016.dbo.HISTORICAL_VIEW", new Object[]{});
                 
                 //Creat the returning json object.
                 JSONObject returnObject = new JSONObject();

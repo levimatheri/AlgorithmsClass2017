@@ -48,9 +48,11 @@ public class PointInPolygon {
      *      of the climate divisions.
      * @throws IOException 
      */
-    public static Integer getId(double lat, double lon) throws IOException
+    public Integer getId(double lat, double lon) throws IOException
     {
-        File file = new File("..\\resources\\CONUS_CLIMATE_DIVISIONS.shp\\GIS.OFFICIAL_CLIM_DIVISIONS.shp");
+        //
+        //System.out.println("Working dir: " + System.getProperty("user.dir"));
+        File file = new File("..\\..\\avianMigration\\src\\java\\resources\\CONUS_CLIMATE_DIVISIONS.shp\\GIS.OFFICIAL_CLIM_DIVISIONS.shp");
 
 		PointInPolygon tester = new PointInPolygon();
 		FileDataStore store = FileDataStoreFinder.getDataStore(file);
@@ -115,5 +117,12 @@ public class PointInPolygon {
     {
 		this.features = features;
 	}
+        
+        public static void main(String[] args) throws IOException
+        {
+            PointInPolygon pip = new PointInPolygon();
+            
+            System.out.println(pip.getId(39.6856753, -74.1448591));
+        }
 
 }

@@ -23,19 +23,20 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 public class Test {
-    public static String getHTML(String stateAbbr) throws Exception
+    public static void getHTML() throws Exception
     {
         
-        int offset = 1;
-        int limit = 1000;
-        boolean found = false;
+        //int offset = 1;
+        //int limit = 1000;
+        //boolean found = false;
         
-        ArrayList<String> myResult = new ArrayList<>();
-        
-        do {
+//        ArrayList<String> myResult = new ArrayList<>();
+//        
+//        do {
             HttpClient client = HttpClientBuilder.create().build();
-            HttpGet request = new HttpGet("http://www.ncdc.noaa.gov/cdo-web/api/v2/locations?locationcategoryid=CNTY&offset=" + String.valueOf(offset) + "&limit="+ String.valueOf(limit));
+            //HttpGet request = new HttpGet("http://www.ncdc.noaa.gov/cdo-web/api/v2/locations?locationcategoryid=CNTY&offset=" + String.valueOf(offset) + "&limit="+ String.valueOf(limit));
 
+            HttpGet request = new HttpGet("https://www.ncdc.noaa.gov/cdo-web/api/v2/datatypes?datasetid=GHCNM&limit=1000");
             // add request header
             request.addHeader(new BasicHeader("token", "zmLVPbXogSuUbsQLXLvgGGFhblAsRsKP"));
             HttpResponse response = client.execute(request);
@@ -58,41 +59,41 @@ public class Test {
                 result.append("}");
             }
 
-            //System.out.println(result.toString());
-            JSONObject json = new JSONObject(result.toString());
-            JSONArray json2 = json.getJSONArray("results");
-        
-        
-            for(int i = 0; i < json2.length(); i++)
-            {
-                      
-                if(json2.getJSONObject(i).get("name").toString().endsWith(stateAbbr)){ //look for counties of a state
-                    myResult.add(json2.get(i).toString());
-                    found = true;          
-                }           
-           }
-        
-            offset += 1000;
-                
-            } while(!found);
+            System.out.println(result.toString());
+//            JSONObject json = new JSONObject(result.toString());
+//            JSONArray json2 = json.getJSONArray("results");
+//        
+//        
+//            for(int i = 0; i < json2.length(); i++)
+//            {
+//                      
+//                if(json2.getJSONObject(i).get("name").toString().endsWith(stateAbbr)){ //look for counties of a state
+//                    myResult.add(json2.get(i).toString());
+//                    found = true;          
+//                }           
+//           }
+//        
+//            offset += 1000;
+//                
+//            } while(!found);
         
 
-        return myResult.toString();
+        //return myResult.toString();
     }
         
    public static void main(String[] args) throws Exception{
-       Scanner a = new Scanner(System.in);
+       //Scanner a = new Scanner(System.in);
        
-       String inputState = "";
+       //String inputState = "";
                
-       System.out.println("Enter a state abbreviation: ");
+       //System.out.println("Enter a state abbreviation: ");
        
-       inputState = (String) a.nextLine();
+       //inputState = (String) a.nextLine();
        
-       String Results = getHTML(inputState);
+       getHTML();
        
        
-       System.out.println(Results);
+       //System.out.println(Results);
    } 
 }
 

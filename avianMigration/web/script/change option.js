@@ -1,4 +1,6 @@
-﻿
+﻿var sci_bool = false;
+﻿var comm_bool = false;
+﻿var tax_bool = false;
 //When you click on a checkbox for options to be seen.
 function inputOptionChange(evt) {
     
@@ -75,6 +77,19 @@ function toggle(source)
     }
 }
 
+function clearBirdTable()
+{
+    $('#birdInputTable tr').each(function() {
+        if($(this).attr('id') !== 'birdHeader')
+        {
+            $(this).remove();
+        }
+    });
+    
+    document.getElementById('birdFinalInput').innerHTML = ""; 
+}
+
+
 function returnSideChange()
 {
     document.getElementById("warningCheck").style.display = "none"; 
@@ -119,6 +134,7 @@ function selectOption(evt, ele)
 
 //If a radio button is pressed anywhere on the page.
 function inputRadioChange(evt) {
+    
     var node = evt.target || evt.srcElement;
 
     //Get the parent that is holding all of the radio buttons.
@@ -126,7 +142,8 @@ function inputRadioChange(evt) {
 
     //Go over every button to see which one is selected.
     for (var i = 0; i < node.childNodes.length; i++) {
-        if (node.childNodes[i].type == "radio" && node.childNodes[i].checked) {
+        
+        if (node.childNodes[i].type === "radio" && node.childNodes[i].checked) {
             //Make sure the radio button is valid.
             if (document.getElementById(node.childNodes[i].value)) {
                 //Set it to the default display and tab over 1.
@@ -135,23 +152,58 @@ function inputRadioChange(evt) {
  
             if(node.childNodes[i].id === 'noneChbx')
                 document.getElementById('lowerDiv').style.display = 'block';
-            else if(node.childNodes[i].id === 'sci_radio')
-                getBirdJSON(node.childNodes[i].id);
-            else if(node.childNodes[i].id === 'comm_radio')
-                getBirdJSON(node.childNodes[i].id);
-            else if(node.childNodes[i].id === 'tax_radio')
-               getBirdJSON(node.childNodes[i].id);
+            else if(node.childNodes[i].id === 'bpchlt')
+                document.getElementById('noOfBirdsDiv').style.display = 'block';
+//            else if(node.childNodes[i].id === 'sci_radio')
+//            {
+//                if(sci_bool === false)
+//                {
+//                    clearBirdTable();
+//                }
+//                getBirdJSON(node.childNodes[i].id);
+//                sci_bool = true;
+//                comm_bool = false;
+//                tax_bool = false;
+//            }
+//            else if(node.childNodes[i].id === 'comm_radio')
+//            {
+//                if(comm_bool === false)
+//                {
+//                    clearBirdTable();
+//                }
+//                getBirdJSON(node.childNodes[i].id);
+//                comm_bool = true;
+//                sci_bool = false;
+//                tax_bool = false;
+//            }
+//            else if(node.childNodes[i].id === 'tax_radio')
+//            {
+//                 if(tax_bool === false)
+//                {
+//                    clearBirdTable();
+//                }
+//                getBirdJSON(node.childNodes[i].id);
+//                comm_bool = false;
+//                sci_bool = false;
+//                tax_bool = true;
+//            }
+            if(node.childNodes[i].name === 'birdNameCalc')
+            {
+                clearBirdTable();
+            }
            
            else if(node.childNodes[i].id === 'equals_sign')
            {              
                document.getElementById('addChkList').style = "display:";
-               document.getElementById('chkLstTableHeader').style = "display:";
+               document.getElementById('chkLstTableHeader').style = "display:block";
+               document.getElementById('checkListInputTable').style = "display:block";
            }
            
            else if(node.childNodes[i].name === 'operator' && node.childNodes[i].id !== 'equals_sign')
            {
                document.getElementById('addChkList').style = "display:none";
                document.getElementById('chkLstTableHeader').style = "display:none";
+               document.getElementById('checkListInputTable').style = "display:none";
            }
                 
 //            else if(node.childNodes[i].id === 'obschlt' || node.childNodes[i].id === 'bpchlt' || node.childNodes[i].id === 'novar')
@@ -174,7 +226,17 @@ function getBirdJSON(id)
         });
     });
     
+   
     $("#birdNameCalcInput").autocomplete({
-        source: responseBirdJSON                               
+        source: function(request, response) {
+            //get all values whose character match the current input
+            var matches = $.map(responseBirdJSON, function(item) {
+                if(item.toUpperCase().indexOf(request.term.toUpperCase()) === 0){
+                    return item;
+                }
+            });
+            //put all those matching values into the dropdown list
+            response(matches);
+        }                              
     }); 
 }
