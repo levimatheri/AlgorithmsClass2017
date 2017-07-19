@@ -1,67 +1,27 @@
+package main;
+
 ///*
 // * To change this license header, choose License Headers in Project Properties.
 // * To change this template file, choose Tools | Templates
 // * and open the template in the editor.
 // */
 //
-//package main;
-//
-//import java.io.BufferedInputStream;
-//import java.io.BufferedOutputStream;
-//import java.io.BufferedReader;
-//import java.io.File;
-//import java.io.FileInputStream;
-//import java.io.FileOutputStream;
-//import java.io.FileReader;
-//import java.io.FileWriter;
-//import java.io.IOException;
-//import java.io.InputStream;
-//import java.io.InputStreamReader;
-//import java.io.OutputStream;
-//import java.io.PrintStream;
-//import java.io.Reader;
-//import java.net.URL;
-//import java.sql.Date;
-//import java.sql.SQLException;
-//import java.text.SimpleDateFormat;
-//import java.util.ArrayList;
-//import java.util.Arrays;
-//import java.util.Calendar;
-//import java.util.Collections;
-//import java.util.Enumeration;
-//import java.util.HashMap;
-//import java.util.HashSet;
-//import java.util.Iterator;
-//import java.util.List;
-//import java.util.Scanner;
-//import java.util.Set;
-//import java.util.StringTokenizer;
-//import java.util.logging.Level;
-//import java.util.logging.Logger;
-//import java.util.zip.GZIPInputStream;
-//import java.util.zip.ZipEntry;
-//import java.util.zip.ZipFile;
-//import java.util.zip.ZipInputStream;
-//import org.apache.commons.compress.archivers.tar.TarArchiveEntry;
-//import org.apache.commons.net.ftp.FTP;
-//import org.apache.commons.net.ftp.FTPClient;
-//import org.apache.commons.net.ftp.FTPFile;
-//import org.apache.commons.compress.archivers.tar.TarArchiveInputStream;
-//import org.apache.commons.csv.CSVFormat;
-//import org.apache.commons.csv.CSVParser;
-//import org.apache.commons.csv.CSVRecord;
-//import org.apache.http.HttpResponse;
-//import org.apache.http.client.HttpClient;
-//import org.apache.http.client.methods.HttpGet;
-//import org.apache.http.impl.client.HttpClientBuilder;
-//import org.apache.http.message.BasicHeader;
-//import org.apache.poi.util.IOUtils;
-//import org.json.JSONArray;
-//import org.json.JSONObject;
-//import org.jsoup.Jsoup;
-//import org.jsoup.nodes.Document;
-//import org.jsoup.nodes.Element;
-//import org.jsoup.select.Elements;
+
+
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.zip.GZIPInputStream;
+import org.apache.commons.compress.archivers.tar.TarArchiveInputStream;
+import org.apache.http.HttpResponse;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.methods.HttpGet;
+import org.apache.http.impl.client.HttpClientBuilder;
+import main.Access;
+import org.apache.commons.compress.archivers.tar.TarArchiveEntry;
+import org.apache.commons.io.IOUtils;
 //
 ///**
 // * As of right now, this class servers no purpose. It has been used to upload
@@ -80,47 +40,48 @@
 // * 
 // * @author cjedwards1
 // */
-//public class WriteImageType 
-//{
+public class WriteImageType 
+{
 //    public static String procDate;
 //    public static HashMap<String, String> types = new HashMap();
 //    public static HashMap<String, File> files = new HashMap();
 //    public static HashMap<String, String> converstions = new HashMap();
 //    public static FTPClient ftpClient = new FTPClient();
 //    
-//    static public void main(String args[]) throws Exception 
-//    {
-//        createJsonFile();
-////        try
-////        {            
-////            ftpClient.connect("ftp.ncdc.noaa.gov", 21);
-////            ftpClient.enterLocalPassiveMode();
-////            ftpClient.login("anonymous", "anything");
-////            ftpClient.setFileType(FTP.ASCII_FILE_TYPE);
-////            int code = ftpClient.getReplyCode();
-////            System.out.println(code);
-////            
-////            setProcDate();
-////            setTypes();
-////            getFTPFile();
-////        }
-////        catch(Exception ex)
-////        {
-////            ex.printStackTrace();
-////        }
-////        finally
-////        {
-////            ftpClient.logout();
-////            ftpClient.disconnect();
-////        }
-////            tempGetUsers();
-////            getEbirdData();
-////            getTaxonomy();
+    static public void main(String args[]) throws Exception 
+    {
+        //createJsonFile();
+        getEbirdData();
+//        try
+//        {            
+//            ftpClient.connect("ftp.ncdc.noaa.gov", 21);
+//            ftpClient.enterLocalPassiveMode();
+//            ftpClient.login("anonymous", "anything");
+//            ftpClient.setFileType(FTP.ASCII_FILE_TYPE);
+//            int code = ftpClient.getReplyCode();
+//            System.out.println(code);
 //            
-////        System.out.println(getHTML("http://ebird.org/ws1.1/data/notable/geo/recent?detail=full&lng=-76.51&lat=42.46&dist=5&back=30&fmt=json", "ebird.txt"));
-////      System.out.println(getHTML("http://www.ncdc.noaa.gov/cdo-web/api/v2/data?datasetid=GHCNDMS&locationid=CLIM:3901&startdate=2010-05-01&enddate=2010-05-01&limit=1000&units=metric", "File1.txt"));
-////      System.out.println(getHTML("http://www.ncdc.noaa.gov/cdo-web/api/v2/datatypes?limit=1000", "File2.txt"));
-//    }
+//            setProcDate();
+//            setTypes();
+//            getFTPFile();
+//        }
+//        catch(Exception ex)
+//        {
+//            ex.printStackTrace();
+//        }
+//        finally
+//        {
+//            ftpClient.logout();
+//            ftpClient.disconnect();
+//        }
+//            tempGetUsers();
+//            getEbirdData();
+//            getTaxonomy();
+            
+//        System.out.println(getHTML("http://ebird.org/ws1.1/data/notable/geo/recent?detail=full&lng=-76.51&lat=42.46&dist=5&back=30&fmt=json", "ebird.txt"));
+//      System.out.println(getHTML("http://www.ncdc.noaa.gov/cdo-web/api/v2/data?datasetid=GHCNDMS&locationid=CLIM:3901&startdate=2010-05-01&enddate=2010-05-01&limit=1000&units=metric", "File1.txt"));
+//      System.out.println(getHTML("http://www.ncdc.noaa.gov/cdo-web/api/v2/datatypes?limit=1000", "File2.txt"));
+    }
 //    
 //    public static void createJsonFile()
 //    {
@@ -547,18 +508,64 @@
 //        return result.toString();
 //   }
 //  
-//    public static void getEbirdData() 
-//    {
-//        Access access = null;
-//        try
-//        {
-//            access = new Access();
-////            HttpClient client = HttpClientBuilder.create().build();
-////            HttpGet request = new HttpGet("http://ebirddata.ornith.cornell.edu/downloads/erd/ebird_all_species/ebird_us48_data_grouped_by_year_v2014.tar.gz");
-////            
-////            HttpResponse response = client.execute(request);
-////            
-////            TarArchiveInputStream ta = new TarArchiveInputStream(new GZIPInputStream(response.getEntity().getContent()));
+    public static void getEbirdData() 
+    {
+        //Access access = null;
+        try
+        {
+            //access = new Access();
+//            HttpClient client = HttpClientBuilder.create().build();
+//            HttpGet request = new HttpGet("http://ebirddata.ornith.cornell.edu/downloads/erd/ebird_all_species/ebird_us48_data_grouped_by_year_v2014.tar.gz");
+//            
+//            HttpResponse response = client.execute(request);
+//            System.out.println(response.getEntity().getContent());
+//            
+//            byte[] buffer = new byte[1024];
+            
+            TarArchiveInputStream ta = new TarArchiveInputStream(new FileInputStream(new File("C:\\NSF Projects\\ebird_us48_data_grouped_by_year_v2014_SAMPLE.tar")));
+            
+            TarArchiveEntry entry = null;
+            String ind_files;
+            int offset;
+            
+            FileOutputStream fos = null;
+            while((entry = ta.getNextTarEntry()) != null)
+            {
+                ind_files = entry.getName();
+                System.out.println(ind_files);
+                byte[] content = new byte[(int) entry.getSize()];
+                offset = 0;
+                
+                System.out.println("File name is: " + ind_files);
+                System.out.println("Size is: " + entry.getSize());
+                System.out.println("Byte array length: " + content.length);
+                
+                ta.read(content, offset, content.length - offset);
+                
+                fos = new FileOutputStream(new File("C:\\NSF Projects\\myFILES"));
+                
+                //String ind_files_location = entry.getFile().getAbsolutePath();
+                //System.out.println(ind_files_location);
+                
+                IOUtils.write(content, fos);
+                
+                fos.close();
+                
+            }
+            
+            ta.close();
+           
+            
+            
+            
+            System.out.println("Done");
+        } 
+        catch(IOException | UnsupportedOperationException e)
+        {
+        }
+    }
+
+}
 //           
 //            int startYear = 2012;
 //            int year;

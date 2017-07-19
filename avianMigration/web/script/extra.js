@@ -1,4 +1,4 @@
-//When you click on a tab.
+wd//When you click on a tab.
 function openTab(evt, tabName) {
     // Declare all variables
     var i, tabcontent, tablinks;
@@ -36,6 +36,20 @@ function openTab(evt, tabName) {
 
 function addStateClimateDivRow()
 {
+    var response = false;
+    $('#stateClimateDivInputTable tr').each(function() {
+        if($(this).attr('id') !== 'stClimateHeader')
+        {
+            if(($(this).find("td").eq(0).html() === $('#state_cd').val()) && ($(this).find("td").eq(1).html() === $('#cdiv').val()))
+            {
+                response = true;
+            }
+        }  
+    });
+    
+    if(response)
+        return;
+    
     //Create and insert a new row into the State Climate Div table.
     
     //if state and climDiv textboxes are not empty
@@ -219,29 +233,48 @@ function deleteLatLongRow(evt) {
 }
 
 function addBird() {
-    //Create and insert a new row into the lat long table.
-    var row = document.getElementById('birdInputTable').insertRow(document.getElementById('birdInputTable').rows.length);
+    
+    var response = false;
+    $('#birdInputTable tr').each(function() {
+        if($(this).attr('id') !== 'birdHeader')
+        {
+            if($(this).find("td").eq(0).html() === $('#birdNameCalcInput').val())
+            {
+                response = true;
+            }
+        }  
+    });
+    
+    if(response)
+        return;
+    
+    if(document.getElementById('birdNameCalcInput').value !== "")
+    {
+        //Create and insert a new row into the bird table.
+        var row = document.getElementById('birdInputTable').insertRow(document.getElementById('birdInputTable').rows.length);
 
-    //Insert the data into the new row.
-    row.insertCell(0).innerHTML = document.getElementById('birdNameCalcInput').value;
-    row.insertCell(1).innerHTML = "<input id='edit1' type='submit' name='delete' value='Delete'>";
+        //Insert the data into the new row.
+        row.insertCell(0).innerHTML = document.getElementById('birdNameCalcInput').value;
+        row.insertCell(1).innerHTML = "<input id='edit1' type='submit' name='delete' value='Delete'>";
 
-    //Access the div holder that is holding the final string for the lat long option.
-    var tempHolder = document.getElementById('birdFinalInput').innerHTML;
+        //Access the div holder that is holding the final string for the lat long option.
+        var tempHolder = document.getElementById('birdFinalInput').innerHTML;
 
-    //If there is more than one option in the holder already.
-    if (tempHolder !== "") {
-        tempHolder += "," + document.getElementById('birdNameCalcInput').value;
+        //If there is more than one option in the holder already.
+        if (tempHolder !== "") {
+            tempHolder += "," + document.getElementById('birdNameCalcInput').value;
+        }
+        else {
+            tempHolder = document.getElementById('birdNameCalcInput').value;
+        }
+
+        //Put back the holder's new inner html.
+        document.getElementById('birdFinalInput').innerHTML = tempHolder;
+
+        //Reset the text boxes.
+        document.getElementById('birdNameCalcInput').value = "";   
     }
-    else {
-        tempHolder = document.getElementById('birdNameCalcInput').value;
-    }
-
-    //Put back the holder's new inner html.
-    document.getElementById('birdFinalInput').innerHTML = tempHolder;
-
-    //Reset the text boxes.
-    document.getElementById('birdNameCalcInput').value = "";   
+    
     
     //console.log(tempHolder);
 }
@@ -268,6 +301,21 @@ function deleteBirdRow(evt) {
 
 function addCheckList()
 {
+    
+    var response = false;
+    $('#checkListInputTable tr').each(function() {
+        if($(this).attr('id') !== 'chkLstTableHeader')
+        {
+            if($(this).find("td").eq(0).html() === $('#checklistNumber').val())
+            {
+                response = true;
+            }
+        }  
+    });
+    
+    if(response)
+        return;
+    
     //Create and insert a new row into the lat long table.
     var row = document.getElementById('checkListInputTable').insertRow(document.getElementById('checkListInputTable').rows.length);
 
@@ -469,6 +517,7 @@ function start()
     
     document.getElementById('addChkList').style = "display:none";
     document.getElementById('chkLstTableHeader').style = "display:none";
+    //document.getElementById('checkListInputTable').style = "display:none";
     
     
     
@@ -476,7 +525,7 @@ function start()
    
     document.getElementById('load').className = "temp";
     
-    document.getElementById('location').display = "display:";
+    document.getElementById('location').style.display = 'none';
     
 }
 
@@ -549,7 +598,7 @@ function refreshDownloads()
                 buttonChangeName.setAttribute("onclick", "changeFileName(event, '" + myArr[index]["id"] + "')"); //This will be the method to update the name of the file in the database.
                 cell.appendChild(text);
                 cell.appendChild(buttonChangeName);
-                
+             
                 //TTL of file.
                 cell = row.insertCell(3);
                 cell.innerHTML = myArr[index]["next date"] + " days";

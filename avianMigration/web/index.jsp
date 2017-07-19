@@ -60,7 +60,7 @@
                                                                 
                                     <div id="options" onChange="inputOptionChange(event)">
                                         <p style="display: none" id="mainChbxCheck"><font color="red"><b>Check one or more options!</b></font></p>
-                                        <div style="display:inline"><input id="loc_chbx" type="checkbox" value="location" checked> location</div>
+                                        <div style="display:inline"><input id="loc_chbx" type="checkbox" value="location"> location</div>
                                         <div style="display:inline"><input type="checkbox" value="year"> year</div>
                                         <div style="display:inline"><input type="checkbox" value="month"> month</div>
                                         <div id="firstArrive" style="display:none"><input id="checkFirstArrival" type="checkbox" value="firstArrival"> first arrival date</div>                                                           									
@@ -90,7 +90,7 @@
 									        <button type="button" onclick="addStateClimateDivRow()">Add</button>
 									        <table id="stateClimateDivInputTable" class="showData" style="width:30%" onclick="deleteStateClimateDivRow(event)">
 										        <caption>State Climate_Div inputs table</caption>
-										        <tr>
+										        <tr id="stClimateHeader">
 											        <th>State</th>
 											        <th>Climate Division</th>						        
 										        </tr>
@@ -311,16 +311,19 @@
 									    <input id="sci_radio" type="radio" name="birdNameCalc" value="s" checked> Scientific name<br>
 									    <input id="comm_radio" type="radio" name="birdNameCalc" value="p"> Common name<br>
 									    <input id="tax_radio" type="radio" name="birdNameCalc" value="t"> Taxonomy<br>
-                                                                            NAME: <input type="text" id="birdNameCalcInput"><br> &nbsp;&nbsp;&nbsp;&nbsp;
-                                                                            <table id="birdInputTable" class="showData" style="width:30%" onclick="deleteBirdRow(event)">
-                                                                                    <caption>Bird input</caption>
-                                                                                    <tr id="birdHeader">
-                                                                                            <th>Bird Name</th>                                                                                       
-                                                                                    </tr>
-                                                                            </table><br><br>
-                                                                            <button type="button" onclick="addBird()">Add</button><br><br>
-                                                                            <div id="birdFinalInput" style="display:none"></div>
+                                                                            
 								    </div>
+                                                                    <div id="noOfBirdsDiv" style="display:none; margin-left:4em">
+                                                                        <br>NAME: <input type="text" id="birdNameCalcInput">
+                                                                        <button type="button" onclick="addBird()">Add</button><br>
+                                                                        <table id="birdInputTable" class="showData" style="width:30%" onclick="deleteBirdRow(event)">
+                                                                                <caption>Bird input</caption>
+                                                                                <tr id="birdHeader">
+                                                                                        <th>Bird Name</th>                                                                                       
+                                                                                </tr>
+                                                                        </table><br><br>                                                                          
+                                                                        <div id="birdFinalInput" style="display:none"></div>
+                                                                    <div>
 								
 								    <div id="cl" style="display:none">
 									    <b>Choose a variable that you would like the count of.</b><br>

@@ -4,29 +4,20 @@
 // * and open the template in the editor.
 // */
 //
-//package main;
+package main;
 //
 //
-//import java.io.BufferedReader;
-//import java.io.BufferedWriter;
-//import java.io.File;
-//import java.io.FileReader;
-//import java.io.FileWriter;
-//import java.io.IOException;
-//import java.io.InputStreamReader;
-//import java.util.HashMap;
-//import javax.servlet.ServletException;
-//import javax.servlet.annotation.WebServlet;
-//import javax.servlet.http.HttpServlet;
-//import javax.servlet.http.HttpServletRequest;
-//import javax.servlet.http.HttpServletResponse;
-//import org.apache.commons.net.ftp.FTPClient;
-//import org.apache.http.HttpResponse;
-//import org.apache.http.client.HttpClient;
-//import org.apache.http.client.methods.HttpGet;
-//import org.apache.http.impl.client.HttpClientBuilder;
-//import org.json.JSONArray;
-//import org.json.JSONObject;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.InputStream;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.ss.usermodel.Sheet;
+import org.apache.poi.ss.usermodel.Workbook;
+import org.apache.poi.ss.usermodel.WorkbookFactory;
 //
 //
 ///**
@@ -37,24 +28,24 @@
 // * All code to get data from all sources for the project will be contained 
 // * in this class.
 // */
-//@WebServlet("/my_resource")
-//public class SourceDataGetter extends HttpServlet
-//{
+@WebServlet("/my_resource")
+public class SourceDataGetter extends HttpServlet
+{
 //    public static String procDate;
 //    public static HashMap<String, String> types = new HashMap();
 //    public static HashMap<String, File> files = new HashMap();
 //    public static HashMap<String, String> converstions = new HashMap();
 //    public static FTPClient ftpClient = new FTPClient();
-//    public static Access access = new Access();
+    public static Access access = new Access();
 //    
-//   @Override
-//    public void doGet(HttpServletRequest request, HttpServletResponse response)
-//               throws ServletException, IOException
-//    {
-//        
-//        
-//        try
-//        {           
+
+    @Override
+    public void doGet(HttpServletRequest request, HttpServletResponse response)
+    {
+        
+        
+        try(FileInputStream fis = new FileInputStream(new File("C:\\NSF Projects\\AvianMigration\\avianMigration\\src\\java\\resources\\BAOR_Patuxent.xls")))
+        {           
 ////            Document doc = Jsoup.connect("http://www.esrl.noaa.gov/psd/data/usclimdivs/data/map.html").get();
 ////            Elements elem = doc.getElementsByTag("tbody").get(1).parent().getElementsByTag("tr");
 ////            String state = "";
@@ -157,34 +148,56 @@
 ////                //System.out.println(censusResult);
 ////                access.execute("INSERT INTO NSFBeltz2017.dbo.COUNTY VALUES(" + censusResult + ")");
 ////            }
-////        setProcDate();
-////        setTypes();  
-////        getFTPFile();
+//        setProcDate();
+//        setTypes();  
+//        getFTPFile();
+            
+//            result[r][0] = row.getCell(0).toString();
+//                result[r][1] = row.getCell(40).toString();
+//                result[r][2] = row.getCell(41) == null ? "" : row.getCell(41).toString();
+//                result[r][3] = row.getCell(6) == null ? row.getCell(5).toString().concat("-01-01 00:00:00") : row.getCell(6).toString();
+//                
+////                if("".equals(row.getCell(6).toString()))
+////                {
+////                    result[r][3] = row.getCell(5).toString().concat("-01-01 00:00:00");
+////                }
+////                else
+////                {
+////                   result[r][3] =  row.getCell(6).toString();
+////                }
+//                        
+//                result[r][4] = "30632";
+//                result[r][5] = row.getCell(5).toString();                         
 //           
 //        //insertDateCensus();
+            
+            System.out.println("Working dir: " + System.getProperty("user.dir"));
+            startParse(0, fis);
+            
+           
 //            
-////        try
-////        {            
-////            ftpClient.connect("ftp.ncdc.noaa.gov", 21);
-////            ftpClient.enterLocalPassiveMode();
-////            ftpClient.login("anonymous", "anything");
-////            ftpClient.setFileType(FTP.ASCII_FILE_TYPE);
-////            int myCode = ftpClient.getReplyCode();
-////            System.out.println(myCode);
-////
-////            setProcDate();
-////            setTypes();
-////            getFTPFile();
-////        }
-////        catch(Exception ex)
-////        {
-////            ex.printStackTrace();
-////        }
-////        finally
-////        {
-////            ftpClient.logout();
-////            ftpClient.disconnect();
-////        }
+//        try
+//        {            
+//            ftpClient.connect("ftp.ncdc.noaa.gov", 21);
+//            ftpClient.enterLocalPassiveMode();
+//            ftpClient.login("anonymous", "anything");
+//            ftpClient.setFileType(FTP.ASCII_FILE_TYPE);
+//            int myCode = ftpClient.getReplyCode();
+//            System.out.println(myCode);
+//
+//            setProcDate();
+//            setTypes();
+//            getFTPFile();
+//        }
+//        catch(Exception ex)
+//        {
+//            ex.printStackTrace();
+//        }
+//        finally
+//        {
+//            ftpClient.logout();
+//            ftpClient.disconnect();
+//        }
 ////            for(String[]cResult : censusResults) {
 ////                System.out.println(cResult[0] + cResult[1] + cResult[2] + cResult[3] + cResult[4] + cResult[5]);
 ////                access.execute("INSERT INTO NSFBeltz2017.dbo.CENSUS VALUES (" + cResult[0] +  ", " +  cResult[1] + ", " 
@@ -192,11 +205,11 @@
 ////            }
 ////        }
 //        
-//        }  catch (Exception ex)
-//        {
-//            ex.printStackTrace();
-//        } 
-//    }
+        }  catch (Exception ex)
+        {
+            ex.printStackTrace();
+        } 
+    }
 //        
 //    public static void getBirdName() throws Exception
 //    {
@@ -646,228 +659,248 @@
 //     * @param columnNumber the column number that holds all of the variable data
 //     * @param file the file the user is going to parse
 //     */
-////    public static String[][] startParse(int labelNumber, int sheetNumber, int columnNumber, InputStream file)
-////    {
-////        LinkedHashMap<String, String> states = new LinkedHashMap<>();
-////        
-////        
-////        states.put("AK", "Alaska");
-////        states.put("AL", "Alabama");
-////        states.put("AR", "Akansas");
-////        states.put("AZ", "Arizona");
-////        states.put("CA", "California");
-////        states.put("CO", "Colorado");
-////        states.put("CT", "Connecticut");
-////        states.put("DC", "District Of Columbia");
-////        states.put("DE", "Delaware");
-////        states.put("FL", "Florida");
-////        states.put("GA", "Georgia");
-////        states.put("HI", "Hawaii");
-////        states.put("IA", "Iowa");
-////        states.put("ID", "Idaho");
-////        states.put("IL", "Illinois");
-////        states.put("IN", "Indiana");
-////        states.put("KS", "Kansas");
-////        states.put("KY", "Kentucky");
-////        states.put("LA", "Louisiana");
-////        states.put("MA", "Massachusetts");
-////        states.put("MD", "Maryland");
-////        states.put("ME", "Maine");
-////        states.put("MI", "Michigan");
-////        states.put("MN", "Minnesota");
-////        states.put("MO", "Missouri");
-////        states.put("MS", "Mississsippi");
-////        states.put("MT", "Montana");
-////        states.put("NC", "North Carolina");
-////        states.put("ND", "North Dakota");
-////        states.put("NE", "Nebraska");
-////        states.put("NH", "New Hampshire");
-////        states.put("NJ", "New Jersey");
-////        states.put("NM", "New Mexico");
-////        states.put("NV", "Nevada");
-////        states.put("NY", "New York");
-////        states.put("OH", "Ohio");
-////        states.put("OK", "Oklahoma");
-////        states.put("OR", "Oregon");
-////        states.put("PA", "Pennsylvania");
-////        states.put("RI", "Rhode Island");
-////        states.put("SC", "South Carolina");
-////        states.put("SD", "South Dakota");
-////        states.put("TN", "Tennessee");
-////        states.put("TX", "Texas");
-////        states.put("UT", "Utah");
-////        states.put("VA", "Virginia");
-////        states.put("VT", "Vermont");
-////        states.put("WA", "Washington");
-////        states.put("WI", "Wisconsin");
-////        states.put("WV", "West Virginia");
-////        states.put("WY", "Wyoming");
-////        
-////        
-////        try 
-////        (
-////            Create an abstract workbook based on the type of file comming
-////            from the input stream.
-////            Workbook wb = WorkbookFactory.create(file);
-////        )
-////        {
-////            Get the very last sheet.
-////            Sheet sheet = wb.getSheetAt(sheetNumber);
-////            Row row;
-////
-////            Get the number of rows in the sheet.
-////            int rows = sheet.getLastRowNum();
-////            
-////            System.out.println(rows);
-////
-////            [Student][label, variable data]
-////            String[][] result = new String[rows][5];
-////
-////            for(int r = 0; r < rows; r++)
-////            {
-////                row = sheet.getRow(r+1); //avoid the column labels
-////                
-////                convert cell type to String
-////                row.getCell(columnNumber + 1).setCellType(Cell.CELL_TYPE_STRING);
-////                
-////                
-////                result[r][0] = row.getCell(columnNumber).toString();
-////                if(states.containsKey(result[r][0]))
-////                    result[r][0] = states.get(result[r][0]);
-////                result[r][1] = row.getCell(columnNumber + 1).toString();
-////                result[r][2] = row.getCell(columnNumber + 3).toString();
-////                result[r][3] = row.getCell(columnNumber + 10).toString();
-////                result[r][4] = row.getCell(columnNumber + 11).toString();
-////
-////            }
-////           
-////            return result;
-////        } 
-////        catch(Exception ex)
-////        {
-////            ex.printStackTrace();
-////        }
-////
-////        return new String[0][0];
-////    }
+    public static void startParse(int sheetNumber, InputStream file)
+    {  
+        try 
+        (
+            //Create an abstract workbook based on the type of file comming
+            //from the input stream.
+            Workbook wb = WorkbookFactory.create(file);
+        )
+        {
+            
+            PointInPolygon pip = new PointInPolygon();
+            //Get the very last sheet.
+            Sheet sheet = wb.getSheetAt(sheetNumber);
+            Row row;
+
+            //Get the number of rows in the sheet.
+            int rows = sheet.getLastRowNum();
+            
+            //System.out.println(rows);
+
+            
+            
+            String query;
+
+            for(int r = 0; r < rows; r++)
+            {
+                row = sheet.getRow(r+1); //avoid the column labels
+                
+                //row.getCell(2).setCellType(Cell.CELL_TYPE_STRING);
+                
+//                if(row.getCell(0).getStringCellValue().equals("Total"))
+//                    continue;
+                
+//                if(row.getCell(41) != null)
+//                    System.out.println("row number: " + row.getRowNum() + " value: " + row.getCell(41).toString());
+
+                String[] result = new String[6];
+                
+                result[0] = row.getCell(0).toString();
+                result[1] = row.getCell(40).toString();
+                result[2] = row.getCell(41) == null ? "" : row.getCell(41).toString(); 
+                result[3] = row.getCell(6) == null ? row.getCell(5).toString().concat("-01-01 00:00:00") : row.getCell(6).toString();  
+                
+                String[] fad = result[3].split("-");
+                
+                int clim_div_id = 0;
+                
+                if(!"".equals(result[2]))
+                {
+                    //System.out.println("Row " + r + " Lat " + result[r][1] + " Long " + result[r][2]);
+                    if(pip.getId(Double.parseDouble(result[1]), Double.parseDouble(result[2])) != null)
+                        clim_div_id = pip.getId(Double.parseDouble(result[1]), Double.parseDouble(result[2]));
+                    else
+                        continue;              
+                }
+                
+                if(Integer.parseInt(fad[0]) < 1895)
+                {
+                    continue;
+                }
+
+                Table clim_table = access.getTable("SELECT APPID FROM [NSFCourter2016].[dbo].[CLIMATE] WHERE CLIM_DIV_ID = " + clim_div_id
+                        + " AND (YEAR(DATE) = " + fad[0] + " AND MONTH(DATE) = " + fad[1] + ")", new Object[]{});
+
+                //System.out.println("year: " + fad[0] + "-" +  fad[1] + "clim_div: " + clim_div_id + " no of rows: " + clim_table.numberOfRows());
+
+                while(clim_table.next())
+                {
+                    System.out.println("app id " + clim_table.getInt("APPID"));
+                    result[4] = clim_table.getInt("APPID").toString();
+                }
+
+                result[5] = row.getCell(5).toString();  
+                
+                if("".equals(result[2]))
+                    continue;
+                
+                query = "INSERT INTO [NSFCourter2016].[dbo].[HISTORICAL_OBSERVATIONS] VALUES (" +  result[0] + ", " + result[1] + ", " + result[2] + ", " + result[4] + ", '" +
+                        result[3] + "', 30632, " + "'"  + result[5] + "')";
+                
+                System.out.println(query);
+                
+                access.execute(query, new Object[]{});
+            }
+           
+            //return result;
+        } 
+        catch(Exception ex)
+        {
+            ex.printStackTrace();
+        }
+
+        //return new String[0][0];
+    }
 //    
 //
-////    public static void main(String[] args) throws IOException, SQLException, Exception
-////    {
-//////        try {
-//////            System.out.println("Starting connection");
-//////            ftpClient.connect("ftp2.census.gov", 21);
-//////            System.out.println("Done");
-//////            ftpClient.enterLocalPassiveMode();
-//////            ftpClient.login("anonymous", "");
-//////            ftpClient.setFileType(FTP.ASCII_FILE_TYPE);
-//////            
-//////            int code = ftpClient.getReplyCode();
-//////            System.out.println(code);
-//////            
-////            getCensusData();
-//////        }
-//////        catch(Exception ex)
-//////        {
-//////            ex.printStackTrace();
-//////        }
-//////        finally
-//////        {
-//////            ftpClient.logout();
-//////            ftpClient.disconnect();
-//////        }
-////          
-////    }
+//    public static void main(String[] args)
+//    {
+//        try {
+//            System.out.println("Starting connection");
+//            ftpClient.connect("ftp2.census.gov", 21);
+//            System.out.println("Done");
+//            ftpClient.enterLocalPassiveMode();
+//            ftpClient.login("anonymous", "");
+//            ftpClient.setFileType(FTP.ASCII_FILE_TYPE);
+//            
+//            int code = ftpClient.getReplyCode();
+//            System.out.println(code);
+        
+//        try(FileInputStream fis = new FileInputStream(new File("C:\\NSF Projects\\AvianMigration\\avianMigration\\src\\java\\resources\\BAOR_Patuxent.xls")))
+//        {
+//            String[][] myResult = startParse(0, fis);
+//            
+//            //System.out.println(Arrays.deepToString(myResult));
+//            for(String[] r : myResult)
+//            {
+//                System.out.println(Arrays.toString(r));
+//            }
+//        }
+//        catch(Exception e)
+//        {
+//            e.printStackTrace();
+//        }
+        
+//            
+            
+//        }
+//        catch(Exception ex)
+//        {
+//            ex.printStackTrace();
+//        }
+//        finally
+//        {
+//            ftpClient.logout();
+//            ftpClient.disconnect();
+//        }
+          
+//    }
 //    
-////    public static String[][] getResults() throws IOException
-////    {
-////        
-////        double lat = 0, lon = 0;
-////        
-////        String[][] results = new String[3071][4];
-////        
-////        //get excel file
-////        File file = new File("C:\\NSF Projects\\WestNileSpread\\WestNileSpread\\src\\java\\resources\\Gaz_counties_national.xlsx");
-////        FileInputStream fis = new FileInputStream(file);
-////        String[][] myR = startParse(0, 0, 0, fis);
-////        
-////        int id = 0;
-////        
-////        //List<String[]> finalResult = new ArrayList<>();
-////        
-////        for(int i = 0; i < myR.length; i++){
-////            //get lat and lon
-////            lat = Double.parseDouble(myR[i][3]);
-////            lon = Double.parseDouble(myR[i][4]);
-////            
-////            PointInPolygon pip = new PointInPolygon();
-////            
-////            
-////           
-////                id = pip.getId(lat, lon);    
-////                for(int j = 0; j < 3; j++){
-////                    results[i][j] = myR[i][j];                   
-////                }  
-////                results[i][3] = String.valueOf(id);
-////                          
+//    public static String[][] getResults() throws IOException
+//    {
+//        
+//        double lat = 0, lon = 0;
+//        
+//        String[][] results = new String[3071][4];
+//        
+//        //get excel file
+//        File file = new File("C:\\NSF Projects\\WestNileSpread\\WestNileSpread\\src\\java\\resources\\Gaz_counties_national.xlsx");
+//        FileInputStream fis = new FileInputStream(file);
+//        String[][] myR = startParse(0, 0, 0, fis);
+//        
+//        int id = 0;
+//        
+//        //List<String[]> finalResult = new ArrayList<>();
+//        
+//        for(int i = 0; i < myR.length; i++){
+//            //get lat and lon
+//            lat = Double.parseDouble(myR[i][3]);
+//            lon = Double.parseDouble(myR[i][4]);
+//            
+//            PointInPolygon pip = new PointInPolygon();
+//            
+//            
+//           
+//                id = pip.getId(lat, lon);    
+//                for(int j = 0; j < 3; j++){
+//                    results[i][j] = myR[i][j];                   
+//                }  
+//                results[i][3] = String.valueOf(id);
+//                          
+//        }
+//      
+////        for(String[] r : results) {
+////            System.out.println(Arrays.deepToString(r));
 ////        }
-////      
-//////        for(String[] r : results) {
-//////            System.out.println(Arrays.deepToString(r));
-//////        }
-////        
-////      return results;
-////       
-////    }
+//        
+//      return results;
+//       
+//    }
+    
+    
 //    
 //    
 //    
-////    public static void setTypes()
-////    {
-////        types.put("pdsi", "05");
-////        types.put("pcpn", "01");
-////        types.put("tmpc", "02");
-////        types.put("tmax", "27");
-////        types.put("tmin", "28");
-////        
-////        
-////        converstions.put("pdsi", "PDSI");
-////        converstions.put("pcpn", "PRECIPITATION");
-////        converstions.put("tmpc", "AVERAGE_TEMP");
-////        converstions.put("tmax", "MAXIMUM_TEMP");
-////        converstions.put("tmin", "MINIMUM_TEMP");
-////        
-////        
-////        try
-////        {
-////            for(String type : types.keySet())
-////            {
-////                String remoteFile = "/pub/data/cirs/climdiv/climdiv-" + type + "dv-v1.0.0-" + procDate;
-////                File downloadFile = File.createTempFile("temp.txt", null);
-////                try(OutputStream outputStream = new BufferedOutputStream(new FileOutputStream(downloadFile)))
-////                {
-////                    boolean success = ftpClient.retrieveFile(remoteFile, outputStream);
-////                    
-////                    if(success)
-////                    {
-////                        System.out.println("File " + type + " retrieved successfully.");
-////                        files.put(type, downloadFile);
-////                    }
-////                    else
-////                        System.out.println("File " + type + " failed.");
-////
-////                }
-////                catch(Exception ex)
-////                {
-////                    ex.printStackTrace();
-////                }
-////            }
-////        }
-////        catch(Exception ex)
-////        {
-////            ex.printStackTrace();
-////        }
-////    }
+//    public static void setTypes()
+//    {
+//        //types: <clim_variable string code, numerical code>
+//        types.put("pdsi", "05");
+//        types.put("pcpn", "01");
+//        types.put("tmpc", "02");
+//        types.put("tmax", "27");
+//        types.put("tmin", "28");
+//        types.put("sp01", "71");
+//        types.put("sp03", "73");
+//        types.put("sp06", "74");
+//        types.put("sp12", "76");
+//        types.put("sp24", "77");
+//        
+//        
+//        
+//        converstions.put("pdsi", "PDSI");
+//        converstions.put("pcpn", "PRECIPITATION");
+//        converstions.put("tmpc", "AVERAGE_TEMP");
+//        converstions.put("tmax", "MAXIMUM_TEMP");
+//        converstions.put("tmin", "MINIMUM_TEMP");
+//        converstions.put("sp01", "ONE_SPI");
+//        converstions.put("sp03", "THREE_SPI");
+//        converstions.put("sp06", "SIX_SPI");
+//        converstions.put("sp12", "TWELVE_SPI");
+//        converstions.put("sp24", "TWENTY_FOUR_SPI");
+//        
+//        
+//        try
+//        {
+//            for(String type : types.keySet())
+//            {
+//                String remoteFile = "/pub/data/cirs/climdiv/climdiv-" + type + "dv-v1.0.0-" + procDate;
+//                File downloadFile = File.createTempFile("temp.txt", null);
+//                try(OutputStream outputStream = new BufferedOutputStream(new FileOutputStream(downloadFile)))
+//                {
+//                    boolean success = ftpClient.retrieveFile(remoteFile, outputStream);
+//                    
+//                    if(success)
+//                    {
+//                        System.out.println("File " + type + " retrieved successfully.");
+//                        files.put(type, downloadFile);
+//                    }
+//                    else
+//                        System.out.println("File " + type + " failed.");
+//
+//                }
+//                catch(Exception ex)
+//                {
+//                    ex.printStackTrace();
+//                }
+//            }
+//        }
+//        catch(Exception ex)
+//        {
+//            ex.printStackTrace();
+//        }
+//    }
 ////    
 ////    
 //    public static void insertDateCensus() throws Exception
@@ -911,155 +944,149 @@
 //        }
 //
 //    }
-////    public static void setProcDate()
-////    {
-////        try 
-////        {
-////            String remoteFile1 = "/pub/data/cirs/climdiv/procdate.txt";
-////            File downloadFile1 = File.createTempFile("temp.txt", null);
-////            OutputStream outputStream1 = new BufferedOutputStream(new FileOutputStream(downloadFile1));
-////            boolean success = ftpClient.retrieveFile(remoteFile1, outputStream1);
-////            outputStream1.close();
-////            
-//// 
-////            if(success)
-////            {
-////                System.out.println("Proccess date retrieved successfully.");
-////                
-////                try(BufferedReader reader = new BufferedReader(new FileReader(downloadFile1)))
-////                {
-////                    procDate = reader.readLine();
-////                }
-////                catch(Exception ex)
-////                {
-////                    ex.printStackTrace();
-////                }
-////            }
-////            outputStream1.close();
-////        }
-////        catch(Exception ex)
-////        {
-////            ex.printStackTrace();
-////        }
-////    }
-////    
-////    public static void getFTPFile() throws SQLException, IOException
-////    {
-////        Access access = null;
-////        try 
-////        {
-////            SimpleDateFormat sdf = new SimpleDateFormat(
-////                "MM-dd-yyyy");
-////            int day = 1;
-////            Calendar cal = Calendar.getInstance();
-////            
-////            
-////            access = new Access();
-////            Table climDiv = access.getTable("SELECT CD_ID FROM [NSFBeltz2017].[dbo].[CLIM_DIV]");
-////            
-////            //Table cal_table = 
-////            
-////            int cal_table_id = 0;
-////            
-////            String cal_insert;
-////            
-////            for(int year = 2002; year <= 2017; year++)
-////            {
-////                for(int month = 11, monthCode = 0; month <= 88; month += 7, monthCode++)
-////                {
-////                    climDiv.setRow(0);
-////                    
-////                    while(climDiv.next())
-////                    {
-////                        HashMap<String, Double> data = new HashMap();
-////                        String climDivCode = Integer.toString(climDiv.getInt("CD_ID"));
-////                        
-////                        climDivCode = climDivCode.length() == 3 ? "0" + climDivCode : climDivCode;
-////                        for(String type : types.keySet())
-////                        {
-////                            if(files.get(type) != null)
-////                            {
-////                                try(BufferedReader reader = new BufferedReader(new FileReader(files.get(type))))
-////                                {
-////                                    String line;
-////
-////                                    String find;
-////                                    if(type.contains("norm"))
-////                                    {
-////                                        Double temp = Math.floor(((year - 1901) / 10) - 1);
-////                                        String normCode = Integer.toString(temp.intValue());
-////
-////                                        for(int i = normCode.length(); i < 4; i++)
-////                                            normCode = "0" + normCode;
-////
-////                                        find = climDivCode + types.get(type) + normCode;
-////                                    }
-////                                    else
-////                                        find = climDivCode + types.get(type) + year;
-////
-//////                                    System.out.println(find + " Month: " + month + " Type: " + type);
-////                                    while((line = reader.readLine()) != null)
-////                                    {
-////                                        if(line.substring(0, 10).equals(find))
-////                                        {
-//////                                            System.out.println(line);
-//////                                            System.out.println("Data: " + line.substring(month, month + 6));
-////                                            
-////                                            if(!line.substring(month, month + 6).trim().equals("-9.99") && !line.substring(month, month + 6).trim().equals("-99.9"))
-////                                                data.put(type, Double.valueOf(line.substring(month, month + 6).trim()));
-////                                        }
-////                                    }
-////                                }
-////                                catch(Exception ex)
-////                                {
-////                                    ex.printStackTrace();
-////                                }
-////                            }
-////                        }
-////                    
-////                        cal.set(Calendar.YEAR, year);
-////                        cal.set(Calendar.MONTH, monthCode);
-////                        cal.set(Calendar.DAY_OF_MONTH, day);
-////
-////                        java.sql.Date date = new java.sql.Date(cal.getTimeInMillis());
-////                        System.out.println(sdf.format(date));
-////                        
-////                        Table cal_table = access.getTable("SELECT APPID FROM [NSFBeltz2017].[dbo].[CALENDAR_TABLE] WHERE DATE ='" + sdf.format(date)+ "'");
-////                        
-////                        if(cal_table.next())
-////                        {
-////                            cal_table_id = cal_table.getInt("APPID");
-////                        }
-////                        else
-////                        {
-////                            cal_insert = "INSERT INTO [NSFBeltz2017].[dbo].[CALENDAR_TABLE] VALUES ('" + sdf.format(date) + "')";
-////                            System.out.println(cal_insert);
-////                            access.execute(cal_insert);
-////                            
-////                            
-////                        }
-////                        
-////                        System.out.println(cal_table_id);
-////                        if(cal_table_id > 0)
-////                        {
-////                            String sqlString = "INSERT INTO [NSFBeltz2017].[dbo].[CLIMATE] (CLIM_DIV_ID, ~, CALENDAR_TABLE_ID) VALUES (" + climDivCode + ", !" + ", " + cal_table_id + ")";
-////                        
-////                            for(String dataPoint : data.keySet())
-////                            {
-////                                sqlString = sqlString.replaceAll("~", converstions.get(dataPoint) + ", ~").replaceAll("!", data.get(dataPoint) + ", !");
-////                            }
-////
-////                            System.out.println(sqlString.replaceAll(", ~", "").replaceAll(", !", ""));
-////
-////                            access.execute(sqlString.replaceAll(", ~", "").replaceAll(", !", ""));
-////                        }    
-////                    }
-////                }
-////            }
-////        }
-////        catch(Exception ex)
-////        {
-////            ex.printStackTrace();
-////        }
-////    }
-//}
+//    public static void setProcDate()
+//    {
+//        try 
+//        {
+//            String remoteFile1 = "/pub/data/cirs/climdiv/procdate.txt";
+//            File downloadFile1 = File.createTempFile("temp.txt", null);
+//            OutputStream outputStream1 = new BufferedOutputStream(new FileOutputStream(downloadFile1));
+//            boolean success = ftpClient.retrieveFile(remoteFile1, outputStream1);
+//            outputStream1.close();
+//            
+// 
+//            if(success)
+//            {
+//                System.out.println("Proccess date retrieved successfully.");
+//                
+//                try(BufferedReader reader = new BufferedReader(new FileReader(downloadFile1)))
+//                {
+//                    procDate = reader.readLine();
+//                }
+//                catch(Exception ex)
+//                {
+//                    ex.printStackTrace();
+//                }
+//            }
+//            outputStream1.close();
+//        }
+//        catch(Exception ex)
+//        {
+//            ex.printStackTrace();
+//        }
+//    }
+//////    
+//    public static void getFTPFile() 
+//    {
+//        try 
+//        {
+//            SimpleDateFormat sdf = new SimpleDateFormat(
+//                "MM-dd-yyyy");
+//            int day = 1;
+//            Calendar cal = Calendar.getInstance();
+//            
+//            
+//            //access = new Access();
+//            Table climDiv = access.getTable("SELECT CD_ID FROM [NSFCourter2016].[dbo].[CLIMATE_DIV]", new Object[]{});    
+//            
+//            int cal_table_id = 0;
+//            
+//            String cal_insert;
+//            
+//            for(int year = 1895; year <= 2004; year++)
+//            {
+//                for(int month = 11, monthCode = 0; month <= 88; month += 7, monthCode++)
+//                {
+//                    climDiv.setRow(0);
+//                    
+//                    while(climDiv.next())
+//                    {
+//                        HashMap<String, Double> data = new HashMap();
+//                        String climDivCode = Integer.toString(climDiv.getInt("CD_ID"));
+//                        
+//                        climDivCode = climDivCode.length() == 3 ? "0" + climDivCode : climDivCode;
+//                        for(String type : types.keySet())
+//                        {
+//                            if(files.get(type) != null)
+//                            {
+//                                try(BufferedReader reader = new BufferedReader(new FileReader(files.get(type))))
+//                                {
+//                                    String line;
+//
+//                                    String find;
+//                                    if(type.contains("norm"))
+//                                    {
+//                                        Double temp = Math.floor(((year - 1901) / 10) - 1);
+//                                        String normCode = Integer.toString(temp.intValue());
+//
+//                                        for(int i = normCode.length(); i < 4; i++)
+//                                            normCode = "0" + normCode;
+//
+//                                        find = climDivCode + types.get(type) + normCode;
+//                                    }
+//                                    else
+//                                        find = climDivCode + types.get(type) + year;
+//
+////                                    System.out.println(find + " Month: " + month + " Type: " + type);
+//                                    while((line = reader.readLine()) != null)
+//                                    {
+//                                        if(line.substring(0, 10).equals(find))
+//                                        {
+//                                            
+//                                            
+//                                            if(!line.substring(month, month + 6).trim().equals("-9.99") && !line.substring(month, month + 6).trim().equals("-99.9"))
+//                                                data.put(type, Double.valueOf(line.substring(month, month + 6).trim()));
+//                                        }
+//                                    }
+//                                }
+//                                catch(Exception ex)
+//                                {
+//                                    ex.printStackTrace();
+//                                }
+//                            }
+//                        }
+//                    
+//                        cal.set(Calendar.YEAR, year);
+//                        cal.set(Calendar.MONTH, monthCode);
+//                        cal.set(Calendar.DAY_OF_MONTH, day);
+//
+//                        java.sql.Date date = new java.sql.Date(cal.getTimeInMillis());
+//                        System.out.println(sdf.format(date));
+                        
+//                        Table cal_table = access.getTable("SELECT APPID FROM [NSFBeltz2017].[dbo].[CALENDAR_TABLE] WHERE DATE ='" + sdf.format(date)+ "'");
+//                        
+//                        if(cal_table.next())
+//                        {
+//                            cal_table_id = cal_table.getInt("APPID");
+//                        }
+//                        else
+//                        {
+//                            cal_insert = "INSERT INTO [NSFBeltz2017].[dbo].[CALENDAR_TABLE] VALUES ('" + sdf.format(date) + "')";
+//                            System.out.println(cal_insert);
+//                            access.execute(cal_insert);
+//                            
+//                            
+//                        }
+                        
+                        //System.out.println(cal_table_id);
+                        
+//                        String sqlString = "INSERT INTO [NSFCourter2016].[dbo].[CLIMATE] (DATE, CLIM_DIV_ID, ~) VALUES ('" + sdf.format(date) + "', " + climDivCode + ", !" + ")";
+//
+//                        for(String dataPoint : data.keySet())
+//                        {
+//                            sqlString = sqlString.replaceAll("~", converstions.get(dataPoint) + ", ~").replaceAll("!", data.get(dataPoint) + ", !");
+//                        }
+//
+//                        System.out.println(sqlString.replaceAll(", ~", "").replaceAll(", !", ""));
+//
+//                        access.execute(sqlString.replaceAll(", ~", "").replaceAll(", !", ""), new Object[]{});  
+//                    }
+//                }
+//            }
+//        }
+//        catch(Exception ex)
+//        {
+//            ex.printStackTrace();
+//        }
+//    }
+}
