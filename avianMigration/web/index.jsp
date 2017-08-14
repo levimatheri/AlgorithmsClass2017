@@ -60,7 +60,7 @@
                                                                 
                                     <div id="options" onChange="inputOptionChange(event)">
                                         <p style="display: none" id="mainChbxCheck"><font color="red"><b>Check one or more options!</b></font></p>
-                                        <div style="display:inline"><input id="loc_chbx" type="checkbox" value="location" checked> location</div>
+                                        <div style="display:inline"><input id="loc_chbx" type="checkbox" value="location"> location</div>
                                         <div style="display:inline"><input type="checkbox" value="year"> year</div>
                                         <div style="display:inline"><input type="checkbox" value="month"> month</div>
                                         <div id="firstArrive" style="display:none"><input id="checkFirstArrival" type="checkbox" value="firstArrival"> first arrival date</div>                                                           									
