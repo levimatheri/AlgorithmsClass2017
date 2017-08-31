@@ -42,6 +42,7 @@ public class DrawCircle {
     {
         double a = (angle * Math.PI)/180;
         
+        //get polar coordinates
         double dist_x = rad * Math.cos(a);
         double dist_y = rad * Math.sin(a);
         
