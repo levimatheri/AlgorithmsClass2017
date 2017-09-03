@@ -35,7 +35,6 @@ public class TestVisualCounter {
         while(p < operations)
         {
             int mthd = StdRandom.uniform(1, 3);
-            //System.out.println("method: " + mthd);
             chooseOperation(v, mthd);
             p++;
         }

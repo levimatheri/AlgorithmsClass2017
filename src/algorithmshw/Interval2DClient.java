@@ -16,6 +16,7 @@ import edu.princeton.cs.algs4.StdRandom;
  * @author Levi
  */
 public class Interval2DClient {
+    //get random 2d-intervals
     static Interval2D[] getIntervals(int len, double min, double max)
     {
         Interval2D[] intvs = new Interval2D[len]; 
@@ -24,6 +25,7 @@ public class Interval2DClient {
             double x_lo = StdRandom.uniform(min, max);
             double x_hi = StdRandom.uniform(min, max);
             
+            //incase StdRandom chooses an x_lo bigger than x_hi
             if(x_lo > x_hi)
             {
                 double temp = x_hi;
@@ -34,6 +36,7 @@ public class Interval2DClient {
             double y_lo = StdRandom.uniform(min, max);
             double y_hi = StdRandom.uniform(min, max);
             
+            //incase StdRandom chooses an y_lo bigger than y_hi
             if(y_lo > y_hi)
             {
                 double temp = y_hi;
@@ -43,11 +46,13 @@ public class Interval2DClient {
             Interval1D x = new Interval1D(x_lo, x_hi);
             Interval1D y = new Interval1D(y_lo, y_hi);
             
+            //add interval
             intvs[a] = new Interval2D(x, y);
         }
         return intvs;
     }
     
+    //print intervals that intersect
     static void printIntersectContain(Interval2D[] intervals)
     {
         Counter contained = new Counter("intervals contained in one another");
@@ -55,6 +60,7 @@ public class Interval2DClient {
         {
             for(int j = i+1; j <= intervals.length - 1; j++)
             {
+                //increment counter whenever there's an intersection
                 if(intervals[i].intersects(intervals[j]))
                 {
                     contained.increment();

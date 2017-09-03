@@ -15,6 +15,7 @@ import edu.princeton.cs.algs4.StdDraw;
 public class Point2DClient {
     private static final Point2D CENTER = new Point2D(0, 0);
     
+    //position point randomly
     private static Point2D calculatePoint(Point2D center)
     {
         double dx = Math.random();
@@ -40,7 +41,7 @@ public class Point2DClient {
     public static double distanceOfClosest(Point2D[] points)
     {
         double minValue = Double.MAX_VALUE;
-        
+        //compare points and get minValue
         for(int a = 0; a < points.length; a++)
         {
             if((a+1) > points.length - 1)
@@ -55,17 +56,14 @@ public class Point2DClient {
     public static void main(String[] args)
     {
         StdDraw.setPenColor(StdDraw.GRAY);
-//        StdDraw.setXscale(-1, 1);
-//        StdDraw.setYscale(-1, 1);
         StdDraw.setPenRadius(0.01);
         int length = Integer.parseInt(args[0]);
         
         Point2D[] myPoints = getPoints(length);
         
-        for (Point2D myPoint : myPoints) {
-            // System.out.println("myPoints: " + myPoints[j]);
+        for (Point2D myPoint : myPoints)
             myPoint.draw();
-        } 
+        
         System.out.println("Min dist: " + distanceOfClosest(myPoints));
     }
 }

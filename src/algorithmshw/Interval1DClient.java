@@ -23,7 +23,8 @@ public class Interval1DClient {
         Interval1D[] intervals = new Interval1D[noOfPairs];
         
         StdOut.println("Please enter the double pairs");
-                       
+         
+        //get user input for pairs (size=noOfPairs)
         while(StdIn.hasNextLine() && count < noOfPairs)
         {
             String input = StdIn.readString();
@@ -35,6 +36,9 @@ public class Interval1DClient {
             count++;
         }
         
+        //loop through to find intersection of intervals 
+        //O(n^2)?? Not sure because we are not going through 
+        //the entire array for each element
         for(int a = 0; a <= noOfPairs - 2; a++)
         {
             for(int b = a+1; b <= noOfPairs - 1; b++)

@@ -55,7 +55,6 @@ public class VisualCounter {
             }
         }
         System.out.println("decrementing");
-        //System.out.println("Counter tally: " + tally);
     }
     
     public void plotPoint(int c_value)
