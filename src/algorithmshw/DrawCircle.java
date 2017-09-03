@@ -75,26 +75,26 @@ public class DrawCircle {
         }
     }
     
-    public static void main(String[] args) {
-        // TODO code application logic here
-        
-        System.out.println(args[0]);
-        System.out.println(args[1]);
-        //set color
-        StdDraw.setPenColor(StdDraw.GRAY);
-        
-        
-        
-        int N = Integer.parseInt(args[0]);
-        
-        Point2D center = new Point2D(0.5, 0.5);
-        
-        double rad = 0.5;
-        
-        Point2D[] pts = getPoints(N, center, rad);
-        double probability = Double.parseDouble(args[1]);
-        random(pts, probability);
-       
-    }
+//    public static void main(String[] args) {
+//        // TODO code application logic here
+//        
+//        System.out.println(args[0]);
+//        System.out.println(args[1]);
+//        //set color
+//        StdDraw.setPenColor(StdDraw.GRAY);
+//        
+//        
+//        
+//        int N = Integer.parseInt(args[0]);
+//        
+//        Point2D center = new Point2D(0.5, 0.5);
+//        
+//        double rad = 0.5;
+//        
+//        Point2D[] pts = getPoints(N, center, rad);
+//        double probability = Double.parseDouble(args[1]);
+//        random(pts, probability);
+//       
+//    }
     
 }

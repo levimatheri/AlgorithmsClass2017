@@ -6,27 +6,19 @@
 package algorithmsprograms;
 
 import edu.princeton.cs.algs4.In;
-import edu.princeton.cs.algs4.StdOut;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
-import java.util.Map.Entry;
-import java.util.function.Consumer;
 
 /**
  *
  * @author Levi
  */
 public class Program1 {
-    private static final HashMap<Integer, Integer> GROUPS = new HashMap<>();
+    static final HashMap<Integer, Integer> GROUPS = new HashMap<>();
     
     static HashMap<Integer, ArrayList<Integer>> groupings;
     
-    private static int newGroup = 1;
+    static int newGroup = 1;
     
    
 //    public static List<ArrayList<Integer>> getGroups(In txt)
@@ -81,7 +73,7 @@ public class Program1 {
 //        return groups;
 //    }
     
-    public static void getGroups(In txt)
+    static void getGroups(In txt)
     {
         while(txt.hasNextLine())
         {
@@ -110,7 +102,7 @@ public class Program1 {
         }   
     }
     
-    public static HashMap<Integer, ArrayList<Integer>> getGroupings(HashMap<Integer, Integer> groupMap)
+    static HashMap<Integer, ArrayList<Integer>> getGroupings(HashMap<Integer, Integer> groupMap)
     {
         groupings = new HashMap<>();
         groupMap.entrySet().stream().forEach((entry) -> {
@@ -129,7 +121,7 @@ public class Program1 {
         return groupings;
     }
     
-    public static void printGroupings(HashMap<Integer, ArrayList<Integer>> myGroups)
+    static void printGroupings(HashMap<Integer, ArrayList<Integer>> myGroups)
     {
         myGroups.values().stream().forEach((ArrayList<Integer> items) -> {
             System.out.println("groups: " + items);
@@ -137,7 +129,7 @@ public class Program1 {
     }
     
    
-    public static boolean isInSameGroup(int item1_index, int item2_index)
+    static boolean isInSameGroup(int item1_index, int item2_index)
     {
 //        for(ArrayList<Integer> group : groupsList)
 //        {
