@@ -22,8 +22,8 @@ public class Program1_1 {
         //test with small samples to make sure it works correctly.
         //int[][] groups = new int[length + 1][length + 1]; 
         int groupCount = 0;
-        indexPosInGroup = new String[length + 1]; //keep this
-        int[] insertedItems = new int[length + 1];
+        indexPosInGroup = new String[length]; //keep this
+        int[] insertedItems = new int[length];
         initializeArray(insertedItems);
         
         //System.out.println("Inserted items: " + Arrays.toString(insertedItems));
@@ -112,6 +112,6 @@ public class Program1_1 {
         
         System.out.println("no of groups: " + noOfGroups);
         
-        System.out.println("2802 and 4103. Same group? " + areInSameGroup(2802, 4103));
+        System.out.println("64 and 2477. Same group? " + areInSameGroup(64, 2477));
     }
 }
