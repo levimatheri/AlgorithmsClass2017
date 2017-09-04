@@ -12,11 +12,15 @@ import edu.princeton.cs.algs4.In;
  * @author Levi
  */
 public class Program1_1 {
+    //indexPosInGroup tracks position of the elements in the "groups"
     private static String[] indexPosInGroup;
     private static int groups(In pairs)
     {
         int length = Integer.parseInt(pairs.readLine());
-        //int[][] groups = new int[length + 1][length + 1];
+        
+        //keeping this will lead to out of memory error. 
+        //test with small samples to make sure it works correctly.
+        //int[][] groups = new int[length + 1][length + 1]; 
         int groupCount = 0;
         indexPosInGroup = new String[length + 1]; //keep this
         int[] insertedItems = new int[length + 1];
