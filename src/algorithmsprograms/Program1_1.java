@@ -20,7 +20,7 @@ public class Program1_1 {
         
         //keeping this will lead to out of memory error. 
         //test with small samples to make sure it works correctly.
-        //int[][] groups = new int[length + 1][length + 1]; 
+        //int[][] groups = new int[length][length]; 
         int groupCount = 0;
         indexPosInGroup = new String[length]; //keep this
         int[] insertedItems = new int[length];
