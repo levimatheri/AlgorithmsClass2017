@@ -17,9 +17,16 @@ import edu.princeton.cs.algs4.StdRandom;
  */
 public class Interval2DClient {
     //get random 2d-intervals
+    
+    static Interval1D[] oneDimX;
+    static Interval1D[] oneDimY;
     static Interval2D[] getIntervals(int len, double min, double max)
     {
         Interval2D[] intvs = new Interval2D[len]; 
+        
+        oneDimX = new Interval1D[len];
+        oneDimY = new Interval1D[len];
+        
         for(int a = 0; a < len; a++)
         {
             double x_lo = StdRandom.uniform(min, max);
@@ -46,6 +53,9 @@ public class Interval2DClient {
             Interval1D x = new Interval1D(x_lo, x_hi);
             Interval1D y = new Interval1D(y_lo, y_hi);
             
+            oneDimX[a] = x;
+            oneDimY[a] = y;
+            
             //add interval
             intvs[a] = new Interval2D(x, y);
         }
@@ -55,22 +65,30 @@ public class Interval2DClient {
     //print intervals that intersect
     static void printIntersectContain(Interval2D[] intervals)
     {
-        Counter contained = new Counter("intervals contained in one another");
+        Counter intersects = new Counter("intervals intersects in one another");
+        Counter contains = new Counter("intervals contained in one another");
         for(int i = 0; i <= intervals.length - 2; i++)
         {
             for(int j = i+1; j <= intervals.length - 1; j++)
             {
-                //increment counter whenever there's an intersection
+                //increment intersects whenever there's an intersection
                 if(intervals[i].intersects(intervals[j]))
                 {
-                    contained.increment();
+                    intersects.increment();
                     StdOut.println(intervals[i] + " intersects with " 
                     + intervals[j]);
                 }
+                
+                //increment contains
+                if((oneDimX[i].min() <= oneDimX[j].min() && oneDimX[i].max() >= 
+                        oneDimX[j].max()) && (oneDimY[i].min() <= oneDimY[j].min() 
+                        && oneDimY[i].max() >= oneDimY[j].max()))
+                    contains.increment();
             }
         }
         
-        StdOut.println(contained);
+        StdOut.println(intersects);
+        StdOut.println(contains);
     }
     
     

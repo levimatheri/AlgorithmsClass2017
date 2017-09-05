@@ -6,6 +6,7 @@
 package algorithmsprograms;
 
 import edu.princeton.cs.algs4.In;
+import java.util.Arrays;
 
 /**
  *
@@ -14,16 +15,22 @@ import edu.princeton.cs.algs4.In;
 public class Program1_1 {
     //indexPosInGroup tracks position of the elements in the "groups"
     private static String[] indexPosInGroup;
-    private static int groups(In pairs)
+    
+    private static String[] groups;
+    
+    
+    private static String[] getGroups(In pairs)
     {
         int length = Integer.parseInt(pairs.readLine());
         
+        //System.out.println("Length: " + length);
         //keeping this will lead to out of memory error. 
         //test with small samples to make sure it works correctly.
         //int[][] groups = new int[length][length]; 
+        groups = new String[length + 1];
         int groupCount = 0;
-        indexPosInGroup = new String[length]; //keep this
-        int[] insertedItems = new int[length];
+        indexPosInGroup = new String[length + 1]; //keep this
+        int[] insertedItems = new int[length + 1];
         initializeArray(insertedItems);
         
         //System.out.println("Inserted items: " + Arrays.toString(insertedItems));
@@ -47,11 +54,13 @@ public class Program1_1 {
                 {
                     insertedItems[first] = first;
                     //groups[first][first] = first; 
+                    groups[first] = String.valueOf(first); 
                     groupCount++;
                     indexPosInGroup[first] = first + "," + first;
                     
                     insertedItems[second] = second;
                     //groups[first][second] = second;
+                    groups[first] += "," + String.valueOf(second);
                     indexPosInGroup[second] = second + "," + first;
                 }
                 else
@@ -61,6 +70,7 @@ public class Program1_1 {
                     
                     insertedItems[first] = first;
                     //groups[groupNumber][first] = first; 
+                    groups[groupNumber] += "," + String.valueOf(first);
                     indexPosInGroup[first] = first + "," + groupNumber;
                 }
             }
@@ -72,14 +82,36 @@ public class Program1_1 {
                 {
                     insertedItems[second] = second;
                     //groups[groupNumber][second] = second;
+                    groups[groupNumber] += "," + String.valueOf(second);
                     indexPosInGroup[second] = second + "," + groupNumber;
                 }
             }
         }
-        return groupCount;
+        return groups;
     }
     
-    private static String areInSameGroup(int index1, int index2)
+    private static void join(int a, int b)
+    {
+        int aGroupPos = Integer.parseInt(indexPosInGroup[a].split(",")[1]);
+        int bGroupPos = Integer.parseInt(indexPosInGroup[b].split(",")[1]);
+        
+        groups[aGroupPos] += "," + groups[bGroupPos];
+        groups[bGroupPos] = null;
+    }
+    
+    private static int numGroups(String[] groups)
+    {
+        int count = 0;
+        
+        for(String group : groups)
+        {
+            if(group != null)
+                count++;
+        }
+        return count;
+    }
+    
+    private static String inSameGroup(int index1, int index2)
     {
         try
         {
@@ -108,10 +140,18 @@ public class Program1_1 {
     {
         In file = new In(args[0]);
         
-        int noOfGroups = groups(file);
+        String[] g = getGroups(file);
         
-        System.out.println("no of groups: " + noOfGroups);
+        for(String group : g)
+        {
+            if(group != null)
+                System.out.println("Group: " + group);
+        }
+        System.out.println("Groups count: " + numGroups(g));
         
-        System.out.println("64 and 2477. Same group? " + areInSameGroup(64, 2477));
+        //System.out.println("no of groups: " + noOfGroups);
+        
+        System.out.println("2 and 4. Same group? " + inSameGroup(2, 4));
+        
     }
 }
