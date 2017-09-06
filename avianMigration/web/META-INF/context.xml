@@ -1,4 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<Context antiJARLocking="true" path="/avianMigration">
-  <Resource auth="Container" driverClassName="com.microsoft.sqlserver.jdbc.SQLServerDriver" maxIdle="30" maxTotal="100" maxWaitMillis="10000" name="jdbc/TestDB" password="German!Scott!Invasion18" type="javax.sql.DataSource" url="jdbc:sqlserver://srv-david:8133" username="nsfcourtertomcat"/>
-</Context>
