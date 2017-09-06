@@ -22,7 +22,7 @@ public class Point2DClient {
         double dy = Math.random();
         
         Point2D point = new Point2D(center.x() + dx, center.x() + dy);
-        System.out.println("point " + point);
+        //System.out.println("point " + point);
         return point;
     }
     
@@ -55,14 +55,14 @@ public class Point2DClient {
     
     public static void main(String[] args)
     {
-        StdDraw.setPenColor(StdDraw.GRAY);
-        StdDraw.setPenRadius(0.01);
+////        StdDraw.setPenColor(StdDraw.GRAY);
+////        StdDraw.setPenRadius(0.01);
         int length = Integer.parseInt(args[0]);
         
         Point2D[] myPoints = getPoints(length);
         
-        for (Point2D myPoint : myPoints)
-            myPoint.draw();
+//        for (Point2D myPoint : myPoints)
+//            myPoint.draw();
         
         System.out.println("Min dist: " + distanceOfClosest(myPoints));
     }

@@ -6,7 +6,6 @@
 package algorithmsprograms;
 
 import edu.princeton.cs.algs4.In;
-import java.util.Arrays;
 
 /**
  *
@@ -76,15 +75,25 @@ public class Program1_1 {
             }
             else
             {
-                int groupNumber = Integer.parseInt(
+                int groupNumberFirst = Integer.parseInt(
                         indexPosInGroup[first].split(",")[1]);
                 if(insertedItems[second] == -1)
                 {
                     insertedItems[second] = second;
                     //groups[groupNumber][second] = second;
-                    groups[groupNumber] += "," + String.valueOf(second);
-                    indexPosInGroup[second] = second + "," + groupNumber;
+                    groups[groupNumberFirst] += "," + String.valueOf(second);
+                    indexPosInGroup[second] = second + "," + groupNumberFirst;
                 }
+                else
+                {
+                    int groupNumberSecond = Integer.parseInt(indexPosInGroup[second].split(",")[1]);
+                    
+                    if(groupNumberFirst != groupNumberSecond)
+                    {
+                        //System.out.println("First " + first + " Second " + second);
+                        join(first, second);
+                    }                
+                } 
             }
         }
         return groups;
@@ -96,7 +105,12 @@ public class Program1_1 {
         int bGroupPos = Integer.parseInt(indexPosInGroup[b].split(",")[1]);
         
         groups[aGroupPos] += "," + groups[bGroupPos];
-        groups[bGroupPos] = null;
+        
+        //System.out.println(groups[bGroupPos]);
+        for(String item : groups[bGroupPos].split(","))
+            indexPosInGroup[Integer.parseInt(item)] = item + "," + String.valueOf(aGroupPos);
+        
+        groups[bGroupPos] = null;      
     }
     
     private static int numGroups(String[] groups)
@@ -149,9 +163,7 @@ public class Program1_1 {
         }
         System.out.println("Groups count: " + numGroups(g));
         
-        //System.out.println("no of groups: " + noOfGroups);
-        
-        System.out.println("2 and 4. Same group? " + inSameGroup(2, 4));
+        System.out.println("29 and 89. Same group? " + inSameGroup(29, 89));
         
     }
 }
