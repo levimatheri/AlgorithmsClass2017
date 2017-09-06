@@ -1,4 +1,0 @@
-Design thoughts for Avian project:
-
-Colours? Need to decide. Talk to peeps.
-Fix bug with navebar active links.
