@@ -6,22 +6,13 @@
 package edu.malone.avianmigration.sql;
 
 import java.awt.Color;
-import java.awt.Graphics2D;
-import java.awt.geom.AffineTransform;
-import java.awt.image.BufferedImage;
-import java.awt.image.IndexColorModel;
-import java.io.BufferedOutputStream;
-import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
-import java.io.IOException;
 import java.io.OutputStream;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.Base64;
 import java.util.List;
 import java.util.Random;
 import java.util.concurrent.ExecutorService;
@@ -30,7 +21,6 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.activation.CommandMap;
 import javax.activation.MailcapCommandMap;
-import javax.imageio.ImageIO;
 //import edu.malone.avianmigration.utilities.AnimatedGifEncoder;
 import edu.malone.avianmigration.utilities.ServletFunctions;
 import org.apache.commons.compress.utils.IOUtils;
@@ -127,15 +117,9 @@ public class FileManipulator {
     {
         try 
         {
-            Table userId = Access.getInstance().getTable("SELECT USER_NAME FROM NSFServiceProvider.dbo.USERS WHERE USER_NAME = ?", new Object[]{user}, "sp");
-            if(userId.next())
-            {
-                System.out.println("UPDATE NSFServiceProvider.dbo.FILES SET DATE = GETDATE() WHERE FILE_ID = " + id + " AND USER_NAME = " + userId.getInt("USER_NAME"));
-                Access.getInstance().execute("UPDATE NSFServiceProvider.dbo.FILES SET DATE = GETDATE() WHERE FILE_ID = ? AND USER_NAME = ?", new Object[]{id, userId.getInt("USER_NAME")}, "sp");
+                System.out.println("UPDATE NSFServiceProvider.dbo.FILES SET DATE = GETDATE() WHERE FILE_ID = " + id + " AND USER_NAME = " + user);
+                Access.getInstance().execute("UPDATE NSFServiceProvider.dbo.FILES SET DATE = GETDATE() WHERE FILE_ID = ? AND USER_NAME = ?", new Object[]{id, user}, "sp");
                 return true;
-            }
-            else
-                return false;
         }
         catch (Exception ex)
         {
@@ -154,18 +138,12 @@ public class FileManipulator {
     {
         try
         {
-            Table userId = Access.getInstance().getTable("SELECT APPID FROM NSFServiceProvider.dbo.USERS WHERE USER_NAME = ?", new Object[]{user}, "sp");
-            if(userId.next())
-            {
-                int value = Access.getInstance().execute("DELETE FROM NSFServiceProvider.dbo.FILES WHERE [FILE_ID]= ? AND USER_ID = ?", new Object[]{id, userId.getInt("APPID")}, "sp");
+                int value = Access.getInstance().execute("DELETE FROM NSFServiceProvider.dbo.FILES WHERE [FILE_ID]= ? AND USER_NAME = ?", new Object[]{id, user}, "sp");
                 Logger.getLogger(FileManipulator.class.getName()).log(Level.INFO, "Access returned {0}", value);
 
                 File myFile = new File("C:\\Server Files\\" + projectName + "\\" + id + "." + type);
 
                 return myFile.delete();
-            }
-            else
-                return false;
         } 
         catch (Exception ex) 
         {
@@ -185,10 +163,7 @@ public class FileManipulator {
         {
             //ABS(DATEDIFF(DAY, DATEADD(DD, 7, DATE), GETDATE())) AS NEXT_DATE returns the number of days until the file expires.
             //The expiration date is set to 7 days right now.
-            Table filesTable = Access.getInstance().getTable("SELECT M.* FROM "
-                                + "(SELECT *, ABS(DATEDIFF(DAY, DATEADD(DD, 7, DATE), GETDATE())) AS NEXT_DATE FROM NSFServiceProvider.dbo.FILES) AS M, "
-                                + "(SELECT APPID FROM NSFServiceProvider.dbo.USERS WHERE USER_NAME = ?) AS N "
-                            + "WHERE M.USER_ID = N.APPID", new Object[]{user}, "sp");
+            Table filesTable = Access.getInstance().getTable("SELECT *, ABS(DATEDIFF(DAY, DATEADD(DD, 7, DATE), GETDATE())) AS NEXT_DATE FROM NSFServiceProvider.dbo.FILES WHERE USER_NAME = ?", new Object[]{user}, "sp");
             JSONArray files = new JSONArray();
 
             while(filesTable.next())
@@ -229,19 +204,13 @@ public class FileManipulator {
     {
         try 
         {
-            Table userId = Access.getInstance().getTable("SELECT APPID FROM NSFServiceProvider.dbo.USERS WHERE USER_NAME = ?", new Object[]{user}, "sp");
-            if(userId.next())
-            {
-                int value;
-                if(auto)
-                    value = Access.getInstance().execute("UPDATE NSFServiceProvider.dbo.FILES SET AUTO_REFRESH = CAST(1 AS BIT) WHERE FILE_ID = ? AND USER_ID = ?", new Object[]{id, userId.getInt("APPID")}, "sp");
-                else
-                    value = Access.getInstance().execute("UPDATE NSFServiceProvider.dbo.FILES SET AUTO_REFRESH = CAST(0 AS BIT) WHERE FILE_ID = ? AND USER_ID = ?", new Object[]{id, userId.getInt("APPID")}, "sp");
-                
-                Logger.getLogger(FileManipulator.class.getName()).log(Level.INFO, "Access returned {0}", value);
-            }
+            int value;
+            if(auto)
+                value = Access.getInstance().execute("UPDATE NSFServiceProvider.dbo.FILES SET AUTO_REFRESH = CAST(1 AS BIT) WHERE FILE_ID = ? AND USER_NAME = ?", new Object[]{id, user}, "sp");
             else
-                return false;
+                value = Access.getInstance().execute("UPDATE NSFServiceProvider.dbo.FILES SET AUTO_REFRESH = CAST(0 AS BIT) WHERE FILE_ID = ? AND USER_NAME = ?", new Object[]{id, user}, "sp");
+
+            Logger.getLogger(FileManipulator.class.getName()).log(Level.INFO, "Access returned {0}", value);
             
             return true;
         }
@@ -264,14 +233,14 @@ public class FileManipulator {
     {
         try
         {
-            Table userTable = Access.getInstance().getTable("SELECT USER_NAME, EMAIL FROM NSFServiceProvider.dbo.USERS WHERE USER_NAME = ?", new Object[]{user}, "sp");
+            Table userTable = Access.getInstance().getTable("SELECT EMAIL FROM NSFServiceProvider.dbo.USERS WHERE USER_NAME = ?", new Object[]{user}, "sp");
             
             if(userTable.next())
             {
                 switch(type)
                 {
-                    case "png":
-                        return buildPng(data.toString(),  userTable.getString("EMAIL"), user, userTable.getInt("APPID"));
+//                    case "png":
+//                        return buildPng(data.toString(),  userTable.getString("EMAIL"), user);
                     case "xlsx":
                         Table results = (Table) data;
                         int files = (int) Math.ceil((results.numberOfRows() * results.getColumnCount()) / (double) numberOfCells);
@@ -285,18 +254,25 @@ public class FileManipulator {
 
                                 SHEETS.submit(() -> 
                                 {
-                                    buildSheet(table, user, user + "" + System.nanoTime() + "" + new Random().nextInt(1500), fileName);
+                                    try
+                                    {
+                                        buildSheet(table, user,  userTable.getString("EMAIL"), user + "" + System.nanoTime() + "" + new Random().nextInt(1500), fileName);
+                                    }
+                                    catch(SQLException ex)
+                                    {
+                                        Logger.getLogger(FileManipulator.class.getName()).log(Level.SEVERE, null, ex);
+                                    }
                                 });
                             }
                         }
                         else
                         {
-                            buildSheet(results, user, user + "" + System.nanoTime(), "file");
+                            buildSheet(results, user,  userTable.getString("EMAIL"), user + "" + System.nanoTime(), "file");
                         }
                         return null;
 //                    case "gif":
 //                        Object[] temp = (Object[]) data;
-//                        return buildGif(user, userTable.getInt("APPID"), (String[]) temp[0], (boolean) temp[1]);
+//                        return buildGif(user, userTable.getString("EMAIL"), (String[]) temp[0], (boolean) temp[1]);
                     default:
                         return null;
                 }
@@ -311,7 +287,7 @@ public class FileManipulator {
         }
     }
     
-    private void buildSheet(Table results, String user, String fileName, String fileNumber)
+    private void buildSheet(Table results, String user, String email, String fileName, String fileNumber)
     {
         try(XSSFWorkbook wb = new XSSFWorkbook())
         {
@@ -440,30 +416,26 @@ public class FileManipulator {
                     sheet.autoSizeColumn(n);
             }
             
-            Table userInfo = Access.getInstance().getTable("SELECT APPID, EMAIL FROM NSFServiceProvider.dbo.USERS WHERE USER_NAME = ?", new Object[]{user}, "sp");
-            if(userInfo.next())
+            if(!checkExcelDoc(wb, user))
             {
-                if(!checkExcelDoc(wb, user))
+                failedSendMail(email, "excel sheet", "The sheet would go over the your data limit.");
+            }
+            else
+            {
+                File output = new File("C:\\Server Files\\avianMigration\\" + fileName + ".xlsx");
+
+                try(FileOutputStream out = new FileOutputStream(output))
                 {
-                    failedSendMail(userInfo.getString("EMAIL"), "excel sheet", "The sheet would go over the your data limit.");
+                    wb.write(out);
+
+                    Access.getInstance().execute("INSERT INTO NSFServiceProvider.dbo.FILES (FILE_ID, AUTO_REFRESH, FILE_NAME, FILE_TYPE, DATE, USER_NAME, SIZE, PROJECT_NAME) VALUES (?, CAST(0 AS BIT), ?, 'xlsx', GETDATE(), ?, ?, ?)", new Object[]{fileName, fileNumber, user, calcFileSize(output), projectName}, "sp");
+
+                    successSendEmail(email);
                 }
-                else
+                catch(Exception ex)
                 {
-                    File output = new File("C:\\Server Files\\WestNileSpread\\" + fileName + ".xlsx");
-
-                    try(FileOutputStream out = new FileOutputStream(output))
-                    {
-                        wb.write(out);
-
-                        Access.getInstance().execute("INSERT INTO NSFServiceProvider.dbo.FILES (FILE_ID, AUTO_REFRESH, FILE_NAME, FILE_TYPE, DATE, USER_ID, SIZE, PROJECT_NAME) VALUES (?, CAST(0 AS BIT), ?, 'xlsx', GETDATE(), ?, ?, ?)", new Object[]{fileName, fileNumber, userInfo.getInt("APPID"), calcFileSize(output), projectName}, "sp");
-
-                        successSendEmail(userInfo.getString("EMAIL"));
-                    }
-                    catch(Exception ex)
-                    {
-                        failedSendMail(userInfo.getString("EMAIL"), "excel sheet", "Failed to save the sheet.");
-                        Logger.getLogger(FileManipulator.class.getName()).log(Level.SEVERE, null, ex);
-                    }
+                    failedSendMail(email, "excel sheet", "Failed to save the sheet.");
+                    Logger.getLogger(FileManipulator.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
         }
@@ -634,14 +606,8 @@ public class FileManipulator {
     {
         try 
         {
-            Table userId = Access.getInstance().getTable("SELECT APPID FROM NSFServiceProvider.dbo.USERS WHERE USER_NAME = ?", new Object[]{user}, "sp");
-            if(userId.next())
-            {
-                Access.getInstance().execute("UPDATE NSFServiceProvider.dbo.FILES SET FILE_NAME = ? WHERE FILE_ID = ?, AND USER_ID = ?", new Object[]{name, id, userId.getInt("APPID")}, "sp");
-                return true;
-            }
-            else
-                return false;
+            Access.getInstance().execute("UPDATE NSFServiceProvider.dbo.FILES SET FILE_NAME = ? WHERE FILE_ID = ? AND USER_NAME = ?", new Object[]{name, id, user}, "sp");
+            return true;
         }
         catch (Exception ex) 
         {
@@ -688,18 +654,14 @@ public class FileManipulator {
     {
         try
         {
-            Table userId = Access.getInstance().getTable("SELECT APPID FROM NSFServiceProvider.dbo.USERS WHERE USER_NAME = ?", new Object[]{user}, "sp");
-            if(userId.next())
+            Table userScope = Access.getInstance().getTable("SELECT GROUP_ID FROM NSFServiceProvider.dbo." + tableName + " WHERE USER_NAME = ?", new Object[]{user}, "sp");
+
+            if(userScope.next())
             {
-                Table userScope = Access.getInstance().getTable("SELECT SCOPE_ID FROM NSFServiceProvider.dbo." + tableName + " WHERE USER_ID = ?", new Object[]{userId.getInt("APPID")}, "sp");
+                Table scopeSize = Access.getInstance().getTable("SELECT MB_CAP FROM NSFServiceProvider.dbo.GROUPS WHERE APPID = ?", new Object[]{userScope.getInt("GROUP_ID")}, "sp");
 
-                if(userScope.next())
-                {
-                    Table scopeSize = Access.getInstance().getTable("SELECT MB_CAP FROM NSFServiceProvider.dbo.SCOPE WHERE APPID = ?", new Object[]{userScope.getInt("SCOPE_ID")}, "sp");
-
-                    if(scopeSize.next())
-                        return scopeSize.getInt("MB_CAP");
-                }
+                if(scopeSize.next())
+                    return scopeSize.getInt("MB_CAP");
             }
         }
         catch (Exception ex) 
@@ -718,18 +680,13 @@ public class FileManipulator {
     {
         try
         {
-            Table userId = Access.getInstance().getTable("SELECT APPID FROM NSFServiceProvider.dbo.USERS WHERE USER_NAME = ?", new Object[]{user}, "sp");
-
-            if(userId.next())
+            Table total = Access.getInstance().getTable("SELECT SUM(SIZE) AS TOTAL_SIZE FROM NSFServiceProvider.dbo.FILES WHERE USER_NAME = ? AND PROJECT_NAME = ?", new Object[]{user, projectName}, "sp");
+            if(total.next())
             {
-                Table total = Access.getInstance().getTable("SELECT SUM(SIZE) AS TOTAL_SIZE FROM NSFServiceProvider.dbo.FILES WHERE USER_ID = ? AND PROJECT_NAME = ?", new Object[]{userId.getInt("APPID"), projectName}, "sp");
-                if(total.next())
-                {
-                    if(total.getDouble("TOTAL_SIZE") != null)
-                        return total.getDouble("TOTAL_SIZE");
-                    else 
-                        return 0.0;
-                }
+                if(total.getDouble("TOTAL_SIZE") != null)
+                    return total.getDouble("TOTAL_SIZE");
+                else 
+                    return 0.0;
             }
         } 
         catch (Exception ex) 
@@ -779,28 +736,28 @@ public class FileManipulator {
      * @throws IOException
      * @throws SQLException 
      */
-    private File buildPng(String data, String email, String user, int userID) throws IOException, SQLException
-    {
-        
-        byte[] imageBytes = Base64.getDecoder().decode(data);
-        BufferedImage inputImage = ImageIO.read(new ByteArrayInputStream(imageBytes));
-        String fileName = user + "" + System.nanoTime();
-        File outputFile = new File("C:\\Server Files\\" + projectName + "\\" + fileName + ".png");
-        ImageIO.write(inputImage, "png", outputFile);
-
-        if(checkFile(user, outputFile))
-            Access.getInstance().execute("INSERT INTO NSFServiceProvider.dbo.FILES (FILE_ID, AUTO_REFRESH, FILE_NAME, FILE_TYPE, DATE, USER_ID, SIZE, PROJECT_NAME) VALUES (?, CAST(0 AS BIT), ?, 'png', GETDATE(), ?, ?, ?)", new Object[]{fileName, fileName, userID, calcFileSize(outputFile), projectName}, "sp");
-        else
-        {
-            failedSendMail(email, "png file", "Creating the file out go over your data limit.");
-            
-            if(outputFile.delete())
-                return null;
-            else
-                throw new FileNotFoundException("File:" + outputFile.getCanonicalPath() + " was not successfully deleted.");
-        }
-        return outputFile;
-    }
+//    private File buildPng(String data, String email, String user) throws IOException, SQLException
+//    {
+//        
+//        byte[] imageBytes = Base64.getDecoder().decode(data);
+//        BufferedImage inputImage = ImageIO.read(new ByteArrayInputStream(imageBytes));
+//        String fileName = user + "" + System.nanoTime();
+//        File outputFile = new File("C:\\Server Files\\" + projectName + "\\" + fileName + ".png");
+//        ImageIO.write(inputImage, "png", outputFile);
+//
+//        if(checkFile(user, outputFile))
+//            Access.getInstance().execute("INSERT INTO NSFServiceProvider.dbo.FILES (FILE_ID, AUTO_REFRESH, FILE_NAME, FILE_TYPE, DATE, USER_NAME, SIZE, PROJECT_NAME) VALUES (?, CAST(0 AS BIT), ?, 'png', GETDATE(), ?, ?, ?)", new Object[]{fileName, fileName, user, calcFileSize(outputFile), projectName}, "sp");
+//        else
+//        {
+//            failedSendMail(email, "png file", "Creating the file out go over your data limit.");
+//            
+//            if(outputFile.delete())
+//                return null;
+//            else
+//                throw new FileNotFoundException("File:" + outputFile.getCanonicalPath() + " was not successfully deleted.");
+//        }
+//        return outputFile;
+//    }
     
     /**
      * Build a gif file for the user.
@@ -812,7 +769,7 @@ public class FileManipulator {
      * @throws IOException
      * @throws SQLException 
      */
-//    public File buildGif(String user, int userID, String[] names, boolean deleteFiles) throws IOException, SQLException
+//    public File buildGif(String user, String email, String[] names, boolean deleteFiles) throws IOException, SQLException
 //    {
 //        String fileName = user + "" + System.nanoTime();
 //        File file = new File("C:\\Server Files\\" + projectName + "\\" + fileName + ".gif");
@@ -850,10 +807,10 @@ public class FileManipulator {
 //        }
 //            
 //        if(checkFile(user, file))
-//            Access.getInstance().execute("INSERT INTO NSFServiceProvider.dbo.FILES (FILE_ID, AUTO_REFRESH, FILE_NAME, FILE_TYPE, DATE, USER_ID, SIZE, PROJECT_NAME) VALUES (?, CAST(0 AS BIT), ?, 'gif', GETDATE(), ?, ?, ?)", new Object[]{fileName, fileName, userID, calcFileSize(file), projectName}, "sp");
+//            Access.getInstance().execute("INSERT INTO NSFServiceProvider.dbo.FILES (FILE_ID, AUTO_REFRESH, FILE_NAME, FILE_TYPE, DATE, USER_NAME, SIZE, PROJECT_NAME) VALUES (?, CAST(0 AS BIT), ?, 'gif', GETDATE(), ?, ?, ?)", new Object[]{fileName, fileName, user, calcFileSize(file), projectName}, "sp");
 //        else
 //        {
-//            failedSendMail(user, "gif file", "Creating this file would go over your data limit.");
+//            failedSendMail(email, "gif file", "Creating this file would go over your data limit.");
 //            
 //            if(file.delete())
 //                return null;
@@ -862,14 +819,14 @@ public class FileManipulator {
 //        }
 //        return file;
 //    }
-    
-    /**
-     * File from the server must be converted to a usable format before they 
-     * can be made into a gif.
-     * @param image The png file to be converted.
-     * @param colors The array of int rgb values to asssine. 
-     * @return A converted image.
-     */
+//    
+//    /**
+//     * File from the server must be converted to a usable format before they 
+//     * can be made into a gif.
+//     * @param image The png file to be converted.
+//     * @param colors The array of int rgb values to asssine. 
+//     * @return A converted image.
+//     */
 //    public BufferedImage makeCompatible(BufferedImage image, int[] colors) 
 //    {
 //        int w = image.getWidth();

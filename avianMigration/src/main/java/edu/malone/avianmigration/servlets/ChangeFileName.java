@@ -33,6 +33,7 @@ public class ChangeFileName extends HttpServlet
         {
             if(request.getParameter("name") != null && request.getParameter("id") != null)
             {
+                System.out.println("C");
                 String newFileName = request.getParameter("name");
                 String fileId = request.getParameter("id");
                 FileManipulator.getInstance().changeFileName(newFileName, fileId, user);
