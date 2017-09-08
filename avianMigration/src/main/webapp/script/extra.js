@@ -205,6 +205,32 @@ function onHistRadioClick() {
 
 //When the user wants to add a Lat Long square area to the list.
 function addLatLongRow() {
+    var latStart = document.getElementById('latStart').value;
+    var latStop = document.getElementById('latStop').value;
+    
+    var longStart = document.getElementById('longStart').value;
+    var longStop = document.getElementById('longStop').value;
+    
+    if(latStop < latStart)
+    {
+        alert("Latitude start/stop is invalid!");
+        document.getElementById('latStop').value = "";
+        document.getElementById('latStart').value = "";
+        return;
+    }
+    if(longStop < longStart)
+    {
+        alert("Longitude start/stop is invalid!");
+        document.getElementById('longStop').value = "";
+        document.getElementById('longStart').value = "";
+        return;
+    }
+    
+    if(latStart === "" || latStop === "" || longStart === "" || longStop === "")
+    {
+        alert("One or more of the inputs is empty");
+        return;
+    }
     //Create and insert a new row into the lat long table.
     var row = document.getElementById('latLongInputTable').insertRow(document.getElementById('latLongInputTable').rows.length);
 
