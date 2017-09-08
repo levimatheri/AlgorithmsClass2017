@@ -647,6 +647,7 @@ function refreshDownloads()
 //            //console.log(div);
 //        }
         
+        console.log("Files: " + data);
         
         var myArr = JSON.parse(data);
         if (myArr) 
@@ -720,7 +721,7 @@ function refreshDownloads()
                 var download = document.createElement("input");
                 download.setAttribute("type", "button");
                 download.setAttribute("value", "download");
-                download.setAttribute("onclick", "downloadFile(event, '" + myArr[index]["id"] + "')"); //Will call the database to download the file and give it the currect name.
+                download.setAttribute("onclick", "downloadFile(event, '" + myArr[index]["id"] + "', '" + myArr[index]["type"] + "')"); //Will call the database to download the file and give it the currect name.
                 cell.appendChild(download);
                 
                 //row.insertCell(6).innerHTML = "<input type='button' value='download' onclick=downloadFile(event, '" + myArr[index]["id"] + "')>";
@@ -731,7 +732,7 @@ function refreshDownloads()
                 var deleteButton = document.createElement("input");
                 deleteButton.setAttribute("type", "button");
                 deleteButton.setAttribute("value", "delete");
-                deleteButton.setAttribute("onclick", "deleteFile('" + myArr[index]["id"] + "')"); //Will call database to delete the row, then delete the file from the server.
+                deleteButton.setAttribute("onclick", "deleteFile('" + myArr[index]["id"] + "', '" + myArr[index]["type"] + "')"); 
                 cell.appendChild(deleteButton);
                 
                 //row.insertCell(7).innerHTML = "<input type='button' value='delete' onclick=deleteFile('" + myArr[index]["id"] + "')>";
@@ -753,23 +754,24 @@ function changeFileName(e, id)
     
     if(name.length <= 50)
     {
-        $.get( "/avianMigration/change_file_name", {change_file_name: true, id: id, name: name}, function( data ) {
+        $.get( "/Core/change_file_name", {change_file_name: true, id: id, name: name}, function( data ) {
             refreshDownloads();
         });
     }
     else
-        alert("Name must be 50 characters or less.")
+        alert("Name must be 50 characters or less.");
 }
 
 function refreshFile(id)
 {
-    $.get( "/avianMigration/refresh_file", {refresh_file: true, id: id}, function( data ) {
+    $.get( "/Core/refresh_file", {refresh_file: true, id: id}, function( data ) {
         refreshDownloads();
     });
 }
 
 function downloadExcel(url, data)
 {
+    
     var form = $('<form></form>').attr('action', url).attr('method', 'post');
 
     Object.keys(data).forEach(function(key){
@@ -789,23 +791,27 @@ function downloadExcel(url, data)
     form.appendTo('body').submit().remove();
 }
 
-function downloadFile(e, id)
+function downloadFile(e, id, type)
 {
+    
     //console.log("here");
     var node = e.target || e.srcElement;
     var row = node.parentElement.parentElement;
     var name = row.cells[2].childNodes[0].value;
     
-    downloadExcel("/avianMigration/download_file", {download_file: true, id: id, name: name});
+    downloadExcel("/Core/download_file", {id: id, name: name, type: type, project: "avianMigration"});
     
     refreshDownloads();
 }
   
-function deleteFile(id)
+function deleteFile(id, type)
 {
-    $.get( "/avianMigration/delete_file", {delete_file: true, id: id}, function( data ) {
-        refreshDownloads();
-    });
+    var choice = confirm("Are you sure you want to delete this file?");
+    
+    if(choice)
+    {
+        $.get( "/Core/delete_file", {delete_file: true, id: id, project: "avianMigration", type: type}, function( data ) {
+            refreshDownloads();
+        });
+    }
 }
-
-

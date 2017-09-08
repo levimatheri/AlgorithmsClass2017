@@ -240,9 +240,9 @@ public class ServletFunctions {
                     for(String option : options)
                     {
                         if(query.toString().contains("WHERE"))
-                            query.append(" AND DATEPART(YEAR, ").append(timeString).append( ") BETWEEN ").append(option.split("/")[0]).append(" AND ").append(option.split("/")[1]);
+                            query.append(" AND DATEPART(YEAR, ").append(timeString).append(") BETWEEN ").append(option.split("/")[0]).append(" AND ").append(option.split("/")[1]);
                         else
-                            query.append(" WHERE DATEPART(YEAR, ").append(timeString).append( ") BETWEEN ").append(option.split("/")[0]).append(" AND ").append(option.split("/")[1]);
+                            query.append(" WHERE DATEPART(YEAR, ").append(timeString).append(") BETWEEN ").append(option.split("/")[0]).append(" AND ").append(option.split("/")[1]);
                     }
                     //System.out.println(query.toString());
                     break;
@@ -274,9 +274,9 @@ public class ServletFunctions {
                     {
                         //grab the date of the month using the day of the week
                         if(query.toString().contains("WHERE"))
-                            query.append(" AND DATEPART(DW, ").append(timeString).append(" BETWEEN ").append(option.split("/")[0]).append(" AND ").append(option.split("/")[1]);
+                            query.append(" AND DATEPART(DW, ").append(timeString).append(") BETWEEN ").append(option.split("/")[0]).append(" AND ").append(option.split("/")[1]);
                         else
-                            query.append(" WHERE DATEPART(DW, ").append(timeString).append(" BETWEEN ").append(option.split("/")[0]).append(" AND ").append(option.split("/")[1]);
+                            query.append(" WHERE DATEPART(DW, ").append(timeString).append(") BETWEEN ").append(option.split("/")[0]).append(" AND ").append(option.split("/")[1]);
                     }
                     break;
 
@@ -476,8 +476,8 @@ public class ServletFunctions {
         
         if(variables != null)
         {
-            if(variables.contains("Date"))
-                query.append(" ORDER BY [Date and time recorded]");
+//            if(variables.contains("Date"))
+//                query.append(" ORDER BY [Date and time recorded]");
         }
                 
         
@@ -524,6 +524,7 @@ public class ServletFunctions {
                             compare = "=";
                             break;
                     }
+                    //System.out.println("Query: " + query.toString());
                     
                     Table tempTable = Access.getInstance().getTable("WITH MAIN AS (SELECT * FROM NSFCourter2016.DBO.MAIN_VIEW" + query.toString() + ") " +
                                         "SELECT * FROM (SELECT [Observer ID], COUNT([Observer ID]) AS [Number of checlists]"
@@ -699,7 +700,7 @@ public class ServletFunctions {
             }
             
         }  
-        System.out.println("query output: " + main + query.toString());
+        //System.out.println("query output: " + main + query.toString());
         return main + query.toString();
     }
 }
