@@ -59,7 +59,8 @@ public class GetSample extends HttpServlet {
             }
 
             String query = buildQuery(request.getParameter("ckbx"), true, parameterPairs);
-            System.out.println("String query: " + query);
+            //System.out.println("Query: " + query);
+        
 
             Table results = Access.getInstance().getTable(query, new Object[]{}, "project");
             JSONArray order = new JSONArray();
@@ -90,8 +91,6 @@ public class GetSample extends HttpServlet {
                     }
 
                     order.put(i,results.getColumnName(i));
-                    if(results.getColumnName(i) == null)
-                        return;         
                     returnObject.put(results.getColumnName(i), array);
                 }
             }

@@ -412,141 +412,6 @@ function deleteCheckList(evt)
     document.getElementById(node.parentElement.parentElement.parentElement.parentElement.id).deleteRow(node.parentElement.parentElement.rowIndex);
 }
 
-function addObsName()
-{
-    var response = false;
-    $('#obsNameInputTable tr').each(function() {
-        if($(this).attr('id') !== 'obsNameTableHeader')
-        {
-            if($(this).find("td").eq(0).html() === $('#oName').val())
-            {
-                response = true;
-            }
-        }  
-    });
-    
-    if(response)
-        return;
-    
-    
-    if(document.getElementById('oName').value !== "")
-    {
-        //Create and insert a new row into the bird table.
-        var row = document.getElementById('obsNameInputTable').insertRow(document.getElementById('obsNameInputTable').rows.length);
-
-        //Insert the data into the new row.
-        row.insertCell(0).innerHTML = document.getElementById('oName').value;
-        row.insertCell(1).innerHTML = "<input id='edit1' type='submit' name='delete' value='Delete'>";
-
-        //Access the div holder that is holding the final string for the lat long option.
-        var tempHolder = document.getElementById('obsNameFinalInput').innerHTML;
-
-        //If there is more than one option in the holder already.
-        if (tempHolder !== "") {
-            tempHolder += "," + document.getElementById('oName').value;
-        }
-        else {
-            tempHolder = document.getElementById('oName').value;
-        }
-
-        //Put back the holder's new inner html.
-        document.getElementById('obsNameFinalInput').innerHTML = tempHolder;
-        
-        
-        console.log();
-
-        //Reset the text boxes.
-        document.getElementById('oName').value = "";   
-    }    
-}
-
-function deleteObsName(evt)
-{
-    var node = evt.target || evt.srcElement;
-    var cells = node.parentElement.parentElement.cells;
-    var checkString = cells[0].innerHTML;
-
-    var tempHolder = document.getElementById('obsNameFinalInput').innerHTML;
-    if (tempHolder.includes("," + checkString)) {
-        tempHolder = tempHolder.replace("," + checkString, "");
-    }
-    else {
-        tempHolder = tempHolder.replace(checkString, "");
-        if (tempHolder.startsWith(",")) {
-            tempHolder = tempHolder.substring(1, tempHolder.length);
-        }
-    }
-    document.getElementById('obsNameFinalInput').innerHTML = tempHolder;
-
-    document.getElementById(node.parentElement.parentElement.parentElement.parentElement.id).deleteRow(node.parentElement.parentElement.rowIndex);
-}
-
-function addObsId()
-{
-    var response = false;
-    $('#obsIdInputTable tr').each(function() {
-        if($(this).attr('id') !== 'obsIdTableHeader')
-        {
-            if($(this).find("td").eq(0).html() === $('#oid').val())
-            {
-                response = true;
-            }
-        }  
-    });
-    
-    if(response)
-        return;
-    
-    
-    if(document.getElementById('oid').value !== "")
-    {
-        //Create and insert a new row into the bird table.
-        var row = document.getElementById('obsIdInputTable').insertRow(document.getElementById('obsIdInputTable').rows.length);
-
-        //Insert the data into the new row.
-        row.insertCell(0).innerHTML = document.getElementById('oid').value;
-        row.insertCell(1).innerHTML = "<input id='edit1' type='submit' name='delete' value='Delete'>";
-
-        //Access the div holder that is holding the final string for the lat long option.
-        var tempHolder = document.getElementById('obsIdFinalInput').innerHTML;
-
-        //If there is more than one option in the holder already.
-        if (tempHolder !== "") {
-            tempHolder += "," + document.getElementById('oid').value;
-        }
-        else {
-            tempHolder = document.getElementById('oid').value;
-        }
-
-        //Put back the holder's new inner html.
-        document.getElementById('obsIdFinalInput').innerHTML = tempHolder;
-
-        //Reset the text boxes.
-        document.getElementById('oid').value = "";   
-    }    
-}
-
-function deleteObsId(evt)
-{
-    var node = evt.target || evt.srcElement;
-    var cells = node.parentElement.parentElement.cells;
-    var checkString = cells[0].innerHTML;
-
-    var tempHolder = document.getElementById('obsIdFinalInput').innerHTML;
-    if (tempHolder.includes("," + checkString)) {
-        tempHolder = tempHolder.replace("," + checkString, "");
-    }
-    else {
-        tempHolder = tempHolder.replace(checkString, "");
-        if (tempHolder.startsWith(",")) {
-            tempHolder = tempHolder.substring(1, tempHolder.length);
-        }
-    }
-    document.getElementById('obsIdFinalInput').innerHTML = tempHolder;
-
-    document.getElementById(node.parentElement.parentElement.parentElement.parentElement.id).deleteRow(node.parentElement.parentElement.rowIndex);
-}
-
 
 function getClimateDiv(){
     var climDivs = [];
@@ -578,6 +443,35 @@ function getClimateDiv(){
     }); 
 }
 
+function putUser()
+{
+    var name = "user=";
+    var userName;
+    var decodedCookie = decodeURIComponent(document.cookie);
+    var ca = decodedCookie.split(';');
+    for(var i = 0; i <ca.length;) 
+    {
+        var c = ca[i];
+        while (c.charAt(0) === ' ') 
+        {
+            c = c.substring(1);
+        }
+        
+        if (c.indexOf(name) === 0) 
+        {
+            userName = c.substring(name.length, c.length);
+            break;
+        }
+        i++;
+    }
+    
+    if(userName)
+    {
+        document.getElementById("userName").innerHTML = userName;
+    }
+    else
+        document.getElementById("userName").innerHTML = "guest";
+}
 
 function addDateFunction()
 {
@@ -640,7 +534,8 @@ function addDateFunction()
 }
 
 function start()
-{   
+{  
+     
     //Set the main tab as selected.
     document.getElementById('mainTab').click();
     
@@ -692,8 +587,21 @@ function start()
         defer.resolve();
         return defer;
     };
-
+    
     var d = function() {
+        var defer = $.Deferred();
+        
+        $.getJSON("/avianMigration/GetHistVariableNames", {hist_vars: true}, function( data ) {
+            var myArr = data;
+            for (var i in myArr["hist_names"]) 
+                document.getElementById('histReturnVariables').innerHTML += "<input type=\"checkbox\" id=\"" + myArr["hist_names"][i] + "\"" + "name=\"myHistReturnVars\" value=\"" + myArr["hist_names"][i] + "\">" + "&nbsp;" + myArr["hist_names"][i] + "<br>"; 
+        });
+        defer.resolve();
+        return defer;
+    };
+     
+    
+    var e = function() {
         var defer = $.Deferred();
         $.getJSON("statesToClimDiv.json", function( data ) {            
             actual_JSON_ClimDiv = data;
@@ -723,25 +631,13 @@ function start()
         return defer;
     };
     
-    
-    var e = function() {
-        var defer = $.Deferred();
-        
-        $.getJSON("/avianMigration/GetHistVariableNames", {hist_vars: true}, function( data ) {
-            var myArr = data;
-            for (var i in myArr["hist_names"]) 
-                document.getElementById('histReturnVariables').innerHTML += "<input type=\"checkbox\" id=\"" + myArr["hist_names"][i] + "\"" + "name=\"myHistReturnVars\" value=\"" + myArr["hist_names"][i] + "\">" + "&nbsp;" + myArr["hist_names"][i] + "<br>"; 
-        });
-        defer.resolve();
-        return defer;
-    };
-    
     a().then(b).then(c).then(d).then(e);
     
     document.getElementById('histReturnVariables').style.display = 'none';
     
     refreshDownloads();
-       
+    
+    putUser();    
     document.getElementById("requestUrl").value = window.location.href;
     
     
@@ -777,6 +673,7 @@ function refreshDownloads()
 //            //console.log(div);
 //        }
         
+        console.log("Files: " + data);
         
         var myArr = JSON.parse(data);
         if (myArr) 
