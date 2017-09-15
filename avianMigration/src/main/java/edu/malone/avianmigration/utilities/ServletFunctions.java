@@ -487,9 +487,6 @@ public class ServletFunctions {
             bird = bird.replaceAll("SELECT ", ("SELECT DISTINCT TOP(100)"));
         }
         
-        String tempQuery = query.toString();
-        query.setLength(0);
-        
         for(String parameter : parameters.toArray(new String[0]))
         {
             //Get the parameter's data.
@@ -546,7 +543,7 @@ public class ServletFunctions {
                     if(!observers.isEmpty())
                     {
                         if(main.isEmpty())
-                                main = "SELECT DISTINCT TOP(100) * FROM NSFCourter2016.DBO." + view + " ";
+                                main = "SELECT" + top + " * FROM NSFCourter2016.DBO." + view + " ";
 
                        if(query.toString().contains("WHERE"))
                            query.append(" AND [Observer ID] IN (").append(observers).append(")");
@@ -589,20 +586,18 @@ public class ServletFunctions {
 //                    }
 
                     Table results = null;
-                                      
-                    if(variables.equals(""))
+                    
+                    if(variables == null)
                         variables = "[Observer ID]";
-                        
-                    main = "";
-                    query.setLength(0);
                     
                     //This is whithout groups.
-                    query.append("WITH MAIN AS (SELECT * FROM NSFCourter2016.DBO.MAIN_VIEW ").append(tempQuery).append(") SELECT DISTINCT TOP(100) N.*, M.[Number of checklists] FROM  ")
-                            .append("(SELECT  * FROM ")
-                                .append("(SELECT [Observer ID], COUNT([Observer ID]) AS [Number of checklists] FROM MAIN GROUP BY [Observer ID]) AS TEMP")
-                            .append(" WHERE [Number of checklists] ").append(operation).append(" (").append(options[1]).append(")) AS M, ")
-                            .append("(SELECT  ").append(variables).append(" FROM MAIN) AS N ")
-                        .append("WHERE N.[OBSERVER ID] = M.[OBSERVER ID]");
+                    results = Access.getInstance().getTable("WITH MAIN AS (SELECT * FROM NSFCourter2016.DBO.MAIN_VIEW " + query.toString() + ")"
+                        + "SELECT " + top + " N.*, M.[Number of checklists] FROM  "
+                            + "(SELECT  * FROM "
+                                + "(SELECT [Observer ID], COUNT([Observer ID]) AS [Number of checklists] FROM MAIN GROUP BY [Observer ID]) AS TEMP"
+                            + " WHERE [Number of checklists] " + operation + " (" + options[1] + ")) AS M, "
+                            + "(SELECT  " + variables + " FROM MAIN) AS N "
+                        + "WHERE N.[OBSERVER ID] = M.[OBSERVER ID]", new Object[]{}, "project");
                     break;
                 //Count number of a variable
                 case "cl":
@@ -624,12 +619,10 @@ public class ServletFunctions {
                     else if(variables.contains("[" + variable + "],"))
                         variables = variables.replace("[" + variable + "],", "");
                     
-                    main = "";
-                    query.setLength(0);
                     //Check to see if this is ok or not. --- works fine, just added distinct
-                    query.append("SELECT DISTINCT TOP(100) N.*, M.[Count of varaible] FROM ")
-                       .append("(SELECT [").append(variable).append("], COUNT([").append(variable).append("]) AS [Count of varaible] FROM NSFCourter2016.dbo.MAIN_VIEW ").append(tempQuery).append(" GROUP BY [").append(variable).append("]) AS M, ")
-                            .append("(SELECT ").append(variables).append("[").append(variable).append("] FROM NSFCourter2016.dbo.MAIN_VIEW ").append(tempQuery).append(") AS N WHERE N.[").append(variable).append("] = M.[").append(variable).append("]"); 
+                    results = Access.getInstance().getTable("SELECT DISTINCT" + top + " N.*, M.[Count of varaible] FROM "
+                        + "(SELECT [" + variable + "], COUNT([" + variable + "]) AS [Count of varaible] FROM NSFCourter2016.dbo.MAIN_VIEW " + query.toString() + " GROUP BY [" + variable + "]) AS M, "
+                            + "(SELECT " + variables + "[" + variable + "] FROM NSFCourter2016.dbo.MAIN_VIEW " + query.toString() + ") AS N WHERE N.[" + variable + "] = M.[" + variable + "]", new Object[]{}, "project"); 
                     break;
                     
                 case "bs":
@@ -653,10 +646,10 @@ public class ServletFunctions {
                     }
                     
                     options = options[1].split(",");
-                    String names = "[" + options[0].replaceAll(" ", "_") + "]";
+                    String names = "[" + options[0] + "]";
                     
                     for(int i = 1; i < options.length; i++)
-                        names += ",[" + options[i].replaceAll(" ", "_") + "]";
+                        names += ",[" + options[i] + "]";
                     
                     if(variables != null)
                     {
@@ -681,38 +674,33 @@ public class ServletFunctions {
                             variables += "[" + columns.getColumnName(i) + "],";
                     }
                     
-                    main = "";
-                    query.setLength(0);
-                    query.append("SELECT TOP(100) ").append(variables).append(names).append( " FROM")
-                            .append("(SELECT tmp.*, tmptwo.* From ")
-                            .append("(SELECT * FROM [NSFCourter2016].[dbo].[MAIN_VIEW]) as tmp, ")
-                            .append("(SELECT M.VAR_SELECTED, N.SUB, N.NUM_BIRDS FROM ")
-                            .append("(SELECT TAXONOMY, ").append(variable).append(" AS VAR_SELECTED FROM BIRDS) AS M, ")
-                            .append("(SELECT BIRD_TAXONOMY, SUBMISSION_ID AS SUB, CASE WHEN NUM_BIRDS >= 0 THEN NUM_BIRDS ELSE 1 END AS NUM_BIRDS FROM OBSERVATION_BIRD) AS N ")
-                            .append("WHERE M.TAXONOMY = N.BIRD_TAXONOMY) as tmptwo ")
-                            .append("WHERE tmp.[Submission ID of checlist] = tmptwo.SUB) AS TOTAL_TABLE pivot ")
-                            .append("(SUM(NUM_BIRDS) FOR VAR_SELECTED IN (").append(names).append(")) as tbl ").append(tempQuery);
-                    
-                    System.out.println("My query is " + query.toString());
+                    results = Access.getInstance().getTable("SELECT " + top + " " + variables + names + " FROM" +
+                            "(SELECT tmp.*, tmptwo.* From " +
+                            "(SELECT * FROM [NSFCourter2016].[dbo].[MAIN_VIEW]) as tmp, " +
+                            "(SELECT M.VAR_SELECTED, N.SUB, N.NUM_BIRDS FROM " +
+                            "(SELECT TAXONOMY, " + variable + " AS VAR_SELECTED FROM BIRDS) AS M, " +
+                            "(SELECT BIRD_TAXONOMY, SUBMISSION_ID AS SUB, CASE WHEN NUM_BIRDS >= 0 THEN NUM_BIRDS ELSE 1 END AS NUM_BIRDS FROM OBSERVATION_BIRD) AS N " +
+                            "WHERE M.TAXONOMY = N.BIRD_TAXONOMY) as tmptwo " +
+                            "WHERE tmp.[Submission ID of checlist] = tmptwo.SUB) AS TOTAL_TABLE pivot " +
+                            "(SUM(NUM_BIRDS) FOR VAR_SELECTED IN (" + names + ")) as tbl " + query.toString(),
+                            new Object[]{}, "project");
                     break;
                     
                 default:
                     if(!bird.isEmpty())
                     {
                         //System.out.println(bird + query.toString());
-                        query.setLength(0);
-                        query.append(tempQuery);
-                        //results = Access.getInstance().getTable(bird + query.toString(), new Object[]{}, "project");
+                        results = Access.getInstance().getTable(bird + query.toString(), new Object[]{}, "project");
                     }
                     else if(!main.isEmpty())
                     {
-                        query.setLength(0);
-                        query.append(tempQuery);
                         //System.out.println(main + query.toString());
-                        //results = Access.getInstance().getTable(main + query.toString(), new Object[]{}, "project");
+                        results = Access.getInstance().getTable(main + query.toString(), new Object[]{}, "project");
                     }
-            }         
+            }
+            
         }  
+        //System.out.println("query output: " + main + query.toString());
         return main + query.toString();
     }
 }

@@ -18,11 +18,11 @@
         <script type="text/javascript" src="/avianMigration/script/iframe.js"></script>
         <script type="text/javascript" src="/avianMigration/script/jquery-3.1.1.min.js"></script>   
         <script type="text/javascript" src="/avianMigration/script/jquery-ui 1.12.1.js"></script>
-        <script type="text/javascript" src="/Core/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>  
-        <script type="text/javascript" src="/Core/script/options.js"></script>
+        <script type="text/javascript" src="/Core/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>       
         <script type="text/javascript" src="/avianMigration/script/submit.js"></script>
         <script type="text/javascript" src="/avianMigration/script/change option.js"></script>
-        <script type="text/javascript" src="/avianMigration/script/extra.js"></script>       
+        <script type="text/javascript" src="/avianMigration/script/extra.js"></script> 
+        <script type="text/javascript" src="/Core/script/options.js"></script>
 </head>
   <body onload="start()">
 	<div class="container">
@@ -251,27 +251,13 @@
                                                                     <b>Pick an observer variable to search for.</b><br>
                                                                     <input type="radio" name="observer" value="on"> Name<br>
                                                                         <div id="on" style="display:none">
-                                                                            <b>Enter an observer's name then click 'Add'.</b><br> EX: Firstname Lastname,Firstname2 Lastname2<br>
-                                                                            <input type="text" list="oNameList" id="oName">
-                                                                            <button id="addObsName" onclick="addObsName()">Add</button><br><br>
-                                                                            <table id="obsNameInputTable" class="showData" style="width:30%" onclick="deleteObsName(event)">
-                                                                                        <tr id="obsNameTableHeader">
-                                                                                            <th>Observer name</th>   
-                                                                                        </tr>
-                                                                            </table>
-                                                                            <div id="obsNameFinalInput" style="display:none"></div>
+                                                                                <b>Enter an observer's name. Separate with ",".</b><br> EX: Firstname Lastname,Firstname2 Lastname2<br>
+                                                                                <input type="text" list="oNameList" id="oName">
                                                                         </div>
                                                                     <input type="radio" name="observer" value="od"> Observer id<br>
                                                                         <div id="od" style="display:none">
-                                                                            <b>Enter an id then click 'Add'</b><br> EX: 967,1015<br>
-                                                                            <input type="text" id="oid">
-                                                                            <button id="addObsId" onclick="addObsId()">Add</button><br><br>
-                                                                            <table id="obsIdInputTable" class="showData" style="width:30%" onclick="deleteObsId(event)">
-                                                                                <tr id="obsIdTableHeader">
-                                                                                    <th>Observer id</th>   
-                                                                                </tr>
-                                                                            </table>
-                                                                            <div id="obsIdFinalInput" style="display:none"></div>
+                                                                                <b>Enter an id. Separate numbers with ",".</b><br> EX: 967,1015<br>
+                                                                                <input type="text" id="oid">
                                                                         </div>
                                                                     <input type="radio" name="observer" value="ct"> Observers with # of submitted checklists<br>
                                                                         <div id="ct" style="display:none">

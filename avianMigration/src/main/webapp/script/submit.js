@@ -95,7 +95,7 @@ function getOptionString(option) {
 
             //observer name selection
         case "on":
-            result += document.getElementById('obsNameFinalInput').innerHTML;
+            result += document.getElementById('oName').value;
             break;
 
             //observer id selection
@@ -118,11 +118,8 @@ function getOptionString(option) {
                     }
                 }
             }
-            if(child.value == 'e')
-            {
-                console.log("Here");
+            if(child.value === 'e')
                 result += document.getElementById('checkListFinalInput').innerHTML;
-            }
             else
                 result += document.getElementById('checklistNumber').value;
             break;
@@ -229,7 +226,7 @@ function finishSubmit(application) {
     //Prepare the parameters.
     var params = application;
     
-    //console.log("Url " + url);
+    console.log("Url " + url);
 
     //console.log(!params);
 
