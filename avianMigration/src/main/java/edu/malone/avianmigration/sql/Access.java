@@ -95,7 +95,6 @@ public class Access extends HttpServlet {
      */
     public Table getTable(String sqlString, Object[] variables, String database) throws Exception
     {
-        //System.out.println(sqlString);
         Table table = null;
         Connection connection = null;
         PreparedStatement stmt = null;
