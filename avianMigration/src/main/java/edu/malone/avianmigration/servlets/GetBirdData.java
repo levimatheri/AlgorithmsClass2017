@@ -50,7 +50,8 @@ public class GetBirdData extends HttpServlet {
 
                     while(sci_names.next())
                     {
-                        birdNameArray.put(sci_names.getString("Scientific Name"));
+                        String scientific = sci_names.getString("Scientific Name").replaceAll("_", " ");
+                        birdNameArray.put(scientific);
                     }                  
 
                     birdNameType.put("sci_names", birdNameArray);
@@ -64,7 +65,8 @@ public class GetBirdData extends HttpServlet {
 
                     while(comm_names.next())
                     {
-                        birdNameArray.put(comm_names.getString("Common Name"));
+                        String common = comm_names.getString("Common Name").replaceAll("_", " ");
+                        birdNameArray.put(common);
                     }
 
                     birdNameType.put("comm_names", birdNameArray);

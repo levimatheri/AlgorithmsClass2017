@@ -486,7 +486,7 @@ public class FileManipulator {
             email.setHostName("smtp.malone.edu");
             email.setSmtpPort(25);
             email.addTo(userEmail);
-            email.setFrom("no-reply-WestNileSpread@malone.edu");
+            email.setFrom("no-reply-avianMigration@malone.edu");
             email.setSubject("Error");
             email.setMsg("\"Could not create the " + fileType + ".<br />" + message + "\"");
 
@@ -517,7 +517,7 @@ public class FileManipulator {
             email.setHostName("smtp.malone.edu");
             email.setSmtpPort(25);
             email.addTo(userEmail);
-            email.setFrom("no-reply-WestNileSpread@malone.edu");
+            email.setFrom("no-reply-avianMigration@malone.edu");
             email.setSubject("Success");
             email.setMsg("Your file has been added successfully. Go to the downloads tab and click the refresh button at the top right of the screen to see it.");
 
