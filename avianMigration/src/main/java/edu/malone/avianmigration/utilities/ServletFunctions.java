@@ -699,17 +699,16 @@ public class ServletFunctions {
                 default:
                     if(!bird.isEmpty())
                     {
-                        //System.out.println(bird + query.toString());
+                      
                         query.setLength(0);
                         query.append(tempQuery);
-                        //results = Access.getInstance().getTable(bird + query.toString(), new Object[]{}, "project");
+                       
                     }
                     else if(!main.isEmpty())
                     {
                         query.setLength(0);
                         query.append(tempQuery);
-                        //System.out.println(main + query.toString());
-                        //results = Access.getInstance().getTable(main + query.toString(), new Object[]{}, "project");
+                        
                     }
             }         
         }  
