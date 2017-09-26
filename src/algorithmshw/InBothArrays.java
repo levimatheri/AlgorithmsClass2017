@@ -14,27 +14,43 @@ import java.util.HashSet;
  * @author Levi
  */
 public class InBothArrays {
-    private static void printMatching(int[] a, int[] b)
+    private static void printMatching(int[] a, int[] b, int N)
     {
-        String result = "";
+//        String result = "";
+//        
+//        HashSet<Integer> encountered = new HashSet<>();
+//       
+//        for(int i = 0; i < a.length; i++)
+//            encountered.add(a[i]);
+//       
+//        for(int j = 0; j < b.length; j++)
+//        {
+//            if(!encountered.add(b[j]))
+//            {
+//                result += "," + b[j];
+//            }
+//        }
+//        
+//        if(result.charAt(0) == ',')
+//            result = result.substring(1, result.length());
+//        
+//        StdOut.println(result);
+        int i = 0;
+        int j = 0;
         
-        HashSet<Integer> encountered = new HashSet<>();
-       
-        for(int i = 0; i < a.length; i++)
-            encountered.add(a[i]);
-       
-        for(int j = 0; j < b.length; j++)
+        while(i < N && j < N)
         {
-            if(!encountered.add(b[j]))
+            if(a[i] == b[i])
             {
-                result += "," + b[j];
+                StdOut.println(a[i]);      
+                i++;
+                j++;
             }
+            else if(a[i] > b[j])
+                j++;
+            else
+                i++;
         }
-        
-        if(result.charAt(0) == ',')
-            result = result.substring(1, result.length());
-        
-        StdOut.println(result);
     }
     public static void main(String[] args)
     {
@@ -44,6 +60,6 @@ public class InBothArrays {
         Arrays.sort(arrA);
         Arrays.sort(arrB);  
         
-        printMatching(arrA, arrB);
+        printMatching(arrA, arrB, arrA.length);
     }
 }
