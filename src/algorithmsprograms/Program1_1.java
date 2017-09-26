@@ -156,14 +156,14 @@ public class Program1_1 {
         
         String[] g = getGroups(file);
         
-        for(String group : g)
-        {
-            if(group != null)
-                System.out.println("Group: " + group);
-        }
+//        for(String group : g)
+//        {
+//            if(group != null)
+//                System.out.println("Group: " + group);
+//        }
         System.out.println("Groups count: " + numGroups(g));
         
-        System.out.println("29 and 89. Same group? " + inSameGroup(29, 89));
+        //System.out.println("29 and 89. Same group? " + inSameGroup(229, 89));
         
     }
 }
