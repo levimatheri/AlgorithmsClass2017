@@ -1,5 +1,0 @@
-There are 2 big files that will not fit on github that are needed for this project.
-You can find these files on the N drive by:
-    NSF Source Code >> files that need to go in [avian migration - tomcat - webapps - avianMigration] when testing and running server
-    
-You will need to copy and paste these 2 files ino the web folder of this project on your computer.
