@@ -5,72 +5,95 @@
  */
 package algorithmshw;
 
-import edu.princeton.cs.algs4.In;
+import edu.princeton.cs.algs4.MinPQ;
 import edu.princeton.cs.algs4.Point2D;
 import edu.princeton.cs.algs4.StdDraw;
+import edu.princeton.cs.algs4.StdRandom;
 import java.awt.Color;
-import java.util.Arrays;
+import java.util.Iterator;
 
 /**
  *
  * @author Levi
  */
 public class SimplePolygon {
-    private static void sortPoints(Point2D[] p)
+    private static MinPQ<Point2D> pq;
+    
+    private static void sort(Point2D[] p)
     {
-        Arrays.sort(p, Point2D.Y_ORDER);
+        pq = new MinPQ<>(Point2D.Y_ORDER);
+        for(Point2D pt : p)
+        {
+            pq.insert(pt);
+        }
+//        
+//        Iterator<Point2D> it = pq.iterator();
+//        while(it.hasNext())
+//        {
+//            System.out.println(it.next());
+//        }
+    }
+    private static Point2D getMinPoint(Point2D[] p)
+    {
+        return pq.delMin();
     }
     
-    private static void drawPts(Point2D[] p)
+    private static void drawPts(MinPQ<Point2D> myQueue)
     {
-        for(Point2D point: p)
-        {
+        Iterator<Point2D> it = myQueue.iterator();
+        
+        while(it.hasNext())
+        {   
             StdDraw.setPenColor(Color.RED);
             StdDraw.setPenRadius(0.02);            
-            point.draw();
+            it.next().draw();
         }
     }
     
     private static void connectPts(Point2D[] p, Point2D min)
     {
-        Arrays.sort(p, new Point2D(min.x(), min.y()).polarOrder());
+        StdDraw.setPenColor(Color.GRAY);
+        StdDraw.setPenRadius(0.002);
         
-        for(int a = 0; a < p.length; a++)
+        MinPQ<Point2D> mpq;
+        mpq = new MinPQ<>(new Point2D(min.x(), min.y()).polarOrder());
+        
+        for(Point2D pt : p)
         {
-            int b = a + 1;
-            if(b > p.length - 1)
-                break;
-            StdDraw.setPenColor(Color.GRAY);
-            StdDraw.setPenRadius(0.002);
-            StdDraw.line(p[a].x(), p[a].y(), p[b].x(), p[b].y());
+            if(pt.equals(min))
+                continue;
+            mpq.insert(pt);
+        }
+      
+        Point2D prev = mpq.delMin();
+        
+        StdDraw.line(min.x(), min.y(), prev.x(), prev.y());
+        
+        Point2D curr;
+        while(!mpq.isEmpty())
+        {
+            curr = mpq.delMin();
+            StdDraw.line(prev.x(), prev.y(), curr.x(), curr.y());
+            prev = curr;
         }
         //Connect the end to the start
-        StdDraw.line(p[p.length-1].x(), p[p.length-1].y(), p[0].x(), p[0].y());
+        StdDraw.line(prev.x(), prev.y(), min.x(), min.y());
     }
     public static void main(String[] args)
     {
-        int N = Integer.parseInt(args[1]);
+        int N = Integer.parseInt(args[0]);
         
         
         Point2D[] points = new Point2D[N]; 
         
-        In text = new In(args[0]);
+        for(int i = 0; i < N; i++)
+            points[i] = new Point2D(StdRandom.uniform(-20.0, 20.0), StdRandom.uniform(-20.0, 20.0));
+              
+        sort(points);
+        StdDraw.setScale(-30, 30);
+        drawPts(pq);
         
-        int i = 0;  
-        while(text.hasNextLine())
-        {
-            String point = text.readLine();
-            String[] coord = point.split(",");
-            
-            points[i] = new Point2D(Double.parseDouble(coord[0]), Double.parseDouble(coord[1]));
-            i++;
-        } 
-        
-        sortPoints(points);      
-        StdDraw.setScale(-10, 10);
-        drawPts(points);
-        
-        Point2D min = points[0];       
+        Point2D min = getMinPoint(points);   
         connectPts(points, min);
     }
 }
