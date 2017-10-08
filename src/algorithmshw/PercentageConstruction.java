@@ -19,25 +19,23 @@ public class PercentageConstruction {
         MaxPQ<Integer> pq = new MaxPQ<>();
   
         double constTime = 0;
-        double totalTime = 0;
         
-        
-        for(int a = 0; a < 1; a++)
-        {
-            Stopwatch total = new Stopwatch();          
+        Stopwatch total = new Stopwatch(); 
+        for(int a = 0; a < 20; a++)
+        {                   
             Stopwatch constHeapTime = new Stopwatch();
             
-            for(int i = 0; i < 1000000000; i++)
-                pq.insert(StdRandom.uniform(1000000000)); 
+            for(int i = 0; i < 10000000; i++)
+                pq.insert(StdRandom.uniform(10000000)); 
             
             constTime += constHeapTime.elapsedTime(); 
             
             while(!pq.isEmpty())
-                pq.delMax();
-
-            totalTime += total.elapsedTime();
-            
+                pq.delMax();            
         }
+        
+        double totalTime = total.elapsedTime();
+            
         
         double aveTotal = totalTime / 20;
         double aveConstr = constTime / 20;
